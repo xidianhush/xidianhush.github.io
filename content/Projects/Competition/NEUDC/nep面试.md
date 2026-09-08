@@ -1,0 +1,28 @@
+---
+exclude-from-graph: true
+---
+# ne555方波发生电路
+## 电路图
+![[Pasted image 20241027150226.jpg]]
+## 原理
+### ne555
++ 引脚定义
+![[Pasted image 20250219082415.png]]
++ 内部结构
+![[Pasted image 20250219082649.png]]
++ SR锁存器输入输出关系表：
+![[Pasted image 20250219082834.png]]
++ 电容电压变化公式：
+![[Pasted image 20250219090307.png]]
+
++ 过程
+![[Pasted image 20250219094746.png]]
+
+
+
+# 积分电路
+![[Pasted image 20241030091803.jpg]]
+# 乱七八糟没整理的知识
+1. 由运算放大器，可以构成电压比较器、同向比例放大电路
+# 常用网站or软件
+1. 设计滤波器：用filterpro网站

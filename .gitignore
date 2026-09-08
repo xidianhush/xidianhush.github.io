@@ -1,0 +1,8 @@
+node_modules/
+public/
+.quartz/
+.quartz-cache/
+.cache/
+.DS_Store
+*.log
+bash.exe.stackdump
