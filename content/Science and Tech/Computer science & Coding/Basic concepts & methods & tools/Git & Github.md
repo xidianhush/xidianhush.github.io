@@ -53,11 +53,9 @@
 | `amend`                     | `git commit --amend -m "新的提交信息"`                                                                                                                                | 修改提交信息,补充遗漏文件                                  |
 | `branch`                    | <br>`git branch -m 旧分支名称 新分支名称`                                                                                                                                 | 如果你想修改的分支不是当前所在的分支，需要指定旧分支名称和新分支名称，命令如下        |
 
-| 命令  | 示例代码 | 功能说明 |
-| --- | ---- | ---- |
-
-| `git remote add origin` | `git remote add origin https://github.com/xidianhush/Compulsory_lessons_code.git<br>` | 把一个已有的本地仓库与远程库关联                                                                                       |
+| 命令                      | 示例代码                                                                                  | 功能说明                                                                                                   |
 | ----------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `git remote add origin` | `git remote add origin https://github.com/xidianhush/Compulsory_lessons_code.git<br>` | 把一个已有的本地仓库与远程库关联                                                                                       |
 | `git remote add origin` | ` git remote add origin git@github.com:xidianhush/Compulsory_lessons_code.git`        | 把一个已有的本地仓库与远程库关联                                                                                       |
 | `git push`              | `git push -u origin 分支名`                                                              | 把本地仓库的内容推送到GitHub仓库                                                                                    |
 | `git pull`              | `git pull origin main`                                                                | 从 `origin` 远程仓库的 `main` 分支下载最新的提交信息，并将其合并到本地的 `main` 分支。                                               |
@@ -65,6 +63,8 @@
 | `git clone`             | `git clone https://github.com/thatSaneKid/fourier.git Fourier_Transform`              | 从 GitHub 拉取 `thatSaneKid/fourier` 完整代码仓库，**存进当前目录下名为 `Fourier_Transform` 的文件夹**，而不是默认生成的 `fourier` 文件夹 |
 | `git remote set-url`    | `git remote set-url origin git@github.com:xidianhush/hush-ob-bucket.git`              | 切换远程库地址（https<->ssh）                                                                                   |
 |                         |                                                                                       |                                                                                                        |
+
+
 
 
 ## 团队协作常用命令
