@@ -7,6 +7,18 @@
 
 | 日期 | 平台 | 对话标题 | 链接 |
 |------|------|----------|------|
+| 9月上中旬* | DeepSeek | 拉普拉斯变换基信号叠加 | [打开](https://chat.deepseek.com/a/chat/s/c1521237-58da-4877-b9f0-ecf0307f425d) |
+| 9月上中旬* | DeepSeek | 绝对收敛与条件收敛 | [打开](https://chat.deepseek.com/a/chat/s/f0ed0f7b-8062-41e3-bbf3-7bba3b0eba78) |
+| 9月上中旬* | DeepSeek | 复指数谐波可视化 | [打开](https://chat.deepseek.com/a/chat/s/4bacd4ce-38f2-4b3e-bf15-4b538cb64d0e) |
+| 9月上中旬* | DeepSeek | 手稿傅里叶推导分析 | [打开](https://chat.deepseek.com/a/chat/s/a718ac90-3b50-4a16-bd0f-52c1aa102b2f) |
+| 9月上中旬* | DeepSeek | 指数信号拉普拉斯变换 | [打开](https://chat.deepseek.com/a/chat/s/32c62b82-4565-4ff4-8a59-287f8f5f070f) |
+| 9月上中旬* | DeepSeek | 拉扎维频率响应变换讨论 | [打开](https://chat.deepseek.com/a/chat/s/7093f088-7352-4af3-acb9-dccdc9f3aa29) |
+| 9月上中旬* | DeepSeek | 单边拉普拉斯收敛域非矩形 | [打开](https://chat.deepseek.com/a/chat/s/13584849-50a1-469f-afe5-3640f3b211ff) |
+| 9月上中旬* | DeepSeek | 信号系统讨论 | [打开](https://chat.deepseek.com/a/chat/s/4a4aa909-0abb-419c-9f80-88ad39986fb3) |
+| 9月上中旬* | DeepSeek | 双边与单边拉氏变换 | [打开](https://chat.deepseek.com/a/chat/s/4c992d42-1f5a-4400-a657-7b63e0d6b28e) |
+| 9月上中旬* | DeepSeek | 拉普拉斯变换公式解释 | [打开](https://chat.deepseek.com/a/chat/s/c3193d67-d637-4230-982f-e887af2dc785) |
+| 9月上中旬* | DeepSeek | PMOS小信号符号纠正 | [打开](https://chat.deepseek.com/a/chat/s/fe791649-2feb-4d88-9ad7-54fc9a84afed) |
+| 9月上中旬* | DeepSeek | 强反型弱反型公式对比 | [打开](https://chat.deepseek.com/a/chat/s/4166a18f-78d1-4ebc-b531-bd102b7b9077) |
 | 9月7日 | DeepSeek | 单边双边变换对比 | [打开](https://chat.deepseek.com/a/chat/s/05e42608-89b8-42e9-9a44-59fdc26c9245) |
 | 9月5日 | Kimi | 单边拉普拉斯与上电 | [打开](https://www.kimi.com/chat/1a019e25-6832-85d4-8000-09d5607e2884) |
 | 9月5日 | Kimi | 人脸投影与二维感知 | [打开](https://www.kimi.com/chat/19ff3d6d-7fd2-86a2-8000-09d5ee70ae3c) |
@@ -18,7 +30,7 @@
 | 8月9日-9月7日* | DeepSeek | 人脸角度绘画辅助工具 | [打开](https://chat.deepseek.com/a/chat/s/ead2348c-4ed1-4fb5-beec-b9f2457b680b) |
 | 8月9日-9月7日* | DeepSeek | 稳定与傅里叶收敛联系 | [打开](https://chat.deepseek.com/a/chat/s/c4b62241-f8a4-453f-9372-7e956a630504) |
 
-> *注：DeepSeek "7天内"和"30天内"分组无法确定具体日期，标注为时间范围。
+> *注：DeepSeek 不显示具体日期，按时间分组标注为大致时间范围。"9月上中旬"指9月8日-9月17日之间新增的对话。
 
 ---
 
