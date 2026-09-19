@@ -20,11 +20,27 @@
 并称这个极限为函数 $y = f(x)$ 在点 $x_0$ 处的导数，
 记为 $f'(x_0)$，
 即 $f'(x_0) = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}$
-$f'(x_{0})=\lim\limits _{\Delta x\to 0}\frac {\Delta y}{\Delta x}=\lim\limits _{\Delta x\to 0}\frac {f(x_{0}+\Delta x)-f(x_{0})}{\Delta x}, \tag{1-4}$ 
+
+$$
+f'(x_{0})=\lim\limits _{\Delta x\to 0}\frac {\Delta y}{\Delta x}=\lim\limits _{\Delta x\to 0}\frac {f(x_{0}+\Delta x)-f(x_{0})}{\Delta x}, \tag{1-4}
+$$
+
 也可记作$y'|_{x=x_{0}}$，$\frac {dy}{dx}|_{x=x_{0}}$或$\frac {df(x)}{dx}|_{x=x_{0}}$ 。 
 
 函数$f(x)$在点$x_{0}$处可导有时也说成$f(x)$在点$x_{0}$具有导数或导数存在。 
-导数的定义式$(1 - 4)$也可取不同的形式，常见的有 $$f'(x_{0})=\lim\limits _{h\to 0}\frac {f(x_{0}+h)-f(x_{0})}{h} \tag{1-5}$$ 和 $$f'(x_{0})=\lim\limits _{x\to x_{0}}\frac {f(x)-f(x_{0})}{x - x_{0}} \tag{1-6}$$ $(1 - 5)$式中的$h$即自变量的增量$\Delta x$ 。 
+导数的定义式$(1 - 4)$也可取不同的形式，常见的有
+
+$$
+f'(x_{0})=\lim\limits _{h\to 0}\frac {f(x_{0}+h)-f(x_{0})}{h} \tag{1-5}
+$$
+
+和
+
+$$
+f'(x_{0})=\lim\limits _{x\to x_{0}}\frac {f(x)-f(x_{0})}{x - x_{0}} \tag{1-6}
+$$
+
+$(1 - 5)$式中的$h$即自变量的增量$\Delta x$ 。 
 在实际中，需要讨论各种具有不同意义的变量的变化“快慢”问题，
 在数学上就是所谓函数的变化率问题。
 导数概念就是函数变化率这一概念的精确描述。它撇开了自变量和因变量所代表的几何或物理等方面的特殊意义，纯粹从数量方面来刻画变化率的本质：因变量增量与自变量增量之比$\frac {\Delta y}{\Delta x}$是因变量$y$在以$x_{0}$和$x_{0}+\Delta x$为端点的区间上的平均变化率，而导数$f'(x_{0})$则是因变量$y$在点$x_{0}$处的变化率，它反映了因变量随自变量的变化而变化的快慢程度。 如果极限$(1 - 4)$不存在，就说函数$y = f(x)$在点$x_{0}$处不可导。如果不可导的原因是由于$\Delta x\to 0$时，比式$\frac {\Delta y}{\Delta x}\to\infty$，为了方便起见，也往往说函数$y = f(x)$在点$x_{0}$处的导数为无穷大。
@@ -98,11 +114,23 @@ $$
 
 设函数 $f(x)$ 在 $[a,b]$ 上有界，在 $[a,b]$ 中任意插入若干个分点 $$a = x_0 < x_1 < x_2 < \dots < x_{n-1} < x_n = b,$$把区间 $[a,b]$ 分成 $n$ 个小区间 $$[x_0,x_1],\ [x_1,x_2],\ \dots,\ [x_{n-1},x_n],$$ 各个小区间的长度依次为 $$\Delta x_1 = x_1 - x_0,\ \Delta x_2 = x_2 - x_1,\ \dots,\ \Delta x_n = x_n - x_{n-1}.$$在每个小区间 $[x_{i-1},x_i]$ 上任取一点 $\xi_i\ (x_{i-1} \le \xi_i \le x_i)$，
 作函数值 $f(\xi_i)$ 与小区间长度 $\Delta x_i$ 的乘积 $f(\xi_i)\Delta x_i\ (i=1,2,\dots,n)$，
-并作出和 $$S = \sum_{i=1}^{n} f(\xi_i)\Delta x_i. \tag{1-1}$$记 $\lambda = \max\{\Delta x_1,\Delta x_2,\dots,\Delta x_n\}$，
+并作出和
+
+$$
+S = \sum_{i=1}^{n} f(\xi_i)\Delta x_i. \tag{1-1}
+$$
+
+记 $\lambda = \max\{\Delta x_1,\Delta x_2,\dots,\Delta x_n\}$，
 如果当 $\lambda \to 0$ 时，这和的极限总存在，
 且与闭区间 $[a,b]$ 的分法及点 $\xi_i$ 的取法无关，
 那么称这个极限 $I$ 为函数 $f(x)$ 在区间 $[a,b]$ 上的定积分（简称积分），
-记作 $\int_{a}^{b} f(x)\mathrm{d}x$，即 $$\int_{a}^{b} f(x)\mathrm{d}x = I = \lim_{\lambda \to 0} \sum_{i=1}^{n} f(\xi_i)\Delta x_i, \tag{1-2}$$其中 $f(x)$ 叫做被积函数，
+记作 $\int_{a}^{b} f(x)\mathrm{d}x$，即
+
+$$
+\int_{a}^{b} f(x)\mathrm{d}x = I = \lim_{\lambda \to 0} \sum_{i=1}^{n} f(\xi_i)\Delta x_i, \tag{1-2}
+$$
+
+其中 $f(x)$ 叫做被积函数，
 $f(x)\mathrm{d}x$ 叫做被积表达式，
 $x$ 叫做积分变量，
 $a$ 叫做积分下限，

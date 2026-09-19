@@ -74,7 +74,12 @@ Intuitive explanation: The DTFT acts as the "first threshold" for digital proces
 ### 3.2.1 Definition
 
 
-The discrete-time Fourier transform $ X(e^{j\omega}) $ of a sequence $ x[n] $ is defined by $$X(e^{j\omega}) = \sum_{n=-\infty}^{\infty} x[n]e^{-j\omega n}. \tag{3.10}$$
+The discrete-time Fourier transform $ X(e^{j\omega}) $ of a sequence $ x[n] $ is defined by
+
+$$
+X(e^{j\omega}) = \sum_{n=-\infty}^{\infty} x[n]e^{-j\omega n}. \tag{3.10}
+$$
+
 
 ## 3.3 Discrete-Time Fourier Transform Theorems
 
@@ -110,15 +115,33 @@ The discrete-time Fourier transform $ X(e^{j\omega}) $ of a sequence $ x[n] $ is
 ## 4.8 Frequency-Domain Representations of LTI Discrete-Time Systems
 ### 4.8.1 Frequency Response
 
-$$y[n] = \sum_{k=-\infty}^{\infty} h[k]x[n - k]. \tag{4.66}$$
+$$
+y[n] = \sum_{k=-\infty}^{\infty} h[k]x[n - k]. \tag{4.66}
+$$
+
 where $ y[n] $ and $ x[n] $ are, respectively, the output and the input sequences. Now, if the input $ x[n] $ is a complex exponential sequence of the form
-$$x[n] = e^{j\omega n}, \quad -\infty < n < \infty, \tag{4.67}$$
+
+$$
+x[n] = e^{j\omega n}, \quad -\infty < n < \infty, \tag{4.67}
+$$
+
 then, from Eq. (4.66), the output is given by
-$$y[n] = \sum_{k=-\infty}^{\infty} h[k]e^{j\omega(n - k)} = \left( \sum_{k=-\infty}^{\infty} h[k]e^{-j\omega k} \right) e^{j\omega n}, \tag{4.68}$$
+
+$$
+y[n] = \sum_{k=-\infty}^{\infty} h[k]e^{j\omega(n - k)} = \left( \sum_{k=-\infty}^{\infty} h[k]e^{-j\omega k} \right) e^{j\omega n}, \tag{4.68}
+$$
+
 which can be rewritten as
-$$y[n] = H(e^{j\omega})e^{j\omega n}, \tag{4.69}$$
+
+$$
+y[n] = H(e^{j\omega})e^{j\omega n}, \tag{4.69}
+$$
+
 where we have used the notation
-$$H(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{-j\omega n}. \tag{4.70}$$
+
+$$
+H(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{-j\omega n}. \tag{4.70}
+$$
 this can be also related to this two knowledges 
 + the definition of $H(z)$ [[信号与系统#6.4.2 系统函数$H(z)$]]
 + the definition of DTFT [[DSP#3.2.1 Definition]]
@@ -184,7 +207,12 @@ Therefore, the transfer function is given b y
 ### 7.1.3 Allpass Transfer Function
 To show that the magnitude of $ A_M(e^{j\omega}) $ is indeed equal to one for all $\omega$, it follows from Eq. (7.10) that $$A_M(z^{-1}) = \pm \frac{z^M D_M(z)}{D_M(z^{-1})}.$$ Therefore, $$A_M(z)A_M(z^{-1}) = \frac{z^{-M} D_M(z^{-1})}{D_M(z)} \cdot \frac{z^M D_M(z)}{D_M(z^{-1})} = 1.$$
 Because,
-If the system is a discrete system with real coefficients and its impulse response is denoted as $h[n]$, then its frequency response is: $$H(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{-j\omega n}$$Take its conjugate:$$\boxed{H^*(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{+j\omega n} = H(e^{-j\omega})}$$Hence, $$|A_M(e^{j\omega})|^2 = \left. A_M(z)A_M^{*}(z) \right|_{z=e^{j\omega}}= \left. A_M(z)A_M(z^{-1}) \right|_{z=e^{j\omega}} = 1. \tag{7.13}$$
+If the system is a discrete system with real coefficients and its impulse response is denoted as $h[n]$, then its frequency response is: $$H(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{-j\omega n}$$Take its conjugate:$$\boxed{H^*(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{+j\omega n} = H(e^{-j\omega})}$$Hence,
+
+$$
+|A_M(e^{j\omega})|^2 = \left. A_M(z)A_M^{*}(z) \right|_{z=e^{j\omega}}= \left. A_M(z)A_M(z^{-1}) \right|_{z=e^{j\omega}} = 1. \tag{7.13}
+$$
+
 ## 7.2 Transfer Function Classification Based on Phase Characteristics
 
 ### 7.2.1 Zero-Phase Transfer Function
@@ -193,7 +221,19 @@ In many applications, i t is necessary to ensure that the designed digital filte
  One way to avoid any phase distortions is to make the frequency response of the filter ==real== and ==nonnegative==; 
 ### 7.2.2 Linear-Phase Transfer Function
 
-In the case of a causal LTI system with a non-zero phase response, the phase distortion can be avoided by allowing the output to be a delayed version of the input: $$y[n] = x[n - D].$$ By taking the Fourier transform of both sides of the above equation and making use of the time-shifting property,² we get $$Y(e^{j\omega}) = e^{-j\omega D} X(e^{j\omega}).$$Domain 317 *(Figure 7.10: Frequency response of an ideal lowpass filter with a linear-phase response in the passband.)* Hence, from Eq. (4.74), the frequency response of the LTI system is given by $$H(e^{j\omega}) = \frac{Y(e^{j\omega})}{X(e^{j\omega})} = e^{-j\omega D}. \tag{7.28}$$ Note that the frequency response given by Eq. (7.28) has a unity magnitude response and a linear phase with a group delay of $D$ samples at all frequencies; that is, $$|H(e^{j\omega})| = 1, \quad \tau(\omega) = D. \tag{7.29}$$ The output of this filter to an input $x[n] = A e^{j\omega n}$ is then given by $$y[n] = A e^{-j\omega D} e^{j\omega n} = A e^{j\omega(n-D)}.$$
+In the case of a causal LTI system with a non-zero phase response, the phase distortion can be avoided by allowing the output to be a delayed version of the input: $$y[n] = x[n - D].$$ By taking the Fourier transform of both sides of the above equation and making use of the time-shifting property,² we get $$Y(e^{j\omega}) = e^{-j\omega D} X(e^{j\omega}).$$Domain 317 *(Figure 7.10: Frequency response of an ideal lowpass filter with a linear-phase response in the passband.)* Hence, from Eq. (4.74), the frequency response of the LTI system is given by
+
+$$
+H(e^{j\omega}) = \frac{Y(e^{j\omega})}{X(e^{j\omega})} = e^{-j\omega D}. \tag{7.28}
+$$
+
+Note that the frequency response given by Eq. (7.28) has a unity magnitude response and a linear phase with a group delay of $D$ samples at all frequencies; that is,
+
+$$
+|H(e^{j\omega})| = 1, \quad \tau(\omega) = D. \tag{7.29}
+$$
+
+The output of this filter to an input $x[n] = A e^{j\omega n}$ is then given by $$y[n] = A e^{-j\omega D} e^{j\omega n} = A e^{j\omega(n-D)}.$$
 
 
 线性相位传输函数的零点满足以下核心特征：
@@ -215,7 +255,13 @@ In the case of a causal LTI system with a non-zero phase response, the phase dis
 
 ### 7.2.3 Minimum-Phase and Maximum-Phase Transfer Functions
 
-Generalizing the above result, let $H_m(z)$ be a causal stable transfer function with all zeros inside the unit circle and $H(z)$ be another causal stable transfer function with the same magnitude function as that of $H_m(z)$; that is, $|H(e^{j\omega})| = |H_m(e^{j\omega})|$. These two transfer functions then can be expressed as $$H(z) = H_m(z) A(z). \tag{7.37}$$ where $A(z)$ is a stable allpass transfer function. The unwrapped phase functions of these transfer functions are therefore related as $$\arg[H(e^{j\omega})] = \arg[H_m(e^{j\omega})] + \arg[A(e^{j\omega})].$$
+Generalizing the above result, let $H_m(z)$ be a causal stable transfer function with all zeros inside the unit circle and $H(z)$ be another causal stable transfer function with the same magnitude function as that of $H_m(z)$; that is, $|H(e^{j\omega})| = |H_m(e^{j\omega})|$. These two transfer functions then can be expressed as
+
+$$
+H(z) = H_m(z) A(z). \tag{7.37}
+$$
+
+where $A(z)$ is a stable allpass transfer function. The unwrapped phase functions of these transfer functions are therefore related as $$\arg[H(e^{j\omega})] = \arg[H_m(e^{j\omega})] + \arg[A(e^{j\omega})].$$
 
 It follows that $H(z)$ has an excess phase lag with respect to $H_m(z)$. 
 As a result, 

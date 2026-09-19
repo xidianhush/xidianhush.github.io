@@ -576,12 +576,14 @@ $$
 
 在实际应用中，两者可以结合使用，高效求解数学物理方程。
 
-$$ \left\{
+$$
+\left\{
 	\begin{aligned}
 	&U = \frac{1}{\omega C}I\\
 	&\phi_{u} = \phi_{i}-\frac{\pi}{2}
 	\end{aligned}
-	\right.$$
+	\right.
+$$
 
 # 复数的 \( n \) 次根解法
 
