@@ -1,4 +1,5 @@
 # 部分学习记录
+> 最后更新：2026-09-21 09:06（Asia/Shanghai）
 ---
 
 ## 一、按日期汇总
@@ -7,6 +8,14 @@
 
 | 日期 | 平台 | 对话标题 | 链接 |
 |------|------|----------|------|
+| 9月21日 | DeepSeek | 学习知识图论比喻 | [打开](https://chat.deepseek.com/share/b6qhx750mdtr43r4hm) |
+| 9月20日 | DeepSeek | 希尔伯特与小波变换 | [打开](https://chat.deepseek.com/share/siy1ci2evhxwh1ghpl) |
+| 9月20日 | DeepSeek | 香农信息论核心 | [打开](https://chat.deepseek.com/share/43yu1rulbfxc1lsho0) |
+| 9月20日 | DeepSeek | FS到FT | [打开](https://chat.deepseek.com/share/x9857c0rxqlphme4p5) |
+| 9月中下旬* | DeepSeek | 拉普拉斯变换多视角 | [打开](https://chat.deepseek.com/share/qfqgfi22u66u8xy10n) |
+| 9月中下旬* | DeepSeek | 拉普拉斯判断系统收敛性 | [打开](https://chat.deepseek.com/share/t2ptssq06nv34j1ovx) |
+| 9月中下旬* | DeepSeek | 手写公式推导 | [打开](https://chat.deepseek.com/share/q9ancukp4obmj7rlt6) |
+| 9月中下旬* | DeepSeek | 拉普拉斯变换收敛域示例 | [打开](https://chat.deepseek.com/share/eo2mzetl1my3i5effv)
 | 9月上中旬* | DeepSeek | 拉普拉斯变换基信号叠加 | [打开](https://chat.deepseek.com/a/chat/s/c1521237-58da-4877-b9f0-ecf0307f425d) |
 | 9月上中旬* | DeepSeek | 绝对收敛与条件收敛 | [打开](https://chat.deepseek.com/a/chat/s/f0ed0f7b-8062-41e3-bbf3-7bba3b0eba78) |
 | 9月上中旬* | DeepSeek | 复指数谐波可视化 | [打开](https://chat.deepseek.com/a/chat/s/4bacd4ce-38f2-4b3e-bf15-4b538cb64d0e) |
@@ -30,7 +39,7 @@
 | 8月9日-9月7日* | DeepSeek | 人脸角度绘画辅助工具 | [打开](https://chat.deepseek.com/a/chat/s/ead2348c-4ed1-4fb5-beec-b9f2457b680b) |
 | 8月9日-9月7日* | DeepSeek | 稳定与傅里叶收敛联系 | [打开](https://chat.deepseek.com/a/chat/s/c4b62241-f8a4-453f-9372-7e956a630504) |
 
-> *注：DeepSeek 不显示具体日期，按时间分组标注为大致时间范围。"9月上中旬"指9月8日-9月17日之间新增的对话。
+> *注：DeepSeek 不显示具体日期，按时间分组标注为大致时间范围。"9月上中旬"指9月8日-9月17日，"9月中下旬"指9月18日-9月21日之间新增的对话。
 
 ---
 
