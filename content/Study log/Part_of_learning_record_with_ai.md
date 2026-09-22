@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-09-21 09:06（Asia/Shanghai）
+> 最后更新：2026-09-22 09:02（Asia/Shanghai）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,7 @@
 
 | 日期 | 平台 | 对话标题 | 链接 |
 |------|------|----------|------|
+| 9月22日 | DeepSeek | 斩波技术解决低频噪声 | [打开](https://chat.deepseek.com/share/xwu7qvhpq1avjovy0k) |
 | 9月21日 | DeepSeek | 学习知识图论比喻 | [打开](https://chat.deepseek.com/share/b6qhx750mdtr43r4hm) |
 | 9月20日 | DeepSeek | 希尔伯特与小波变换 | [打开](https://chat.deepseek.com/share/siy1ci2evhxwh1ghpl) |
 | 9月20日 | DeepSeek | 香农信息论核心 | [打开](https://chat.deepseek.com/share/43yu1rulbfxc1lsho0) |
