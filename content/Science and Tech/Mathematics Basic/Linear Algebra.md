@@ -11,35 +11,46 @@ progress: 30%
 
 # Vector
 
+## Coordinate system
+
 at the initial moment
 For example：In the two‑dimensional case
-now we have the following Plane rectangular coordinate system
+now we can have the following plane coordinate systems
 
 ```image-layout-a
-![[58d2c7a93758a0a606c44c1a9304a9fc.jpg]]
-
+![[Pasted image 20260924093846.png]]
+![[Pasted image 20260924093640.png]]
 ```
+
+## Vector
+
 vector encodes the information of coordinates
 whatever coordinate system you use
 but in linear situation
 it can be like that :
 
+```image-layout-a
+![[65c7386b6cbc9bdd557afb82df23bd99.png]]
+![[ee3b5f0451b1c3a6179a93f2e7b46316.png]]
+```
 
 
+# matrix
 
-![[.png]]
-
-# matrix corresponds one to one with space transform
+matrix corresponds one to one with space transform
 *(注: 红色笔记 matrix)*
 
 ## Square matrix
-### identity matrix (it is correspond to the original coordinate system)
-### order square matrix (it means we need to change a coordinate system, but in the same dimension)
+### identity matrix 
+
+it is correspond to the original coordinate system
+### order square matrix 
+
+it means we need to change a coordinate system, 
+but in the same dimension
 
 matrix include more than one vector
-`[ | | ]`
-`  v v`
-*(注: 蓝色笔记 vector1 vector2)*
+`[ vector1 vector2 ]`
 
 2 vectors make up a coordinate system
 the original coordinate system can be represented by identity matrix 
