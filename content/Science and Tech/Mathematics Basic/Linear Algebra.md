@@ -1,5 +1,5 @@
 ---
-title: 复变函数笔记
+title: Linear algebra
 tags:
   - "#study"
 date: 2024-11-28
@@ -7,11 +7,70 @@ progress: 30%
 ---
 
 
-# ?
+
+
+# Vector
 
 at the initial moment
-In the two‑dimensional case
+For example：In the two‑dimensional case
 now we have the following Plane rectangular coordinate system
+
+```image-layout-a
+![[58d2c7a93758a0a606c44c1a9304a9fc.jpg]]
+
+```
+vector encodes the information of coordinates
+whatever coordinate system you use
+but in linear situation
+it can be like that :
+
+
+
+
+![[.png]]
+
+# matrix corresponds one to one with space transform
+*(注: 红色笔记 matrix)*
+
+## Square matrix
+### identity matrix (it is correspond to the original coordinate system)
+### order square matrix (it means we need to change a coordinate system, but in the same dimension)
+
+matrix include more than one vector
+`[ | | ]`
+`  v v`
+*(注: 蓝色笔记 vector1 vector2)*
+
+2 vectors make up a coordinate system
+the original coordinate system can be represented by identity matrix 
+$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+(for example, 3 dimension)
+
+the transformed coordinate system can be represented by other matrix
+
+## non-square matrix (it means we need to change a coordinate system, but in different coordinate system)
+the non-square matrix can represent
+the coordinate transform between 2 different dimensions
+
+# Operation
+
+## matrix times vector
+when a matrix acts on a vector, it shows that how to represent the vector in new coordinate system
+with the same coordinate by the original scale of the original system (in same dimension)
+
+## matrix times matrix
+when a matrix acts on a matrix, it shows that how to represent the coordinate system(multiple vectors) in new coordinate system
+with the same coordinate by the original scale of the original system (maybe not in the same dimension)
+
+exp:
+*(红色笔记: 2*3 matrix)*   *(红色笔记: 4*2 matrix)*
+$\begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix} * \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{bmatrix} = \begin{bmatrix} 9 & 1 & 29 & 39 \\ 12 & 21 & 32 & 54 \\ 15 & 33 & 51 & 64 \end{bmatrix}$
+
+*(大括号指向)*
+$\begin{bmatrix} 1 & 3 & 5 & 7 \\ 2 & 4 & 6 & 8 \end{bmatrix}$
+
+## inner production
+inner production is the
 
 ## other application
 
