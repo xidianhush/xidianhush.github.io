@@ -34,6 +34,11 @@ it can be like that :
 ![[ee3b5f0451b1c3a6179a93f2e7b46316.png]]
 ```
 
+Still now
+When we write a vector
+We do not knowIn which coordinate system the vector lies
+Does it lies in the artesian plane？
+Or it lies in the oblique coordinate system
 ## A convention
 
 ### This part start with a naive question:
@@ -56,6 +61,76 @@ be expressed as linear combinations of the standard orthonormal basis?
 
 #### The answer leads to the convention
 
+**① Answer: Essentially correct, with a small rigorous qualification.**
+
+1. **Default convention behind the notation**:
+
+In $\mathbb{R}^3$ (and more generally $\mathbb{R}^n$), 
+when we write down these three column vectors,
+==we are **already implicitly using the standard inner product (dot product)**==. 
+Under this standard inner product, 
+their pairwise dot products are zero and each has 
+equal to one. Therefore they indeed form an **orthonormal basis**.
+
+Therefore, all vectors we will discuss later 
+lie in the coordinate system spanned by an orthonormal basis, 
+as shown in the figure below
+
+![[Pasted image 20260924093846.png]]
+
+2. **The essence of coordinates**:
+When we ordinarily write a 3‑dimensional vector $\begin{bmatrix}x\\y\\z\end{bmatrix}$, 
+this already suggests that the vector is a linear combination of the standard basis:
+$x\begin{bmatrix}1\\0\\0\end{bmatrix} + y\begin{bmatrix}0\\1\\0\end{bmatrix} + z\begin{bmatrix}0\\0\\1\end{bmatrix}$.
+In this sense, these three vectors 
+**by default constitute our reference frame for describing all coordinates**.
+
+
+---
+
+
+**② Answer: Yes, this is inevitable, and this is precisely the motivation behind the existence of "coordinates" and "matrices".**
+
+Let us reason this out:
+Suppose you pick a completely "skewed" basis inside $\mathbb{R}^3$ (for example three vectors of non‑unit length which are not mutually perpendicular):
+$\mathcal{B} = \{v_1, v_2, v_3\}$.
+These still span the entire space $\mathbb{R}^3$.
+
+Now a question arises:
+**how do we write down these skewed basis vectors on paper?**
+
+Mathematicians solve this problem by **expressing them as linear combinations of the standard basis $\mathcal{E} = \{e_1, e_2, e_3\}$**.
+
+For instance, the skewed basis vector $v_1$ points in some spatial direction;
+==it is necessarily a linear combination of the standard basis:==
+$$
+v_1 = a e_1 + b e_2 + c e_3 = \begin{bmatrix}a\\b\\c\end{bmatrix}
+$$
+(Here $a,b,c$ are its coordinates with respect to the standard basis.)
+
+Likewise, $v_2$ and $v_3$ can be written in this form. If you place these three skewed basis vectors side‑by‑side to assemble a matrix:
+$$
+P = \begin{bmatrix} \uparrow & \uparrow & \uparrow \\ v_1 & v_2 & v_3 \\ \downarrow & \downarrow & \downarrow \end{bmatrix} = \begin{bmatrix} a & d & g \\ b & e & h \\ c & f & i \end{bmatrix}
+$$
+
+**This matrix $P$ is the change‑of‑basis matrix from the non‑standard basis to the standard basis.**
+
+
+---
+
+### 💡 Further extension: What about the reverse direction?
+
+You may ask: "Can the standard orthonormal basis also be written as linear combinations of this non‑standard basis?"
+
+**Absolutely yes!**
+Since $\mathcal{B}$ is also a valid basis, each $e_1$ can certainly be expressed as a linear combination of $v_1, v_2, v_3$. This operation corresponds exactly to computing the inverse matrix $P^{-1}$.
+
+### Summary
+*   Writing the three column vectors such as $\begin{bmatrix}1\\0\\0\end{bmatrix}$ = implicitly establishing a Cartesian coordinate system equipped with the standard inner product (the standard orthonormal basis).
+*   A **non‑standard basis** = an alternative reference frame within the same space, with "skewed axes of unequal lengths".
+*   **Being written as linear combinations**: these vectors exist geometrically; to record them symbolically we naturally measure them against the universally‑accepted "standard basis". This is exactly the meaning of **coordinates**.
+
+Your current level of thinking has moved beyond rote memorization of matrices toward reasoning about spatial structure. That is terrific progress. Keep following this intuition!
 
 # matrix
 
