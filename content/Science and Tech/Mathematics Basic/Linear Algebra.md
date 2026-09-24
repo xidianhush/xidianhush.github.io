@@ -34,6 +34,28 @@ it can be like that :
 ![[ee3b5f0451b1c3a6179a93f2e7b46316.png]]
 ```
 
+## A convention
+
+### This part start with a naive question:
+
+#### Question
+
+When we talk about basis vectors in $\mathbb R^3$:
+
+① When we write
+
+$\begin{bmatrix}1\\0\\0\end{bmatrix}\ \begin{bmatrix}0\\1\\0\end{bmatrix}\ \begin{bmatrix}0\\0\\1\end{bmatrix}$,
+
+does this by default 
+correspond to the pairwise‑perpendicular basis 
+in 3‑dimensional space (the standard basis)?
+
+② In addition, 
+must all non‑standard orthonormal bases that span $\mathbb R^3$ 
+be expressed as linear combinations of the standard orthonormal basis?
+
+#### The answer leads to the convention
+
 
 # matrix
 
