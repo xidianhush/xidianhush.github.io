@@ -188,6 +188,7 @@ $\begin{bmatrix} 1 & 3 & 5 & 7 \\ 2 & 4 & 6 & 8 \end{bmatrix}$
 ## inner production
 inner production is the
 
+![[Pasted image 20260926145543.png]]
 ## other application
 
 Matrix acts on a single vector
