@@ -1,0 +1,20 @@
+{
+  "name": "quartz-image-layouts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Renders Obsidian image-layouts fenced code blocks as side-by-side image rows",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "quartz": {
+    "name": "image-layouts",
+    "displayName": "Obsidian Image Layouts",
+    "description": "Renders ```image-layout-a``` style fenced code blocks (produced by the Obsidian Image Layouts plugin) as side-by-side image rows instead of literal code blocks.",
+    "version": "1.0.0",
+    "category": "transformer",
+    "quartzVersion": ">=5.0.0",
+    "defaultOrder": 35
+  }
+}

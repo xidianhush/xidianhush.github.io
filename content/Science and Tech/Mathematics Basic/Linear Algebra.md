@@ -165,10 +165,13 @@ the coordinate transform between 2 different dimensions
 映射！！！
 
 ## matrix times vector
-when a matrix acts on a vector, it shows that how to represent the vector in new coordinate system
+
+when a matrix acts on a vector, 
+it shows that how to represent the vector in new coordinate system
 with the same coordinate by the original scale of the original system (in same dimension)
 
 ## matrix times matrix
+
 when a matrix acts on a matrix, it shows that how to represent the coordinate system(multiple vectors) in new coordinate system
 with the same coordinate by the original scale of the original system (maybe not in the same dimension)
 

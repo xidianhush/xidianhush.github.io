@@ -95,6 +95,13 @@ plugins:
       enableHighlight: true
     order: 30
 
+  # Local plugin (see quartz-site/local-plugins/image-layouts): renders the
+  # ```image-layout-a``` fenced blocks written for Obsidian's Image Layouts
+  # plugin as side-by-side image rows instead of literal code blocks.
+  - source: "./local-plugins/image-layouts"
+    enabled: true
+    order: 35
+
   - source: "@quartz-community/github-flavored-markdown"
     enabled: true
     order: 40
