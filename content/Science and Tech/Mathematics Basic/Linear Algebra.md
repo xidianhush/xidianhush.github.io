@@ -135,31 +135,31 @@ Your current level of thinking has moved beyond rote memorization of matrices to
 # matrix
 
 matrix corresponds one to one with space transform
-*(注: 红色笔记 matrix)*
-
-## Square matrix
-### identity matrix 
-
-it is correspond to the original coordinate system
-### order square matrix 
-
-it means we need to change a coordinate system, 
-but in the same dimension
 
 matrix include more than one vector
 `[ vector1 vector2 ]`
 
-2 vectors make up a coordinate system
+more than 2  vectors make up a coordinate system
+
+## Square matrix
+### identity matrix 
+
 the original coordinate system can be represented by identity matrix 
 $\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
 (for example, 3 dimension)
+### order square matrix 
 
 the transformed coordinate system can be represented by other matrix
 
-## non-square matrix (it means we need to change a coordinate system, but in different coordinate system)
+it means we need to change a coordinate system, 
+but in the same dimension
+
+## non-square matrix ()
+
 the non-square matrix can represent
 the coordinate transform between 2 different dimensions
 
+it means we need to change a coordinate system, but in different coordinate system
 # Operation
 
 映射！！！
