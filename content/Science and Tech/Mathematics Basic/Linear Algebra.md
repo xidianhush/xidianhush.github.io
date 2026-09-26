@@ -134,11 +134,11 @@ Your current level of thinking has moved beyond rote memorization of matrices to
 
 # matrix
 
-matrix corresponds one to one with space transform
+Matrix corresponds one to one with space transform
+Actually, matrix corresponds to the new coordinate system
 
 matrix include more than one vector
 `[ vector1 vector2 ]`
-
 more than 2  vectors make up base vectors of a  coordinate system
 
 ## Square matrix
