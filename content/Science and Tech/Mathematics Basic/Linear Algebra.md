@@ -139,7 +139,7 @@ matrix corresponds one to one with space transform
 matrix include more than one vector
 `[ vector1 vector2 ]`
 
-more than 2  vectors make up a coordinate system
+more than 2  vectors make up base vectors of a  coordinate system
 
 ## Square matrix
 ### identity matrix 
@@ -149,31 +149,34 @@ $\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
 (for example, 3 dimension)
 ### order square matrix 
 
-the transformed coordinate system can be represented by other matrix
-
-it means we need to change a coordinate system, 
+the transformed coordinate system can be represented by other square matrix
 but in the same dimension
 
-## non-square matrix ()
+## non-square matrix 
 
-the non-square matrix can represent
-the coordinate transform between 2 different dimensions
-
-it means we need to change a coordinate system, but in different coordinate system
+the transformed coordinate system can be represented by non-square matrix
+but in the different dimension
 # Operation
 
 映射！！！
 
 ## matrix times vector
 
-when a matrix acts on a vector, 
-it shows that how to represent the vector in new coordinate system
-with the same coordinate by the original scale of the original system (in same dimension)
+it shows how to represent the
+(vector with same coordinate but  in transformed coordinate system)
+using (the same scale of the previous coordinate) 
+of the original coordinate system 
+(maybe in same dimension)
+
+it shows how to represent the
+(a set of base vectors with same coordinate but  in transformed coordinate system)
+using (the same scale of the previous coordinate) 
+of the original coordinate system 
+(maybe in same dimension)
 
 ## matrix times matrix
 
-when a matrix acts on a matrix, it shows that how to represent the coordinate system(multiple vectors) in new coordinate system
-with the same coordinate by the original scale of the original system (maybe not in the same dimension)
+
 
 exp:
 *(红色笔记: 2*3 matrix)*   *(红色笔记: 4*2 matrix)*
