@@ -183,6 +183,9 @@ inner production is the
 ![[Pasted image 20260926145543.png]]
 ## other application
 
+
+
+
 Matrix acts on a single vector
 Metric can also act on a set of vectors
 Of which the end is a plot in the 3D space
