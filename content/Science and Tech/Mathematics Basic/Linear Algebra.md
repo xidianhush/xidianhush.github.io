@@ -118,19 +118,7 @@ $$
 
 ---
 
-### 💡 Further extension: What about the reverse direction?
 
-You may ask: "Can the standard orthonormal basis also be written as linear combinations of this non‑standard basis?"
-
-**Absolutely yes!**
-Since $\mathcal{B}$ is also a valid basis, each $e_1$ can certainly be expressed as a linear combination of $v_1, v_2, v_3$. This operation corresponds exactly to computing the inverse matrix $P^{-1}$.
-
-### Summary
-*   Writing the three column vectors such as $\begin{bmatrix}1\\0\\0\end{bmatrix}$ = implicitly establishing a Cartesian coordinate system equipped with the standard inner product (the standard orthonormal basis).
-*   A **non‑standard basis** = an alternative reference frame within the same space, with "skewed axes of unequal lengths".
-*   **Being written as linear combinations**: these vectors exist geometrically; to record them symbolically we naturally measure them against the universally‑accepted "standard basis". This is exactly the meaning of **coordinates**.
-
-Your current level of thinking has moved beyond rote memorization of matrices toward reasoning about spatial structure. That is terrific progress. Keep following this intuition!
 
 # matrix
 
