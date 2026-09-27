@@ -36,7 +36,7 @@ it can be like that :
 
 Still now
 When we write a vector
-We do not knowIn which coordinate system the vector lies
+We do not know in which coordinate system the vector lies
 Does it lies in the artesian plane？
 Or it lies in the oblique coordinate system
 ## A convention
@@ -119,11 +119,15 @@ $$
 ---
 
 
+## Visualization
+
+https://xidianhush.github.io/linear-algebra-3d/coordinate-system-and-vector.html
 
 # matrix
 
 Matrix corresponds one to one with space transform
 Actually, matrix corresponds to the new coordinate system
+the elements in matrix are to represent new base vectors using previous scale 
 
 matrix include more than one vector
 `[ vector1 vector2 ]`
@@ -146,32 +150,32 @@ the transformed coordinate system can be represented by non-square matrix
 but in the different dimension
 # Operation
 
-映射！！！
-
+==mapping==！！！
+from ine to one
 ## matrix times vector
 
 it shows how to represent the
-(vector with same coordinate but  in transformed coordinate system)
+(vector with ==same coordinate but  in transformed coordinate system==)
 using (the same scale of the previous coordinate) 
 of the original coordinate system 
 (maybe in same dimension)
 
-it shows how to represent the
-(a set of base vectors with same coordinate but  in transformed coordinate system)
-using (the same scale of the previous coordinate) 
-of the original coordinate system 
-(maybe in same dimension)
+Visualization:
+https://xidianhush.github.io/linear-algebra-3d/matrix-vector.html
 
 ## matrix times matrix
 
+it shows how to represent the
+(a set of base vectors with ==same coordinate but  in transformed coordinate system==)
+using (the same scale of the previous coordinate) 
+of the original coordinate system 
+(maybe in same dimension)
 
+Visualization:
+https://xidianhush.github.io/linear-algebra-3d/matrix-matrix.html
 
 exp:
-*(红色笔记: 2*3 matrix)*   *(红色笔记: 4*2 matrix)*
-$\begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix} * \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{bmatrix} = \begin{bmatrix} 9 & 1 & 29 & 39 \\ 12 & 21 & 32 & 54 \\ 15 & 33 & 51 & 64 \end{bmatrix}$
-
-*(大括号指向)*
-$\begin{bmatrix} 1 & 3 & 5 & 7 \\ 2 & 4 & 6 & 8 \end{bmatrix}$
+![[Pasted image 20260927155146.png]]
 
 ## inner production
 inner production is the
