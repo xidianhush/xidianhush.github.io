@@ -177,8 +177,12 @@ https://xidianhush.github.io/linear-algebra-3d/matrix-matrix.html
 exp:
 ![[Pasted image 20260927155146.png]]
 
-## inner production
-inner production is the
+## Inner product
+
++ What Inner product does is projection, calculating the length of the projection
++ The calculation method for inner product can derive that form of multiplying coordinates and then adding them up using only elementary algebra
+
++ A matrix‑based interpretation of the dot‑product operation is that unit vectors can first be projected onto each other, and then multiplied by that coefficient.
 
 ![[Pasted image 20260926145543.png]]
 ## other application
