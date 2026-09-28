@@ -129,6 +129,9 @@ Matrix corresponds one to one with space transform
 Actually, matrix corresponds to the new coordinate system
 the elements in matrix are to represent new base vectors using previous scale 
 
+Visalization:
+https://xidianhush.github.io/linear-algebra-3d/matrix.html
+
 matrix include more than one vector
 `[ vector1 vector2 ]`
 more than 2  vectors make up base vectors of a  coordinate system
@@ -186,7 +189,7 @@ exp:
 + What Inner product does is:  ==projection==, calculating the ==length of the projection==
 + The calculation method for inner product: can derive the form of multiplying coordinates and then adding them up using only elementary algebra
 
-+ A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping($ $)
++ A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping ($\mathbb R^n \to \mathbb R^1$) , from one thing of a space to another thing of another space , which can be represented by matrix times vector
 
 such as
 
