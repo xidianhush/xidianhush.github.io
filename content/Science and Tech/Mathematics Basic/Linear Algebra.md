@@ -183,10 +183,10 @@ exp:
 
 ## Inner product
 
-+ What Inner product does is projection, calculating the length of the projection
-+ The calculation method for inner product can derive that form of multiplying coordinates and then adding them up using only elementary algebra
++ What Inner product does is:  ==projection==, calculating the ==length of the projection==
++ The calculation method for inner product: can derive the form of multiplying coordinates and then adding them up using only elementary algebra
 
-+ A matrix‑based interpretation of the dot‑product operation is that unit vectors can first be projected onto each other, and then multiplied by that coefficient.
++ A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping($ $)
 
 such as
 
@@ -195,14 +195,21 @@ such as
 ![[5c2eba6e1c7734745e0faa73bf65d3d0.png]]
 ## other application
 
-
-
-
 Matrix acts on a single vector
 Metric can also act on a set of vectors
 Of which the end is a plot in the 3D space
 And they can make up a 3D geometric solid
 Matrix can act on the 3D geometric solid
+
+## Sumary
+### Re‑emphasize geometric intuition
+
++ from these operations：we can see the corresponding mappings of vectors in different spaces 
++ from these operations：we can see the linear superposition of column vectors in different matrices
+
+
+
+
 
 
 
