@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-09-28 09:01（Asia/Shanghai）
+> 最后更新：2026-09-28 09:01（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,20 @@
 
 | 日期 | 平台 | 对话标题 | 链接 |
 |------|------|----------|------|
+| 9月下旬* | DeepSeek | 电阻本质量子输运 | [打开](https://chat.deepseek.com/share/vj9qtrc01091my550w) |
+| 9月下旬* | DeepSeek | SAR ADC学习路径 | [打开](https://chat.deepseek.com/share/3623nqzdf7z6rx1ebs) |
+| 9月下旬* | DeepSeek | 生物信号采集ADC论文导读 | [打开](https://chat.deepseek.com/share/r1yq5q19hvrau61q7s) |
+| 9月下旬* | DeepSeek | 矩阵计算应用 | [打开](https://chat.deepseek.com/share/py7br0pqj7dyz4nud6) |
+| 9月下旬* | DeepSeek | 线性代数可视化构想 | [打开](https://chat.deepseek.com/share/mnpcvqic4cv43ny69p) |
+| 9月下旬* | DeepSeek | 狄拉克函数与Toeplitz矩阵 | [打开](https://chat.deepseek.com/share/yq7z6z6wgv8s3n7505) |
+| 9月下旬* | DeepSeek | 薛定谔方程指数几何 | [打开](https://chat.deepseek.com/share/seo4qrnv5r97r0fqd8) |
+| 9月下旬* | DeepSeek | 矩阵到离散卷积 | [打开](https://chat.deepseek.com/share/9nt5059qtvz8rbgsvz) |
+| 9月下旬* | DeepSeek | 传统与LLM推荐算法对比 | [打开](https://chat.deepseek.com/share/5y4dpi6w973xnmi71b) |
+| 9月下旬* | DeepSeek | 脑机接口芯片学习建议 | [打开](https://chat.deepseek.com/share/whmncyu1z49lv62xlg) |
+| 9月下旬* | DeepSeek | 方阵与线性变换对应 | [打开](https://chat.deepseek.com/share/wiymv1jge7qoww5vue) |
+| 9月下旬* | DeepSeek | 线性代数笔记反馈 | [打开](https://chat.deepseek.com/share/xcq1xkn0fs02fznegk) |
+| 9月下旬* | DeepSeek | 数学概念分支讲解 | [打开](https://chat.deepseek.com/share/6z2csg1vrtr1ngx9xu) |
+| 9月下旬* | DeepSeek | 正交向量含义举例 | [打开](https://chat.deepseek.com/share/n34mjke4e5vv79dfz9) |
 | 9月22日 | DeepSeek | 斩波技术解决低频噪声 | [打开](https://chat.deepseek.com/share/xwu7qvhpq1avjovy0k) |
 | 9月21日 | DeepSeek | 学习知识图论比喻 | [打开](https://chat.deepseek.com/share/b6qhx750mdtr43r4hm) |
 | 9月20日 | DeepSeek | 希尔伯特与小波变换 | [打开](https://chat.deepseek.com/share/siy1ci2evhxwh1ghpl) |
