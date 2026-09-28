@@ -152,6 +152,7 @@ but in the different dimension
 
 ==mapping==！！！
 from ine to one
+See the screenshots and the visualized web page for details.
 ## matrix times vector
 
 it shows how to represent the
@@ -159,6 +160,8 @@ it shows how to represent the
 using (the same scale of the previous coordinate) 
 of the original coordinate system 
 (maybe in same dimension)
+
+![[0a4fde250b23ea6b19a6415026d31529.png]]
 
 Visualization:
 https://xidianhush.github.io/linear-algebra-3d/matrix-vector.html
@@ -171,6 +174,7 @@ using (the same scale of the previous coordinate)
 of the original coordinate system 
 (maybe in same dimension)
 
+![[1323e83de8f4c6495104d50158a53db6.png]]
 Visualization:
 https://xidianhush.github.io/linear-algebra-3d/matrix-matrix.html
 
@@ -184,7 +188,11 @@ exp:
 
 + A matrix‑based interpretation of the dot‑product operation is that unit vectors can first be projected onto each other, and then multiplied by that coefficient.
 
-![[Pasted image 20260926145543.png]]
+such as
+
+![[Pasted image 20260927204656.png]]
+
+![[5c2eba6e1c7734745e0faa73bf65d3d0.png]]
 ## other application
 
 
