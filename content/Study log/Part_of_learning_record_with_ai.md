@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-09-29 09:09（北京时间）
+> 最后更新：2026-09-30 09:11（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,8 @@
 
 | 日期 | 平台 | 对话标题 | 链接 |
 |------|------|----------|------|
+| 9月30日* | DeepSeek | 离散数学对CS作用 | [打开](https://chat.deepseek.com/share/frurowk5yvq4t95gm2) |
+| 9月30日* | DeepSeek | 傅里叶变换与投影关系 | [打开](https://chat.deepseek.com/share/r91kynuqlvxf2cgvkx) |
 | 9月29日* | DeepSeek | 复指数描述波动 | [打开](https://chat.deepseek.com/share/3oi88a25n2d3qctfbm) |
 | 9月下旬* | DeepSeek | 电阻本质量子输运 | [打开](https://chat.deepseek.com/share/vj9qtrc01091my550w) |
 | 9月下旬* | DeepSeek | SAR ADC学习路径 | [打开](https://chat.deepseek.com/share/3623nqzdf7z6rx1ebs) |
