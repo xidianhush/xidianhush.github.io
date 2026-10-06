@@ -158,6 +158,14 @@ from ine to one
 See the screenshots and the visualized web page for details.
 ## matrix times vector
 
+now we get the :
++ transformed coordinate system
++ The coordinates of vector in the transformed coordinate system
+
+We want to know:
++ The coordinates of vector in the previous coordinate system
+
+
 it shows how to represent the
 (vector with ==same coordinate but  in transformed coordinate system==)
 using (the same scale of the previous coordinate) 
@@ -184,6 +192,14 @@ https://xidianhush.github.io/linear-algebra-3d/matrix-matrix.html
 exp:
 ![[Pasted image 20260927155146.png]]
 
+## Matrix inversion operation
+
+now we get the :
++ The coordinates of vector in the previous coordinate system
++ transformed coordinate system
+
+We want to know:
++  The coordinates of vector in the transformed coordinate system
 ## Inner product
 
 + What Inner product does is:  ==projection==, calculating the ==length of the projection==
