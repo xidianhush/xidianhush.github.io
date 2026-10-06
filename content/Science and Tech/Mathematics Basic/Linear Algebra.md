@@ -7,8 +7,6 @@ progress: 30%
 ---
 
 
-
-
 # Coordinate system & Vector
 
 ## Coordinate system
@@ -202,7 +200,7 @@ We want to know:
 +  The coordinates of vector in the transformed coordinate system
 ## Inner product
 
-+ What Inner product does is:  ==projection==, 计算一个向量投影到另外一个向量的
++ What Inner product does is:  ==projection==, 实数情况：计算一个向量投影到另外一个向量对应的单位方向向量的投影，在乘上被投影向量的长度。复数情况：?
 
 + The calculation method for inner product: can derive the form of multiplying coordinates and then adding them up using only elementary algebra
 
@@ -230,7 +228,7 @@ Matrix can act on the 3D geometric solid
 
 
 
-
+# Extend to complex numbers
 
 
 
