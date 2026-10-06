@@ -202,7 +202,8 @@ We want to know:
 +  The coordinates of vector in the transformed coordinate system
 ## Inner product
 
-+ What Inner product does is:  ==projection==, calculating the ==length of the projection==
++ What Inner product does is:  ==projection==, 计算一个向量投影到另外一个向量的
+
 + The calculation method for inner product: can derive the form of multiplying coordinates and then adding them up using only elementary algebra
 
 + A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping ($\mathbb R^n \to \mathbb R^1$) , from one thing of a space to another thing of another space , which can be represented by matrix times vector
@@ -223,8 +224,8 @@ Matrix can act on the 3D geometric solid
 ## Sumary
 ### Re‑emphasize geometric intuition
 
-+ from these operations：we can see the corresponding mappings of vectors in different spaces 
-+ from these operations：we can see the linear superposition of column vectors in different matrices
++ from these operations：we can see the ==corresponding mappings of vectors in different spaces== (we can intuitively imagine ==spatial transformations== in low‑dimensional spaces ,however, we still cannot intuitively visualize the high‑dimensional case)
++ from these operations：we can see the ==linear superposition of column vectors== in matrices (==synthesis and superposition of sequences==)
 
 
 
@@ -274,7 +275,7 @@ Matrix can act on the 3D geometric solid
 
 # 认识”线性“与”非线性“
 
-## .1 常见的线性与非线性算子
+## 7.1 常见的线性与非线性算子
 
 
 
