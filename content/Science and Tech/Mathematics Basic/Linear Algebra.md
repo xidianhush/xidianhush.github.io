@@ -202,6 +202,8 @@ We want to know:
 
 + What Inner product does is:  ==projection==, 实数情况：计算一个向量投影到另外一个向量对应的单位方向向量的投影，在乘上被投影向量的长度。复数情况：?
 
+![[1791290854305.gif]]
+
 + The calculation method for inner product: can derive the form of multiplying coordinates and then adding them up using only elementary algebra
 
 + A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping ($\mathbb R^n \to \mathbb R^1$) , from one thing of a space to another thing of another space , which can be represented by matrix times vector
