@@ -202,12 +202,12 @@ We want to know:
 
 ### What Inner product does is:
 
- 
- Real‑number case: Compute the projection of one vector onto the unit direction vector corresponding to another vector, and then multiply it by the magnitude of the projected vector.
+#### Real‑number case: 
+ Compute the projection of one vector onto the unit direction vector corresponding to another vector, and then multiply it by the magnitude of the projected vector.
 
 ![[1791290854305.gif]]
  
- 复数情况：
+#### 复数情况：
 
 
 ### Calculation method & matrix‑based interpretation
