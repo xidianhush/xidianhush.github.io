@@ -175,6 +175,18 @@ of the original coordinate system
 Visualization:
 https://xidianhush.github.io/linear-algebra-3d/matrix-vector.html
 
+## Inverse operation of “matrix times vector”
+
+now we get the :
++ transformed coordinate system
++ The coordinates of vector in the previous coordinate system
+
+We want to know:
++ The coordinates of vector in the transformed coordinate system
+
+
+
+
 ## matrix times matrix
 
 it shows how to represent the
