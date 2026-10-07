@@ -235,6 +235,8 @@ A matrix‑based interpretation of the dot‑product operation : this operation 
 
 ![[5c2eba6e1c7734745e0faa73bf65d3d0.png]]
 ## Change of basis
+
+
 ## other application
 
 Matrix acts on a single vector
