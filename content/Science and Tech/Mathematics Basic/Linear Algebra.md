@@ -216,11 +216,12 @@ We want to know:
 
 #### Real‑number case: 
  Compute the projection of one vector onto the unit direction vector corresponding to another vector, and then multiply it by the magnitude of the projected vector.
+ ![[Pasted image 20261007195138.png]]
 
 ![[1791290854305.gif]]
  
-#### 复数情况：
-
+#### Complex-number case：
+![[Pasted image 20261007195256.png]]
 
 ### Calculation method & matrix‑based interpretation
 
