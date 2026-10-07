@@ -200,17 +200,25 @@ We want to know:
 +  The coordinates of vector in the transformed coordinate system
 ## Inner product
 
-+ What Inner product does is:  ==projection==, 实数情况：计算一个向量投影到另外一个向量对应的单位方向向量的投影，在乘上被投影向量的长度。复数情况：?
+### What Inner product does is:
+
+ 
+ Real‑number case: Compute the projection of one vector onto the unit direction vector corresponding to another vector, and then multiply it by the magnitude of the projected vector.
 
 ![[1791290854305.gif]]
+ 
+ 复数情况：
 
-+ The calculation method for inner product: can derive the form of multiplying coordinates and then adding them up using only elementary algebra
 
-+ A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping ($\mathbb R^n \to \mathbb R^1$) , from one thing of a space to another thing of another space , which can be represented by matrix times vector
+### Calculation method & matrix‑based interpretation
+
+The calculation method for inner product: can derive the form of multiplying coordinates and then adding them up using only elementary algebra
 
 such as
 
 ![[Pasted image 20260927204656.png]]
+
+A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping ($\mathbb R^n \to \mathbb R^1$) , from one thing of a space to another thing of another space , which can be represented by matrix times vector
 
 ![[5c2eba6e1c7734745e0faa73bf65d3d0.png]]
 ## other application

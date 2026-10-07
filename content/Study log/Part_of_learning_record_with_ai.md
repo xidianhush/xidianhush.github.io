@@ -1,8 +1,20 @@
 # 部分学习记录
-> 最后更新：2026-09-30 09:11（北京时间）
+> 最后更新：2026-10-07 09:11（北京时间）
 ---
 
 ## 一、按日期汇总
+
+### 2026年10月
+
+| 日期 | 平台 | 对话标题 | 链接 |
+|------|------|----------|------|
+| 10月上旬* | DeepSeek | 复数内积的投影意义 | [打开](https://chat.deepseek.com/share/lp23ihjp23jimtqmxz) |
+| 10月上旬* | DeepSeek | 逆矩阵量纲分析 | [打开](https://chat.deepseek.com/share/lu2qv4odhto8i9unjz) |
+| 10月上旬* | DeepSeek | 非正交基点积求系数 | [打开](https://chat.deepseek.com/share/63lb3ivroovqorgr3o) |
+| 10月上旬* | DeepSeek | 概率与统计学派 | [打开](https://chat.deepseek.com/share/2lhl6617orutd4n9nz) |
+| 10月上旬* | DeepSeek | 高维数系结构 | [打开](https://chat.deepseek.com/share/0ps45fx6ssx7qftatw) |
+| 10月上旬* | DeepSeek | 物理公式像代码封装 | [打开](https://chat.deepseek.com/share/ow2iuavqx55lakhobf) |
+| 10月上旬* | DeepSeek | QED理解麦克斯韦方程 | [打开](https://chat.deepseek.com/share/808cf8rp3x8m9a9r3l) |
 
 ### 2026年9月
 
