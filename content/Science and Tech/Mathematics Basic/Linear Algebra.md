@@ -233,6 +233,7 @@ such as
 A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping ($\mathbb R^n \to \mathbb R^1$) , from one thing of a space to another thing of another space , which can be represented by matrix times vector
 
 ![[5c2eba6e1c7734745e0faa73bf65d3d0.png]]
+## ji'bian'huan
 ## other application
 
 Matrix acts on a single vector
