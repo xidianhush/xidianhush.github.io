@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-07 09:42（北京时间）
+> 最后更新：2026-10-08 09:14（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,9 @@
 
 | 日期 | 平台 | 对话标题 | 链接 |
 |------|------|----------|------|
+| 10月8日* | DeepSeek | 链接内容无法查看 | [打开](https://chat.deepseek.com/share/nsfrylh5nzqh9ha1qa) |
+| 10月7日* | DeepSeek | 矩阵对角化学习指导 | [打开](https://chat.deepseek.com/share/ac20fmp65w89ohrm26) |
+| 10月7日* | DeepSeek | 链接内容已读 | [打开](https://chat.deepseek.com/share/tf5hsw11m7rneje6q1) |
 | 10月5日 | Kimi | 人类感知与概率论 | [打开](https://www.kimi.com/share/1a114059-ed72-8cd5-8000-000002ebba2c) |
 | 10月上旬* | DeepSeek | 复数内积的投影意义 | [打开](https://chat.deepseek.com/share/lp23ihjp23jimtqmxz) |
 | 10月上旬* | DeepSeek | 逆矩阵量纲分析 | [打开](https://chat.deepseek.com/share/lu2qv4odhto8i9unjz) |
