@@ -187,7 +187,7 @@ We want to know:
 
 
 
-## matrix times matrix
+## matrix times matrix(including composite operation)
 
 it shows how to represent the
 (a set of base vectors with ==same coordinate but  in transformed coordinate system==)
@@ -201,6 +201,11 @@ https://xidianhush.github.io/linear-algebra-3d/matrix-matrix.html
 
 exp:
 ![[Pasted image 20260927155146.png]]
+
+all we talk about are according to [[Linear Algebra#Question]]
+only the matix ==🟠on the far left== "set tle tone"
+All the transitian & transtomed matix shrould be expresxd
+by the linear combination of standard arthondtion basis
 
 ## Matrix inversion operation
 
