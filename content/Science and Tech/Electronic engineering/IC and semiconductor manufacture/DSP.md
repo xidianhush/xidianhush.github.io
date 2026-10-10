@@ -46,7 +46,7 @@ $$
 
 ### 3.2.0 From CTFT to DTFT (Time-domain Sampling, Analog World to Digital World)
 
-recall the CTFT [[信号与系统#4.4.1 傅里叶变换公式]]
+recall the CTFT [[LTI analysis#4.4.1 傅里叶变换公式]]
 
 conversation： https://chat.deepseek.com/share/madk5swf4yne5wwlsw
 
@@ -143,7 +143,7 @@ $$
 H(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{-j\omega n}. \tag{4.70}
 $$
 this can be also related to this two knowledges 
-+ the definition of $H(z)$ [[信号与系统#6.4.2 系统函数$H(z)$]]
++ the definition of $H(z)$ [[LTI analysis#6.4.2 系统函数$H(z)$]]
 + the definition of DTFT [[DSP#3.2.1 Definition]]
 
 ## 4.9 Phase and Group Delays
@@ -195,7 +195,7 @@ Its impulse response h[n] is defined for N1 ≤ n ≤ N2, and thus, hin] = Otorn
 Therefore, the transfer function is given b y
 ### 6.7.5  Stability Condition in Terms of Pole Locations
 
-+ stability condition[[信号与系统#7.2.2 系统的稳定性]]
++ stability condition[[LTI analysis#7.2.2 系统的稳定性]]
 
 ## 6.8 Summary
 ## 6.9 Problems
