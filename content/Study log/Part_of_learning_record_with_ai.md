@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-09 09:09（北京时间）
+> 最后更新：2026-10-10 09:13（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,8 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月9日* | DeepSeek | 欧姆定律引出电导率张量 | 3 | [打开](https://chat.deepseek.com/share/hd0bly3euudg4geptn) |
+| 10月9日* | DeepSeek | 基变换公式确认 | 8 | [打开](https://chat.deepseek.com/share/2jgp8p0sfqpsxzsx3f) |
 | 10月8日* | DeepSeek | 矩阵等式不成立 | 1  | [打开](https://chat.deepseek.com/share/6r1dro35condkr1s9x) |
 | 10月8日* | DeepSeek | 链接内容无法查看 | 9  | [打开](https://chat.deepseek.com/share/nsfrylh5nzqh9ha1qa) |
 | 10月7日* | DeepSeek | 矩阵对角化学习指导 | 1  | [打开](https://chat.deepseek.com/share/ac20fmp65w89ohrm26) |
