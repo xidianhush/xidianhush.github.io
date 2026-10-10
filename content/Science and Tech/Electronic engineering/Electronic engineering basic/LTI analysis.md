@@ -699,6 +699,17 @@ scaled up之后的“质心”收敛到复平面的一个位置
 ![[LaplaceBasis_ManimCE_v0.21.0.gif]]
 
 
+##### from basis change to understand what FT are doing
+
+review:[[Linear Algebra#The geometric intuition of basis change]]
+
+different basis(supporting coordinates)
+but they both
+express the same space transform
+where all
+the same previous vectors under different basis used different coordinate(input signal)
+correspond to 
+the same transformed vectors under different basis used different coordinate(output signal)
 
 
 #### 傅利叶变换的频谱

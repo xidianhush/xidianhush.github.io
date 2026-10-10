@@ -331,8 +331,12 @@ $$
 ---
 
 ### Basis Change of Linear Transformations: Similar Matrices
+#### Introduction(结论)
 
-你笔记中已经提到“矩阵对应空间变换”。那么，同一个线性变换 $T: \mathbb{R}^n \to \mathbb{R}^n$，在不同基下的矩阵表示有什么关系？
+"Matrix corresponds to space transformation" has been mentioned.
+So, the same linear transformation $T: \mathbb{R}^n \to \mathbb{R}^n$，
+What is the relationship between the matrix 
+expressing linear transformation under different bases?
 
 设：
 
@@ -350,11 +354,35 @@ $$
 它说明：$A$ 和 $B$ 表示同一个线性变换，只是选择了不同的基。  
 相似矩阵有相同的特征值、迹、行列式等不变量。
 
-> 你笔记中的“matrix times matrix”其实已经隐含了这个思想：矩阵乘法可以表示基变换的复合。
+> 笔记中的“matrix times matrix”其实已经隐含了这个思想：矩阵乘法可以表示基变换的复合。
+
+##### The geometric  intuition of basis change
+
+
+
+注意这两种重合有本质区别：
+
+满足相似 B=P^{-1}AP 时，配对公式 v_2=B^{-1}P^{-1}Av_1 会自动化简成 v_2=P^{-1}v_1。这时：
+
+	●	两支箭变换前就是同一支（Pv_2=v_1），变换后当然还是同一支；
+
+	●	而且对空间里每一支箭、每一个网格点都成立——整个形变严丝合缝。
+
+不满足相似时，你只能让某一支精心挑选的箭在终点"撞上"：
+
+	●	它们变换前根本不是同一支：你把 v_2=(-1,\tfrac43) 拖回第③段看，粉箭在 P v_2=(-\tfrac23,\tfrac13)，金箭却在 (2,3)，八竿子打不着；
+
+	●	只有变换后那一个终点碰巧相同，动画路径、整个网格的形变全都对不上；
+
+	●	换一支箭，系数又得重算，不存在一个统一的坐标换算。
+
+
 
 ---
+#### Prove
 
-### 5. 与内积、正交基的联系
+
+#### 5. 与内积、正交基的联系
 
 你笔记中提到了内积。如果新基是**标准正交基**（orthonormal basis），那么过渡矩阵 $P$ 是**正交矩阵**，满足：
 
@@ -375,7 +403,7 @@ $$
 
 ---
 
-### 6. 抽象向量空间中的基变换
+#### 6. 抽象向量空间中的基变换
 
 你的笔记已经扩展到了向量空间、多项式空间、函数空间。  
 基变换不仅适用于 $\mathbb{R}^n$，也适用于任何有限维向量空间。
