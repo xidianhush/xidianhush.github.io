@@ -730,6 +730,94 @@ the same previous vectors under different basis used different coordinate(input 
 correspond to 
 the same transformed vectors under different basis used different coordinate(output signal)
 
+$$
+\begin{array}{lll}
+\text{notation} & \text{corresponding notation} & \text{matrix representation}\\
+E & \delta(t - \tau) &
+\begin{array}{c}
+\begin{array}{ccccc}
+ & \cdots & \tau_k & \cdots
+\end{array} \\[4pt]
+\begin{array}{c}
+\vdots \\ t_n \\ \vdots
+\end{array}
+\begin{bmatrix}
+\dots & \dots & \dots & \dots & \dots \\
+\dots & \delta(t_{n-1}-\tau_{k-1}) & \delta(t_{n-1}-\tau_k) & \delta(t_{n-1}-\tau_{k+1}) & \dots \\
+\dots & \delta(t_n-\tau_{k-1}) & \delta(t_n-\tau_k) & \delta(t_n-\tau_{k+1}) & \dots \\
+\dots & \delta(t_{n+1}-\tau_{k-1}) & \delta(t_{n+1}-\tau_k) & \delta(t_{n+1}-\tau_{k+1}) & \dots \\
+\dots & \dots & \dots & \dots & \dots
+\end{bmatrix}
+\end{array} \\
+P & F^{-1} &
+\begin{array}{c}
+\begin{array}{ccccc}
+ & \cdots & \omega_k & \cdots
+\end{array} \\[4pt]
+\begin{array}{c}
+\vdots \\ t_n \\ \vdots
+\end{array}
+\begin{bmatrix}
+\dots & \dots & \dots & \dots & \dots \\
+\dots & e^{j\omega_{k-1} t_{n-1}} & e^{j\omega_k t_{n-1}} & e^{j\omega_{k+1} t_{n-1}} & \dots \\
+\dots & e^{j\omega_{k-1} t_n} & e^{j\omega_k t_n} & e^{j\omega_{k+1} t_n} & \dots \\
+\dots & e^{j\omega_{k-1} t_{n+1}} & e^{j\omega_k t_{n+1}} & e^{j\omega_{k+1} t_{n+1}} & \dots \\
+\dots & \dots & \dots & \dots & \dots
+\end{bmatrix}
+\end{array} \\
+A & h(t - \tau) &
+\begin{array}{c}
+\begin{array}{ccccc}
+ & \cdots & \tau_k & \cdots
+\end{array} \\[4pt]
+\begin{array}{c}
+\vdots \\ t_n \\ \vdots
+\end{array}
+\begin{bmatrix}
+\dots & \dots & \dots & \dots & \dots \\
+\dots & h(t_{n-1}-\tau_{k-1}) & h(t_{n-1}-\tau_k) & h(t_{n-1}-\tau_{k+1}) & \dots \\
+\dots & h(t_n-\tau_{k-1}) & h(t_n-\tau_k) & h(t_n-\tau_{k+1}) & \dots \\
+\dots & h(t_{n+1}-\tau_{k-1}) & h(t_{n+1}-\tau_k) & h(t_{n+1}-\tau_{k+1}) & \dots \\
+\dots & \dots & \dots & \dots & \dots
+\end{bmatrix}
+\end{array} \\
+B & FAF^{-1} &
+\begin{array}{c}
+\begin{array}{ccccc}
+ & \cdots & \omega_k & \cdots
+\end{array} \\[4pt]
+\begin{array}{c}
+\vdots \\ \omega_n \\ \vdots
+\end{array}
+\begin{bmatrix}
+\vdots & \vdots & \vdots & \vdots & \vdots \\
+\cdots & e^{-j\omega_0 t_0} & e^{-j\omega_0 t_1} & e^{-j\omega_0 t_2} & \cdots \\
+\cdots & e^{-j\omega_1 t_0} & e^{-j\omega_1 t_1} & e^{-j\omega_1 t_2} & \cdots \\
+\cdots & e^{-j\omega_2 t_0} & e^{-j\omega_2 t_1} & e^{-j\omega_2 t_2} & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{bmatrix}
+\begin{bmatrix}
+\vdots & \vdots & \vdots & \vdots & \vdots \\
+\cdots & h(t_0-\tau_0) & h(t_0-\tau_1) & h(t_0-\tau_2) & \cdots \\
+\cdots & h(t_1-\tau_0) & h(t_1-\tau_1) & h(t_1-\tau_2) & \cdots \\
+\cdots & h(t_2-\tau_0) & h(t_2-\tau_1) & h(t_2-\tau_2) & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{bmatrix}
+\frac{1}{N}
+\begin{bmatrix}
+\vdots & \vdots & \vdots & \vdots & \vdots \\
+\cdots & e^{j\omega_0 t_0} & e^{j\omega_1 t_0} & e^{j\omega_2 t_0} & \cdots \\
+\cdots & e^{j\omega_0 t_1} & e^{j\omega_1 t_1} & e^{j\omega_2 t_1} & \cdots \\
+\cdots & e^{j\omega_0 t_2} & e^{j\omega_1 t_2} & e^{j\omega_2 t_2} & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{bmatrix}
+\end{array}
+\end{array}
+$$
+
+
+![[Pasted image 20261012161330.png]]
+
 
 #### 傅利叶变换的频谱
 ##### 吐槽教材
