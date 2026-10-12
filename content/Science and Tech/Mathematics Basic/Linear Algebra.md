@@ -7,7 +7,7 @@ progress: 30%
 ---
 
 
-# Coordinate system & Vector
+c# Coordinate system & Vector
 
 ## Coordinate system
 
@@ -179,10 +179,49 @@ https://xidianhush.github.io/linear-algebra-3d/matrix-vector.html
 
 now we get the :
 + transformed coordinate system
-+ The coordinates of vector in the previous coordinate system
++ The coordinates of vector in the ==🟢previous coordinate system==
 
 We want to know:
-+ The coordinates of vector in the transformed coordinate system
++ The coordinates of vector in the ==🟢transformed coordinate system==
+
+if $P\vec{x}’ = \vec{x}$ 
+so $\vec{x}’ = P^{-1} \vec{x}$
+
+### Example
+### Ordinary example
+#### honestly use inversion 
+
+
+
+#### when i insist on using dot production
+
+![[Pasted image 20261012084819.png]]
+
+it doesn't work!
+### Special example (orthonormal basis)
+
+if the transformed matrix represents another orthonormal basis
+
+#### when i insist on using dot production again
+
+
+
+![[Pasted image 20261012083227.png]]
+
+in this case
+we can find the coordinates of vector in the transformed coordinate system
+by dot product
+
+$$
+ \left[\begin{array}{cc}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{array}\right]\left[\begin{array}{l}a \\ b\end{array}\right]=\left[\begin{array}{l}a \cos \theta-b \sin \theta \\ a \sin \theta+b \cos \theta\end{array}\right] 
+$$
+we can find the coordinates of vector of base vector $\begin{bmatrix}\cos(\theta)\\sin(\theta)\end{bmatrix}$
+by dot ptodudvt
+$$
+ \begin{array}{l}{\left[\begin{array}{l}a \cos \theta-b \sin \theta \\ a \sin \theta+b \cos \theta\end{array}\right] \cdot\left[\begin{array}{l}\cos \theta \\ \sin \theta\end{array}\right]} \\ =a \cos ^{2} \theta+a \sin ^{2} \theta \\ =a\end{array} 
+$$
+
+it works
 
 
 
@@ -232,50 +271,10 @@ A matrix‑based interpretation of the dot‑product operation : this operation 
 
 ![[5c2eba6e1c7734745e0faa73bf65d3d0.png]]
 
-## Matrix inversion operation
 
-now we get the :
-+ The coordinates of vector in the previous coordinate system
-+ transformed coordinate system
-
-We want to know:
-+  The coordinates of vector in the transformed coordinate system
-### Example
-### Ordinary example
-#### honestly use inversion 
-
-
-
-#### when i insist on using dot production
-
-![[Pasted image 20261012084819.png]]
-
-it doesn't work!
-### Special example (orthonormal basis)
-
-if the transformed matrix represents another orthonormal basis
-
-#### when i insist on using dot production again
-
-
-
-![[Pasted image 20261012083227.png]]
-
-in this case
-we can find the coordinates of vector in the transformed coordinate system
-by dot product
-
-$$
- \left[\begin{array}{cc}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{array}\right]\left[\begin{array}{l}a \\ b\end{array}\right]=\left[\begin{array}{l}a \cos \theta-b \sin \theta \\ a \sin \theta+b \cos \theta\end{array}\right] 
-$$
-we can find the coordinates of vector of base vector $\begin{bmatrix}\cos(\theta)\\sin(\theta)\end{bmatrix}$
-by dot ptodudvt
-$$
- \begin{array}{l}{\left[\begin{array}{l}a \cos \theta-b \sin \theta \\ a \sin \theta+b \cos \theta\end{array}\right] \cdot\left[\begin{array}{l}\cos \theta \\ \sin \theta\end{array}\right]} \\ =a \cos ^{2} \theta+a \sin ^{2} \theta \\ =a\end{array} 
-$$
-
-it works
 ## Change of basis
+
+
 
 你的笔记已经为“基变换”（Change of Basis）打下了很好的基础：  
 - 你理解了矩阵的列向量可以看作新坐标系的基向量（用旧基表示）；  

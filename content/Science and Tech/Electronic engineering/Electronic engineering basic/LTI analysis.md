@@ -559,7 +559,11 @@ $$
 
 ![[Pasted image 20260915161131.png]]
 
-#### 理解傅利叶变换&频谱密度与求坐标&点积的关系
+
+在不同层次去理解
+就从序列角度理解
+从线性代数“空间”的角度去理解
+#### 更深层次：傅利叶变换&频谱密度，与求坐标&点积的关系
 
 + coefficient 变成 complex number
 + 空间是无穷维
@@ -584,8 +588,9 @@ $$
 \end{array}
 \begin{bmatrix}
 \dots & \dots & \dots & \dots & \dots \\
-\dots & 1 & 1 & 1 & \dots \\
-\dots & 1 & 1 & 1 & \dots \\
+\dots & 1 & 0 & 0 & \dots \\
+\dots & 0 & 1 & 0 & \dots \\ 
+\dots & 0 & 0 & 1 & \dots \\
 \dots & \dots & \dots & \dots & \dots
 \end{bmatrix}
 \end{array}
@@ -603,7 +608,8 @@ $$
 \begin{bmatrix}
 \dots & \dots & \dots & \dots & \dots \\
 \dots & e^{j\omega_{k-1} t_{n-1}} & e^{j\omega_k t_{n-1}} & e^{j\omega_{k+1} t_{n-1}} & \dots \\
-\dots & e^{j\omega_{k-1} t_n} & e^{j\omega_k t_n} & e^{j\omega_{k+1} t_n} & \dots \\
+\dots & e^{j\omega_{k-1} t_n} & e^{j\omega_k t_n} & e^{j\omega_{k+1} t_n} & \dots \\ 
+\dots & e^{j\omega_{k-1} t_{n+1}} & e^{j\omega_k t_{n+1}} & e^{j\omega_{k+1} t_{n+1}} & \dots \\ 
 \dots & \dots & \dots & \dots & \dots
 \end{bmatrix}
 \end{array}
@@ -616,6 +622,9 @@ We want to know:
 so we can use inversion operation
 
 ![[Pasted image 20261008110615.png]]
+
+其实这里可以看到，矩阵把dot product打包机算好了
+这个part看下一个就更清楚我在说啥了
 ##### 点积求傅利叶系数$H(j \omega)$(因为基$e^{j \omega t}$是标准单位正交基)
 
 参考链接： https://chat.deepseek.com/share/3lbzn9k861q0v9s75l
@@ -709,7 +718,7 @@ scaled up之后的“质心”收敛到复平面的一个位置
 ![[LaplaceBasis_ManimCE_v0.21.0.gif]]
 
 
-##### from basis change to understand what FT are doing
+##### Deeper level:from basis change to understand what FT are doing
 
 review:[[Linear Algebra#The geometric intuition of basis change]]
 
