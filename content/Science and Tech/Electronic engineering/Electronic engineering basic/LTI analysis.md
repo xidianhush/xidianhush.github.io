@@ -619,22 +619,29 @@ so we can use inversion operation
 ##### 点积求傅利叶系数$H(j \omega)$(因为基$e^{j \omega t}$是标准单位正交基)
 
 参考链接： https://chat.deepseek.com/share/3lbzn9k861q0v9s75l
+
 回顾[[Linear Algebra#when i insist on using dot production again]]
 
-连续无穷维大矩阵不能写成大矩阵块的形式，
-但是可以用二元函数表示(照样包含了行&列的信息)
-用 $\delta(t-\tau)$ 作基，向量$f(t)$在这个base下系数就是 $f(t)$。 
-用 $e^{j\omega t}$ 作基，向量$f(t)$在这个base下系数就是 $F(j \omega)$。
-
-傅里叶变换，
-本质上就是这两组无穷维==🟠标准正交基==之间的"基变换"（类似于坐标系旋转）
-可回顾
+傅里叶变换，本质上就是这两组无穷维标准正交基之间的“基变换”（类似于坐标系旋转）。
+在时域里，你用 $\delta(t-\tau)$ 作基，系数就是 $f(t)$。
+在频域里，你用 $e^{j\omega t}$ 作基，系数就是 $F(j \omega)$。
 
  $\delta(t-\tau)$ 那个base只有在一个维度上有值
 $e^{j\omega t}$在所有维度都可能有值
 
+连续无穷维大矩阵很难写成大矩阵块的形式，
+但是可以用二元函数表示(照样包含了行&列的信息)
+用 $\delta(t-\tau)$ 作基，向量$f(t)$在这个base下系数就是 $f(t)$。 
+用 $e^{j\omega t}$ 作基，向量$f(t)$在这个base下系数就是 $F(j \omega)$。
 
-![[Pasted image 20261010081902.png]]
+我只想说明 $e^{j \omega}$ this set of vectors 是另一组orthonormal basis
+所以可以用点积求
+
+```image-layout-a
+![[Pasted image 20261012092729.png]]
+![[Pasted image 20261012092755.png]]
+```
+
 #### 理解傅利叶变换&频谱密度的几何意义
 
 在这个网站里面 https://xidianhush.github.io/Fourier_and_Laplace_Visualization/index.html
