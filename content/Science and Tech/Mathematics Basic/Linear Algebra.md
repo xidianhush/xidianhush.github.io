@@ -47,7 +47,9 @@ When we talk about basis vectors in $\mathbb R^3$:
 
 ① When we write
 
-$\begin{bmatrix}1\\0\\0\end{bmatrix}\ \begin{bmatrix}0\\1\\0\end{bmatrix}\ \begin{bmatrix}0\\0\\1\end{bmatrix}$,
+$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+
+this iincludes$\begin{bmatrix}1\\0\\0\end{bmatrix}\ \begin{bmatrix}0\\1\\0\end{bmatrix}\ \begin{bmatrix}0\\0\\1\end{bmatrix}$,
 
 does this by default 
 correspond to the pairwise‑perpendicular basis 
@@ -275,16 +277,6 @@ A matrix‑based interpretation of the dot‑product operation : this operation 
 ## Change of basis
 
 
-
-你的笔记已经为“基变换”（Change of Basis）打下了很好的基础：  
-- 你理解了矩阵的列向量可以看作新坐标系的基向量（用旧基表示）；  
-- 你知道了矩阵乘法可以表示“同一个向量在不同坐标系下的坐标转换”；  
-- 你甚至写下了“change-of-basis matrix” $P$ 的构造方式。
-
-现在，我们来系统地补充“Change of Basis”这一块。我会从你已有的直觉出发，帮你把零散的知识点串成一条线，并给出具体例子和练习建议。
-
----
-
 ### 1. 核心问题：同一个向量，不同坐标
 
 你笔记里有一句很关键的话：
@@ -389,7 +381,9 @@ $$
 它说明：$A$ 和 $B$ 表示同一个线性变换，只是选择了不同的基。  
 相似矩阵有相同的特征值、迹、行列式等不变量。
 
-> 笔记中的“matrix times matrix”其实已经隐含了这个思想：矩阵乘法可以表示基变换的复合。
+Certification：
+
+![[Pasted image 20261012142404.png]]
 
 ##### The geometric  intuition of basis change
 
