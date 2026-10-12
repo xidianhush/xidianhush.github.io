@@ -566,7 +566,7 @@ $$
 + 空间是连续的
 ##### 逆矩阵运算求傅利叶系数$H(j \omega)$(线代通用方法)
 
-回顾[[Linear Algebra#Matrix inversion operation]]
+回顾[[Linear Algebra#honestly use inversion]]
 
 now we get the :
 
@@ -618,6 +618,9 @@ so we can use inversion operation
 ![[Pasted image 20261008110615.png]]
 ##### 点积求傅利叶系数$H(j \omega)$(因为基$e^{j \omega t}$是标准单位正交基)
 
+参考链接： https://chat.deepseek.com/share/3lbzn9k861q0v9s75l
+回顾[[Linear Algebra#when i insist on using dot production again]]
+
 连续无穷维大矩阵不能写成大矩阵块的形式，
 但是可以用二元函数表示(照样包含了行&列的信息)
 用 $\delta(t-\tau)$ 作基，向量$f(t)$在这个base下系数就是 $f(t)$。 
@@ -625,7 +628,7 @@ so we can use inversion operation
 
 傅里叶变换，
 本质上就是这两组无穷维==🟠标准正交基==之间的"基变换"（类似于坐标系旋转）
-可回顾[[Linear Algebra#Change of basis]]
+可回顾
 
  $\delta(t-\tau)$ 那个base只有在一个维度上有值
 $e^{j\omega t}$在所有维度都可能有值

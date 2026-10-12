@@ -251,9 +251,11 @@ We want to know:
 ![[Pasted image 20261012084819.png]]
 
 it doesn't work!
-### Special example
+### Special example (orthonormal basis)
 
-#### when i insist on using dot production
+if the transformed matrix represents another orthonormal basis
+
+#### when i insist on using dot production again
 
 
 

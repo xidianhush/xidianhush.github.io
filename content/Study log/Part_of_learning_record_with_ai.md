@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-10 09:13（北京时间）
+> 最后更新：2026-10-12 09:14（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,9 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月11日* | DeepSeek | 大学数学学习感受交流 | 3 | [打开](https://chat.deepseek.com/share/s153ogwzvf6s7x7ec4) |
+| 10月11日* | DeepSeek | CentOS 7 AI智能体安装 | 2 | [打开](https://chat.deepseek.com/share/ptp45pe60zbmglr69b) |
+| 10月10日* | DeepSeek | 数学抽象在电子工程应用 | 1 | [打开](https://chat.deepseek.com/share/k8k2dky87zd6scsu3u) |
 | 10月9日* | DeepSeek | 欧姆定律引出电导率张量 | 3 | [打开](https://chat.deepseek.com/share/hd0bly3euudg4geptn) |
 | 10月9日* | DeepSeek | 基变换公式确认 | 8 | [打开](https://chat.deepseek.com/share/2jgp8p0sfqpsxzsx3f) |
 | 10月8日* | DeepSeek | 矩阵等式不成立 | 1  | [打开](https://chat.deepseek.com/share/6r1dro35condkr1s9x) |
