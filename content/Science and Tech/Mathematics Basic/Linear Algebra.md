@@ -385,6 +385,7 @@ Certification：
 
 ![[Pasted image 20261012142404.png]]
 
+
 ##### The geometric  intuition of basis change
 
 
@@ -408,7 +409,6 @@ Certification：
 
 
 ---
-#### Prove
 
 
 #### 5. 与内积、正交基的联系
