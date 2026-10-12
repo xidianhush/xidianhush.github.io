@@ -207,14 +207,6 @@ only the matix ==🟠on the far left== "set tle tone"
 All the transitian & transtomed matix shrould be expresxd
 by the linear combination of standard arthondtion basis
 
-## Matrix inversion operation
-
-now we get the :
-+ The coordinates of vector in the previous coordinate system
-+ transformed coordinate system
-
-We want to know:
-+  The coordinates of vector in the transformed coordinate system
 ## Inner product
 
 ### What Inner product does is:
@@ -239,6 +231,48 @@ such as
 A matrix‑based interpretation of the dot‑product operation : this operation can also correspond to a kind of linear mapping ($\mathbb R^n \to \mathbb R^1$) , from one thing of a space to another thing of another space , which can be represented by matrix times vector
 
 ![[5c2eba6e1c7734745e0faa73bf65d3d0.png]]
+
+## Matrix inversion operation
+
+now we get the :
++ The coordinates of vector in the previous coordinate system
++ transformed coordinate system
+
+We want to know:
++  The coordinates of vector in the transformed coordinate system
+### Example
+### Ordinary example
+#### honestly use inversion 
+
+
+
+#### when i insist on using dot production
+
+![[Pasted image 20261012084819.png]]
+
+it doesn't work!
+### Special example
+
+#### when i insist on using dot production
+
+
+
+![[Pasted image 20261012083227.png]]
+
+in this case
+we can find the coordinates of vector in the transformed coordinate system
+by dot product
+
+$$
+ \left[\begin{array}{cc}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{array}\right]\left[\begin{array}{l}a \\ b\end{array}\right]=\left[\begin{array}{l}a \cos \theta-b \sin \theta \\ a \sin \theta+b \cos \theta\end{array}\right] 
+$$
+we can find the coordinates of vector of base vector $\begin{bmatrix}\cos(\theta)\\sin(\theta)\end{bmatrix}$
+by dot ptodudvt
+$$
+ \begin{array}{l}{\left[\begin{array}{l}a \cos \theta-b \sin \theta \\ a \sin \theta+b \cos \theta\end{array}\right] \cdot\left[\begin{array}{l}\cos \theta \\ \sin \theta\end{array}\right]} \\ =a \cos ^{2} \theta+a \sin ^{2} \theta \\ =a\end{array} 
+$$
+
+it works
 ## Change of basis
 
 你的笔记已经为“基变换”（Change of Basis）打下了很好的基础：  
