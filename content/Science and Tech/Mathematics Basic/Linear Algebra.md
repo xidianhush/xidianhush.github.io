@@ -7,7 +7,7 @@ progress: 30%
 ---
 
 
-c# Coordinate system & Vector
+# Coordinate system & Vector
 
 ## Coordinate system
 
@@ -274,6 +274,25 @@ A matrix‑based interpretation of the dot‑product operation : this operation 
 ![[5c2eba6e1c7734745e0faa73bf65d3d0.png]]
 
 
+## Similarity and correlation
+### 1. Dot product as raw similarity
+<!-- TODO: <u,v> = ||u|| ||v|| cos(theta); raw similarity is affected by magnitude -->
+### 2. Cosine similarity
+<!-- TODO: definition, range [-1,1], interpretation, invariance to scaling -->
+### 3. Pearson correlation: cosine after centering
+<!-- TODO: definition, invariance to translation and scaling -->
+### 4. Orthogonal, uncorrelated, independent
+<!-- TODO: distinguish linear dependence vs statistical correlation; Gaussian special case -->
+### 5. Signals and noise
+<!-- TODO: cross-correlation, autocorrelation, white noise, correlated vs uncorrelated noise -->
+### 6. Dot-product similarity in AI
+<!-- TODO: embeddings, retrieval, attention score q·k / sqrt(d_k), Gram matrix -->
+### 7. Matrix view
+<!-- TODO: Gram matrix X^T X, covariance matrix, correlation matrix -->
+### 8. Common pitfalls
+<!-- TODO: magnitude domination, high-dimensional concentration, complex conjugation, correlation != causation -->
+
+
 ## Change of basis
 
 
@@ -414,6 +433,8 @@ Certification：
 
 #### 5. 与内积、正交基的联系
 
+See [[#Similarity and correlation]] for how the dot product measures similarity.
+
 你笔记中提到了内积。如果新基是**标准正交基**（orthonormal basis），那么过渡矩阵 $P$ 是**正交矩阵**，满足：
 
 $$
@@ -457,6 +478,9 @@ Of which the end is a plot in the 3D space
 And they can make up a 3D geometric solid
 Matrix can act on the 3D geometric solid
 
+- Circuit noise: correlated noise, uncorrelated noise, white noise
+- AI: attention, embeddings, recommendation systems
+
 ## Sumary
 ### Re‑emphasize geometric intuition
 
@@ -467,6 +491,9 @@ Matrix can act on the 3D geometric solid
 
 
 # Extend to complex numbers
+
+### Complex inner product and correlation
+<!-- TODO: <u,v> = sum u_i^* v_i; correlation function E[XY^*]; phase, real part, magnitude -->
 
 
 
