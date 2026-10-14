@@ -904,10 +904,13 @@ $$
 ![[Pasted image 20261014151310.png]]
 
 $A_{ol} = g_{mN}(r_{ON} || r_{OP})$
-$A_{cl} = \frac{A_{ol}}{(1 + A_{ol})}$ ($\beta = 1$)
+$A_{cl} = \frac{A_{ol}}{(1 + A_{ol})}$ ($\beta = 1$）
+
 $R_{outol}=r_{ON} || r_{OP}$
 $R_{outcl} = \frac{R_{outcl}}{1 + A_{ol}}$
 
+$R_{inol} = \infty$ (MOS管栅极直流绝缘)
+$R_{incl} = R_{inol}(1 + \beta A_{ol}) = \infty$ ($\beta = 1$)
 ### 单端输出共源共栅运放
 
 输入共模范围
