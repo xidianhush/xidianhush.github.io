@@ -115,4 +115,10 @@ $$
 
 
 
-# 一些数学方法论
+# Some mathematical methodologies
+## abstraction
+
+> 抽象是“忽略差异、保留共同结构”的过程
+
+
+多个具象化的东西->归纳->抽象的概念
