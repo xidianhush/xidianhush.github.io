@@ -2,7 +2,7 @@
 参考教程： [现代控制理论与应用教程](https://zsc.github.io/control_tutorial/html/index.html)
 # 现代控制原理基本模型
 
-![[Pasted image 20260704102022.png]]
+![[Pasted image 20261014185716.png]]
 # 反馈
 
 # 能量
