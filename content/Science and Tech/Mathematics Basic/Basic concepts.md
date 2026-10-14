@@ -4,6 +4,7 @@ Describe it in human language!
 Describe it in human language! 
 Describe it in human language!
 
+# Some basic concepts
 
 $$
 \begin{array}{lllllllll}
@@ -114,3 +115,4 @@ $$
 
 
 
+# 一些数学方法论
