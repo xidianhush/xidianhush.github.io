@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-12 09:14（北京时间）
+> 最后更新：2026-10-15 09:08（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,14 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月15日 | Kimi | 光的定义与公式 | 1 | [打开](https://www.kimi.com/share/1a13d191-d0e2-81e7-8000-00001b18b290) |
+| 10月14日* | DeepSeek | 新型器件物理推导 | 2 | [打开](https://chat.deepseek.com/share/sn2ngp76jwt0146yhh) |
+| 10月14日* | DeepSeek | 单位缓冲器工作原理 | 4 | [打开](https://chat.deepseek.com/share/3mtbxmlqn9jzzal5l8) |
+| 10月13日* | DeepSeek | 论文带读输入增强CCIA | 6 | [打开](https://chat.deepseek.com/share/v5nalded7l845mcd89) |
+| 10月13日* | DeepSeek | 线性代数笔记初览 | 12 | [打开](https://chat.deepseek.com/share/le21lwh5iwjrpdoqwy) |
+| 10月13日* | DeepSeek | 链表家族学习讨论 | 2 | [打开](https://chat.deepseek.com/share/nlh4dpub1uehzw7eqr) |
+| 10月12日* | DeepSeek | 抽象与集合关系 | 1 | [打开](https://chat.deepseek.com/share/0c5aq3m9la7g96ish9) |
+| 10月12日* | DeepSeek | 厚氧化层减少栅漏电 | 1 | [打开](https://chat.deepseek.com/share/1wb2iz40n5x269g0dl) |
 | 10月11日* | DeepSeek | 大学数学学习感受交流 | 3 | [打开](https://chat.deepseek.com/share/s153ogwzvf6s7x7ec4) |
 | 10月11日* | DeepSeek | CentOS 7 AI智能体安装 | 2 | [打开](https://chat.deepseek.com/share/ptp45pe60zbmglr69b) |
 | 10月10日* | DeepSeek | 数学抽象在电子工程应用 | 1 | [打开](https://chat.deepseek.com/share/k8k2dky87zd6scsu3u) |
