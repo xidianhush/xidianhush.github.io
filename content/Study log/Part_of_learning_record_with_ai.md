@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-15 09:08（北京时间）
+> 最后更新：2026-10-16 09:07（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,8 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月15日 | Kimi | 双源模型验证 | 2 | [打开](https://www.kimi.com/share/1a1423f4-61b2-88fc-8000-0000b6f9d254) |
+| 10月15日* | DeepSeek | 拉扎维噪声双源模型 | 1 | [打开](https://chat.deepseek.com/share/9ty2x18ykxi7cuflc6) |
 | 10月15日 | Kimi | 光的定义与公式 | 1 | [打开](https://www.kimi.com/share/1a13d191-d0e2-81e7-8000-00001b18b290) |
 | 10月14日* | DeepSeek | 新型器件物理推导 | 2 | [打开](https://chat.deepseek.com/share/sn2ngp76jwt0146yhh) |
 | 10月14日* | DeepSeek | 单位缓冲器工作原理 | 4 | [打开](https://chat.deepseek.com/share/3mtbxmlqn9jzzal5l8) |
