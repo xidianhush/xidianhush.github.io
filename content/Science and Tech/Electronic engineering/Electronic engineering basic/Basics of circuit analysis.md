@@ -771,6 +771,27 @@ but two-ports equation adds dimension to the mapping equations
 here are several mapping forms bellow 
 expressed by different two-ports equaations
 
+**1. Impedance ($Z$)**
+
+Map the vectors in the current space to the voltage space
+
+$$ \boxed{ \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix} = \begin{bmatrix} Z_{11}[\Omega]&Z_{12}[\Omega]\\ Z_{21}[\Omega]&Z_{22}[\Omega] \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} } $$
+
+**2. Admittance ($Y$)**
+
+Map the vectors in the voltage space to the current space
+
+$$ \boxed{ \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} = \begin{bmatrix} Y_{11}[\mathrm S]&Y_{12}[\mathrm S]\\ Y_{21}[\mathrm S]&Y_{22}[\mathrm S] \end{bmatrix} \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix} } $$
+
+**3. Hybrid ($h$)**
+
+
+
+$$ \boxed{ \begin{bmatrix} V_1[\mathrm V]\\ I_2[\mathrm A] \end{bmatrix} = \begin{bmatrix} h_{11}[\Omega]&h_{12}[1]\\ h_{21}[1]&h_{22}[\mathrm S] \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ V_2[\mathrm V] \end{bmatrix} } $$
+
+**4. Transmission ($ABCD$)**
+
+$$ \boxed{ \begin{bmatrix} V_1[\mathrm V]\\ I_1[\mathrm A] \end{bmatrix} = \begin{bmatrix} A[1]&B[\Omega]\\ C[\mathrm S]&D[1] \end{bmatrix} \begin{bmatrix} V_2[\mathrm V]\\ -I_2[\mathrm A] \end{bmatrix} } $$
 
 # 关于为什么要引入复数来计算电路的讨论
 

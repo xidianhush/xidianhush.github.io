@@ -177,6 +177,16 @@ of the original coordinate system
 Visualization:
 https://xidianhush.github.io/linear-algebra-3d/matrix-vector.html
 
+#### Make preparations for adding physical meanings later
+
+The key to that transformation is the matrix
+
+dose the matrix mean using the previous  orthonormal base vectors
+to represent several new base vectors?
+
+Since the scale and direction of the base vectors can change, 
+their physical dimensions can also change.
+
 ## Inverse operation of “matrix times vector”
 
 now we get the :
