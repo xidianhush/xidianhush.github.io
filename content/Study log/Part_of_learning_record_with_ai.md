@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-17 09:02（北京时间）
+> 最后更新：2026-10-18 09:08（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,9 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月17日* | DeepSeek | 容器与虚拟机理解 | 2 | [打开](https://chat.deepseek.com/share/aadwnzjv0yb80e89nx) |
+| 10月17日* | DeepSeek | 软件优化非写死 | 3 | [打开](https://chat.deepseek.com/share/httt4jlqytwgw80ef5) |
+| 10月17日 | Kimi | 以太网与无线区别 | 2 | [打开](https://www.kimi.com/share/1a14c8cc-66e2-8bb9-8000-0000d03ffc46) |
 | 10月17日* | DeepSeek | 网络分层与编程类比 | 1 | [打开](https://chat.deepseek.com/share/pgrpoy8tqzrn11ftz3) |
 | 10月15日 | Kimi | 双源模型验证 | 2 | [打开](https://www.kimi.com/share/1a1423f4-61b2-88fc-8000-0000b6f9d254) |
 | 10月15日* | DeepSeek | 拉扎维噪声双源模型 | 1 | [打开](https://chat.deepseek.com/share/9ty2x18ykxi7cuflc6) |

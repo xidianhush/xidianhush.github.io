@@ -760,10 +760,17 @@ $$
 - 特征点包括谐振频率、带宽、增益最大值等。1
 # 6 Two-port circuit
 
-mapping
+##  6.1 Equations and Parameters of Two-Port Networks
 
-## 6.1 求解z矩阵
-+ 求解z矩阵的方法![[Pasted image 20250109112049.png]]
+the two-ports network equation
+actualy derived from the mapping concept 
+expressed by linear algebra [[Linear Algebra#matrix times vector]]
+
+but two-ports equation adds dimension to the mapping equations
+
+here are several mapping forms bellow 
+expressed by different two-ports equaations
+
 
 # 关于为什么要引入复数来计算电路的讨论
 
