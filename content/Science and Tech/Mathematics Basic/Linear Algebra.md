@@ -7,7 +7,7 @@ progress: 30%
 ---
 
 
-c# Coordinate system & Vector
+# Coordinate system & Vector
 
 ## Coordinate system
 
@@ -159,18 +159,20 @@ See the screenshots and the visualized web page for details.
 ## matrix times vector
 
 now we get the :
-+ transformed coordinate system
-+ The coordinates of vector in the transformed coordinate system
+
+==transformed coordinate system== (has fixed dimension)
+
+==The coordinates== (have fixed dimension) ==of vector in the transformed coordinate system ==
+(because matrix times vector operation set  the rule:
+each column vectors ( transformed base vectors )
+receive each element of multiplicand vector
+as its coordinate)
 
 We want to know:
-+ The coordinates of vector in the previous coordinate system
+==The vector== (has )==expressed in the scale of previous coordinate system , 
+but maybe different unit== ( maybe in same dimension (维度) )
 
 
-it shows how to represent the
-(vector with ==same coordinate but  in transformed coordinate system==)
-using (the same scale of the previous coordinate) 
-of the original coordinate system 
-(maybe in same dimension)
 
 ![[0a4fde250b23ea6b19a6415026d31529.png]]
 
