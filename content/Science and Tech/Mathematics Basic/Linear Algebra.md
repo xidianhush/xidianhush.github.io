@@ -158,22 +158,63 @@ from ine to one
 See the screenshots and the visualized web page for details.
 ## matrix times vector
 
+formula
+
+$$
+\begin{bmatrix}
+y_1 \\
+\vdots \\
+y_n
+\end{bmatrix}=
+\boldsymbol{y}=
+A\boldsymbol{x}=
+\begin{bmatrix}
+\uparrow & & & \uparrow \\
+\boldsymbol{a}_1 & \cdots & \boldsymbol{a}_n \\
+\downarrow & & & \downarrow
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix}
+= x_1\boldsymbol{a}_1+\cdots+x_n\boldsymbol{a}_n
+=\sum_{j=1}^{n} x_j \boldsymbol{a}_j
+$$
+
+
+introduce these things first
+i must discuss it with unit
+
+
+| Level                    | Object                                                          | Has dimension?                       |
+| ------------------------ | --------------------------------------------------------------- | ------------------------------------ |
+| Vecor (Geometric object) | Vector $\boldsymbol{x}$ itself , Vector $\boldsymbol{y}$ itself | Yes, [v]                             |
+| Basis                    | $e_i$ (original basis), $a_j$​ (new basis)                      | Yes, [ei​], [bj​]                    |
+| Coordinates              | $x_i$​ (new coordinates)                                        | Yes, equal to [v]/[ei​] or [v]/[bj​] |
+
+
+
+
+dimension $[b]$.
+
 now we get the :
 
-==transformed coordinate system== (has fixed dimension)
+==Transformed coordinate system== : (its basis vectors all share a fixed physical dimension)
 
-==The coordinates== (have fixed dimension) ==of vector in the transformed coordinate system ==
+==The coordinates== (have fixed physical dimension) ==of vector in the transformed coordinate system matirx==
 (because matrix times vector operation set  the rule:
 each column vectors ( transformed base vectors )
 receive each element of multiplicand vector
 as its coordinate)
 
 We want to know:
-==The vector== (has )==expressed in the scale of previous coordinate system , 
+==The vector== (has fixed physical dimension )
+==expressed in the scale of previous coordinate system , 
 but maybe different unit== ( maybe in same dimension (维度) )
 
 
-
+no unit situation
 ![[0a4fde250b23ea6b19a6415026d31529.png]]
 
 Visualization:
