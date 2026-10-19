@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-18 09:08（北京时间）
+> 最后更新：2026-10-19 09:07（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,8 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月18日* | DeepSeek | 线性代数与电路联系 | 12 | [打开](https://chat.deepseek.com/share/awnguxy27oq8pqgeni) |
+| 10月18日* | DeepSeek | 快浅慢深学习探讨 | 1 | [打开](https://chat.deepseek.com/share/c45rre2qmkybr8kwqo) |
 | 10月17日* | DeepSeek | 容器与虚拟机理解 | 2 | [打开](https://chat.deepseek.com/share/aadwnzjv0yb80e89nx) |
 | 10月17日* | DeepSeek | 软件优化非写死 | 3 | [打开](https://chat.deepseek.com/share/httt4jlqytwgw80ef5) |
 | 10月17日 | Kimi | 以太网与无线区别 | 2 | [打开](https://www.kimi.com/share/1a14c8cc-66e2-8bb9-8000-0000d03ffc46) |
