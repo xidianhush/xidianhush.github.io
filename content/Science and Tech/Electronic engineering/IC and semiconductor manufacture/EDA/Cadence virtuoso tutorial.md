@@ -10,9 +10,9 @@ link: https://ccbirds.github.io/ICnotes1/
 # Draw schematic
 
 
-# ADL Simulation
+# ADE Simulation
 
-linj: 
+link:  https://ccbirds.github.io/ICnotes22/
 
 ## 报错 `FATAL (VACOMP-2096): File ... replace it with an equivalent Verilog-A file.`
 
