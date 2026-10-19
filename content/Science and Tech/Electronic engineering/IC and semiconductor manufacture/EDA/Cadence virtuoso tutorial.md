@@ -1,3 +1,19 @@
+
+# find pdk 
+
+resource: https://gitcode.com/open-source-toolkit/d52f6/?utm_source=tools_gitcode&index=top&type=card&
+
+# Install pdks
+
+link: https://ccbirds.github.io/ICnotes1/
+
+# Draw schematic
+
+
+# ADL Simulation
+
+linj: 
+
 ## 报错 `FATAL (VACOMP-2096): File ... replace it with an equivalent Verilog-A file.`
 
 ### 方法1：在 ADE 里直接禁用这两个.def 文件
