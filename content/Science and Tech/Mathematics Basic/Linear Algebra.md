@@ -5,10 +5,7 @@ tags:
 date: 2024-11-28
 progress: 30%
 ---
-
-
-
-# Coordinate system & Vector
+#  Coordinate system , Coordinates , Vectors 
 
 ## Coordinate system
 
@@ -21,12 +18,13 @@ now we can have the following plane coordinate systems
 ![[Pasted image 20260924093640.png]]
 ```
 
-## Vector
+## Coordinates & Vector
 
-vector encodes the information of coordinates
 whatever coordinate system you use
 but in linear situation
-it can be like that :
+given coordinates (real number)
+vectors
+can be like that :
 
 ```image-layout-a
 ![[65c7386b6cbc9bdd557afb82df23bd99.png]]
@@ -34,11 +32,11 @@ it can be like that :
 ```
 
 Still now
-When we write a vector
+When given coordinates
 We do not know in which coordinate system the vector lies
 Does it lies in the artesian plane？
 Or it lies in the oblique coordinate system
-## A convention
+## Convention
 
 ### This part start with a naive question:
 
@@ -79,47 +77,14 @@ as shown in the figure below
 
 ![[Pasted image 20260924093846.png]]
 
-2. **The essence of coordinates**:
-When we ordinarily write a 3‑dimensional vector $\begin{bmatrix}x\\y\\z\end{bmatrix}$, 
-this already suggests that the vector is a linear combination of the standard basis:
-$x\begin{bmatrix}1\\0\\0\end{bmatrix} + y\begin{bmatrix}0\\1\\0\end{bmatrix} + z\begin{bmatrix}0\\0\\1\end{bmatrix}$.
-In this sense, these three vectors 
-**by default constitute our reference frame for describing all coordinates**.
+
 
 
 ---
 
+### More convention 
 
-**② Answer: Yes, this is inevitable, and this is precisely the motivation behind the existence of "coordinates" and "matrices".**
-
-Let us reason this out:
-Suppose you pick a completely "skewed" basis inside $\mathbb{R}^3$ (for example three vectors of non‑unit length which are not mutually perpendicular):
-$\mathcal{B} = \{v_1, v_2, v_3\}$.
-These still span the entire space $\mathbb{R}^3$.
-
-Now a question arises:
-**how do we write down these skewed basis vectors on paper?**
-
-Mathematicians solve this problem by **expressing them as linear combinations of the standard basis $\mathcal{E} = \{e_1, e_2, e_3\}$**.
-
-For instance, the skewed basis vector $v_1$ points in some spatial direction;
-==it is necessarily a linear combination of the standard basis:==
-$$
-v_1 = a e_1 + b e_2 + c e_3 = \begin{bmatrix}a\\b\\c\end{bmatrix}
-$$
-(Here $a,b,c$ are its coordinates with respect to the standard basis.)
-
-Likewise, $v_2$ and $v_3$ can be written in this form. If you place these three skewed basis vectors side‑by‑side to assemble a matrix:
-$$
-P = \begin{bmatrix} \uparrow & \uparrow & \uparrow \\ v_1 & v_2 & v_3 \\ \downarrow & \downarrow & \downarrow \end{bmatrix} = \begin{bmatrix} a & d & g \\ b & e & h \\ c & f & i \end{bmatrix}
-$$
-
-**This matrix $P$ is the change‑of‑basis matrix from the non‑standard basis to the standard basis.**
-
-
----
-
-
+![[Pasted image 20261019114536.png]]
 ## Visualization
 
 https://xidianhush.github.io/linear-algebra-3d/coordinate-system-and-vector.html
@@ -187,13 +152,12 @@ $$
 introduce these things first
 i must discuss it with unit
 
-
 | Level                    | Object                                                          | Has dimension?                         | Example (two-port Z-parameters)                                                                                                                                                       |
 | ------------------------ | --------------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Vecor (Geometric object) | Vector $\boldsymbol{x}$ itself , Vector $\boldsymbol{y}$ itself | Yes, [x] , [y]                         | $\begin{bmatrix} V_1[\mathrm V] \\ V_2[\mathrm V] \end{bmatrix} ,\begin{bmatrix} I_1[\mathrm A] \\ I_2[\mathrm A] \end{bmatrix}$<br>Output: $\boldsymbol{V}$,Input: $\boldsymbol{I}$, |
 | Basis                    | $e_i$ (original basis), $a_j$​ (new basis)                      | Yes, [ei​], [aj​]                      | $\begin{bmatrix} 1 & 0\\ 0 & 1 \end{bmatrix}$,$\begin{bmatrix} Z_{11}[\Omega] & Z_{12}[\Omega] \\ Z_{21}[\Omega] & Z_{22}[\Omega] \end{bmatrix}$                                      |
 | Coordinates              | $y_i$ (original coordinates),$x_i$​ (new coordinates)           | Yes, equal to [yi]/[ei​] or [xi]/[bj​] | $V_{i}[V]$,$I_{i}[A]$                                                                                                                                                                 |
-|                          |                                                                 |                                        |                                                                                                                                                                                       |
+
 
 
 now we get the :
@@ -208,25 +172,26 @@ as its coordinate)
 
 We want to know:
 ==The vector== (has fixed physical dimension )
-==expressed in the scale of previous coordinate system , 
-but maybe different unit== ( maybe in same dimension (维度) )
+==expressed in the previous coordinate system ,
+usually the orthogonal system 
+== ( maybe in same dimension (维度) )
 
 
 no unit situation
 ![[0a4fde250b23ea6b19a6415026d31529.png]]
+
+include unit
+
+![[Pasted image 20261019115644.png]]
 
 Visualization:
 https://xidianhush.github.io/linear-algebra-3d/matrix-vector.html
 
 #### Make preparations for adding physical meanings later
 
-The key to that transformation is the matrix
+example explain everything 
 
-dose the matrix mean using the previous  orthonormal base vectors
-to represent several new base vectors?
-
-Since the scale and direction of the base vectors can change, 
-their physical dimensions can also change.
+![[Pasted image 20261019114839.png]]
 
 ## Inverse operation of “matrix times vector”
 
