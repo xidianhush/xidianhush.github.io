@@ -14,6 +14,8 @@ link: https://ccbirds.github.io/ICnotes1/
 
 link:  https://ccbirds.github.io/ICnotes22/
 
+## Modify the output of simulation
+
 ## 报错 `FATAL (VACOMP-2096): File ... replace it with an equivalent Verilog-A file.`
 
 ### 方法1：在 ADE 里直接禁用这两个.def 文件
