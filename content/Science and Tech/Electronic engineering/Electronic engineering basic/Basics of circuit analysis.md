@@ -766,20 +766,21 @@ the two-ports network equation
 actualy derived from the mapping concept 
 expressed by linear algebra [[Linear Algebra#matrix times vector]]
 
-but two-ports equation adds dimension to the mapping equations
+two-ports equation is the example that
+adds dimension to the mapping equations
 
 here are several mapping forms bellow 
 expressed by different two-ports equaations
 
 **1. Impedance ($Z$)**
 
-Map the vectors in the current space to the voltage space
+Map the current vector to voltage vector
 
-$$ \boxed{ \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix} = \begin{bmatrix} Z_{11}[\Omega]&Z_{12}[\Omega]\\ Z_{21}[\Omega]&Z_{22}[\Omega] \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} } $$
+$$ \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix}  = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} \to \begin{bmatrix} Z_{11}[\Omega]&Z_{12}[\Omega]\\ Z_{21}[\Omega]&Z_{22}[\Omega] \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix} = \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix}  $$
 
 **2. Admittance ($Y$)**
 
-Map the vectors in the voltage space to the current space
+Map the voltage vector to current vector
 
 $$ \boxed{ \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} = \begin{bmatrix} Y_{11}[\mathrm S]&Y_{12}[\mathrm S]\\ Y_{21}[\mathrm S]&Y_{22}[\mathrm S] \end{bmatrix} \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix} } $$
 
