@@ -7,6 +7,75 @@ resource: https://gitcode.com/open-source-toolkit/d52f6/?utm_source=tools_gitcod
 
 link: https://ccbirds.github.io/ICnotes1/
 
+# Import pdks & analoglib and so on
+
+
+前面链接的那个PDK库好像是CDB版，不是OA版
+link： https://www.doubao.com/thread/x5xDRFTycCxdRGngt
+
+```bash
+COPYRIGHT (C) 1992-2018  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
+          (C) 1992-2018  UNIX SYSTEMS Laboratories INC.,
+                         Reproduced with permission.
+
+This Cadence Design Systems program and online documentation are
+proprietary/confidential information and may be disclosed/used only
+as authorized in a license agreement controlling such use and disclosure.
+
+          RESTRICTED RIGHTS NOTICE (SHORT FORM)
+Use/reproduction/disclosure is subject to restriction
+set forth at FAR 1252.227-19 or its equivalent.
+Program:		@(#)$CDS: virtuoso version 6.1.8-64b 10/01/2018 20:02 (ip-172-18-22-57) $
+Sub version:		sub-version  IC6.1.8-64b.83  (64-bit addresses)
+Loading geView.cxt 
+Loading menuBuilder.cxt 
+Loading schView.cxt 
+Loading selectSv.cxt 
+Loading wireEdit.cxt 
+Loading pte2.cxt 
+Loading xlUI.cxt 
+Loading auCore.cxt 
+Loading vhdl.cxt 
+Loading seismic.cxt 
+Loading ci.cxt 
+Loading layers.cxt 
+Loading ams.cxt 
+Loading cli.cxt 
+Loading cle.cxt 
+Virtuoso Framework License (111) was checked out successfully. Total checkout time was 0.35s.
+Successfully checked out 'Virtuoso_MixedSignalOpt_Layout' license.
+Loading pe.cxt 
+*WARNING* could not load font "-*-courier-medium-r-*-*-12-*", using font "fixed"
+load("/home/userhush/Program/eda/cadence/pdks/pdks_after_extraction/SMIC_018_MMRF/smic18mmrf/libInit.il")
+Loading smic18mmrf/libInit.il ...
+Loading smic18mmrf/libInit.il ...
+	Loading smic18mmrf/loadCxt.ile ... done!
+	Loading context 'smic18mmrf' from library 'smic18mmrf' ... done!
+	Loading context 'pdkUtils' from library 'smic18mmrf' ... done!
+	Loading smic18mmrf/.cdsenv ... done!
+	Loading smic18mmrf/display.drf ... done!
+	Loading smic18mmrf/libInitCustomExit.il ... Loading libInitCustomExit.il for smic18mmrf
+Loading oasis.cxt 
+Loading analog.cxt 
+Loading asimenv.cxt 
+Loading spectrei.cxt 
+Loading devCheck.cxt 
+Loading relXpert.cxt 
+Loading hspiceD.cxt 
+Loading spectreinl.cxt 
+Loading UltraSim.cxt 
+done!
+Loaded smic18mmrf/libInit.il successfully!
+	Loading smic18mmrf/.cdsenv ... done!
+	Loading smic18mmrf/display.drf ... done!
+	Loading smic18mmrf/libInitCustomExit.il ... Loading libInitCustomExit.il for smic18mmrf
+done!
+Loaded smic18mmrf/libInit.il successfully!
+t
+```
+
+
+![[Pasted image 20261020171637.png]]
 # Draw schematic
 
 
