@@ -5,7 +5,9 @@ resource: https://gitcode.com/open-source-toolkit/d52f6/?utm_source=tools_gitcod
 
 # Install pdks
 
-link: https://ccbirds.github.io/ICnotes1/
+## just u
+
+this link is unsuccessful : https://ccbirds.github.io/ICnotes1/
 
 # Import pdks & analoglib and so on
 
