@@ -3,16 +3,18 @@
 
 resource: https://gitcode.com/open-source-toolkit/d52f6/?utm_source=tools_gitcode&index=top&type=card&
 
-# Install pdks
+this pdk can be used
+but it is CDB not OA
 
-## just u
+# collect the zip & unzip the pdk to certain path
 
-this link is unsuccessful : https://ccbirds.github.io/ICnotes1/
+
 
 # Import pdks & analoglib and so on
 
+this link is unsuccessful : https://ccbirds.github.io/ICnotes1/
+then i trn for 
 
-前面链接的那个PDK库好像是CDB版，不是OA版
 link： https://www.doubao.com/thread/x5xDRFTycCxdRGngt
 
 ```bash
