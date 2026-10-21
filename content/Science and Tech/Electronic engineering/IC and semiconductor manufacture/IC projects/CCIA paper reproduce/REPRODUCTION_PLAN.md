@@ -50,13 +50,13 @@ Last updated: 2026-10-21
 
 ## 3. Create an independent reproduction project
 
-| ID  | Task                                          | Completion check                                           | Status | Evidence / notes                                                   |
-| --- | --------------------------------------------- | ---------------------------------------------------------- | :----: | ------------------------------------------------------------------ |
-| 3.1 | Create the new project directory | Independent directory; practice project preserved | ✅ | User reports entering `/home/userhush/Projects/IC_Projects/CCIA` on 2026-10-21. Directory existence is user-reported; VM contents and preservation of the practice project have not been independently checked. |
-| 3.2 | Configure cds.lib and create a design library | Register centralized PDK and attach appropriate technology | ❌ | Partially complete: user reports editing `cds.lib`; its contents have not been inspected. Design library creation and technology attachment remain pending. |
-| 3.3 | Configure startup and simulation output       | New sessions use this project's own results directory      |   ❌    | Do not copy the practice project's absolute output path.           |
-| 3.4 | Configure model files and process corner      | Netlist loads intended models without invalid includes     |   ❌    | Record model paths and selected sections.                          |
-| 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Check operating points and node voltages, not just run completion. |
+| ID  | Task                                          | Completion check                                           | Status | Evidence / notes                                                                                                                                                                                                |
+| --- | --------------------------------------------- | ---------------------------------------------------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 3.1 | Create the new project directory              | Independent directory; practice project preserved          |   ✅    | User reports entering `/home/userhush/Projects/IC_Projects/CCIA` on 2026-10-21. Directory existence is user-reported; VM contents and preservation of the practice project have not been independently checked. |
+| 3.2 | Configure cds.lib and create a design library | Register centralized PDK and attach appropriate technology |   ❌    | Partially complete: user reports editing `cds.lib`; its contents have not been inspected. Design library creation and technology attachment remain pending.                                                     |
+| 3.3 | Configure startup and simulation output       | New sessions use this project's own results directory      |   ❌    | Do not copy the practice project's absolute output path.                                                                                                                                                        |
+| 3.4 | Configure model files and process corner      | Netlist loads intended models without invalid includes     |   ❌    | Record model paths and selected sections.                                                                                                                                                                       |
+| 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Check operating points and node voltages, not just run completion.                                                                                                                                              |
 
 ## 4. Verify the input-boosted first stage
 
