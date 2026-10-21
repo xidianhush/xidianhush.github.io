@@ -4,7 +4,7 @@
 resource: https://gitcode.com/open-source-toolkit/d52f6/?utm_source=tools_gitcode&index=top&type=card&
 
 this pdk can be used
-but it is CDB not OA
+
 
 # collect the zip & unzip the pdk to certain path
 
@@ -13,9 +13,20 @@ but it is CDB not OA
 # Import pdks & analoglib and so on
 
 this link is unsuccessful : https://ccbirds.github.io/ICnotes1/
-then i trn for 
+then i turn for 
+## examine whether it is OA
 
-link： https://www.doubao.com/thread/x5xDRFTycCxdRGngt
+link: https://www.doubao.com/thread/xHDjUjAy4qIsW5LN9
+result:
+![[Pasted image 20261021104830.png]]
+## import and further examine wether it is available OA
+
+link： https://www.doubao.com/thread/xW4cYwvOO1uk6nhjl
+
+```vim
+DEFINE smic18mmrf /home/userhush/Program/eda/cadence/pdks/pdks_after_extraction/SMIC_018_MMRFsmic18mmrf
+```
+
 
 ```bash
 COPYRIGHT (C) 1992-2018  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
@@ -80,6 +91,8 @@ t
 
 
 ![[Pasted image 20261020171637.png]]
+
+## import `Analog.lib`
 # Draw schematic
 
 
