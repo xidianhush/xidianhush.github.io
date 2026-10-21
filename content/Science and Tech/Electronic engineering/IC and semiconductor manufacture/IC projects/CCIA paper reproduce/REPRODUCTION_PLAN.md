@@ -1,6 +1,6 @@
 # Input-Boosted CCIA — Shared Reproduction Plan
 
-Last updated: 2026-10-20
+Last updated: 2026-10-21
 
 ## Scope
 
@@ -12,6 +12,7 @@ Last updated: 2026-10-20
 
 ## How we update this file
 
+- Task IDs are tracking labels, not a mandatory sequence. Choose tasks flexibly while respecting technical dependencies. Suggested next tasks can change together.
 - Either of us can edit this document. Read its latest contents before planning or changing task status.
 - `✅` means complete with the evidence described in the row. `❌` means remaining or not yet verified; it does not necessarily mean a failed test.
 - When finishing a task, change its status and add a short note with the result, test conditions, and a log, plot, or file path when available.
@@ -23,8 +24,8 @@ Last updated: 2026-10-20
 
 ## Current checkpoint
 
-- **Next task:** 1.4 — prepare the specification and test-condition checklist.
-- **Then:** inspect available interface tools and the PDK, create an independent project, and run a minimal environment test.
+- **Current progress:** User reports entering the new project directory `/home/userhush/Projects/IC_Projects/CCIA` and editing its `cds.lib`. The design library has not been created.
+- **Suggested next options:** inspect the new `cds.lib` and create the design library, or continue task 1.4. These are suggestions, not a fixed sequence.
 - No reproduction circuit has been built or verified yet.
 - Environment tasks marked complete below come from the user's handover; they have not been rechecked in the current session.
 
@@ -39,23 +40,23 @@ Last updated: 2026-10-20
 
 ## 2. Prepare and verify the environment
 
-| ID | Task | Completion check | Status | Evidence / notes |
-|---|---|---|:---:|---|
-| 2.1 | Organize the centralized PDK | Keep the complete kit in the established location | ✅ | Previously checked through FileZilla; user handover. |
-| 2.2 | Confirm project-local output in the practice project | Log shows output inside that project's simulation directory | ✅ | Previous log confirmed the path; this does not establish that all simulation errors were resolved. |
-| 2.3 | Check available interface-control tools | Confirm whether the current VM desktop can be inspected | ❌ | Do not assume a previous session's Computer Use access is available now. |
-| 2.4 | Inspect previous model configuration and logs | Determine whether VACOMP-2096 recurs; diagnose if necessary | ❌ | `res.def` and `res_rf.def` errors remain unresolved in the handover. Do not delete these files. |
-| 2.5 | Verify PDK suitability | Identify core MOS, capacitors, well options, model sections, and relevant limitations | ❌ | In particular, verify operation and model behavior at 0.6 V and nA currents. |
+| ID  | Task                                                 | Completion check                                                                      | Status | Evidence / notes                                                                                   |
+| --- | ---------------------------------------------------- | ------------------------------------------------------------------------------------- | :----: | -------------------------------------------------------------------------------------------------- |
+| 2.1 | Organize the centralized PDK                         | Keep the complete kit in the established location                                     |   ✅    | Previously checked through FileZilla; user handover.                                               |
+| 2.2 | Confirm project-local output in the practice project | Log shows output inside that project's simulation directory                           |   ✅    | Previous log confirmed the path; this does not establish that all simulation errors were resolved. |
+| 2.3 | Check available interface-control tools              | Confirm whether the current VM desktop can be inspected                               |   ❌    | Do not assume a previous session's Computer Use access is available now.                           |
+| 2.4 | Inspect previous model configuration and logs        | Determine whether VACOMP-2096 recurs; diagnose if necessary                           |   ❌    | `res.def` and `res_rf.def` errors remain unresolved in the handover. Do not delete these files.    |
+| 2.5 | Verify PDK suitability                               | Identify core MOS, capacitors, well options, model sections, and relevant limitations |   ❌    | In particular, verify operation and model behavior at 0.6 V and nA currents.                       |
 
 ## 3. Create an independent reproduction project
 
-| ID | Task | Completion check | Status | Evidence / notes |
-|---|---|---|:---:|---|
-| 3.1 | Create the new project directory | Independent directory; practice project preserved | ❌ | Project name and path not chosen yet. |
-| 3.2 | Configure cds.lib and create a design library | Register centralized PDK and attach appropriate technology | ❌ | Use new project paths. |
-| 3.3 | Configure startup and simulation output | New sessions use this project's own results directory | ❌ | Do not copy the practice project's absolute output path. |
-| 3.4 | Configure model files and process corner | Netlist loads intended models without invalid includes | ❌ | Record model paths and selected sections. |
-| 3.5 | Run a minimal transistor test | Valid DC and transient results; no fatal errors | ❌ | Check operating points and node voltages, not just run completion. |
+| ID  | Task                                          | Completion check                                           | Status | Evidence / notes                                                   |
+| --- | --------------------------------------------- | ---------------------------------------------------------- | :----: | ------------------------------------------------------------------ |
+| 3.1 | Create the new project directory | Independent directory; practice project preserved | ✅ | User reports entering `/home/userhush/Projects/IC_Projects/CCIA` on 2026-10-21. Directory existence is user-reported; VM contents and preservation of the practice project have not been independently checked. |
+| 3.2 | Configure cds.lib and create a design library | Register centralized PDK and attach appropriate technology | ❌ | Partially complete: user reports editing `cds.lib`; its contents have not been inspected. Design library creation and technology attachment remain pending. |
+| 3.3 | Configure startup and simulation output       | New sessions use this project's own results directory      |   ❌    | Do not copy the practice project's absolute output path.           |
+| 3.4 | Configure model files and process corner      | Netlist loads intended models without invalid includes     |   ❌    | Record model paths and selected sections.                          |
+| 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Check operating points and node voltages, not just run completion. |
 
 ## 4. Verify the input-boosted first stage
 
@@ -141,7 +142,7 @@ Existing practice project — preserve:
 
 ## Open questions and unresolved issues
 
-- The new project's name and location are not yet selected.
+- New project: `/home/userhush/Projects/IC_Projects/CCIA` (user-reported). Its edited `cds.lib` still needs inspection; the design library has not been created.
 - The current contents of the practice project's `cds.lib` and `.cdsinit` have not been reread in this session.
 - Earlier `VACOMP-2096` errors involving `res.def` and `res_rf.def` have no confirmed root cause or documented fix.
 - A previous transient run succeeded, but later plots alone do not establish that the model errors are permanently resolved.
@@ -154,3 +155,5 @@ Existing practice project — preserve:
 | Date | Update | Evidence / author |
 |---|---|---|
 | 2026-10-20 | Created the shared plan from the agreed scope and existing conversation. No new circuit tasks marked complete. | Assistant; environment completion based on user handover. |
+
+| 2026-10-21 | Reviewed user notes: marked 3.1 complete as user-reported; retained 3.2 as incomplete with partial progress recorded. Updated project path and flexible-order guidance. | Assistant reviewed this Markdown file; no direct VM verification. |

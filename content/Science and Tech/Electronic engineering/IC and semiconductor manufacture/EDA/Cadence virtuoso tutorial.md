@@ -75,7 +75,11 @@ t
 
 ## import `Analog.lib`
 
+## move the simuilation folder to current working directory
 
+
+
+![[Pasted image 20261021141012.png]]
 # Draw schematic
 
 
