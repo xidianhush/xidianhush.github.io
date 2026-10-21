@@ -23,44 +23,25 @@ result:
 
 link： https://www.doubao.com/thread/xW4cYwvOO1uk6nhjl
 
+i create and edir `cds.lib` first
+
 ```vim
 DEFINE smic18mmrf /home/userhush/Program/eda/cadence/pdks/pdks_after_extraction/SMIC_018_MMRFsmic18mmrf
 ```
 
+then the `smic18mmrf` appears int the library manager
 
-```bash
-COPYRIGHT (C) 1992-2018  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
-          (C) 1992-2018  UNIX SYSTEMS Laboratories INC.,
-                         Reproduced with permission.
+![[Pasted image 20261021105553.png]]
 
-This Cadence Design Systems program and online documentation are
-proprietary/confidential information and may be disclosed/used only
-as authorized in a license agreement controlling such use and disclosure.
+then i input this in CIW:
 
-          RESTRICTED RIGHTS NOTICE (SHORT FORM)
-Use/reproduction/disclosure is subject to restriction
-set forth at FAR 1252.227-19 or its equivalent.
-Program:		@(#)$CDS: virtuoso version 6.1.8-64b 10/01/2018 20:02 (ip-172-18-22-57) $
-Sub version:		sub-version  IC6.1.8-64b.83  (64-bit addresses)
-Loading geView.cxt 
-Loading menuBuilder.cxt 
-Loading schView.cxt 
-Loading selectSv.cxt 
-Loading wireEdit.cxt 
-Loading pte2.cxt 
-Loading xlUI.cxt 
-Loading auCore.cxt 
-Loading vhdl.cxt 
-Loading seismic.cxt 
-Loading ci.cxt 
-Loading layers.cxt 
-Loading ams.cxt 
-Loading cli.cxt 
-Loading cle.cxt 
-Virtuoso Framework License (111) was checked out successfully. Total checkout time was 0.35s.
-Successfully checked out 'Virtuoso_MixedSignalOpt_Layout' license.
-Loading pe.cxt 
-*WARNING* could not load font "-*-courier-medium-r-*-*-12-*", using font "fixed"
+```CIW
+load("/home/userhush/Program/eda/cadence/pdks/pdks_after_extraction/SMIC_018_MMRF/smic18mmrf/libInit.il")
+```
+
+then got the CIW  output:
+
+```CIW
 load("/home/userhush/Program/eda/cadence/pdks/pdks_after_extraction/SMIC_018_MMRF/smic18mmrf/libInit.il")
 Loading smic18mmrf/libInit.il ...
 Loading smic18mmrf/libInit.il ...
@@ -90,9 +71,11 @@ t
 ```
 
 
-![[Pasted image 20261020171637.png]]
+![[Pasted image 20261021110216.png]]
 
 ## import `Analog.lib`
+
+
 # Draw schematic
 
 
