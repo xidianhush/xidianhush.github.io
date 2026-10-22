@@ -760,7 +760,13 @@ $$
 - 特征点包括谐振频率、带宽、增益最大值等。1
 # 6 Two-port circuit
 
-##  6.1 Equations and Parameters of Two-Port Networks
+## 6.1 Equations and Parameters of Two-Port Networks
+
+before we learn that one port circuit
+it will be a link later here
+one port equation it self include infinity situation 
+one port equation add a outside motivation
+becomes ystem of equations
 
 the two-ports network equation
 actualy derived from the mapping concept 
