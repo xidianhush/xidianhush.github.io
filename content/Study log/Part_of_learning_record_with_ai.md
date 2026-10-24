@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-23 09:18（北京时间）
+> 最后更新：2026-10-24 09:08（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,9 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月23日* | DeepSeek | 数学抽象感悟 | 11 | [打开](https://chat.deepseek.com/share/uydoz6eb6z3wn274iq) |
+| 10月23日* | DeepSeek | 微积分线代感悟探讨 | 3 | [打开](https://chat.deepseek.com/share/yqbw3l661oq7anb027) |
+| 10月23日* | DeepSeek | 设计优化与材料突破 | 1 | [打开](https://chat.deepseek.com/share/hwqcuxe0rkb24s9nft) |
 | 10月22日* | DeepSeek | 专用芯片加速原理 | 6 | [打开](https://chat.deepseek.com/share/ll3ehyre7enp17xvij) |
 | 10月22日 | Kimi | 二端口阻抗参数解析 | 1 | [打开](https://www.kimi.com/share/1a166556-8462-88de-8000-0000231375ef) |
 | 10月21日* | DeepSeek | Virtuoso高效画图方法 | 1 | [打开](https://chat.deepseek.com/share/5d9pxveauh3grfoy56) |
