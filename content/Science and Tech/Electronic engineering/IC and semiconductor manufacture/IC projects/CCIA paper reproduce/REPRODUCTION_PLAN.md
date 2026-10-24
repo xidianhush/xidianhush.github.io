@@ -1,6 +1,6 @@
 # Input-Boosted CCIA — Shared Reproduction Plan
 
-Last updated: 2026-10-21
+Last updated: 2026-10-24
 
 ## Scope
 
@@ -24,13 +24,14 @@ Last updated: 2026-10-21
 
 ## Current checkpoint
 
-- **Session stopped:** 2026-10-21. User reports saving the schematic before ending the session.
-- **Verified:** project directory, PDK registration, `ccia_lib` creation, attachment to `smic18mmrf`, and creation of `ccia_lib/input_boosted_stage1/schematic`.
-- **Latest inspected circuit:** eight MOSFETs placed in two columns, with the right column mirrored. Input devices have W/L = 10u/400n; tail devices have W/L = 10u/10u; all visible multipliers are 1.
-- **Wiring status:** the latest supplied screenshot shows no inter-device wiring. Wiring instructions were provided afterward, but completion has not been confirmed. Inspect the saved schematic before assuming these wires exist.
-- **Suggested next action:** inspect the saved state, finish the vertical branch and supply wiring and node labels, then add coupling capacitors, gate-bias elements, body connections, and interface pins for Fig. 4(a).
-- **Working pace:** use larger batches of instructions with a check after each batch, as requested by the user. Task order remains flexible.
-- No reproduction simulation has been run or validated. Fig. 4(b) bias circuits remain pending.
+- **Verified visually on 2026-10-24:** eight sized MOSFETs, both vertical branches and supply rails, VON/VOP output pins, VIP/VIN input pins, four Cg = 3.5 pF and four Cs = 20 pF capacitors, and the intended opposite-polarity gate/source coupling. Evidence: user screenshot codex-clipboard-b27a3791-1f8c-41a8-bf78-57a2b944a9e8.png.
+- **Verification limit:** this is a screenshot connectivity review, not a netlist audit. Highlight crossing nets, inspect pin directions and supply-symbol global-net names, and run Check and Save after completing the circuit. Current disk save state is not independently verified.
+- **Still missing:** four gate-bias paths, tail-gate bias connections, all body connections, Fig. 4(b) bias circuitry, testbench, model verification, and simulation results.
+- **Paper-confirmed nominal supply:** VDD - VSS = 0.6 V (Section IV-D, PDF page 7). Testbench starting convention: VSS = 0 V, VDD = 0.6 V.
+- **Next learning step:** derive the current/headroom budget and characterize SMIC MOS devices before choosing missing bias and pseudo-resistor dimensions. Do not invent unpublished sizes as paper facts.
+- **Working pace:** explain calculations and use larger UI instruction batches, checking each batch. Task order is flexible; dependencies still matter.
+- **Project:** /home/userhush/Projects/IC_Projects/CCIA; ccia_lib/input_boosted_stage1/schematic. No reproduction simulation has been validated.
+
 ## 1. Define the project
 
 | ID | Task | Completion check | Status | Evidence / notes |
@@ -66,11 +67,14 @@ Last updated: 2026-10-21
 |---|---|---|:---:|---|
 | 4.1 | Study and annotate Fig. 4 | Explain input devices, tail devices, capacitors, and bias loops | ❌ | |
 | 4.2 | Characterize candidate MOS devices | Check current and gm/Id near intended operating points | ❌ | Record device type, W/L, body connections, and model corner. |
-| 4.3 | Build the first-stage core | Correct connectivity with controlled bias sources for initial tests | ❌ | In progress: schematic created and eight MOSFETs placed; see subtasks and session checkpoint. Wiring, capacitors, gate-bias elements, body connections, pins, and test bias sources remain to be completed/verified. |
+| 4.3 | Build the first-stage core | Correct connectivity with controlled bias sources for initial tests | ❌ | In progress: core and coupling network visually reviewed on 2026-10-24. Bias paths, body wiring, electrical checks, and testbench remain pending. |
 | 4.3a | Create the first-stage schematic view | Correct library/cell/view opens | ✅ | Verified title: ccia_lib / input_boosted_stage1 / schematic. |
 | 4.3b | Place the eight core MOSFETs | Check names, models, dimensions, and branch arrangement | ✅ | User screenshot inspected: MP2P, MP1P, MN1P, MN2P on left; MP2N, MP1N, MN1N, MN2N on right. p18/n18; W = 10u throughout; input L = 400n, tail L = 10u; m = 1. Right column mirrored. |
-| 4.3c | Wire the core branches and supplies | Verify connections and VDD/VSS, VON/VOP, SP_P/SP_N, SN_P/SN_N labels | ❌ | Instructions delivered; completion not yet confirmed. Inspect saved schematic next session. |
-| 4.3d | Add coupling, bias elements, body wiring, and pins | Complete and check Fig. 4(a) connectivity | ❌ | Four gate-coupling and four source-coupling capacitors; four gate-bias pseudo-resistor elements. Any temporary ideal substitutions must be explicitly documented. |
+| 4.3c | Wire the core branches and supplies | Verify connections and VDD/VSS, VON/VOP, SP_P/SP_N, SN_P/SN_N labels | ❌ | Branches, rails and VON/VOP visually checked on 2026-10-24. Internal source-net labels and electrical connectivity audit remain pending; retain this parent task as incomplete. |
+| 4.3d | Add coupling, bias elements, body wiring, and pins | Complete and check Fig. 4(a) connectivity | ❌ | Four Cg and four Cs plus input/output pins visually checked; see 4.3e. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions. |
+| 4.3e | Place and wire the coupling network and signal pins | Visually trace VIP/VIN, Cg/Cs, and VON/VOP | ✅ | Screenshot reviewed 2026-10-24: VIP to left gates/right sources; VIN to right gates/left sources; Cg 3.5pF, Cs 20pF. Pin directions and netlist verification are separate pending checks. |
+| 4.3f | Audit connectivity and supply interfaces | Highlight VIP/VIN/VON/VOP; verify crossings, pin directions and actual supply net names | ❌ | Supply symbols are present; decide explicit supply pins for reusable cells. Labels alone do not supply voltage. |
+| 4.3g | Complete MOS body connections | Record each body net and confirm PDK well/device restrictions | ❌ | Do not tie each body to its source without checking paper body-effect assumptions and available devices. |
 | 4.4 | Verify DC operating point | Check branch currents, device voltages, and output headroom | ❌ | |
 | 4.5 | Test gate and source coupling separately | Verify gain, polarity, and useful frequency ranges | ❌ | Maintain consistent loading and bias. |
 | 4.6 | Test both coupling paths together | Demonstrate input boosting under matched conditions | ❌ | Compare with separate-path results. |
@@ -121,6 +125,79 @@ These are reported paper values, **not our achieved results**. This list is a st
 | Input impedance | >75 MΩ | Includes positive-feedback enhancement; specify test conditions. |
 | THD | Approximately 0.5% | Reported at 75%-of-supply output swing; exact stimulus/convention to confirm. |
 
+## Detailed design and learning work packages
+
+These tasks expand sections 1, 4 and 5; they do not replace their stable IDs. Calculation, PDK simulation, and explanation are all part of reproduction. A parameter is either **paper-reported**, **derived**, **chosen provisionally**, or **simulation-verified**. Record which category applies.
+
+### A. Establish the numerical design basis
+
+| ID | Subtask / learning objective | Completion evidence | Status |
+|---|---|---|:---:|
+| A1 | Confirm nominal supply from the paper | Section IV-D explicitly states 0.6 V for both prototypes; reviewed 2026-10-24 | ✅ |
+| A2 | Record the 180 nm starting values | Table I: input MOS 10u/0.4u; tail MOS 10u/10u; Cg 3.5pF; Cs 20pF; Gm1 main 24nA; Ib 600pA | ✅ |
+| A3 | Derive branch-current and power budgets | Explain 24nA/2 = 12nA per symmetric series branch; 12nA/600pA = 20; do not count PMOS and NMOS series currents twice. Reconcile rounded Table I total 40.2nA with reported 40nA | ❌ |
+| A4 | Draw a DC voltage/headroom budget for each branch | Start with proposed Vcm = 0.3V; derive source/gate voltages and allowable swings using SMIC operating points. Vcm is a starting choice, not a measured reproduction result | ❌ |
+| A5 | Build a parameter/assumption register | For each missing size, bias voltage, load, clock detail and temperature: source, initial choice, reason, sweep and acceptance condition | ❌ |
+
+### B. Characterize devices and design Fig. 4(b) bias circuitry
+
+| ID | Subtask / learning objective | Completion evidence | Status |
+|---|---|---|:---:|
+| B1 | Finish 3.3-3.5: configure output/models and run a one-device testbench | Correct model section and project-local logs; valid DC node voltages and currents | ❌ |
+| B2 | Sweep n18 and p18 at relevant body bias and drain voltage | Plot Id versus VGS/VSG; extract gm/Id, gds, gmb and source/drain headroom near 600pA and 12nA. Record temperature/corner and simulator tolerances | ❌ |
+| B3 | Derive an initial replica geometry | For equivalent terminal voltages and same device type, current approximately scales with W/L. A 20:1 current ratio suggests replica W/L about 1/20 of main W/L. Check minimum geometry, narrow-width effects, current accuracy and mismatch; this is an estimate, not paper data | ❌ |
+| B4 | Verify the PMOS and NMOS replica stacks separately | Obtain Vbp/Vbn at Ib = 600pA with 0.6V supply; verify that the main stack reaches intended current/headroom. Iterate W and L independently as needed | ❌ |
+| B5 | Derive the branch DC-control loop polarity | Annotate Fig. 4(b) ACMB and its two separate tail controls; verify a rise in output causes corrective feedback. Do not replace both controls permanently with one common voltage | ❌ |
+| B6 | Size and test the ACMB circuitry | Establish current allocation, DC gain, input/output ranges and stable settling; characterize each loop before connecting both branches | ❌ |
+| B7 | Verify first-stage bias startup and robustness | Supply ramp, initial-condition variation, supply/corner/temperature checks; verify both outputs settle near target and remain in useful operating regions | ❌ |
+| B8 | Address generation of Ib and Vcm | Begin with clearly documented ideal sources; reproduce or design the constant-gm/PTAT reference and startup where details permit. If retained ideal, state the missing circuitry and excluded power explicitly | ❌ |
+
+Avoid using the strong-inversion square-law equation as the primary sizing model for the paper's deep-subthreshold input devices. Use weak-inversion reasoning and PDK Id/gm characterization. The paper's tail-device operating region must also be checked rather than inferred solely from a simulator region label.
+
+### C. Design and verify the pseudo-resistors
+
+| ID | Subtask / learning objective | Completion evidence | Status |
+|---|---|---|:---:|
+| C1 | Select and document a feasible pseudo-resistor topology | Separate published topology from our implementation choice; check well/body options, voltage polarity and leakage | ❌ |
+| C2 | Derive the required gate-bias resistance | Choose allowable attenuation at the lowest test frequency and a recovery-time goal; for a simple gate-coupling approximation use fL ≈ 1/(2*pi*Rb*Cg), then account for parasitics and actual network | ❌ |
+| C3 | Use a temporary ideal resistor to verify the core | Choose R from C2, not an arbitrary default; record that this is a temporary linear model and include its modeled noise when relevant | ❌ |
+| C4 | Sweep candidate pseudo-resistor W/L and bias | Obtain I-V and differential resistance rd = 1/(dI/dV) around intended DC voltage, including leakage, symmetry and large-signal behavior | ❌ |
+| C5 | Integrate four MOS pseudo-resistor elements and re-test | Check gate DC bias, transfer response, noise, offset recovery and settling over relevant conditions; inspect numerical leakage/tolerance sensitivity | ❌ |
+
+Illustration only: Cg = 3.5pF and a chosen fL = 1Hz imply Rb ≈ 45.5Gohm and RC ≈ 0.159s in the simple one-pole model. This is not a paper-specified resistance or our selected final target. Source coupling has a different impedance and cannot be sized with the same gate-path approximation without analysis.
+
+### D. Verify the first-stage principle with controlled experiments
+
+| ID | Subtask / learning objective | Completion evidence | Status |
+|---|---|---|:---:|
+| D1 | Finish wiring, pin/body audit and Check and Save | No unexplained connectivity errors; inspect generated netlist and preserve a checkpoint | ❌ |
+| D2 | Establish a DC operating point with controlled test bias | VDD 0.6V, VSS 0V; record branch currents, all device terminal voltages, gm/gds/gmb and outputs. Fixed bias may fail to center high-gain outputs; add documented temporary DC control if needed | ❌ |
+| D3 | Derive small-signal gate/source contributions | Predict signs and frequency dependence; include body effect and tail impedance. Define v_id = VIP-VIN and v_od = VOP-VON | ❌ |
+| D4 | Compare gate-only, source-only and combined drive | Preserve DC bias and AC loading; disable a stimulus by AC-grounding its drive, not by removing capacitors. Plot contributions at matched bias/load | ❌ |
+| D5 | Compare analytical predictions with AC/transient results | Identify band where boosting occurs, gain ratio, phase and source-node motion; explain discrepancies | ❌ |
+| D6 | Replace temporary bias/resistor models and repeat | Demonstrate that boosting and useful operating points survive realistic implementation | ❌ |
+| D7 | Compare with a conventional reference and measure noise | Same current, load and integration band; document fair normalization and unresolved differences | ❌ |
+
+### E. Integrate and evaluate the full amplifier
+
+| ID | Subtask / learning objective | Completion evidence | Status |
+|---|---|---|:---:|
+| E1 | Derive stage-2/stage-3 current and headroom budgets | Table I starting currents 7.2nA and 4.8nA; separately characterize missing dimensions for Figs. 8-9 | ❌ |
+| E2 | Test each later stage and its DC-control loop | DC, gain/phase, load response, startup and current results before integration | ❌ |
+| E3 | Integrate coupling and capacitive feedback without chopping first | Use Table I feedback/interstage values; derive gain and check signal/bias-loop stability | ❌ |
+| E4 | Add and verify chopping | Start from documented ideal switches if useful, then MOS switches; 12kHz starting clock; record levels, duty, nonoverlap, charge injection and power boundary | ❌ |
+| E5 | Add input-impedance positive feedback | Compare disabled/enabled impedance, gain and stability; derive missing component choices | ❌ |
+| E6 | Execute section 6 measurements with fixed definitions | Record stimulus, load, corner, temperature, noise limits and chopped-analysis method for every metric | ❌ |
+| E7 | Produce a comparison and limitations report | Paper measured results versus our schematic results; list process differences, chosen sizes and all remaining ideal sources/circuits | ❌ |
+
+### Immediate next session
+
+1. Save the schematic and audit signal/supply net names, pin directions, crossing wires and MOS body options.
+2. Work through A3-A4 together: current paths, 12nA nominal branch current, reference ratio, and the 0.6V headroom budget.
+3. Complete model/output setup and one-device characterization (B1-B2) before assigning missing W/L values.
+4. Choose a temporary gate-bias resistance from an explicit frequency/recovery requirement; obtain a controlled first-stage DC point.
+5. Characterize input boosting, then replace temporary elements and integrate the complete amplifier. Do not claim paper-level performance from the idealized core test.
+
 ## Environment reference
 
 The following paths and versions come from the user's handover and should be inspected when precise diagnosis is required.
@@ -142,19 +219,19 @@ Central PDK kit:
 PDK device library:
 /home/userhush/Program/eda/cadence/pdks/pdks_after_extraction/SMIC_018_MMRF/smic18mmrf
 
-New reproduction project:
-/home/userhush/Projects/IC_Projects/CCIA
-Design library: ccia_lib (attached to smic18mmrf)
-Cell/view: input_boosted_stage1/schematic
-Configuration backup: cds.lib.before_library_creation
-
+New reproduction project:
+/home/userhush/Projects/IC_Projects/CCIA
+Design library: ccia_lib (attached to smic18mmrf)
+Cell/view: input_boosted_stage1/schematic
+Configuration backup: cds.lib.before_library_creation
+
 Existing practice project — preserve:
 /home/userhush/Projects/IC_Projects/Analog_IC_learning_project_2
 ```
 
 ## Open questions and unresolved issues
 
-- Project and library creation are verified. The latest saved wiring state still needs inspection; model loading and startup/output settings remain unverified for this project.
+- Project and library creation are verified. Core/capacitor wiring has been visually reviewed; disk save state, netlist connectivity, model loading and startup/output settings remain unverified for this project.
 - The current contents of the practice project's `cds.lib` and `.cdsinit` have not been reread in this session.
 - Earlier `VACOMP-2096` errors involving `res.def` and `res_rf.def` have no confirmed root cause or documented fix.
 - A previous transient run succeeded, but later plots alone do not establish that the model errors are permanently resolved.
@@ -169,5 +246,7 @@ Existing practice project — preserve:
 | 2026-10-20 | Created the shared plan from the agreed scope and existing conversation. No new circuit tasks marked complete. | Assistant; environment completion based on user handover. |
 
 | 2026-10-21 | Reviewed user notes: marked 3.1 complete as user-reported; retained 3.2 as incomplete with partial progress recorded. Updated project path and flexible-order guidance. | Assistant reviewed this Markdown file; no direct VM verification. |
+
+| 2026-10-21 | End-of-session update: verified Computer Use, project/library setup and technology attachment; created first-stage schematic and placed eight sized MOSFETs. User reports saving. Wiring is not yet verified; resume from saved schematic inspection. | Assistant checked live VM screens and user-supplied screenshot; no simulation results. |
 
-| 2026-10-21 | End-of-session update: verified Computer Use, project/library setup and technology attachment; created first-stage schematic and placed eight sized MOSFETs. User reports saving. Wiring is not yet verified; resume from saved schematic inspection. | Assistant checked live VM screens and user-supplied screenshot; no simulation results. |
+| 2026-10-24 | Visually reviewed core rails, outputs, eight coupling capacitors and input routing. Confirmed 0.6V and Table I design basis; added calculation, device characterization, bias sizing, pseudo-resistor design and staged integration work packages. Electrical audit and simulation remain pending. | Assistant: supplied schematic screenshot and paper pages 5/7 reviewed; no simulation evidence. |
