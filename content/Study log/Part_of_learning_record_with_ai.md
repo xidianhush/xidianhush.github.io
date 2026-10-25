@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-24 09:08（北京时间）
+> 最后更新：2026-10-25 18:00（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -48,6 +48,13 @@
 | 10月上旬* | DeepSeek | 高维数系结构 | -  | [打开](https://chat.deepseek.com/share/0ps45fx6ssx7qftatw) |
 | 10月上旬* | DeepSeek | 物理公式像代码封装 | -  | [打开](https://chat.deepseek.com/share/ow2iuavqx55lakhobf) |
 | 10月上旬* | DeepSeek | QED理解麦克斯韦方程 | -  | [打开](https://chat.deepseek.com/share/808cf8rp3x8m9a9r3l) |
+| 10月10日 | Kimi Code | 知识图谱插件开发 | - | - |
+| 10月10日 | Kimi Code | 知识图谱文字层级改进 | - | - |
+| 10月12日 | Kimi Code | Obsidian vault结构梳理 | - | - |
+| 10月14日 | Kimi Code | 知识图谱聚合边缩放优化 | - | - |
+| 10月15日 | Kimi Code | 笔记与知识图谱手动同步 | - | - |
+| 10月16日 | Kimi Code | 本地软件排查 | - | - |
+| 10月18日 | Kimi Code | VSCode环境排查 | - | - |
 
 ### 2026年9月
 
@@ -101,6 +108,34 @@
 | 9月1-7日* | DeepSeek | 输入性CCIA论文解读4 | -  | [打开](https://chat.deepseek.com/a/chat/s/dd1bba9a-9dbe-497a-8d00-70a9b4b30070) |
 | 8月9日-9月7日* | DeepSeek | 人脸角度绘画辅助工具 | -  | [打开](https://chat.deepseek.com/a/chat/s/ead2348c-4ed1-4fb5-beec-b9f2457b680b) |
 | 8月9日-9月7日* | DeepSeek | 稳定与傅里叶收敛联系 | -  | [打开](https://chat.deepseek.com/a/chat/s/c4b62241-f8a4-453f-9372-7e956a630504) |
+| 9月2日 | Kimi Code | Obsidian Git SSH同步配置 | 1 | - |
+| 9月4日 | Kimi Code | FaceAngle Lab版本决策 | 45 | - |
+| 9月7日 | Kimi Code | FaceAngle Lab接力开发 | 5 | - |
+| 9月7日 | Kimi Code | FaceAngle Lab进度汇报 | 1 | - |
+| 9月9日 | Kimi Code | Quartz页面渲染排查 | 7 | - |
+| 9月9日 | Kimi Code | 模拟IC笔记LaTeX排版 | 3 | - |
+| 9月10日 | Kimi Code | Fourier可视化几何意义文案 | 10 | - |
+| 9月10日 | Kimi Code | 拉普拉斯围道可视化项目PRD | 2 | - |
+| 9月13日 | Kimi Code | 信号与系统笔记格式修正 | 2 | - |
+| 9月15日 | Kimi Code | Fourier可视化双边变换修正 | 8 | - |
+| 9月16日 | Kimi Code | Fourier级数叠加可视化 | 3 | - |
+| 9月16日 | Kimi Code | Fourier级数叠加可视化 | 21 | - |
+| 9月16日 | Kimi Code | 傅里叶性质章节精简 | 3 | - |
+| 9月19日 | Kimi Code | Fourier/Laplace网页合并 | - | - |
+| 9月19日 | Kimi Code | Fourier可视化3D频谱修改 | - | - |
+| 9月19日 | Kimi Code | Quartz公式渲染排查 | - | - |
+| 9月19日 | Kimi Code | 前端工具链咨询 | - | - |
+| 9月21日 | Kimi Code | 信号变换网页Bug修复 | - | - |
+| 9月21日 | Kimi Code | 知识图谱项目接手 | - | - |
+| 9月21日 | Kimi Code | 知识图谱新想法 | - | - |
+| 9月22日 | Kimi Code | 傅里叶/拉普拉斯可视化网页开发 | - | - |
+| 9月23日 | Kimi Code | 信号变换网页排版修缮 | - | - |
+| 9月24日 | Kimi Code | Quartz换行渲染修复 | - | - |
+| 9月24日 | Kimi Code | 信号变换网页深色风格统一 | - | - |
+| 9月26日 | Kimi Code | Quartz并排图片渲染修复 | - | - |
+| 9月26日 | Kimi Code | 信号变换网页面板布局调整 | - | - |
+| 9月28日 | Kimi Code | 知识库可视化改进 | - | - |
+| 9月29日 | Kimi Code | 知识图谱连线交互改进 | - | - |
 
 > *注：DeepSeek 不显示具体日期，按时间分组标注为大致时间范围。"9月上中旬"指9月8日-9月17日，"9月中下旬"指9月18日-9月21日之间新增的对话。
 
@@ -152,6 +187,14 @@
 | 8月* | DeepSeek | Git spawn ENOENT fix | -  | [打开](https://chat.deepseek.com/a/chat/s/3306242e-46b5-42d2-94ad-6d45f12dabb4) |
 | 8月* | DeepSeek | 噪声四端网络理论讲解 | -  | [打开](https://chat.deepseek.com/a/chat/s/9c86de88-1040-40eb-8ebf-4c6baf90bb8a) |
 | 8月* | DeepSeek | 双源噪声模型探讨 | -  | [打开](https://chat.deepseek.com/a/chat/s/4ed8ebe1-d6e5-4a57-aac0-2a5d0599be53) |
+| 8月5日 | Kimi Code | .gitignore编写 | - | - |
+| 8月6日 | Kimi Code | 电梯纠纷代理方案撰写 | - | - |
+| 8月9日 | Kimi Code | 信号与系统笔记编辑 | - | - |
+| 8月12日 | Kimi Code | Study笔记重新分类归档 | - | - |
+| 8月12日 | Kimi Code | FaceAngle Lab项目启动 | - | - |
+| 8月15日 | Kimi Code | FaceAngle Lab V2.2开发 | 6 | - |
+| 8月16日 | Kimi Code | FaceAngle Lab V2.2调试 | 1 | - |
+| 8月20日 | Kimi Code | Obsidian Git分支工作流 | - | - |
 
 > *注：DeepSeek 2026-08 分组仅精确到月份，具体日期需在平台内查看。
 
@@ -215,6 +258,15 @@
 | 7月* | DeepSeek | 时序电路记忆功能理解 | -  | [打开](https://chat.deepseek.com/a/chat/s/10a3e19e-f0a5-40c9-9fe8-cf4a30d15d2b) |
 | 7月* | DeepSeek | 摩尔型状态图输入疑问 | -  | [打开](https://chat.deepseek.com/a/chat/s/4dec09b6-2a99-412b-ad36-2a84814d39ef) |
 | 7月* | DeepSeek | 傅里叶级数形式转换与差异 | -  | [打开](https://chat.deepseek.com/a/chat/s/23c3db84-21df-470e-a753-59ff45307cb1) |
+| 7月1日 | Kimi Code | Fourier可视化代码查看 | - | - |
+| 7月2日 | Kimi Code | Fourier可视化项目查看 | - | - |
+| 7月11日 | Kimi Code | 保研面试自我介绍PPT | - | - |
+| 7月12日 | Kimi Code | Kimi WebBridge配置 | - | - |
+| 7月12日 | Kimi Code | 保研面试材料整理 | - | - |
+| 7月13日 | Kimi Code | 保研面试LaTeX报告 | - | - |
+| 7月22日 | Kimi Code | CTFT/DTFT/DFT工程创建 | - | - |
+| 7月25日 | Kimi Code | Obsidian Quartz Pages部署 | 5 | - |
+| 7月27日 | Kimi Code | 加窗DFT/DTFT包络线问题 | - | - |
 
 > *注：DeepSeek 2026-07 分组仅精确到月份，具体日期需在平台内查看。
 
