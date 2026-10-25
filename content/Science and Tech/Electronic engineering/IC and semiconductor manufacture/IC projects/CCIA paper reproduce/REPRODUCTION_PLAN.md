@@ -1,6 +1,6 @@
 # Input-Boosted CCIA — Shared Reproduction Plan
 
-Last updated: 2026-10-24
+Last updated: 2026-10-25
 
 ## Scope
 
@@ -62,19 +62,25 @@ Last updated: 2026-10-24
 | 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Check operating points and node voltages, not just run completion.                                                                                                                                              |
 
 ## 4. Verify the input-boosted first stage
+### 4.1 Theory preparation
 
 | ID | Task | Completion check | Status | Evidence / notes |
 |---|---|---|:---:|---|
-| 4.1 | Study and annotate Fig. 4 | Explain input devices, tail devices, capacitors, and bias loops | ❌ | |
-| 4.2 | Characterize candidate MOS devices | Check current and gm/Id near intended operating points | ❌ | Record device type, W/L, body connections, and model corner. |
-| 4.3 | Build the first-stage core | Correct connectivity with controlled bias sources for initial tests | ❌ | In progress: core and coupling network visually reviewed on 2026-10-24. Bias paths, body wiring, electrical checks, and testbench remain pending. |
-| 4.3a | Create the first-stage schematic view | Correct library/cell/view opens | ✅ | Verified title: ccia_lib / input_boosted_stage1 / schematic. |
-| 4.3b | Place the eight core MOSFETs | Check names, models, dimensions, and branch arrangement | ✅ | User screenshot inspected: MP2P, MP1P, MN1P, MN2P on left; MP2N, MP1N, MN1N, MN2N on right. p18/n18; W = 10u throughout; input L = 400n, tail L = 10u; m = 1. Right column mirrored. |
-| 4.3c | Wire the core branches and supplies | Verify connections and VDD/VSS, VON/VOP, SP_P/SP_N, SN_P/SN_N labels | ❌ | Branches, rails and VON/VOP visually checked on 2026-10-24. Internal source-net labels and electrical connectivity audit remain pending; retain this parent task as incomplete. |
-| 4.3d | Add coupling, bias elements, body wiring, and pins | Complete and check Fig. 4(a) connectivity | ❌ | Four Cg and four Cs plus input/output pins visually checked; see 4.3e. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions. |
-| 4.3e | Place and wire the coupling network and signal pins | Visually trace VIP/VIN, Cg/Cs, and VON/VOP | ✅ | Screenshot reviewed 2026-10-24: VIP to left gates/right sources; VIN to right gates/left sources; Cg 3.5pF, Cs 20pF. Pin directions and netlist verification are separate pending checks. |
-| 4.3f | Audit connectivity and supply interfaces | Highlight VIP/VIN/VON/VOP; verify crossings, pin directions and actual supply net names | ❌ | Supply symbols are present; decide explicit supply pins for reusable cells. Labels alone do not supply voltage. |
-| 4.3g | Complete MOS body connections | Record each body net and confirm PDK well/device restrictions | ❌ | Do not tie each body to its source without checking paper body-effect assumptions and available devices. |
+| 4.1.1 | Study and annotate Fig. 4 | Explain input devices, tail devices, capacitors, and bias loops | ❌ | |
+| 4.1.2 | Characterize candidate MOS devices | Check current and gm/Id near intended operating points | ❌ | Record device type, W/L, body connections, and model corner. |
+| 4.1.3 | Build the first-stage core | Correct connectivity with controlled bias sources for initial tests | ❌ | In progress: core and coupling network visually reviewed on 2026-10-24. Bias paths, body wiring, electrical checks, and testbench remain pending. |
+| 4.1.3a | Create the first-stage schematic view | Correct library/cell/view opens | ✅ | Verified title: ccia_lib / input_boosted_stage1 / schematic. |
+| 4.1.3b | Place the eight core MOSFETs | Check names, models, dimensions, and branch arrangement | ✅ | User screenshot inspected: MP2P, MP1P, MN1P, MN2P on left; MP2N, MP1N, MN1N, MN2N on right. p18/n18; W = 10u throughout; input L = 400n, tail L = 10u; m = 1. Right column mirrored. |
+| 4.1.3c | Wire the core branches and supplies | Verify connections and VDD/VSS, VON/VOP, SP_P/SP_N, SN_P/SN_N labels | ❌ | Branches, rails and VON/VOP visually checked on 2026-10-24. Internal source-net labels and electrical connectivity audit remain pending; retain this parent task as incomplete. |
+| 4.1.3d | Add coupling, bias elements, body wiring, and pins | Complete and check Fig. 4(a) connectivity | ❌ | Four Cg and four Cs plus input/output pins visually checked; see 4.1.3e. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions. |
+| 4.1.3e | Place and wire the coupling network and signal pins | Visually trace VIP/VIN, Cg/Cs, and VON/VOP | ✅ | Screenshot reviewed 2026-10-24: VIP to left gates/right sources; VIN to right gates/left sources; Cg 3.5pF, Cs 20pF. Pin directions and netlist verification are separate pending checks. |
+| 4.1.3f | Audit connectivity and supply interfaces | Highlight VIP/VIN/VON/VOP; verify crossings, pin directions and actual supply net names | ❌ | Supply symbols are present; decide explicit supply pins for reusable cells. Labels alone do not supply voltage. |
+| 4.1.3g | Complete MOS body connections | Record each body net and confirm PDK well/device restrictions | ❌ | Do not tie each body to its source without checking paper body-effect assumptions and available devices. |
+
+
+### 4.2 Verification(if not meet the standard , return 4.1)
+| ID | Task | Completion check | Status | Evidence / notes |
+|---|---|---|:---:|---|
 | 4.4 | Verify DC operating point | Check branch currents, device voltages, and output headroom | ❌ | |
 | 4.5 | Test gate and source coupling separately | Verify gain, polarity, and useful frequency ranges | ❌ | Maintain consistent loading and bias. |
 | 4.6 | Test both coupling paths together | Demonstrate input boosting under matched conditions | ❌ | Compare with separate-path results. |
@@ -219,12 +225,18 @@ Central PDK kit:
 PDK device library:
 /home/userhush/Program/eda/cadence/pdks/pdks_after_extraction/SMIC_018_MMRF/smic18mmrf
 
-New reproduction project:
-/home/userhush/Projects/IC_Projects/CCIA
-Design library: ccia_lib (attached to smic18mmrf)
-Cell/view: input_boosted_stage1/schematic
-Configuration backup: cds.lib.before_library_creation
-
+New reproduction project:
+
+/home/userhush/Projects/IC_Projects/CCIA
+
+Design library: ccia_lib (attached to smic18mmrf)
+
+Cell/view: input_boosted_stage1/schematic
+
+Configuration backup: cds.lib.before_library_creation
+
+
+
 Existing practice project — preserve:
 /home/userhush/Projects/IC_Projects/Analog_IC_learning_project_2
 ```
@@ -246,7 +258,9 @@ Existing practice project — preserve:
 | 2026-10-20 | Created the shared plan from the agreed scope and existing conversation. No new circuit tasks marked complete. | Assistant; environment completion based on user handover. |
 
 | 2026-10-21 | Reviewed user notes: marked 3.1 complete as user-reported; retained 3.2 as incomplete with partial progress recorded. Updated project path and flexible-order guidance. | Assistant reviewed this Markdown file; no direct VM verification. |
-
-| 2026-10-21 | End-of-session update: verified Computer Use, project/library setup and technology attachment; created first-stage schematic and placed eight sized MOSFETs. User reports saving. Wiring is not yet verified; resume from saved schematic inspection. | Assistant checked live VM screens and user-supplied screenshot; no simulation results. |
+
+
+| 2026-10-21 | End-of-session update: verified Computer Use, project/library setup and technology attachment; created first-stage schematic and placed eight sized MOSFETs. User reports saving. Wiring is not yet verified; resume from saved schematic inspection. | Assistant checked live VM screens and user-supplied screenshot; no simulation results. |
+
 
 | 2026-10-24 | Visually reviewed core rails, outputs, eight coupling capacitors and input routing. Confirmed 0.6V and Table I design basis; added calculation, device characterization, bias sizing, pseudo-resistor design and staged integration work packages. Electrical audit and simulation remain pending. | Assistant: supplied schematic screenshot and paper pages 5/7 reviewed; no simulation evidence. |
