@@ -3,7 +3,7 @@
 ![[Pasted image 20250103202852.png]]
 # 1 电路的基本规律
 ## 1.2 电流、电压、功率能量
-1. 关联参考方向和非关联参考方向定义：![[HEIF Image 1.heic]]
+1. 关联参考方向和非关联参考方向定义：
 
 ## 1.5 电源
 ### 1.5.1 电压源
@@ -94,13 +94,15 @@
 3. 用节点法有很多电压源的题，有的==节点电压==可==直接得出==。
 ## 2.5 齐次定理和叠加定理
 ### 2.5.1 齐次定理
+
 + 定义：对于具有唯一解的线性电路，当只有一个激励源 （独立电压源或独立电流源）作用时，其响应（电路任意处的电压或电流）与激励成正比。
 
 ### 2.5.2 叠加定理
+
 + 定义：对于具有唯一解的线性电路，多个激励源共同作用时引起的响应（电路中各处的电流、电压）等于各个激励源单独作用时（其他激励源置为零）时所引起的响应之和。
 
 ## 2.6 替代定理
-### 2.6.1 替代定理
+
 + 定义：对于具有唯一解的线性或非线性电路，若某支路的电压u或电流i已知，则该支路可用方向和大小与u相同的电压源替代，或用方向和大小与i相同的电流源替代，而不会影响==其它各处==的电流和电压。
 + 例1：课本p83例2.6-1。此题可解释为：改变R支路 R的值（分析R改变不方便），就等效于改变电流源的值（R变➡️  i3变  ➡️  电流源变），等效为电流源后，就可用齐次叠加定理。
 + 例2:
@@ -778,25 +780,32 @@ adds dimension to the mapping equations
 here are several mapping forms bellow 
 expressed by different two-ports equaations
 
-**1. Impedance ($Z$)**
+### **1. Impedance ($Z$)**
 
 Map the current vector to voltage vector
 
 $$ \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix}  = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} \to \begin{bmatrix} Z_{11}[\Omega]&Z_{12}[\Omega]\\ Z_{21}[\Omega]&Z_{22}[\Omega] \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix} = \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix}  $$
 
-**2. Admittance ($Y$)**
+####  Impedance parameter equation considering noise
+
+review [[Basics of circuit analysis#2.5.2 叠加定理]]
+review [[Basics of circuit analysis#2.6 替代定理]]
+
+![[Pasted image 20261025110047.png]]
+
+### **2. Admittance ($Y$)**
 
 Map the voltage vector to current vector
 
 $$ \boxed{ \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} = \begin{bmatrix} Y_{11}[\mathrm S]&Y_{12}[\mathrm S]\\ Y_{21}[\mathrm S]&Y_{22}[\mathrm S] \end{bmatrix} \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix} } $$
 
-**3. Hybrid ($h$)**
+### **3. Hybrid ($h$)**
 
 
 
 $$ \boxed{ \begin{bmatrix} V_1[\mathrm V]\\ I_2[\mathrm A] \end{bmatrix} = \begin{bmatrix} h_{11}[\Omega]&h_{12}[1]\\ h_{21}[1]&h_{22}[\mathrm S] \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ V_2[\mathrm V] \end{bmatrix} } $$
 
-**4. Transmission ($ABCD$)**
+### **4. Transmission ($ABCD$)**
 
 $$ \boxed{ \begin{bmatrix} V_1[\mathrm V]\\ I_1[\mathrm A] \end{bmatrix} = \begin{bmatrix} A[1]&B[\Omega]\\ C[\mathrm S]&D[1] \end{bmatrix} \begin{bmatrix} V_2[\mathrm V]\\ -I_2[\mathrm A] \end{bmatrix} } $$
 

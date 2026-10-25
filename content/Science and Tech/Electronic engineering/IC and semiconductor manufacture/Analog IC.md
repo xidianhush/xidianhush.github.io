@@ -742,9 +742,8 @@ zaoshengpumidu1:![[Pasted image 20260615092641.png]]
 reference link:  https://www.kimi.com/share/1a170f89-c7a2-80ac-8000-000037717c76
 
 先从端口方程组(二端口网络)开始
-回谷[[Basics of circuit analysis#6.1 Equations and Parameters of Two-Port Networks]]
-无噪声的情况我们已经知道
-现在想知道加上内部噪声后
+回顾[[Basics of circuit analysis#Impedance parameter equation considering noise]]
+
 
 
 
