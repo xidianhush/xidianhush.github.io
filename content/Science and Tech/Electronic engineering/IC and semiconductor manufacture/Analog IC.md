@@ -743,8 +743,14 @@ reference link:  https://www.kimi.com/share/1a170f89-c7a2-80ac-8000-000037717c76
 
 先从端口方程组(二端口网络)开始
 回顾[[Basics of circuit analysis#Impedance parameter equation considering noise]]
+从这里我们知道了可以用 输入双源等效 
 
 
+
+也有就用边界条件法了
+$$
+ V_{n, \text { in }}=\frac{V_{\text {out }}(0)}{A_{v}(0)}, \quad I_{n, \text { in }}=\frac{V_{\text {out }}(\infty)}{Z_{\text {in }} A_{v}(\infty)} 
+$$
 
 
 ![[Pasted image 20261025105105.png]]
