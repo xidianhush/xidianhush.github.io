@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-10-29 09:17（北京时间）
+> 最后更新：2026-10-30 09:07（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,7 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月29日* | DeepSeek | 小例子学OS管理 | 11 | [打开](https://chat.deepseek.com/share/sqqewu92xh046hmf52) |
 | 10月28日* | DeepSeek | 波动方程是近似吗 | 2 | [打开](https://chat.deepseek.com/share/oesbgv2becwj3c6040) |
 | 10月28日* | DeepSeek | 电压电流本质探秘 | 3 | [打开](https://chat.deepseek.com/share/nhstf1tfr9iabh0ql1) |
 | 10月28日* | DeepSeek | 电压电流物理本质 | 1 | [打开](https://chat.deepseek.com/share/szyessjdp3udjr31wh) |
