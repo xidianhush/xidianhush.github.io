@@ -123,10 +123,12 @@
 <line x1="351.00" y1="917.00" x2="351.00" y2="955.00" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round"/>
 <polygon points="351.00,917.00 342.54,905.53 336.80,915.73" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="0" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="351.00" y1="815.00" x2="351.00" y2="780.00" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round"/>
-<line x1="351.00" y1="780.00" x2="431.00" y2="780.00" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round"/>
-<polyline points="431.00,780.00 445.06,780.00 452.71,790.00 460.35,770.00 468.00,790.00 475.65,770.00 483.29,790.00 490.94,780.00 505.00,780.00" fill="none" stroke="#1b1b1b" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="468.00" y="762.00" font-family="'Times New Roman','Microsoft YaHei',serif" font-size="18" fill="#1b1b1b" font-weight="normal" text-anchor="middle"><tspan dy="0.00" font-size="18.00" font-style="italic">R</tspan><tspan dy="4.32" font-size="11.52" font-style="italic">C</tspan></text>
-<line x1="505.00" y1="780.00" x2="635.00" y2="780.00" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="351.00" y1="780.00" x2="635.00" y2="780.00" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round"/>
+<polyline points="520.00,720.00 520.00,731.40 530.00,737.60 510.00,743.80 520.00,750.00 510.00,756.20 530.00,762.40 520.00,768.60 520.00,780.00" fill="none" stroke="#1b1b1b" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="490.00" y1="720.00" x2="550.00" y2="720.00" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round"/>
+<text x="558.00" y="736.00" font-family="'Times New Roman','Microsoft YaHei',serif" font-size="15" fill="#556070" font-weight="normal" text-anchor="start"><tspan dy="0.00" font-size="15.00" font-style="italic">V</tspan><tspan dy="3.60" font-size="9.60" font-style="normal">CC</tspan></text>
+<text x="558.00" y="757.00" font-family="'Times New Roman','Microsoft YaHei',serif" font-size="11.5" fill="#9aa3ad" font-weight="normal" text-anchor="start"><tspan dy="0.00" font-size="11.5" font-style="normal">（交流地）</tspan></text>
+<text x="498.00" y="752.00" font-family="'Times New Roman','Microsoft YaHei',serif" font-size="18" fill="#1b1b1b" font-weight="normal" text-anchor="end"><tspan dy="0.00" font-size="18.00" font-style="italic">R</tspan><tspan dy="4.32" font-size="11.52" font-style="italic">C</tspan></text>
 <line x1="351.00" y1="955.00" x2="351.00" y2="970.00" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round"/>
 <polyline points="351.00,970.00 351.00,979.50 361.00,984.67 341.00,989.83 361.00,995.00 341.00,1000.17 361.00,1005.33 351.00,1010.50 351.00,1020.00" fill="none" stroke="#1b1b1b" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
 <text x="369.00" y="1002.00" font-family="'Times New Roman','Microsoft YaHei',serif" font-size="18" fill="#1b1b1b" font-weight="normal" text-anchor="start"><tspan dy="0.00" font-size="18.00" font-style="italic">R</tspan><tspan dy="4.32" font-size="11.52" font-style="italic">E</tspan></text>
