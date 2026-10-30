@@ -768,7 +768,11 @@ before we learn that one port circuit
 it will be a link later here
 one port equation it self include infinity situation 
 one port equation add a outside motivation
-becomes ystem of equations
+becomes system of equations
+and the state of one port equation can only be confirmed.
+
+so as two ports circuits
+
 
 the two-ports network equation
 actualy derived from the mapping concept 
