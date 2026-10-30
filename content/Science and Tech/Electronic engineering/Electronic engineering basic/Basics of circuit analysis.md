@@ -110,7 +110,24 @@
 
 + 例3:
 ![[20期中t11.pdf]]
-## 2.7 等效电源定理
+## 2.7 The theorem of equivalent power supply
+
+### 2.7.1 The theorem 
+
+#### Davidnan's theorem
+
+Any linear one-port circuit N,
+Its role in external circuit
+can be equivalent with a series combination of a voltage source and resistance.
+
+The voltage $U_{OC}$ of the voltage source is equal to 
+the open-circuit voltage of a port circuit at the port;
+
+The resistance $R0$ is equal to  
+the equivalent resistance seen from the port
+under which condition that all independent sources in a port circuit are set to zero 
+
+### Some examples
 1. 断路法：求$u_{oc}$。
 + 例：
 ![[电路分析作业册2p9t5.pdf]]
