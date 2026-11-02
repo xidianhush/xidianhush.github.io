@@ -1,13 +1,22 @@
 # 部分学习记录
-> 最后更新：2026-10-30 09:07（北京时间）
+> 最后更新：2026-11-02 09:07（北京时间）
 ---
 
 ## 一、按日期汇总
+
+### 2026年11月
+
+| 日期 | 平台 | 对话标题 | 组数 | 链接 |
+|------|------|----------|------|------|
+| 11月2日* | DeepSeek | 小信号模型电阻接地原理 | 1 | [打开](https://chat.deepseek.com/share/hihfjx5safzkfozktc) |
+| 11月1日* | DeepSeek | AI重组与真创造 | 4 | [打开](https://chat.deepseek.com/share/wcd9bdcitjpnx2hveh) |
 
 ### 2026年10月
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 10月下旬* | DeepSeek | 电子与磁子对称性 | 1 | [打开](https://chat.deepseek.com/share/d0v9b2uxdo06pqs3z7) |
+| 10月下旬* | DeepSeek | 变压器等效阻抗证明 | 2 | [打开](https://chat.deepseek.com/share/kcy583o0fixlpuyzha) |
 | 10月29日* | DeepSeek | 小例子学OS管理 | 11 | [打开](https://chat.deepseek.com/share/sqqewu92xh046hmf52) |
 | 10月28日* | DeepSeek | 波动方程是近似吗 | 2 | [打开](https://chat.deepseek.com/share/oesbgv2becwj3c6040) |
 | 10月28日* | DeepSeek | 电压电流本质探秘 | 3 | [打开](https://chat.deepseek.com/share/nhstf1tfr9iabh0ql1) |
