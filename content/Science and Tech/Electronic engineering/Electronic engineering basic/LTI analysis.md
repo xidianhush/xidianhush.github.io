@@ -51,6 +51,12 @@
 ## 系统
 ### 线性系统
 
+if all the componets in this system
+The constraint relations of their physical quantities are homogeneous linear relations.
+It also means that 
+their physical quantities combinatnion vary in linear subspace[[Linear Algebra#线性子空间定义]]
+this system is a linear system
+
 系统的激励 $f(\cdot)$ 与响应 $y(\cdot)$ 之间的关系可简记为  
 $$
 y(\cdot) = T[f(\cdot)] \tag{1.6 - 1}
@@ -61,6 +67,8 @@ $$
 T[\alpha_1 f_1(\cdot) + \alpha_2 f_2(\cdot)] = \alpha_1 T[f_1(\cdot)] + \alpha_2 T[f_2(\cdot)] \tag{1.6 - 4}
 $$  
 #### 线性系统叠加定理
+
+prove： https://chat.deepseek.com/share/5lwzu8z5ubu3c1x8ke
 
 
 
