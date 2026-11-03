@@ -68,7 +68,7 @@
 
 ## 线性电路的定义
 
-元器件变成电路元件
+Linear component具象成linear electronic components
 ## 2.2 b法和支路法
 ### 2.2.2注意点
 1. 以参考电流和参考电压方向为基准列方程组。 <mark style="background: #FFB86CA6;">注意符号，正负，要对应！！！</mark>（易错：==作业册3p7t4）==
