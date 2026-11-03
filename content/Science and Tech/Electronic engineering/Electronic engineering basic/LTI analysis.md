@@ -1,6 +1,10 @@
 
 # Overview of Signals and Systems
-## Let's have a serious discussion about what to use to represent signals
+
+
+## 信号
+
+### Let's have a serious discussion about what to use to represent signals
 
 我们用数学公式去吧不太平物理量的信号抽象出来
 写成数学表达式
@@ -28,8 +32,6 @@
 理解用空间中的向量求表示一段信号
 用矩阵(空间变换)去理解输入信号如何到输出信号
 会很爽
-
-## 信号
 ### 连续信号和离散信号
 + 连续信号
 + 离散信号(注意不止哟普0和1，只有0和1的是数字信号)
@@ -46,14 +48,8 @@
 
 
 
-## 基本信号
-### 阶跃信号
-
-### 冲击函数
-
-## 信号的运算
-## 信号的特性和分析方法
-### 线性
+## 系统
+### 线性系统
 
 系统的激励 $f(\cdot)$ 与响应 $y(\cdot)$ 之间的关系可简记为  
 $$
@@ -64,9 +60,9 @@ $$
 $$
 T[\alpha_1 f_1(\cdot) + \alpha_2 f_2(\cdot)] = \alpha_1 T[f_1(\cdot)] + \alpha_2 T[f_2(\cdot)] \tag{1.6 - 4}
 $$  
-### 时不变性
+#### 线性系统叠加定理
 
-<mark style="background: #BBFABBA6;">如果系统的参数都是常数</mark>，他们不随时间变化，则称该系统为<mark style="background: #BBFABBA6;">时不变系统</mark>。
+
 
 # 分解信号
 
