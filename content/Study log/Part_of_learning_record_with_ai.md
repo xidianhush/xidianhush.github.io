@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-02 09:07（北京时间）
+> 最后更新：2026-11-03 09:17（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -104,19 +104,19 @@
 | 9月中下旬* | DeepSeek | 拉普拉斯判断系统收敛性 | -  | [打开](https://chat.deepseek.com/share/t2ptssq06nv34j1ovx) |
 | 9月中下旬* | DeepSeek | 手写公式推导 | -  | [打开](https://chat.deepseek.com/share/q9ancukp4obmj7rlt6) |
 | 9月中下旬* | DeepSeek | 拉普拉斯变换收敛域示例 | -  | [打开](https://chat.deepseek.com/share/eo2mzetl1my3i5effv) |
-| 9月上中旬* | DeepSeek | 拉普拉斯变换基信号叠加 | -  | [打开](https://chat.deepseek.com/a/chat/s/c1521237-58da-4877-b9f0-ecf0307f425d) |
-| 9月上中旬* | DeepSeek | 绝对收敛与条件收敛 | -  | [打开](https://chat.deepseek.com/a/chat/s/f0ed0f7b-8062-41e3-bbf3-7bba3b0eba78) |
-| 9月上中旬* | DeepSeek | 复指数谐波可视化 | -  | [打开](https://chat.deepseek.com/a/chat/s/4bacd4ce-38f2-4b3e-bf15-4b538cb64d0e) |
-| 9月上中旬* | DeepSeek | 手稿傅里叶推导分析 | -  | [打开](https://chat.deepseek.com/a/chat/s/a718ac90-3b50-4a16-bd0f-52c1aa102b2f) |
-| 9月上中旬* | DeepSeek | 指数信号拉普拉斯变换 | -  | [打开](https://chat.deepseek.com/a/chat/s/32c62b82-4565-4ff4-8a59-287f8f5f070f) |
-| 9月上中旬* | DeepSeek | 拉扎维频率响应变换讨论 | -  | [打开](https://chat.deepseek.com/a/chat/s/7093f088-7352-4af3-acb9-dccdc9f3aa29) |
-| 9月上中旬* | DeepSeek | 单边拉普拉斯收敛域非矩形 | -  | [打开](https://chat.deepseek.com/a/chat/s/13584849-50a1-469f-afe5-3640f3b211ff) |
-| 9月上中旬* | DeepSeek | 信号系统讨论 | -  | [打开](https://chat.deepseek.com/a/chat/s/4a4aa909-0abb-419c-9f80-88ad39986fb3) |
-| 9月上中旬* | DeepSeek | 双边与单边拉氏变换 | -  | [打开](https://chat.deepseek.com/a/chat/s/4c992d42-1f5a-4400-a657-7b63e0d6b28e) |
-| 9月上中旬* | DeepSeek | 拉普拉斯变换公式解释 | -  | [打开](https://chat.deepseek.com/a/chat/s/c3193d67-d637-4230-982f-e887af2dc785) |
-| 9月上中旬* | DeepSeek | PMOS小信号符号纠正 | -  | [打开](https://chat.deepseek.com/a/chat/s/fe791649-2feb-4d88-9ad7-54fc9a84afed) |
-| 9月上中旬* | DeepSeek | 强反型弱反型公式对比 | -  | [打开](https://chat.deepseek.com/a/chat/s/4166a18f-78d1-4ebc-b531-bd102b7b9077) |
-| 9月7日 | DeepSeek | 单边双边变换对比 | -  | [打开](https://chat.deepseek.com/a/chat/s/05e42608-89b8-42e9-9a44-59fdc26c9245) |
+| 9月上中旬* | DeepSeek | 拉普拉斯变换基信号叠加 | 15 | [打开](https://chat.deepseek.com/share/jchddab0d73kfxfnfs) |
+| 9月上中旬* | DeepSeek | 绝对收敛与条件收敛 | 3 | [打开](https://chat.deepseek.com/share/w35f7egrsj75zq1ky3) |
+| 9月上中旬* | DeepSeek | 复指数谐波可视化 | 1 | [打开](https://chat.deepseek.com/share/znlvqqkg6ngidlkkiv) |
+| 9月上中旬* | DeepSeek | 手稿傅里叶推导分析 | 8 | [打开](https://chat.deepseek.com/share/e9v5v901zpbklnou5q) |
+| 9月上中旬* | DeepSeek | 指数信号拉普拉斯变换 | 1 | [打开](https://chat.deepseek.com/share/1kvyy7l1sa439okuah) |
+| 9月上中旬* | DeepSeek | 拉扎维频率响应变换讨论 | 3 | [打开](https://chat.deepseek.com/share/6w8ud0isorki4nkr46) |
+| 9月上中旬* | DeepSeek | 单边拉普拉斯收敛域非矩形 | 1 | [打开](https://chat.deepseek.com/share/m3l4lqmesy3kschudw) |
+| 9月上中旬* | DeepSeek | 信号系统讨论 | 1 | [打开](https://chat.deepseek.com/share/orlvb6ijuuw54pd6du) |
+| 9月上中旬* | DeepSeek | 双边与单边拉氏变换 | 1 | [打开](https://chat.deepseek.com/share/x7v1le16eeghd6ud1o) |
+| 9月上中旬* | DeepSeek | 拉普拉斯变换公式解释 | 2 | [打开](https://chat.deepseek.com/share/phnqzbyfrvc6w9im2a) |
+| 9月上中旬* | DeepSeek | PMOS小信号符号纠正 | 3 | [打开](https://chat.deepseek.com/share/dgzvd9agk2o2kab81k) |
+| 9月上中旬* | DeepSeek | 强反型弱反型公式对比 | 1 | [打开](https://chat.deepseek.com/share/st4xrgifwo737nm62j) |
+| 9月7日 | DeepSeek | 单边双边变换对比 | 5 | [打开](https://chat.deepseek.com/share/ic9ve793nrslsw0at2) |
 | 9月5日 | Kimi | 单边拉普拉斯与上电 | -  | [打开](https://www.kimi.com/chat/1a019e25-6832-85d4-8000-09d5607e2884) |
 | 9月5日 | Kimi | 人脸投影与二维感知 | -  | [打开](https://www.kimi.com/chat/19ff3d6d-7fd2-86a2-8000-09d5ee70ae3c) |
 | 9月4日 | Kimi | 熵图与语义解释 | -  | [打开](https://www.kimi.com/chat/1a064d1e-45d2-8003-8000-09d50d633046) |
