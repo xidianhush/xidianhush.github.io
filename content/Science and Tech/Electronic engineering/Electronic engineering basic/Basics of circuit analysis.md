@@ -101,7 +101,12 @@ Linear component具象成linear electronic components
 
 + 定义：对于具有唯一解的线性电路，当只有一个激励源 （独立电压源或独立电流源）作用时，其响应（电路任意处的电压或电流）与激励成正比。
 
-### 2.5.2 叠加定理
+### 2.5.2 Superposition Theorem for Linear Circuits (Zero-State Response)
+
+
+把 [[LTI analysis#线性系统叠加定理]]
+中叠加定理的components变成electronic components之后
+就是Superposition Theorem for Linear Circuits with Zero-State Response
 
 + 定义：对于具有唯一解的线性电路，多个激励源共同作用时引起的响应（电路中各处的电流、电压）等于各个激励源单独作用时（其他激励源置为零）时所引起的响应之和。
 
