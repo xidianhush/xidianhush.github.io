@@ -1,12 +1,3 @@
-# 绪论
-## 电子元器件发展史
-### 电子管
-### 晶体管
-#### MOS
-+ MOS管栅极不加电压，MOS管不导通
-![[Pasted image 20250221094938.png]]
-+ MOS管栅极加电压，MOS管导通
-![[Pasted image 20250221095118.png]]
 
 # 4 常用半导体器件原理及其特性
 ## 4.1 半导体物理基础
@@ -415,6 +406,15 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 #### 低频小信号等效模型
 
+Linearization is based on Taylor's formula
+The low-frequency small-signal model is 
+an approximate low-frequency linearized modeling method.
+
+Linearization is based on Taylor's formula.
+[[Calculus#3.3 泰勒公式]]
+
+Linearization process:
+![[1C45A7FC4F379E3E04F9A3DA6DEA187C.png]]
 
 #### 输出特性曲线和转移特性曲线
 ##### 增强型
