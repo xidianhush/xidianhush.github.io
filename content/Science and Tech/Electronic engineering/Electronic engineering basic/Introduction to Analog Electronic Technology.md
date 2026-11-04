@@ -412,6 +412,10 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 
 #### 工作原理
+
+#### 低频小信号等效模型
+
+
 #### 输出特性曲线和转移特性曲线
 ##### 增强型
 ![[576233532797105ed6fbd3126633fc3.jpg]]
@@ -422,9 +426,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 ![[4d8ed0e4e62f63510d6f497ac1e83c2.jpg]]
 
 ![[3109e559896a8aa3952938db2212621.jpg]]
-## 这里不知是什么东西
-先分析直流通路，看卡晶体管==能不能放大==
-再分析交流通路
+
 
 ### 交流信号字母表示规定
 在模电中，以基极电流为例，直流电流分量、交流电流分量、叠加的总电流分量的字母大小写规定如下：
@@ -454,7 +456,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
   $$
   r_{be} = r_{bb'} +r_{bb}= r_{bb'} + (1+\beta) r_e = r_{bb'} + (1+\beta) \frac{U_T}{I_{\text{EQ}}} \approx r_{bb'} + \beta \frac{U_T}{I_{\text{CQ}}}
   $$
-  - $r_e$：发射结交流电阻，$r_e = \frac{U_T}{I_{\text{EQ}}}$。[[模电#电压-电流关系]]
+  - $r_e$：发射结交流电阻，$r_e = \frac{U_T}{I_{\text{EQ}}}$。[[Introduction to Analog Electronic Technology#电压-电流关系]]
 
 + $g_{m}$交流跨导：电压  $u_{\text{be}}$ 对  $i_b$ 的控制作用，也可以选择  $u_{\text{be}}$作为  $i_c$ 的控制信号，得到如图4.6.2(c)所示的压控型模型。压控型模型的控制系统称为交流跨导，记为  $g_m$。有
 
@@ -523,7 +525,7 @@ $$
 
 ##### 2. 输出电阻 $R_o$
 
-求输出电阻时电流分析，与求输入电阻时的方法相同[[模电#3. 输入电阻 $R_i$]]
+求输出电阻时电流分析，与求输入电阻时的方法相同[[Introduction to Analog Electronic Technology#3. 输入电阻 $R_i$]]
 
 根据输出电阻 $R_o$ 的定义，令 $U_s = 0$，$R_L$负载那条线 开路，在输出端加电压 $U_o$，求输出电流 $I_o$（也就氏电路分析，求电源内阻的外加电源法[[Basics of circuit analysis#2.7 等效电源定理]]）：
 

@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-03 09:17（北京时间）
+> 最后更新：2026-11-04 09:04（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,9 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月4日* | DeepSeek | 电磁直觉与磁单极 | 3 | [打开](https://chat.deepseek.com/share/eciy5b99p6v8tjq0fu) |
+| 11月3日* | DeepSeek | 多重积分定义推广 | 4 | [打开](https://chat.deepseek.com/share/sv7c8hbcsy1dybspg4) |
+| 11月3日* | DeepSeek | 无法读取知识库内容 | 1 | [打开](https://chat.deepseek.com/share/luz3yp2ue6inqxge3j) |
 | 11月2日* | DeepSeek | 小信号模型电阻接地原理 | 1 | [打开](https://chat.deepseek.com/share/hihfjx5safzkfozktc) |
 | 11月1日* | DeepSeek | AI重组与真创造 | 4 | [打开](https://chat.deepseek.com/share/wcd9bdcitjpnx2hveh) |
 
@@ -122,10 +125,10 @@
 | 9月4日 | Kimi | 熵图与语义解释 | -  | [打开](https://www.kimi.com/chat/1a064d1e-45d2-8003-8000-09d50d633046) |
 | 9月3日 | Kimi | 概率论古典概型复习 | -  | [打开](https://www.kimi.com/chat/1a05febb-17a2-81e4-8000-09d52e7512fa) |
 | 9月1日 | Kimi | 若当拉普拉斯图傅变 | -  | [打开](https://www.kimi.com/chat/1a05ce40-1bf2-8a8b-8000-09d504810fd7) |
-| 9月1-7日* | DeepSeek | 傅里叶拉普拉斯瞬态响应 | -  | [打开](https://chat.deepseek.com/a/chat/s/06c761f6-79d0-43cd-840e-7e76a8ef19a4) |
-| 9月1-7日* | DeepSeek | 输入性CCIA论文解读4 | -  | [打开](https://chat.deepseek.com/a/chat/s/dd1bba9a-9dbe-497a-8d00-70a9b4b30070) |
-| 8月9日-9月7日* | DeepSeek | 人脸角度绘画辅助工具 | -  | [打开](https://chat.deepseek.com/a/chat/s/ead2348c-4ed1-4fb5-beec-b9f2457b680b) |
-| 8月9日-9月7日* | DeepSeek | 稳定与傅里叶收敛联系 | -  | [打开](https://chat.deepseek.com/a/chat/s/c4b62241-f8a4-453f-9372-7e956a630504) |
+| 9月1-7日* | DeepSeek | 傅里叶拉普拉斯瞬态响应 | 12 | [打开](https://chat.deepseek.com/share/qu1vpi2pa861r5nm3w) |
+| 9月1-7日* | DeepSeek | 输入性CCIA论文解读4 | 9 | [打开](https://chat.deepseek.com/share/4o32kdhskhid0ijf5c) |
+| 8月9日-9月7日* | DeepSeek | 人脸角度绘画辅助工具 | 2 | [打开](https://chat.deepseek.com/share/p4sqbmikf91yd3ls9y) |
+| 8月9日-9月7日* | DeepSeek | 稳定与傅里叶收敛联系 | 7 | [打开](https://chat.deepseek.com/share/2t9fs7gbpu4jg30nll) |
 | 9月2日 | Kimi Code | Obsidian Git SSH同步配置 | 1 | - |
 | 9月4日 | Kimi Code | FaceAngle Lab版本决策 | 45 | - |
 | 9月7日 | Kimi Code | FaceAngle Lab接力开发 | 5 | - |

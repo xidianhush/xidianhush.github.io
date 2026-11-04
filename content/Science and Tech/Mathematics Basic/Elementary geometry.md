@@ -20,4 +20,4 @@ progress: 0%
 <!-- TODO: define <u,v> = ||u|| ||v|| cos(theta) -->
 <!-- TODO: explain projection interpretation -->
 ## 7. Closing remark
-<!-- TODO: write a short transition paragraph explaining that this is one way to study geometry, and that a more powerful algebraic method will be introduced in Analytic Geometry. Link to [[Analytic Geometry]]. -->
+<!-- TODO: write a short transition paragraph explaining that this is one way to study geometry, and that a more powerful algebraic method will be introduced in Analytic Geometry. Link to Analytic Geometry  -->
