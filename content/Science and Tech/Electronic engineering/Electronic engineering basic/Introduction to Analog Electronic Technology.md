@@ -462,9 +462,8 @@ Linearization process:
 
  $$ g_m = \frac{i_{c}}{u_{be}}=\frac{\partial i_c}{\partial u_{\text{be}} \bigg|_Q} = \frac{\partial i_c}{\partial i_B} \cdot \frac{\partial i_B}{\partial u_{\text{be}} \bigg|_Q} = \beta \cdot \frac{1}{r_{\text{be}}} \approx \frac{1}{r_{\text{e}}} $$ 
 
-### 
-## 第四章常见题型分析方法
-+ 判断管子的状态: 假设法 + 分类讨论！
+
+
 # 5 双极型晶体三极管和场效应管放大器
 
 + 现在这里默认是在<mark style="background: #ABF7F7A6;">中低频区</mark>讨论的，所以画直流和交流等效电路图时C1,C2,CE近似为短路。但是由于中低频，扩散电容和势垒电容都可忽略，所<mark style="background: #ABF7F7A6;">等效电路中无新的地方多了通路</mark>。
