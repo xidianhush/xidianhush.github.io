@@ -389,7 +389,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 如果你感兴趣，我还可以讲一下在量子隧穿效应中，电子**即使能量不足也可能通过势垒**，这和耗尽层势垒的经典行为又不一样。是否要展开？
 
-### 4.5.2 绝缘栅场效应管(Metal-Oxide-Semiconductor Field-Effect Transistor, MOSFET)的工作原理、特性、参数
+### 4.5.2 Metal-Oxide-Semiconductor Field-Effect Transistor, MOSFET
 #### 区分增强型和号进行MOSFET
 
 + 增强型：增强型MOSFET天生无导电沟道，需通过施加正向栅源电压（VGS），“增强”沟道内的载流子（电子/空穴）浓度，从而形成导电沟道让电流通过。
@@ -404,7 +404,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 #### 工作原理
 
-#### 低频小信号等效模型
+#### Low-frequency , small-signal , linearized equivalent model
 
 Linearization is based on Taylor's formula
 The low-frequency small-signal model is 
@@ -415,6 +415,8 @@ Linearization is based on Taylor's formula.
 
 Linearization process:
 ![[1C45A7FC4F379E3E04F9A3DA6DEA187C.png]]
+
+
 
 #### 输出特性曲线和转移特性曲线
 ##### 增强型

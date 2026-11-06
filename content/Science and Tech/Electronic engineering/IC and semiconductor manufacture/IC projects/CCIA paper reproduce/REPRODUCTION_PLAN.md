@@ -1,7 +1,8 @@
 # Input-Boosted CCIA — Shared Reproduction Plan
 
 Last updated: 2026-10-25
-
+I want to know what I have done
+And what I will do
 ## Scope
 
 - Reference: *A Highly Power-Efficient Input-Boosted First Stage for Capacitively Coupled Chopper Instrumentation Amplifiers* (JSSC, DOI: 10.1109/JSSC.2025.3564316).
@@ -75,17 +76,21 @@ Last updated: 2026-10-25
 ==I do not know whether this is right?==
 
 problem:
-+ Can i directly apply the size of the transistor in paper , or whether I should determine the size all by myself?
+
+As for the main part of the amplifier
+Can i directly apply the size of the transistor in paper , 
+or whether I should determine the size all by myself?
+
 
 temporary decision
-+ i will use the size in the paper first
+i will use the size in the paper first
 
-| ID | Task | Completion check | Status | Evidence / notes |
-|---|---|---|:---:|---|
-| 4.2.3 | Build the first-stage core | Correct connectivity with controlled bias sources for initial tests | ❌ | In progress: core and coupling network visually reviewed on 2026-10-24. Bias paths, body wiring, electrical checks, and testbench remain pending. |
-| 4.2.3a | Create the first-stage schematic view | Correct library/cell/view opens | ✅ | Verified title: ccia_lib / input_boosted_stage1 / schematic. |
-| 4.2.3b | Place the eight core MOSFETs | Check names, models, dimensions, and branch arrangement | ✅ | User screenshot inspected: MP2P, MP1P, MN1P, MN2P on left; MP2N, MP1N, MN1N, MN2N on right. p18/n18; W = 10u throughout; input L = 400n, tail L = 10u; m = 1. Right column mirrored. |
-| 4.2.3c | Wire the core branches and supplies | Verify connections and VDD/VSS, VON/VOP, SP_P/SP_N, SN_P/SN_N labels | ❌ | Branches, rails and VON/VOP visually checked on 2026-10-24. Internal source-net labels and electrical connectivity audit remain pending; retain this parent task as incomplete. |
+| ID     | Task                                  | Completion check                                                     | Status | Evidence / notes                                                                                                                                                                     |
+| ------ | ------------------------------------- | -------------------------------------------------------------------- | :----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 4.2.3  | Build the first-stage core            | Correct connectivity with controlled bias sources for initial tests  |   ❌    | In progress: core and coupling network visually reviewed on 2026-10-24. Bias paths, body wiring, electrical checks, and testbench remain pending.                                    |
+| 4.2.3a | Create the first-stage schematic view | Correct library/cell/view opens                                      |   ✅    | Verified title: ccia_lib / input_boosted_stage1 / schematic.                                                                                                                         |
+| 4.2.3b | Place the eight core MOSFETs          | Check names, models, dimensions, and branch arrangement              |   ✅    | User screenshot inspected: MP2P, MP1P, MN1P, MN2P on left; MP2N, MP1N, MN1N, MN2N on right. p18/n18; W = 10u throughout; input L = 400n, tail L = 10u; m = 1. Right column mirrored. |
+| 4.2.3c | Wire the core branches and supplies   | Verify connections and VDD/VSS, VON/VOP, SP_P/SP_N, SN_P/SN_N labels |   ❌    | Branches, rails and VON/VOP visually checked on 2026-10-24. Internal source-net labels and electrical connectivity audit remain pending; retain this parent task as incomplete.      |
 
 
 #### 4.2.4 Plot the circuit which the size of which is unknown 
@@ -98,10 +103,14 @@ Before determine the resistance of pseudo-resistors ,
 i shall determine those things in sequence 
 + BW of this amp related to the chopper frequency given 1k - 1.5k in Project plan 
 then
-+ $C_g$ , not know yet 
-+ $C_{gf}$
++ $C_g$ , Only given in the paper
++ $C_{gf}$, Only given in the paper
++ $C_{sf}$, Only given in the paper
 
-Shall I directly use the capacitors in the paper
+if i need to calculate the $C_{gf} , C_{gs}$ my self
+Do not know how to determine them so far
+
+or shall I directly use the capacitors in the paper?
 
 
 link: https://chat.deepseek.com/share/0ma0pkpgnqsqtoceyu
@@ -112,19 +121,19 @@ problems:
 + The paper does not mention the size of bias circuit transistors.
 
 Temporary decision
-+ 
++ not decide yet
 
 
 
-| ID | Task | Completion check | Status | Evidence / notes |
-|---|---|---|:---:|---|
-| 4.2.4 | Plot the circuit which the size of which is unknown | Do not know| ❌ |Do not know |
-| 4.2.4a |Determine the resistance of pseudo-resistors and determine the size of MOSFET in pseudo-resistors | Do not know| ❌ |Do not know |
-| 4.2.4b | Determine the biasing current and voltage, and determine the size of the biasing circuit | Do not know| ❌ |Do not know |
-| 4.2.4c | Add coupling, bias elements, body wiring, and pins | Complete and check Fig. 4(a) connectivity | ❌ | Four Cg and four Cs plus input/output pins visually checked; see 4.1.3e. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions. |
-| 4.2.4d | Place and wire the coupling network and signal pins | Visually trace VIP/VIN, Cg/Cs, and VON/VOP | ✅ | Screenshot reviewed 2026-10-24: VIP to left gates/right sources; VIN to right gates/left sources; Cg 3.5pF, Cs 20pF. Pin directions and netlist verification are separate pending checks. |
-| 4.2.4e | Audit connectivity and supply interfaces | Highlight VIP/VIN/VON/VOP; verify crossings, pin directions and actual supply net names | ❌ | Supply symbols are present; decide explicit supply pins for reusable cells. Labels alone do not supply voltage. |
-| 4.2.4f | Complete MOS body connections | Record each body net and confirm PDK well/device restrictions | ❌ | Do not tie each body to its source without checking paper body-effect assumptions and available devices. |
+| ID     | Task                                                                                              | Completion check                                                                        | Status | Evidence / notes                                                                                                                                                                                   |
+| ------ | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | :----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4.2.4  | Plot the circuit which the size of which is unknown in the paper                                  | Do not know                                                                             |   ❌    | Do not know                                                                                                                                                                                        |
+| 4.2.4a | Determine the resistance of pseudo-resistors and determine the size of MOSFET in pseudo-resistors | Do not know                                                                             |   ❌    | Do not know                                                                                                                                                                                        |
+| 4.2.4b | Determine the biasing current and voltage, and determine the size of the biasing circuit          | Do not know                                                                             |   ❌    | Do not know                                                                                                                                                                                        |
+| 4.2.4c | Add coupling, bias elements, body wiring, and pins                                                | Complete and check Fig. 4(a) connectivity                                               |   ❌    | Four Cg and four Cs plus input/output pins visually checked; see 4.1.3e. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions. |
+| 4.2.4d | Place and wire the coupling network and signal pins                                               | Visually trace VIP/VIN, Cg/Cs, and VON/VOP                                              |   ✅    | Screenshot reviewed 2026-10-24: VIP to left gates/right sources; VIN to right gates/left sources; Cg 3.5pF, Cs 20pF. Pin directions and netlist verification are separate pending checks.          |
+| 4.2.4e | Audit connectivity and supply interfaces                                                          | Highlight VIP/VIN/VON/VOP; verify crossings, pin directions and actual supply net names |   ❌    | Supply symbols are present; decide explicit supply pins for reusable cells. Labels alone do not supply voltage.                                                                                    |
+| 4.2.4f | Complete MOS body connections                                                                     | Record each body net and confirm PDK well/device restrictions                           |   ❌    | Do not tie each body to its source without checking paper body-effect assumptions and available devices.                                                                                           |
 
 
 ### 4.3 Verification(if not meet the standard , return 4.1)
