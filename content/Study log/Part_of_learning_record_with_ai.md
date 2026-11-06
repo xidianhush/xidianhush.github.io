@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-04 09:04（北京时间）
+> 最后更新：2026-11-06 09:03（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,7 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月4日* | DeepSeek | 独立开发高效测试策略 | 4 | [打开](https://chat.deepseek.com/share/8eklmdhv48e911xvym) |
 | 11月4日* | DeepSeek | 电磁直觉与磁单极 | 3 | [打开](https://chat.deepseek.com/share/eciy5b99p6v8tjq0fu) |
 | 11月3日* | DeepSeek | 多重积分定义推广 | 4 | [打开](https://chat.deepseek.com/share/sv7c8hbcsy1dybspg4) |
 | 11月3日* | DeepSeek | 无法读取知识库内容 | 1 | [打开](https://chat.deepseek.com/share/luz3yp2ue6inqxge3j) |
@@ -204,10 +205,10 @@
 | 8月3日 | Kimi | Flutter与Dart开源情况 | -  | [打开](https://www.kimi.com/chat/19fc62bc-fc72-8b60-8000-09d5e54b1743) |
 | 8月1日 | Kimi | 双源模型验证 | -  | [打开](https://www.kimi.com/chat/19fbb125-5bb2-82ae-8000-09d533744d53) |
 | 8月1日 | Kimi | 二端口网络参数详解 | -  | [打开](https://www.kimi.com/chat/19fbd034-1b02-8201-8000-09d57ecedd1f) |
-| 8月* | DeepSeek | VS Code Git红绿含义 | -  | [打开](https://chat.deepseek.com/a/chat/s/e354a6fc-ba7e-41c1-b372-2f58ca069a84) |
-| 8月* | DeepSeek | Git spawn ENOENT fix | -  | [打开](https://chat.deepseek.com/a/chat/s/3306242e-46b5-42d2-94ad-6d45f12dabb4) |
-| 8月* | DeepSeek | 噪声四端网络理论讲解 | -  | [打开](https://chat.deepseek.com/a/chat/s/9c86de88-1040-40eb-8ebf-4c6baf90bb8a) |
-| 8月* | DeepSeek | 双源噪声模型探讨 | -  | [打开](https://chat.deepseek.com/a/chat/s/4ed8ebe1-d6e5-4a57-aac0-2a5d0599be53) |
+| 8月* | DeepSeek | VS Code Git红绿含义 | 1 | [打开](https://chat.deepseek.com/share/p4q4stozl242cl88xn) |
+| 8月* | DeepSeek | Git spawn ENOENT fix | 4 | [打开](https://chat.deepseek.com/share/0jx11suwc8kuwex696) |
+| 8月* | DeepSeek | 噪声四端网络理论讲解 | 1 | [打开](https://chat.deepseek.com/share/2l0jpbht9ubfbzjphe) |
+| 8月* | DeepSeek | 双源噪声模型探讨 | 3 | [打开](https://chat.deepseek.com/share/oo1auf52bosfz6wx6c) |
 | 8月5日 | Kimi Code | .gitignore编写 | - | - |
 | 8月6日 | Kimi Code | 电梯纠纷代理方案撰写 | - | - |
 | 8月9日 | Kimi Code | 信号与系统笔记编辑 | - | - |
