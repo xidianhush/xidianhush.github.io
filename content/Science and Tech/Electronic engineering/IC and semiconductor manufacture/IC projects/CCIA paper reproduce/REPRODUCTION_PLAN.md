@@ -75,7 +75,10 @@ Last updated: 2026-10-25
 ==I do not know whether this is right?==
 
 problem:
-+ Or whether I should determine the size all by myself
++ Can i directly apply the size of the transistor in paper , or whether I should determine the size all by myself?
+
+temporary decision
++ i will use the size in the paper first
 
 | ID | Task | Completion check | Status | Evidence / notes |
 |---|---|---|:---:|---|
@@ -89,12 +92,29 @@ problem:
 
 ##### Determine the resistance of pseudo resistor
 
+problems
+
+Before determine the resistance of pseudo-resistors , 
+i shall determine those things in sequence 
++ BW of this amp related to the chopper frequency given 1k - 1.5k in Project plan 
+then
++ $C_g$ , not know yet 
++ $C_{gf}$
+
+Shall I directly use the capacitors in the paper
+
+
 link: https://chat.deepseek.com/share/0ma0pkpgnqsqtoceyu
 
 ##### Determine the size of MOSFET of the biasing circuit
 
 problems:
-+ Should I directly use the biasing voltage and current of the paper ? Determine by myself?
++ The paper does not mention the size of bias circuit transistors.
+
+Temporary decision
++ 
+
+
 
 | ID | Task | Completion check | Status | Evidence / notes |
 |---|---|---|:---:|---|
