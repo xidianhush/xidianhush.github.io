@@ -139,18 +139,18 @@ $I_{\text{Z}}$应大于$I_{\text{Zmin}}$，
 就可保证稳压二极管$\text{VD}_{\text{Z}}$两端的电压仍然是稳定电压$U_{\text{Z}}$ 。
 
 
-## 4.4 双极型晶体三级管(Bipolar Junction Transistor, BJT)
-### 4.4.1 双极型晶体管的构成和组态
+## Bipolar Junction Transistor
+### Composition and configuration
 
 #### 结构和符号
 
 
 ![[Pasted image 20250304113904.png]]
 + 在以PNP三极管为例![[Pasted image 20250306093446.png]]
-#### 晶体管的三种组态 
+#### Three configurations
 + 如图所示，这里的输入输出可以是u，也可以是i。![[Pasted image 20250316102828.png]]
 
-### 4.4.2 双极型晶体管工作原理
+### Working Principle
 #### 三极管放大的原理(以共射极为例)
 
 关键：
@@ -200,11 +200,30 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 		+ 如果$U_{BE}<U_{CE}$，即集电结反偏，此时是==放大==(集电区有能力收集电子)
 
 
-## 4.5 场效应管
-### 4.5.1 结型场效应管(Junction Field-Effect Transistor, JFET)工作原理、特性、参数
-#### 构造和符号
+
+
+### Low-frequency , small-signal , linearized equivalent model
+#### 不计入基区体电阻的影响
+#### 记入基区体电阻 $r_{bb'}$的影响
+![[3ecb5c391702cf597d4bb8966fbd330.jpg]]
+
+
+- **修正输入电阻 $r_{be}$**：![[0148dbd46d50798cf1ee6c2ad1da0ee.jpg|275]]
+  $$
+  r_{be} = r_{bb'} +r_{bb}= r_{bb'} + (1+\beta) r_e = r_{bb'} + (1+\beta) \frac{U_T}{I_{\text{EQ}}} \approx r_{bb'} + \beta \frac{U_T}{I_{\text{CQ}}}
+  $$
+  - $r_e$：发射结交流电阻，$r_e = \frac{U_T}{I_{\text{EQ}}}$。[[Introduction to Analog Electronic Technology#电压-电流关系]]
+
++ $g_{m}$交流跨导：电压  $u_{\text{be}}$ 对  $i_b$ 的控制作用，也可以选择  $u_{\text{be}}$作为  $i_c$ 的控制信号，得到如图4.6.2(c)所示的压控型模型。压控型模型的控制系统称为交流跨导，记为  $g_m$。有
+
+ $$ g_m = \frac{i_{c}}{u_{be}}=\frac{\partial i_c}{\partial u_{\text{be}} \bigg|_Q} = \frac{\partial i_c}{\partial i_B} \cdot \frac{\partial i_B}{\partial u_{\text{be}} \bigg|_Q} = \beta \cdot \frac{1}{r_{\text{be}}} \approx \frac{1}{r_{\text{e}}} $$ 
+
+
+
+## Junction Field-Effect Transistor, JFET
+### 构造和符号
 + 构造和符号：![[868cd2a13daa68e16d86cb5d1c905d8.jpg]]
-#### 工作原理
+### 工作原理
 + 工作原理：  以$N$沟道JFET为例，如图4.5.2(a)所示。
 	当漏极和源极之间加上漏源电压$U_{\text{DS}}$时，
 	$N$型导电沟道中形成自上而下的电场
@@ -216,7 +235,7 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 	所以$U_{\text{GS}}$的改变可以控制$I_{\text{D}}$。
     
 + 工作原理图解：![[81c8c125d2407ae8342031f73832956.jpg]]
-##### 引发的问题
+#### 引发的问题
 
 这个我明白了，但是为什么对于n沟道JFET，在沟道夹断时电阻最大？为什么由于两个反偏的PN结都变厚，因此导电沟道变窄，沟道电阻变大？夹断时沟道里面不全是空间电荷区了嘛，只是沟道里面的电阻不应该很小吗？为什么电子流不过去？
 
@@ -224,7 +243,7 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 
 ---
 
-###### 🔷 一、n沟道 JFET 的结构和导电原理回顾
+##### 🔷 一、n沟道 JFET 的结构和导电原理回顾
 
 结构（从上往下看）：
 
@@ -237,7 +256,7 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 
 ---
 
-###### 🔷 二、栅压逐渐变负时的物理过程
+##### 🔷 二、栅压逐渐变负时的物理过程
 
 |栅压变化|空间电荷区|沟道宽度|电流变化|
 |---|---|---|---|
@@ -247,9 +266,9 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 
 ---
 
-###### 🔷 三、关键问题回答
+##### 🔷 三、关键问题回答
 
-###### ❓“夹断时沟道里不是全是空间电荷区了吗？为什么电阻最大，电子还流不过去？”
+##### ❓“夹断时沟道里不是全是空间电荷区了吗？为什么电阻最大，电子还流不过去？”
 
 你的理解有一个核心误区：**把空间电荷区等同于低电阻区**，其实正相反，空间电荷区是：
 
@@ -257,7 +276,7 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 
 ---
 
-###### 📌 所以要记住的物理实质：
+##### 📌 所以要记住的物理实质：
 
 > **空间电荷区 ≠ 导电区**，空间电荷区可以理解为一个具有能量屏障的“准绝缘区”，在没有外加能量时阻止电流流通，但在一定条件下可以让载流子通过。不是“容易导电”的地方。
 
@@ -272,7 +291,7 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 
 ---
 
-###### 🔷 四、图像理解（可以脑补）
+##### 🔷 四、图像理解（可以脑补）
 ![[Pasted image 20250603114559.png]]
 ![[7a6a8f22bed17461e3b4fa75731cfe6.jpg]]
 想象一下：
@@ -286,7 +305,7 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 
 ---
 
-###### ✅ 总结要点
+##### ✅ 总结要点
 
 1. **空间电荷区是绝缘的，不导电**，即使它在“沟道中”，也不意味着沟道能导电；
     
@@ -299,14 +318,14 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 
 ---
 
-如果你需要，我可以帮你画一张示意图（沟道+耗尽层随栅压变化的图）来可视化这个过程。是否需要图解？
 
-#### 输出特性曲线和转移特性曲线
-##### 曲线(转移特性是在恒流区画的)
+
+### 输出特性曲线和转移特性曲线
+#### 曲线(转移特性是在恒流区画的)
 ![[f8d4edc516d79c083a91d891df9602f.jpg]]
 
 ![[0354bc6ec1f2e12a8e6349079bd2458.jpg]]
-##### 恒流区解释  
+#### 恒流区解释  
 
 ==当 $|u_{\text{GS}}| < |U_{\text{GS(off)}}|$，同时 $|u_{\text{DG}}| = |u_{\text{DS}} - u_{\text{GS}}| > |U_{\text{GS(off)}}|$ 时==
 工作点位于恒流区内。
@@ -325,19 +344,19 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 2. <mark style="background: #BBFABBA6;">导电沟道的长度减小，其电阻也减小</mark>：涉及到半导体物理中迁移率和电阻率的概念。由于迁移率没有改变，所以沟道长度减小，古岛的电阻就减小
 
 
-##### 可变电阻区解释 
+#### 可变电阻区解释 
 当 $|u_{\text{GS}}| < |U_{\text{GS(off)}}|$ 而 $|u_{\text{DG}}| < |U_{\text{GS(off)}}|$ 时，工作点进入可变电阻区。
 因为此时没有产生预夹断，所以 $u_{\text{DS}}$ 的变化直接影响导电沟道中的电场强度，
 从而明显改变 $i_{\text{D}}$ 的大小。
 关系曲线的斜率随着 $|u_{\text{GS}}|$ 的增大而减小，交流输出电阻 $r_{\text{DS}} = \Delta u_{\text{DS}} / \Delta i_{\text{D}}$ 则变大，说明 $u_{\text{GS}}$ 的变化可以改变 $r_{\text{DS}}$ 的数值，所以此区域称为可变电阻区。  
 
-##### 恒流区和可变电阻区的区别
+#### 恒流区和可变电阻区的区别
 
 区别：是否有预夹断。
 + 恒流区有预夹断，电压就算变化，也大部分加在空间电荷区上，没有加在导电沟道上，所以导电沟道的电流就不怎么变。沟道变短的时候也就四点六也就稍微变大而已。
 + 可变电阻区没有预夹断，电压全部加在导电沟道上。电压便，电流就变，交流电阻也变。这就叫可变电阻区。
 
-#####  引发的问题：
+####  引发的问题：
 就是说在PN结中，在耗尽层因为有势垒，所以会对电子运动有阻碍。但是它不会想电阻一样，把电子的动能转化为热能耗散掉。是这样吗？
 
 完全正确！你理解得非常到位！
@@ -346,7 +365,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 ---
 
-###### ✅ **耗尽层的势垒 ≠ 电阻的能量损耗**
+##### ✅ **耗尽层的势垒 ≠ 电阻的能量损耗**
 
 |项目|耗尽层|电阻（导体）|
 |---|---|---|
@@ -357,7 +376,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 ---
 
-###### 🔋 类比来理解：
+##### 🔋 类比来理解：
 
 - 耗尽层就像一堵墙，**阻止电子进入**，电子不会撞墙后掉能量变热，而是“被反弹”或停下来；
     
@@ -366,7 +385,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 ---
 
-###### 📌 实际中是否会发热？
+##### 📌 实际中是否会发热？
 
 当PN结被**正向偏置**并有大量载流子注入时，确实有电流流过，这时：
 
@@ -379,7 +398,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 ---
 
-###### 🔚 总结
+##### 🔚 总结
 
 你说得很对：
 
@@ -389,8 +408,8 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 如果你感兴趣，我还可以讲一下在量子隧穿效应中，电子**即使能量不足也可能通过势垒**，这和耗尽层势垒的经典行为又不一样。是否要展开？
 
-### 4.5.2 Metal-Oxide-Semiconductor Field-Effect Transistor, MOSFET
-#### 区分增强型和号进行MOSFET
+## 4.5.2 Metal-Oxide-Semiconductor Field-Effect Transistor, MOSFET
+### 增强型和耗尽型MOSFET
 
 + 增强型：增强型MOSFET天生无导电沟道，需通过施加正向栅源电压（VGS），“增强”沟道内的载流子（电子/空穴）浓度，从而形成导电沟道让电流通过。
 + 耗尽型：耗尽型MOSFET天生有导电沟道，施加反向栅源电压（VGS）时，会“耗尽”沟道内的载流子，使沟道变窄甚至消失，最终关断电流。
@@ -402,9 +421,9 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 | 典型应用           | 数字开关、功率器件                 | 模拟放大、恒流源电路                       |
 
 
-#### 工作原理
+### 工作原理
 
-#### Low-frequency , small-signal , linearized equivalent model
+### Low-frequency , small-signal , linearized equivalent model
 
 Linearization is based on Taylor's formula
 The low-frequency small-signal model is 
@@ -418,11 +437,11 @@ Linearization process:
 
 
 
-#### 输出特性曲线和转移特性曲线
-##### 增强型
+### 输出特性曲线和转移特性曲线
+#### 增强型
 ![[576233532797105ed6fbd3126633fc3.jpg]]
 ![[c2acf3b38d809eb1d7e0a9f66755521.jpg]]
-##### 耗尽型
+#### 耗尽型
 ![[1fe63fa67b89dcf9061afe46aad5966.jpg]]
 
 ![[4d8ed0e4e62f63510d6f497ac1e83c2.jpg]]
@@ -430,7 +449,7 @@ Linearization process:
 ![[3109e559896a8aa3952938db2212621.jpg]]
 
 
-### 交流信号字母表示规定
+## 交流信号字母表示规定
 在模电中，以基极电流为例，直流电流分量、交流电流分量、叠加的总电流分量的字母大小写规定如下：
 • 直流电流分量：用大写字母、大写下标表示，如I_B（或I_{BQ}），表示基极的直流量（或静态电流）。
 
@@ -440,39 +459,22 @@ Linearization process:
 
 集电极电流和发射极电流的表示方法与基极电流类似，只需将下标B换成C或E即可。
 
-## 直流部分
-+ 用戴维南·
-## 交流部分
-### 交流小信号模型
-+ 无基区体电阻的
-+ 有基区体电阻的![[Pasted image 20250421221544.png]]
-
-## 4.6 晶体管的低频小信号模型
-### 4.6.1 BJT的低频小信号模型
-#### 不计入基区体电阻的影响
-#### 记入基区体电阻 $r_{bb'}$的影响
-![[3ecb5c391702cf597d4bb8966fbd330.jpg]]
 
 
-- **修正输入电阻 $r_{be}$**：![[0148dbd46d50798cf1ee6c2ad1da0ee.jpg|275]]
-  $$
-  r_{be} = r_{bb'} +r_{bb}= r_{bb'} + (1+\beta) r_e = r_{bb'} + (1+\beta) \frac{U_T}{I_{\text{EQ}}} \approx r_{bb'} + \beta \frac{U_T}{I_{\text{CQ}}}
-  $$
-  - $r_e$：发射结交流电阻，$r_e = \frac{U_T}{I_{\text{EQ}}}$。[[Introduction to Analog Electronic Technology#电压-电流关系]]
+# Amplifier circuits using the above components
 
-+ $g_{m}$交流跨导：电压  $u_{\text{be}}$ 对  $i_b$ 的控制作用，也可以选择  $u_{\text{be}}$作为  $i_c$ 的控制信号，得到如图4.6.2(c)所示的压控型模型。压控型模型的控制系统称为交流跨导，记为  $g_m$。有
+现在这里默认是在<mark style="background: #ABF7F7A6;">中低频区</mark>讨论的，所以画直流和交流等效电路图时C1,C2,CE近似为短路。但是由于中低频，扩散电容和势垒电容都可忽略，所<mark style="background: #ABF7F7A6;">等效电路中无新的地方多了通路</mark>。
 
- $$ g_m = \frac{i_{c}}{u_{be}}=\frac{\partial i_c}{\partial u_{\text{be}} \bigg|_Q} = \frac{\partial i_c}{\partial i_B} \cdot \frac{\partial i_B}{\partial u_{\text{be}} \bigg|_Q} = \beta \cdot \frac{1}{r_{\text{be}}} \approx \frac{1}{r_{\text{e}}} $$ 
+## Analysis of BJT Common-Emitter Amplifier
+### Basic circuit structure
 
+![[8bf7b2499e7a3e92b047bea82714901 1.jpg]]
 
+### Linearization of Low-Frequency Circuits
 
-# 5 双极型晶体三极管和场效应管放大器
+After approximating and simplifying the nonlinear device as a linear device
+The circuit can apply the superposition theorem.
 
-+ 现在这里默认是在<mark style="background: #ABF7F7A6;">中低频区</mark>讨论的，所以画直流和交流等效电路图时C1,C2,CE近似为短路。但是由于中低频，扩散电容和势垒电容都可忽略，所<mark style="background: #ABF7F7A6;">等效电路中无新的地方多了通路</mark>。
-
-## 5.2 共射极放大器分析
-### 5.2.1 电路结构
-+ 电路图![[8bf7b2499e7a3e92b047bea82714901 1.jpg]]
 ### 5.2.2 直流工作分析
 
 用例题说明:
@@ -489,6 +491,10 @@ Linearization process:
 	
 + 而且可以用戴维南化简电路![[Pasted image 20250520150305.png]]
 ### 5.2.3 交流工作分析
+
+
+
+
 ![[Pasted image 20250619224621.png]]
 #### 主要指标
 
@@ -665,6 +671,25 @@ $$
 Q 点所对应的坐标即工作点的集电极电流和集电极电压 $I_{CQ}$、$U_{CEQ}$。
 
 ---
+
+## Analysis of MOSFET Common-source amplifier circuit
+### Basic circuit structure
+
+
+
+### Linearization of Low-Frequency than Split the circuit to the Superposition of DC circuit and AC circuit
+
+After approximating and simplifying the nonlinear device as a linear device
+The circuit can apply the superposition theorem.
+
+![[131d98924ef363e8b00c5b25e0826fc3.jpg]]
+### 5.2.2 DC Operating Analysis
+
+
+### 5.2.3 Communication on work analysis
+
+
+
 
 
 
