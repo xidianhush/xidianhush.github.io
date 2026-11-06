@@ -202,7 +202,7 @@ $$\overline{\alpha}=\frac{I_{CN}}{I_{E}}$$
 
 
 
-### Low-frequency , small-signal , linearized equivalent model
+### Low-frequency , small-signal , linearized equivalent model for BJT
 #### 不计入基区体电阻的影响
 #### 记入基区体电阻 $r_{bb'}$的影响
 ![[3ecb5c391702cf597d4bb8966fbd330.jpg]]
@@ -423,7 +423,7 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 ### 工作原理
 
-### Low-frequency , small-signal , linearized equivalent model
+### Low-frequency , small-signal , linearized equivalent model for MOSFET
 
 Linearization is based on Taylor's formula
 The low-frequency small-signal model is 
@@ -677,10 +677,16 @@ Q 点所对应的坐标即工作点的集电极电流和集电极电压 $I_{CQ
 
 
 
-### Linearization of Low-Frequency than Split the circuit to the Superposition of DC circuit and AC circuit
+### Linearization of Low-Frequency , than Split the circuit to the Superposition of DC circuit and AC circuit
 
 After approximating and simplifying the nonlinear device as a linear device
-The circuit can apply the superposition theorem.
+Specific MOSFET linearization approximation below
+[[Introduction to Analog Electronic Technology#Low-frequency , small-signal , linearized equivalent model for MOSFET]]
+![[Pasted image 20261106114459.png]]
+
+Than the circuit can apply the superposition theorem.
+The specific superposition of linear circuit below
+[[Basics of circuit analysis#2.5.2 Superposition Theorem for Linear Circuits (Zero-State Response)]]
 
 ![[131d98924ef363e8b00c5b25e0826fc3.jpg]]
 ### 5.2.2 DC Operating Analysis
