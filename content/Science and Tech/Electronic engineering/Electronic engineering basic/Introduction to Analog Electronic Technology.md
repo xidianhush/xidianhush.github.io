@@ -462,14 +462,8 @@ mathematical theories [[Calculus#3.3 泰勒公式]] should be used
 for modeling and constructing a linear circuits 
 with good approximation performance.
 
-
-
-
-
-Linearization process:
-
-
-
+here are the process below:
+![[074fc29997727dbbf16c66f49fe2317c.jpg]]
 ### 输出特性曲线和转移特性曲线
 #### 增强型
 ![[576233532797105ed6fbd3126633fc3.jpg]]
