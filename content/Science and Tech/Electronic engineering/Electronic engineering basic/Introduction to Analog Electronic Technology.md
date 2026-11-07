@@ -438,7 +438,7 @@ now we got <svg style="width:2.2em;height:1.4em;vertical-align:-0.3em" viewBox="
   <line x1="45" y1="28" x2="45" y2="35"/>
   <polygon points="42,28 47,26 47,30" fill="currentColor"/>
 </svg>，but it isn't a linear device
-hence we can't use superposition theary to anaylise it
+hence we can't use superposition theory to analyse it
 
 so we need to find a linear device (combination)
 to approximately simulate the electrical effect of<svg style="width:2.2em;height:1.4em;vertical-align:-0.3em" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.6" fill="none">
