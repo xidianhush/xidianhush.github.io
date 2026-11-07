@@ -414,16 +414,31 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 + 增强型：增强型MOSFET天生无导电沟道，需通过施加正向栅源电压（VGS），“增强”沟道内的载流子（电子/空穴）浓度，从而形成导电沟道让电流通过。
 + 耗尽型：耗尽型MOSFET天生有导电沟道，施加反向栅源电压（VGS）时，会“耗尽”沟道内的载流子，使沟道变窄甚至消失，最终关断电流。
 
-| **特性**         | **增强型 MOSFET**            | **耗尽型 MOSFET**                   |
-| -------------- | ------------------------- | -------------------------------- |
-| 初始沟道状态         | 无（截止）                     | 有（导通）                            |
+| **特性**       | **增强型 MOSFET**          | **耗尽型 MOSFET**               |
+| ------------ | ----------------------- | ---------------------------- |
+| 初始沟道状态       | 无（截止）                   | 有（导通）                        |
 | 阈值电压$V_{TH}$ | 必须施加$V_{GS}>V_{TH}$才能导通 | $V_{GS}=0$时已导通，需反向$V_{GS}$截止 |
-| 典型应用           | 数字开关、功率器件                 | 模拟放大、恒流源电路                       |
+| 典型应用         | 数字开关、功率器件               | 模拟放大、恒流源电路                   |
 
 
 ### 工作原理
 
 ### Low-frequency , small-signal , linearized equivalent model for MOSFET
+
+```
+这是一个NMOS <svg style="width:2.2em;height:1.4em;vertical-align:-0.3em" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.6" fill="none">
+  <line x1="10" y1="20" x2="20" y2="20"/>
+  <line x1="20" y1="10" x2="20" y2="30"/>
+  <line x1="28" y1="12" x2="28" y2="16" stroke-dasharray="2 2"/>
+  <line x1="28" y1="20" x2="28" y2="24" stroke-dasharray="2 2"/>
+  <line x1="28" y1="28" x2="28" y2="32" stroke-dasharray="2 2"/>
+  <line x1="28" y1="12" x2="45" y2="12"/>
+  <line x1="45" y1="12" x2="45" y2="5"/>
+  <line x1="28" y1="28" x2="45" y2="28"/>
+  <line x1="45" y1="28" x2="45" y2="35"/>
+  <polygon points="42,28 47,26 47,30" fill="currentColor"/>
+</svg>，它的跨导是 $g_m$。
+```
 
 Linearization is based on Taylor's formula
 The low-frequency small-signal model is 
