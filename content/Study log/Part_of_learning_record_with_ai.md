@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-06 09:03（北京时间）
+> 最后更新：2026-11-07 09:01（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,8 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月6日* | DeepSeek | 移动端插件调试提效 | 2 | [打开](https://chat.deepseek.com/share/thh06mtvllvil77u42) |
+| 11月6日* | DeepSeek | 金融噪声无物理实体 | 1 | [打开](https://chat.deepseek.com/share/jn1m15zzkufaykn4r4) |
 | 11月4日* | DeepSeek | 独立开发高效测试策略 | 4 | [打开](https://chat.deepseek.com/share/8eklmdhv48e911xvym) |
 | 11月4日* | DeepSeek | 电磁直觉与磁单极 | 3 | [打开](https://chat.deepseek.com/share/eciy5b99p6v8tjq0fu) |
 | 11月3日* | DeepSeek | 多重积分定义推广 | 4 | [打开](https://chat.deepseek.com/share/sv7c8hbcsy1dybspg4) |
