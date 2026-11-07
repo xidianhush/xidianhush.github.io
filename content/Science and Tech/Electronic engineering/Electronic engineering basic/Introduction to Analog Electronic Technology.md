@@ -425,8 +425,8 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
 
 ### Low-frequency , small-signal , linearized equivalent model for MOSFET
 
-```
-这是一个NMOS <svg style="width:2.2em;height:1.4em;vertical-align:-0.3em" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.6" fill="none">
+
+now we got <svg style="width:2.2em;height:1.4em;vertical-align:-0.3em" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.6" fill="none">
   <line x1="10" y1="20" x2="20" y2="20"/>
   <line x1="20" y1="10" x2="20" y2="30"/>
   <line x1="28" y1="12" x2="28" y2="16" stroke-dasharray="2 2"/>
@@ -437,15 +437,34 @@ $|u_{\text{DS}}|$ 增大时，<mark style="background: #BBFABBA6;">电压的增�
   <line x1="28" y1="28" x2="45" y2="28"/>
   <line x1="45" y1="28" x2="45" y2="35"/>
   <polygon points="42,28 47,26 47,30" fill="currentColor"/>
-</svg>，它的跨导是 $g_m$。
-```
+</svg>，but it isn't a linear device
+hence we can't use superposition theary to anaylise it
 
-Linearization is based on Taylor's formula
-The low-frequency small-signal model is 
-an approximate low-frequency linearized modeling method.
+so we need to find a linear device (combination)
+to approximately simulate the electrical effect of<svg style="width:2.2em;height:1.4em;vertical-align:-0.3em" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.6" fill="none">
+  <line x1="10" y1="20" x2="20" y2="20"/>
+  <line x1="20" y1="10" x2="20" y2="30"/>
+  <line x1="28" y1="12" x2="28" y2="16" stroke-dasharray="2 2"/>
+  <line x1="28" y1="20" x2="28" y2="24" stroke-dasharray="2 2"/>
+  <line x1="28" y1="28" x2="28" y2="32" stroke-dasharray="2 2"/>
+  <line x1="28" y1="12" x2="45" y2="12"/>
+  <line x1="45" y1="12" x2="45" y2="5"/>
+  <line x1="28" y1="28" x2="45" y2="28"/>
+  <line x1="45" y1="28" x2="45" y2="35"/>
+  <polygon points="42,28 47,26 47,30" fill="currentColor"/>
+</svg>
+at least , under the low-freq circumstance
+  
+However, 
+we cannot draw a linear device to simulate an NMOS without justification.
+Instead, 
+mathematical theories [[Calculus#3.3 泰勒公式]] should be used 
+for modeling and constructing a linear circuits 
+with good approximation performance.
 
-Linearization is based on Taylor's formula.
-[[Calculus#3.3 泰勒公式]]
+
+
+
 
 Linearization process:
 ![[1C45A7FC4F379E3E04F9A3DA6DEA187C.png]]
