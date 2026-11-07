@@ -467,7 +467,6 @@ with good approximation performance.
 
 
 Linearization process:
-![[1C45A7FC4F379E3E04F9A3DA6DEA187C.png]]
 
 
 
