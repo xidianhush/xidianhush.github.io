@@ -858,22 +858,53 @@ review [[Basics of circuit analysis#2.5.2 Superposition Theorem for Linear Circu
 ![[Pasted image 20261108155126.png]]
 
 $E_{n1}$ and $E_{n2}$  can generally be measured by external instruments.
+So far，We get the equation to describe the two-port circuit with inner noise
 
 ##### Dual-noise source in the input model
 
 Model a two-port network that is inherently noise-free 
 with externally added noise current sources and noise voltage sources
-
+It can make the same impact In the port two compared to the original circuit structure
+This will facilitate our subsequent analysis.
+Especially when the output impedance 𝑍ₛ 
+of the preceding circuit of this two-port network is not zero
 
 our goal is to represent $V_{n,in}$ and $I_{n,in}$ 
 with quantities witch are know such as $E_{n1}$ and $E_{n2}$ or $V_{n,in}$ ， $I_{n,in}$
+###### Represent $V_{n,in}$ and $I_{n,in}$ with $E_{n1}$ and $E_{n2}$ 
+
+I will add a complete derivation later
+The following is the simplified version
+
+但是这里有一个关键步骤   
 
 
-review [[Basics of circuit analysis#2.6 替代定理]]
+![[Pasted image 20261025105105.png]]
+from derivation
 
-![[Pasted image 20261025110047.png]]
+we can know that
+how to represent $V_{n,in}$ and $I_{n,in}$ by $E_{n1}$ and $E_{n2}$ 
+$$
+V_{n,\text{in}} = \frac{z_{11}}{z_{21}} E_{n2} - E_{n1},\quad
+I_{n,\text{in}} = \frac{E_{n2}}{z_{21}}
+$$
 
 
+
+###### Represent $V_{n,in}$ and $I_{n,in}$ with  $V_{n,in}$ ， $I_{n,in}$
+
+At this step, what we need to do is prove that 
+it is equivalent to use $E_{n1}$, $E_{n2}$, $V_{n,i_n}$ and $I_{n,i_n}$ 
+to represent the two equivalent input noise sources 
+at the input terminal.
+
+I will add the complete proof at a later time.
+
+From derivation
+
+$$
+ V_{n, \text { in }}=\frac{V_{\text {out }}(0)}{A_{v}(0)}, \quad I_{n, \text { in }}=\frac{V_{\text {out }}(\infty)}{Z_{\text {in }} A_{v}(\infty)} 
+$$
 
 ### **2. Admittance ($Y$)**
 
