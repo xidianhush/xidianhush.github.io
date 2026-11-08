@@ -740,13 +740,26 @@ zaoshengpumidu1:![[Pasted image 20260615092641.png]]
 ![[Pasted image 20260709173813.png]]
 
 
-##### 具体证明验证双源模型
+##### Specifically prove and verify the dual-source model
 
 reference link:  https://www.kimi.com/share/1a170f89-c7a2-80ac-8000-000037717c76
 
-先从端口方程组(二端口网络)开始
-回顾[[Basics of circuit analysis#Impedance parameter equation considering noise]]
-从这里我们知道了可以用 输入双源等效 
+Start with the port equations (linear two-port network)
+review[[Basics of circuit analysis#Impedance parameter equation considering noise]]
+we know 
+
+from that
+We can know how to represent $V_{n,in}$ and $I_{n,in}$ by $E_{n1}$ and $E_{n2}$ 
+
+
+
+
+输入端双源等效：
+
+$$
+V_{n,\text{in}} = \frac{z_{11}}{z_{21}} E_{n2} - E_{n1},\quad
+I_{n,\text{in}} = \frac{E_{n2}}{z_{21}}
+$$
 
 
 
