@@ -816,6 +816,15 @@ introdece "port conditions" below
 
 ##  "port conditions" 
 
+
+一对端子构成一个"端口"，当且仅当流入其中一个端子的电流，在任何时刻都等于流出另一个端子的电流。
+
+$i_\mathrm{in}(t) = i_\mathrm{out}(t) \iff$ 这一对外部只呈现"一进一出"一个自由度
+
+
+---
+
+
 here are several mapping forms bellow 
 expressed by different two-ports equaations
 
