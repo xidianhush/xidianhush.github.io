@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-07 09:01（北京时间）
+> 最后更新：2026-11-08 09:01（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -246,15 +246,15 @@
 | 7月* | DeepSeek | 跨导与厄尔利电压关系 | 5 | [打开](https://chat.deepseek.com/share/m18l9vgn0tvxuoeosx) |
 | 7月* | DeepSeek | 输入增强放大器论文导读 | 2 | [打开](https://chat.deepseek.com/share/g6hqoozio0bwlo3u6y) |
 | 7月* | DeepSeek | 输入型CCIA论文解读3 | 2 | [打开](https://chat.deepseek.com/share/w087kdacrtencqsc1g) |
-| 7月* | DeepSeek | 解读低功耗放大器论文（废弃的） | -  | [打开](https://chat.deepseek.com/a/chat/s/ba8dfda2-d733-4422-bc33-c679f802da2c) |
+| 7月* | DeepSeek | 解读低功耗放大器论文（废弃的） | 1 | [打开](https://chat.deepseek.com/share/66weoiewwde7zm646h) |
 | 7月* | DeepSeek | 输入增强型CCIA论文解读2 | 4 | [打开](https://chat.deepseek.com/share/a6imtwjl6icxne52es) |
-| 7月* | DeepSeek | 带读超低功耗放大器论文 | -  | [打开](https://chat.deepseek.com/a/chat/s/e9344c52-99a7-43dc-9921-58b746280ea9) |
-| 7月* | DeepSeek | 差动对电流与电容分析 | -  | [打开](https://chat.deepseek.com/a/chat/s/f1f26968-8756-4326-baad-365ae1709f54) |
-| 7月* | DeepSeek | MOS饱和区公式适用性 | -  | [打开](https://chat.deepseek.com/a/chat/s/9ea643e1-76ee-4b38-b926-534e75d2acfe) |
-| 7月* | DeepSeek | 傅里叶变换可视化开发 | -  | [打开](https://chat.deepseek.com/a/chat/s/f683ee70-2347-4e04-9d6c-8a798a69138e) |
-| 7月* | DeepSeek | 共源共栅M2噪声忽略原因 | -  | [打开](https://chat.deepseek.com/a/chat/s/ffc4ff51-7e87-48f7-ab06-0e53bea9f9a7) |
-| 7月* | DeepSeek | 研究生知识体系构建 | -  | [打开](https://chat.deepseek.com/a/chat/s/5e8ab3fa-3585-44e3-a844-f0a79b8ee0ff) |
-| 7月* | DeepSeek | 推导输入开路噪声公式 | -  | [打开](https://chat.deepseek.com/a/chat/s/f02fca18-1d10-42a1-a425-5a79b82489ea) |
+| 7月* | DeepSeek | 带读超低功耗放大器论文 | 18 | [打开](https://chat.deepseek.com/share/8326873v7i73egy18d) |
+| 7月* | DeepSeek | 差动对电流与电容分析 | 2 | [打开](https://chat.deepseek.com/share/thx1mpe2y3ii6zkmo7) |
+| 7月* | DeepSeek | MOS饱和区公式适用性 | 2 | [打开](https://chat.deepseek.com/share/w2mixwonf914okahdq) |
+| 7月* | DeepSeek | 傅里叶变换可视化开发 | 2 | [打开](https://chat.deepseek.com/share/xuoyordngbcybdpjie) |
+| 7月* | DeepSeek | 共源共栅M2噪声忽略原因 | 2 | [打开](https://chat.deepseek.com/share/a4p8pzmiyc6igktqzy) |
+| 7月* | DeepSeek | 研究生知识体系构建 | 1 | [打开](https://chat.deepseek.com/share/4m7snjosj46ebbv2x2) |
+| 7月* | DeepSeek | 推导输入开路噪声公式 | 1 | [打开](https://chat.deepseek.com/share/zd2y8foebhjqyqswfi) |
 | 7月* | DeepSeek | 计算噪声电压平方表达式 | -  | [打开](https://chat.deepseek.com/a/chat/s/9874b313-2b65-4211-9860-ebebdaeef1b1) |
 | 7月* | DeepSeek | 噪声公式推导验证 | -  | [打开](https://chat.deepseek.com/a/chat/s/5ed3b7f7-c0ae-4ae5-9f49-29c15c1d0f4a) |
 | 7月* | DeepSeek | 代数化简V_out平方表达式 | -  | [打开](https://chat.deepseek.com/a/chat/s/f1b357e5-38c6-46ff-bf62-e52431f69013) |
