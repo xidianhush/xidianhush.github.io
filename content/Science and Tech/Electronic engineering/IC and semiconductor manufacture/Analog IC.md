@@ -747,14 +747,16 @@ reference link:  https://www.kimi.com/share/1a170f89-c7a2-80ac-8000-000037717c76
 Start with the port equations (linear two-port network)
 review[[Basics of circuit analysis#Impedance parameter equation considering noise]]
 we know 
-
+$$
+\begin{bmatrix} V_1 \\ V_2 \end{bmatrix}
+=
+\begin{bmatrix} z_{11} & z_{12} \\ z_{21} & z_{22} \end{bmatrix}
+\begin{bmatrix} I_1 \\ I_2 \end{bmatrix}
++
+\begin{bmatrix} E_{n1} \\ E_{n2} \end{bmatrix}
+$$
 from that
 We can know how to represent $V_{n,in}$ and $I_{n,in}$ by $E_{n1}$ and $E_{n2}$ 
-
-
-
-
-输入端双源等效：
 
 $$
 V_{n,\text{in}} = \frac{z_{11}}{z_{21}} E_{n2} - E_{n1},\quad
@@ -763,11 +765,16 @@ $$
 
 
 
-也有就用边界条件法了
+However, Z-parameters are not mentioned in Razavi's book. 
+Instead, he teaches us to use the "boundary condition method"
+to solve for the values of the two equivalent noise sources at the input port.
 $$
  V_{n, \text { in }}=\frac{V_{\text {out }}(0)}{A_{v}(0)}, \quad I_{n, \text { in }}=\frac{V_{\text {out }}(\infty)}{Z_{\text {in }} A_{v}(\infty)} 
 $$
-
+I want to prove that 
+the "boundary condition method" and the "Z-parameter representation" 
+are equivalent.
+The proof is as follows:
 
 ![[Pasted image 20261025105105.png]]
 
