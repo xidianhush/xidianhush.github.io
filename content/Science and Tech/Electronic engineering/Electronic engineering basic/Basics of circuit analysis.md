@@ -788,7 +788,7 @@ $$
 - 特征点包括谐振频率、带宽、增益最大值等。1
 # 6 Two-port circuit
 
-## 6.1 Equations and Parameters of Two-Port Networks
+
 
 before we learn that one port circuit
 it will be a link later here
@@ -809,10 +809,17 @@ adds physical dimension to the mapping equations
 actually The two-port networks we discuss 
 are by default linear two-port networks
 but not all the circuit structures can be a "two-ports circuit"
+Only circuit structures that satisfy the "port conditions" 
+correspond to the concept of a linear port network.
+
+introdece "port conditions" below
+
+##  "port conditions" 
 
 here are several mapping forms bellow 
 expressed by different two-ports equaations
 
+## Equations and Parameters of Two-Port Networkso
 ### **1. Impedance ($Z$)**
 
 Map the current vector to voltage vector
