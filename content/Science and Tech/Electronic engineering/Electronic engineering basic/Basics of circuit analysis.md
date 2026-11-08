@@ -793,19 +793,22 @@ $$
 before we learn that one port circuit
 it will be a link later here
 one port equation it self include infinity situation 
-one port equation add a outside motivation
+one port equation add a certain outside motivation
 becomes system of equations
 and the state of one port equation can only be confirmed.
 
 so as two ports circuits
-
 
 the two-ports network equation
 actualy derived from the mapping concept 
 expressed by linear algebra [[Linear Algebra#matrix times vector]]
 
 two-ports equation is the example that
-adds dimension to the mapping equations
+adds physical dimension to the mapping equations
+
+actually The two-port networks we discuss 
+are by default linear two-port networks
+but not all the circuit structures can be a "two-ports circuit"
 
 here are several mapping forms bellow 
 expressed by different two-ports equaations
