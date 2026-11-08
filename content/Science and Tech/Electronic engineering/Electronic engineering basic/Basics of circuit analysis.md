@@ -876,10 +876,8 @@ with quantities witch are know such as $E_{n1}$ and $E_{n2}$ or $V_{n,in}$ ， $
 I will add a complete derivation later
 The following is the simplified version
 
-但是这里有一个关键步骤   
+![[Pasted image 20261108164737.png]]
 
-
-![[Pasted image 20261025105105.png]]
 from derivation
 
 we can know that
@@ -891,7 +889,7 @@ $$
 
 
 
-###### Represent $V_{n,in}$ and $I_{n,in}$ with  $V_{n,in}$ ， $I_{n,in}$
+###### Represent $V_{n,in}$ and $I_{n,in}$ with  $V_{nout}$ ， $I_{n,out}$
 
 At this step, what we need to do is prove that 
 it is equivalent to use $E_{n1}$, $E_{n2}$, $V_{n,i_n}$ and $I_{n,i_n}$ 
@@ -900,10 +898,10 @@ at the input terminal.
 
 I will add the complete proof at a later time.
 
-From derivation
+From derivation , wecan know that
 
 $$
- V_{n, \text { in }}=\frac{V_{\text {out }}(0)}{A_{v}(0)}, \quad I_{n, \text { in }}=\frac{V_{\text {out }}(\infty)}{Z_{\text {in }} A_{v}(\infty)} 
+ V_{n, \text { in }}=\frac{V_{\text {n,out }}(0)}{A_{v}(0)}, \quad I_{n, \text { in }}=\frac{V_{\text {n,out }}(\infty)}{Z_{\text {in }} A_{v}(\infty)} 
 $$
 
 ### **2. Admittance ($Y$)**

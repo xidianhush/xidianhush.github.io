@@ -742,14 +742,7 @@ zaoshengpumidu1:![[Pasted image 20260615092641.png]]
 
 ##### Specifically prove and verify the dual-source model
 
-However, Z-parameters are not mentioned in Razavi's book. 
-Instead, he teaches us to use the "boundary condition method"
-to solve for the values of the two equivalent noise sources at the input port.
-
-I want to prove that 
-the "boundary condition method" and the "Z-parameter representation" 
-are equivalent.
-The proof is as follows:
+the prove can be find in [[Basics of circuit analysis#Represent $V_{n,in}$ and $I_{n,in}$ with $V_{nout}$ ， $I_{n,out}$]]
 
 
 
