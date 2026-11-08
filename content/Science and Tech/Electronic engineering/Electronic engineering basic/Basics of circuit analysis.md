@@ -851,9 +851,13 @@ $$
 $$
 
 The specific derivation process is as follows
-![[Pasted image 20261108155037.png]]
 
-review [[Basics of circuit analysis#2.5.2 Superposition Theorem for Linear Circuits (Zero-State Response)]]，The next step is linear superposition
+If only the current source or noise source is active
+the voltage of port 1 and dport 2 ， noted as $U_{1},U_{2}$
+are ：
+![[Pasted image 20261108170327.png]]
+
+we canuse [[Basics of circuit analysis#2.5.2 Superposition Theorem for Linear Circuits (Zero-State Response)]]，to get the voltage of port 1 and dport 2 ， noted as $U_{1},U_{2}$
 
 ![[Pasted image 20261108155126.png]]
 
