@@ -835,12 +835,45 @@ Map the current vector to voltage vector
 
 $$ \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix}  = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} \to \begin{bmatrix} Z_{11}[\Omega]&Z_{12}[\Omega]\\ Z_{21}[\Omega]&Z_{22}[\Omega] \end{bmatrix} \begin{bmatrix} I_1[\mathrm A]\\ I_2[\mathrm A] \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix} = \begin{bmatrix} V_1[\mathrm V]\\ V_2[\mathrm V] \end{bmatrix}  $$
 
-####  Impedance parameter equation considering noise
+#### Impedance parameter equation considering noise
+##### General equation considering noise
 
-review [[Basics of circuit analysis#2.5.2 叠加定理]]
+We only know the equation without noise up to now
+Now the project is to find an equation with noise inside 
+The answer is:
+$$
+\begin{bmatrix} V_1 \\ V_2 \end{bmatrix}
+=
+\begin{bmatrix} z_{11} & z_{12} \\ z_{21} & z_{22} \end{bmatrix}
+\begin{bmatrix} I_1 \\ I_2 \end{bmatrix}
++
+\begin{bmatrix} E_{n1} \\ E_{n2} \end{bmatrix}
+$$
+
+The specific derivation process is as follows
+![[Pasted image 20261108155037.png]]
+
+review [[Basics of circuit analysis#2.5.2 Superposition Theorem for Linear Circuits (Zero-State Response)]]，The next step is linear superposition
+
+![[Pasted image 20261108155126.png]]
+
+$E_{n1}$ and $E_{n2}$  can generally be measured by external instruments.
+
+##### Dual-noise source in the input model
+
+Model a two-port network that is inherently noise-free 
+with externally added noise current sources and noise voltage sources
+
+
+our goal is to represent $V_{n,in}$ and $I_{n,in}$ 
+with quantities witch are know such as $E_{n1}$ and $E_{n2}$ or $V_{n,in}$ ， $I_{n,in}$
+
+
 review [[Basics of circuit analysis#2.6 替代定理]]
 
 ![[Pasted image 20261025110047.png]]
+
+
 
 ### **2. Admittance ($Y$)**
 
