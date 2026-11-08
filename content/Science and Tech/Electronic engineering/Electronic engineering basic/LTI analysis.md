@@ -2,7 +2,7 @@
 # Overview of Signals and Systems
 
 
-## 信号
+## signal
 
 ### Let's have a serious discussion about what to use to represent signals
 
@@ -72,7 +72,11 @@ prove： https://chat.deepseek.com/share/5lwzu8z5ubu3c1x8ke
 
 
 
-# 分解信号
+# Compose & Decompose the Signal 
+
+this chapter does this these things:
+
+ >use different base vectors and corresponding coordinates to compose a signal vector
 
 人类是生活过在三维空间的生物
 在人类的的世界里，状态随时间流逝
@@ -1885,6 +1889,15 @@ $$
 $$
 
 # 用系统函数研究系统特性
+
+for some physical reason , 
+signal will change from the input signal to output signal . 
+LTI analysis doesn't care what physical mechanics 
+which makes the input signal change to the output signal; 
+it only does one thing : 
+Use the math language to describe this change .
+Specifically : describe de different coordinates of the signal vectors
+in diiferent space (time domain or freq domain）
 
 ## 用系统函数研究系统的稳定性
 ### 连续系统
