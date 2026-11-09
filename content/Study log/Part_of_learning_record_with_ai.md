@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-08 09:01（北京时间）
+> 最后更新：2026-11-09 09:10（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -255,14 +255,14 @@
 | 7月* | DeepSeek | 共源共栅M2噪声忽略原因 | 2 | [打开](https://chat.deepseek.com/share/a4p8pzmiyc6igktqzy) |
 | 7月* | DeepSeek | 研究生知识体系构建 | 1 | [打开](https://chat.deepseek.com/share/4m7snjosj46ebbv2x2) |
 | 7月* | DeepSeek | 推导输入开路噪声公式 | 1 | [打开](https://chat.deepseek.com/share/zd2y8foebhjqyqswfi) |
-| 7月* | DeepSeek | 计算噪声电压平方表达式 | -  | [打开](https://chat.deepseek.com/a/chat/s/9874b313-2b65-4211-9860-ebebdaeef1b1) |
-| 7月* | DeepSeek | 噪声公式推导验证 | -  | [打开](https://chat.deepseek.com/a/chat/s/5ed3b7f7-c0ae-4ae5-9f49-29c15c1d0f4a) |
-| 7月* | DeepSeek | 代数化简V_out平方表达式 | -  | [打开](https://chat.deepseek.com/a/chat/s/f1b357e5-38c6-46ff-bf62-e52431f69013) |
-| 7月* | DeepSeek | 运放噪声章节学习 | -  | [打开](https://chat.deepseek.com/a/chat/s/b9735168-6169-4010-b660-2da9da866837) |
-| 7月* | DeepSeek | 电路功率叠加误区 | -  | [打开](https://chat.deepseek.com/a/chat/s/80ece34b-d5fc-40f6-ac81-63570979f7e5) |
-| 7月* | DeepSeek | 信息定义解析 | -  | [打开](https://chat.deepseek.com/a/chat/s/2e1e873f-70c0-4b3b-8e50-f64e386833f3) |
-| 7月* | DeepSeek | 导数与速度概念联系 | -  | [打开](https://chat.deepseek.com/a/chat/s/0fb01c15-d45b-4d50-926c-0db611cb691b) |
-| 7月* | DeepSeek | 差动对噪声分析思路 | -  | [打开](https://chat.deepseek.com/a/chat/s/8f526995-70f5-414d-8629-e8ee1a807896) |
+| 7月* | DeepSeek | 计算噪声电压平方表达式 | 2 | [打开](https://chat.deepseek.com/share/hcgs5q3gw0lq465dac) |
+| 7月* | DeepSeek | 噪声公式推导验证 | 5 | [打开](https://chat.deepseek.com/share/1nsxnb4z28w74c9vbr) |
+| 7月* | DeepSeek | 代数化简V_out平方表达式 | 2 | [打开](https://chat.deepseek.com/share/8xgdmf250honpv1urw) |
+| 7月* | DeepSeek | 运放噪声章节学习 | 3 | [打开](https://chat.deepseek.com/share/7n02dyxpwtq6n11fu0) |
+| 7月* | DeepSeek | 电路功率叠加误区 | 3 | [打开](https://chat.deepseek.com/share/4y22b22xq8hs60z1sa) |
+| 7月* | DeepSeek | 信息定义解析 | 6 | [打开](https://chat.deepseek.com/share/tb3kdfj7grb0kdz3mm) |
+| 7月* | DeepSeek | 导数与速度概念联系 | 4 | [打开](https://chat.deepseek.com/share/6mg8wk5a2exps5iqrn) |
+| 7月* | DeepSeek | 差动对噪声分析思路 | 4 | [打开](https://chat.deepseek.com/share/c3joc7scu6eanngbmv) |
 | 7月* | DeepSeek | 公式9.89推导详解 | -  | [打开](https://chat.deepseek.com/a/chat/s/904176d9-f509-45ca-b125-a6d629e38835) |
 | 7月* | DeepSeek | 神经放大器论文讲解 | -  | [打开](https://chat.deepseek.com/a/chat/s/513a825b-574a-45fb-b5f7-715f7a607715) |
 | 7月* | DeepSeek | 折叠共源共栅噪声优化设计 | -  | [打开](https://chat.deepseek.com/a/chat/s/36f8f8a5-504a-4b81-abe4-26c779554e45) |
