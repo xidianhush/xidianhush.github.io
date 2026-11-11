@@ -65,7 +65,18 @@ And what I will do
 
 ## 4. Build & verify the input-boosted first stage
 
-Meet the standard of
+In this step, I try to split whole big tasks into several small tasks
+I list several unordered to task below
+so we should put those tasks in the right order later
+
+To let the complete amplifier meet those standards:
++ Open-loop gain: ≥50 dB
++ $Z_{in} \geq 100M \ohm$
+
+i split the whole task to small tasks
+So i should let the first stage of the amplifier meet those standards:
++ Open-loop gain:  unknown yet
++ $Z_{in} \geq 100M \ohm$
 
 完整放大器的增益
 ### 4.1 Theory preparation
