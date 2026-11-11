@@ -463,7 +463,11 @@ for modeling and constructing a linear circuits
 with good approximation performance.
 
 here are the process below:
-![[074fc29997727dbbf16c66f49fe2317c.jpg]]
+
+
+$$\frac12 \mu_n C_{ox} (V_{b}+v_{gs}-V_{TH})^2 \big[1+\lambda(V_{GS0}+v_{ds})\big] = \frac12 \mu_n C_{ox} (V_b-V_{TH})^2 \big(1+\lambda V_{DS0}\big) + \mu_n C_{ox} (V_b-V_{TH})(1+\lambda V_{DS0}) v_{gs} + \frac{1}{r_{o}} v_{ds}$$
+
+![[a1451c0bc16bd34ef19d25faad517972.jpg]]
 ### 输出特性曲线和转移特性曲线
 #### 增强型
 ![[576233532797105ed6fbd3126633fc3.jpg]]
