@@ -1,3 +1,4 @@
+this is my graduation project
 # Input-Boosted CCIA — Shared Reproduction Plan
 
 Last updated: 2026-10-25
@@ -7,7 +8,7 @@ And what I will do
 
 - Reference: *A Highly Power-Efficient Input-Boosted First Stage for Capacitively Coupled Chopper Instrumentation Amplifiers* (JSSC, DOI: 10.1109/JSSC.2025.3564316).
 - Reproduce the **180 nm implementation** using the available **SMIC_018_MMRF** PDK, subject to device and model verification.
-- Deliver **first-stage principle verification** and **full-amplifier schematic simulation**.
+- Determine the size of the transistors of **full-amplifier schematic simulation**.
 - Layout, DRC/LVS, and post-layout simulation are outside the current scope.
 - Working language: English; explain unfamiliar terms, commands, and interface operations step by step.
 

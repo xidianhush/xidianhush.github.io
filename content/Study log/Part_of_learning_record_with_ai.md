@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-09 09:10（北京时间）
+> 最后更新：2026-11-11 09:13（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,10 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月11日* | DeepSeek | 五管OTA入门设计 | 1 | [打开](https://chat.deepseek.com/share/frwuodutsbfmrxg5wg) |
+| 11月10日* | DeepSeek | Obsidian插件安全审计 | 4 | [打开](https://chat.deepseek.com/share/hro0m6aylobsoobrly) |
+| 11月上旬* | DeepSeek | 双11装机方案修正 | 13 | [打开](https://chat.deepseek.com/share/gm4tzxgmvoy8ym0psu) |
+| 11月上旬* | DeepSeek | Demo与生产系统区别 | 1 | [打开](https://chat.deepseek.com/share/2qqcwd1z5yuwi4rm4m) |
 | 11月6日* | DeepSeek | 移动端插件调试提效 | 2 | [打开](https://chat.deepseek.com/share/thh06mtvllvil77u42) |
 | 11月6日* | DeepSeek | 金融噪声无物理实体 | 1 | [打开](https://chat.deepseek.com/share/jn1m15zzkufaykn4r4) |
 | 11月4日* | DeepSeek | 独立开发高效测试策略 | 4 | [打开](https://chat.deepseek.com/share/8eklmdhv48e911xvym) |
@@ -263,14 +267,14 @@
 | 7月* | DeepSeek | 信息定义解析 | 6 | [打开](https://chat.deepseek.com/share/tb3kdfj7grb0kdz3mm) |
 | 7月* | DeepSeek | 导数与速度概念联系 | 4 | [打开](https://chat.deepseek.com/share/6mg8wk5a2exps5iqrn) |
 | 7月* | DeepSeek | 差动对噪声分析思路 | 4 | [打开](https://chat.deepseek.com/share/c3joc7scu6eanngbmv) |
-| 7月* | DeepSeek | 公式9.89推导详解 | -  | [打开](https://chat.deepseek.com/a/chat/s/904176d9-f509-45ca-b125-a6d629e38835) |
-| 7月* | DeepSeek | 神经放大器论文讲解 | -  | [打开](https://chat.deepseek.com/a/chat/s/513a825b-574a-45fb-b5f7-715f7a607715) |
-| 7月* | DeepSeek | 折叠共源共栅噪声优化设计 | -  | [打开](https://chat.deepseek.com/a/chat/s/36f8f8a5-504a-4b81-abe4-26c779554e45) |
-| 7月* | DeepSeek | 神经相位同步芯片 | -  | [打开](https://chat.deepseek.com/a/chat/s/1d4977af-0f94-4b16-8cdd-e1b446b0624d) |
-| 7月* | DeepSeek | 差动对噪声分析详解 | -  | [打开](https://chat.deepseek.com/a/chat/s/d60070ab-01fc-4856-96ac-bca98957f39c) |
-| 7月* | DeepSeek | 运放应用场景解析 | -  | [打开](https://chat.deepseek.com/a/chat/s/07e715ad-e211-456b-8570-3a69f1a55f31) |
-| 7月* | DeepSeek | 脑机接口LNA阻抗提升 | -  | [打开](https://chat.deepseek.com/a/chat/s/8a3fff7f-8385-4968-9c91-f8e34f76882e) |
-| 7月* | DeepSeek | 脑机接口芯片模块解析 | -  | [打开](https://chat.deepseek.com/a/chat/s/a10d42cc-b20e-4634-b205-e6283f571454) |
+| 7月* | DeepSeek | 公式9.89推导详解 | 1 | [打开](https://chat.deepseek.com/share/6y6p65ubr1jyihyokg) |
+| 7月* | DeepSeek | 神经放大器论文讲解 | 3 | [打开](https://chat.deepseek.com/share/yumkmjggzjelcdbmx1) |
+| 7月* | DeepSeek | 折叠共源共栅噪声优化设计 | 1 | [打开](https://chat.deepseek.com/share/1wvae40ze2k88gwvv5) |
+| 7月* | DeepSeek | 神经相位同步芯片 | 11 | [打开](https://chat.deepseek.com/share/17lfmkxi838i8acjwf) |
+| 7月* | DeepSeek | 差动对噪声分析详解 | 3 | [打开](https://chat.deepseek.com/share/441vn9vo2x8yadv0pc) |
+| 7月* | DeepSeek | 运放应用场景解析 | 4 | [打开](https://chat.deepseek.com/share/xp60vjcgnj60cbg6cu) |
+| 7月* | DeepSeek | 脑机接口LNA阻抗提升 | 1 | [打开](https://chat.deepseek.com/share/z3anlatam66yys0byl) |
+| 7月* | DeepSeek | 脑机接口芯片模块解析 | 2 | [打开](https://chat.deepseek.com/share/b52bpbddf0znmom39x) |
 | 7月* | DeepSeek | Git管理工程目录建议 | -  | [打开](https://chat.deepseek.com/a/chat/s/7568e369-5c5a-4717-afd1-f6e30c3c8e05) |
 | 7月* | DeepSeek | 输入参考噪声模型解析 | -  | [打开](https://chat.deepseek.com/a/chat/s/ac55c51f-f031-4bbc-89ba-9334a546a3d6) |
 | 7月* | DeepSeek | 傅里叶级数形式转换 | -  | [打开](https://chat.deepseek.com/a/chat/s/72f5f879-9589-4cb6-8a3b-85f3380dc806) |
