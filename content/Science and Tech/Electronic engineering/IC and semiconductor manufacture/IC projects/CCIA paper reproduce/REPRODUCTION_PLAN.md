@@ -70,13 +70,15 @@ I list several unordered to task below
 so we should put those tasks in the right order later
 
 To let the complete amplifier meet those standards:
-+ Open-loop gain: ≥50 dB
++ Small signal Open-loop gain: ≥50 dB
 + $Z_{in} \geq 100M \ohm$
++ Open-loop stability and closed-loop stability
 
 i split the whole task to small tasks
 So i should let the first stage of the amplifier meet those standards:
-+ Open-loop gain:  unknown yet
-+ $Z_{in} \geq 100M \ohm$
++ Small signal Open-loop gain:  unknown yet
++ $Z_{in} \geq 100M \ohm$ (I'm trying to figure out how the input impedances are defined and how to make it higher than 100M ohm)
++ Open-loop stability should be concerned
 
 完整放大器的增益
 ### 4.1 Theory preparation
