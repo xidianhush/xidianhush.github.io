@@ -9,10 +9,10 @@ And what I will do
 - Reference: *A Highly Power-Efficient Input-Boosted First Stage for Capacitively Coupled Chopper Instrumentation Amplifiers* (JSSC, DOI: 10.1109/JSSC.2025.3564316).
 - Reproduce the **180 nm implementation** using the available **SMIC_018_MMRF** PDK, subject to device and model verification.
 - Determine the size of the transistors of **full-amplifier schematic simulation**.
-- Layout, DRC/LVS, and post-layout simulation are outside the current scope.
+- Layout, DRC/LVS, and post-layout simulation later.
 - Working language: English; explain unfamiliar terms, commands, and interface operations step by step.
 
-## How we update this file
+## How we update this file (for Agent)
 
 - Task IDs are tracking labels, not a mandatory sequence. Choose tasks flexibly while respecting technical dependencies. Suggested next tasks can change together.
 - Either of us can edit this document. Read its latest contents before planning or changing task status.
@@ -24,7 +24,7 @@ And what I will do
 - A simulation finishing successfully proves software execution, not that the circuit meets the paper's specifications.
 - Back up configuration files before edits. Preserve the practice project, centralized PDK, models, and existing simulation data.
 
-## Current checkpoint
+## Current checkpoint (for Agent)
 
 - **Verified visually on 2026-10-24:** eight sized MOSFETs, both vertical branches and supply rails, VON/VOP output pins, VIP/VIN input pins, four Cg = 3.5 pF and four Cs = 20 pF capacitors, and the intended opposite-polarity gate/source coupling. Evidence: user screenshot codex-clipboard-b27a3791-1f8c-41a8-bf78-57a2b944a9e8.png.
 - **Verification limit:** this is a screenshot connectivity review, not a netlist audit. Highlight crossing nets, inspect pin directions and supply-symbol global-net names, and run Check and Save after completing the circuit. Current disk save state is not independently verified.
@@ -36,12 +36,12 @@ And what I will do
 
 ## 1. Define the project
 
-| ID | Task | Completion check | Status | Evidence / notes |
-|---|---|---|:---:|---|
-| 1.1 | Obtain and read the paper | Identify architecture, circuits, parameters, and reported results | ✅ | PDF read; Fig. 4, Fig. 7–9, and Tables I–II reviewed. |
-| 1.2 | Select the reference implementation | Use the paper's 180 nm version | ✅ | Agreed in chat. Same process node does not establish identical device behavior. |
-| 1.3 | Agree on scope | First stage and complete CCIA, schematic simulation only | ✅ | User confirmed the provisional scope; no layout or post-layout work. |
-| 1.4 | Prepare the specification checklist | Record target values, definitions, test conditions, and missing information | ❌ | Initial reference values appear below; detailed measurement procedures remain to be defined. |
+| ID  | Task                                | Completion check                                                            | Status | Evidence / notes                                                                             |
+| --- | ----------------------------------- | --------------------------------------------------------------------------- | :----: | -------------------------------------------------------------------------------------------- |
+| 1.1 | Obtain and read the paper           | Identify architecture, circuits, parameters, and reported results           |   ✅    | PDF read; Fig. 4, Fig. 7–9, and Tables I–II reviewed.                                        |
+| 1.2 | Select the reference implementation | Use the paper's 180 nm version                                              |   ✅    | Agreed in chat. Same process node does not establish identical device behavior.              |
+| 1.3 | Agree on scope                      | First stage and complete CCIA, schematic simulation first , then layout     |   ✅    | User confirmed the provisional scope; no layout or post-layout work.                         |
+| 1.4 | Prepare the specification checklist | Record target values, definitions, test conditions, and missing information |   ❌    | Initial reference values appear below; detailed measurement procedures remain to be defined. |
 
 ## 2. Prepare and verify the environment
 
@@ -55,21 +55,21 @@ And what I will do
 
 ## 3. Create an independent reproduction project
 
-| ID  | Task                                          | Completion check                                           | Status | Evidence / notes                                                                                                                                                                                                |
-| --- | --------------------------------------------- | ---------------------------------------------------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 3.1 | Create the new project directory | Independent directory; practice project preserved | ✅ | VM terminal pwd confirmed /home/userhush/Projects/IC_Projects/CCIA. Practice-project directory was also visible in a listing; its contents were not audited. |
-| 3.2 | Configure cds.lib and create a design library | Register centralized PDK and attach appropriate technology | ✅ | Inspected cat cds.lib showing Cadence INCLUDE and centralized smic18mmrf DEFINE. Library Manager confirmed ccia_lib at /home/userhush/Projects/IC_Projects/CCIA/ccia_lib. CIW reported successful technology attachment; techGetTechFile(ddGetObj("ccia_lib"))~>libName returned "smic18mmrf". Backup command completed without a displayed error. |
-| 3.3 | Configure startup and simulation output       | New sessions use this project's own results directory      |   ❌    | Do not copy the practice project's absolute output path.                                                                                                                                                        |
-| 3.4 | Configure model files and process corner      | Netlist loads intended models without invalid includes     |   ❌    | Record model paths and selected sections.                                                                                                                                                                       |
-| 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Check operating points and node voltages, not just run completion.                                                                                                                                              |
+| ID  | Task                                          | Completion check                                           | Status | Evidence / notes                                                                                                                                                                                                                                                                                                                                   |
+| --- | --------------------------------------------- | ---------------------------------------------------------- | :----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 3.1 | Create the new project directory              | Independent directory; practice project preserved          |   ✅    | VM terminal pwd confirmed /home/userhush/Projects/IC_Projects/CCIA. Practice-project directory was also visible in a listing; its contents were not audited.                                                                                                                                                                                       |
+| 3.2 | Configure cds.lib and create a design library | Register centralized PDK and attach appropriate technology |   ✅    | Inspected cat cds.lib showing Cadence INCLUDE and centralized smic18mmrf DEFINE. Library Manager confirmed ccia_lib at /home/userhush/Projects/IC_Projects/CCIA/ccia_lib. CIW reported successful technology attachment; techGetTechFile(ddGetObj("ccia_lib"))~>libName returned "smic18mmrf". Backup command completed without a displayed error. |
+| 3.3 | Configure startup and simulation output       | New sessions use this project's own results directory      |   ❌    | Do not copy the practice project's absolute output path. see [[Cadence virtuoso tutorial#move the simuilation folder to current working directory]] for specific procedure                                                                                                                                                                         |
+| 3.4 | Configure model files and process corner      | Netlist loads intended models without invalid includes     |   ❌    | Record model paths and selected sections.  , ⚠️ this step can be done with later step `### 4.3 Verification`  , if `### 4.3 Verification` failed , return to this                                                                                                                                                                                  |
+| 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Check operating points and node voltages, not just run completion.⚠️ this step can be done with later step `### 4.3 Verification`  , if `### 4.3 Verification` failed , return to this                                                                                                                                                             |
 
 ## 4. Verify the input-boosted first stage
 ### 4.1 Theory preparation
 
-| ID | Task | Completion check | Status | Evidence / notes |
-|---|---|---|:---:|---|
-| 4.1.1 | Study and annotate Fig. 4 | Explain input devices, tail devices, capacitors, and bias loops | ❌ | |
-| 4.1.2 | Characterize candidate MOS devices | Check current and gm/Id near intended operating points | ❌ | Record device type, W/L, body connections, and model corner. |
+| ID    | Task                               | Completion check                                                |       Status        | Evidence / notes                                             |
+| ----- | ---------------------------------- | --------------------------------------------------------------- | :-----------------: | ------------------------------------------------------------ |
+| 4.1.1 | Study and annotate Fig. 4          | Explain input devices, tail devices, capacitors, and bias loops | <br>In progress<br> |                                                              |
+| 4.1.2 | Characterize candidate MOS devices | Check current and gm/Id near intended operating points          |          ❌          | Record device type, W/L, body connections, and model corner. |
 
 ### 4.2 Build the first-stage core
 #### 4.2.3 Plot the circuit which the size of which is known (I do not know whether this is right?)
