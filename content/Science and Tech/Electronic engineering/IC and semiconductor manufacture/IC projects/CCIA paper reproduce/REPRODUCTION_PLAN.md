@@ -63,7 +63,11 @@ And what I will do
 | 3.4 | Configure model files and process corner      | Netlist loads intended models without invalid includes     |   ❌    | Record model paths and selected sections.  , ⚠️ this step can be done with later step `### 4.3 Verification`  , if `### 4.3 Verification` failed , return to this                                                                                                                                                                                  |
 | 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Check operating points and node voltages, not just run completion.⚠️ this step can be done with later step `### 4.3 Verification`  , if `### 4.3 Verification` failed , return to this                                                                                                                                                             |
 
-## 4. Verify the input-boosted first stage
+## 4. Build & verify the input-boosted first stage
+
+Meet the standard of
+
+完整放大器的增益
 ### 4.1 Theory preparation
 
 | ID    | Task                               | Completion check                                                |       Status        | Evidence / notes                                             |
@@ -74,6 +78,7 @@ And what I will do
 ### 4.2 Build the first-stage core
 #### 4.2.3 Plot the circuit which the size of which is known (I do not know whether this is right?)
 
+I got stuck here.
 ==I do not know whether this is right?==
 
 problem:
@@ -94,7 +99,7 @@ i will use the size in the paper first
 | 4.2.3c | Wire the core branches and supplies   | Verify connections and VDD/VSS, VON/VOP, SP_P/SP_N, SN_P/SN_N labels |   ❌    | Branches, rails and VON/VOP visually checked on 2026-10-24. Internal source-net labels and electrical connectivity audit remain pending; retain this parent task as incomplete.      |
 
 
-#### 4.2.4 Plot the circuit which the size of which is unknown 
+#### 4.2.4 Plot the circuit which the size of which is temporarily unknown 
 
 ##### Determine the resistance of pseudo resistor
 
@@ -148,6 +153,8 @@ Temporary decision
 | 4.9 | Check first-stage robustness | Repeat essential checks over selected corners and temperatures | ❌ | Select and document test coverage. |
 
 ## 5. Build the complete amplifier
+
+I will refine the content of this section next.
 
 | ID | Task | Completion check | Status | Evidence / notes |
 |---|---|---|:---:|---|
