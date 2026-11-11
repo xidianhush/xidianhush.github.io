@@ -467,7 +467,7 @@ here are the process below:
 
 $$\frac12 \mu_n C_{ox} (V_{b}+v_{gs}-V_{TH})^2 \big[1+\lambda(V_{GS0}+v_{ds})\big] = \frac12 \mu_n C_{ox} (V_b-V_{TH})^2 \big(1+\lambda V_{DS0}\big) + \mu_n C_{ox} (V_b-V_{TH})(1+\lambda V_{DS0}) v_{gs} + \frac{1}{r_{o}} v_{ds}$$
 
-![[a1451c0bc16bd34ef19d25faad517972.jpg]]
+![[5ea1ed69de0b5335130013b73544a946.jpg]]
 ### 输出特性曲线和转移特性曲线
 #### 增强型
 ![[576233532797105ed6fbd3126633fc3.jpg]]
