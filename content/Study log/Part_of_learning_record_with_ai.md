@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-11 09:13（北京时间）
+> 最后更新：2026-11-12 09:34（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,7 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月11日* | DeepSeek | 论文输入阻抗提升方法 | 3 | [打开](https://chat.deepseek.com/share/chefzfmtmo0z4rmzj1) |
 | 11月11日* | DeepSeek | 五管OTA入门设计 | 1 | [打开](https://chat.deepseek.com/share/frwuodutsbfmrxg5wg) |
 | 11月10日* | DeepSeek | Obsidian插件安全审计 | 4 | [打开](https://chat.deepseek.com/share/hro0m6aylobsoobrly) |
 | 11月上旬* | DeepSeek | 双11装机方案修正 | 13 | [打开](https://chat.deepseek.com/share/gm4tzxgmvoy8ym0psu) |
@@ -275,17 +276,17 @@
 | 7月* | DeepSeek | 运放应用场景解析 | 4 | [打开](https://chat.deepseek.com/share/xp60vjcgnj60cbg6cu) |
 | 7月* | DeepSeek | 脑机接口LNA阻抗提升 | 1 | [打开](https://chat.deepseek.com/share/z3anlatam66yys0byl) |
 | 7月* | DeepSeek | 脑机接口芯片模块解析 | 2 | [打开](https://chat.deepseek.com/share/b52bpbddf0znmom39x) |
-| 7月* | DeepSeek | Git管理工程目录建议 | -  | [打开](https://chat.deepseek.com/a/chat/s/7568e369-5c5a-4717-afd1-f6e30c3c8e05) |
-| 7月* | DeepSeek | 输入参考噪声模型解析 | -  | [打开](https://chat.deepseek.com/a/chat/s/ac55c51f-f031-4bbc-89ba-9334a546a3d6) |
-| 7月* | DeepSeek | 傅里叶级数形式转换 | -  | [打开](https://chat.deepseek.com/a/chat/s/72f5f879-9589-4cb6-8a3b-85f3380dc806) |
-| 7月* | DeepSeek | CTFT到DTFT频谱变化 | -  | [打开](https://chat.deepseek.com/a/chat/s/c07a3c4c-e371-43ee-b3a1-8b8d9d0eb3de) |
-| 7月* | DeepSeek | 噪声与输入信号无关 | -  | [打开](https://chat.deepseek.com/a/chat/s/8a500a5c-7634-4f05-a2cb-3e694386579a) |
-| 7月* | DeepSeek | 微积分理解频谱密度变化 | -  | [打开](https://chat.deepseek.com/a/chat/s/57d7e7c5-e5c8-4703-9e6c-119a877c72ce) |
-| 7月* | DeepSeek | 傅里叶线性代数联系 | -  | [打开](https://chat.deepseek.com/a/chat/s/13276d7f-5a31-4c1a-b3aa-d601c06673ad) |
-| 7月* | DeepSeek | 冲激串采样与CTFT到DTFT | -  | [打开](https://chat.deepseek.com/a/chat/s/c6b7da6c-56f6-4efa-84fc-3152bd2d7028) |
-| 7月* | DeepSeek | 时序电路记忆功能理解 | -  | [打开](https://chat.deepseek.com/a/chat/s/10a3e19e-f0a5-40c9-9fe8-cf4a30d15d2b) |
-| 7月* | DeepSeek | 摩尔型状态图输入疑问 | -  | [打开](https://chat.deepseek.com/a/chat/s/4dec09b6-2a99-412b-ad36-2a84814d39ef) |
-| 7月* | DeepSeek | 傅里叶级数形式转换与差异 | -  | [打开](https://chat.deepseek.com/a/chat/s/23c3db84-21df-470e-a753-59ff45307cb1) |
+| 7月* | DeepSeek | Git管理工程目录建议 | 5 | [打开](https://chat.deepseek.com/share/oxv0b7jwmusym1h28p) |
+| 7月* | DeepSeek | 输入参考噪声模型解析 | 4 | [打开](https://chat.deepseek.com/share/emchsf0ce304dri6zi) |
+| 7月* | DeepSeek | 傅里叶级数形式转换 | 5 | [打开](https://chat.deepseek.com/share/hx5iyd4y9utq6917a0) |
+| 7月* | DeepSeek | CTFT到DTFT频谱变化 | 8 | [打开](https://chat.deepseek.com/share/439shspy419zifvip4) |
+| 7月* | DeepSeek | 噪声与输入信号无关 | 1 | [打开](https://chat.deepseek.com/share/iwnvgr2ffxxxrkoo7o) |
+| 7月* | DeepSeek | 微积分理解频谱密度变化 | 3 | [打开](https://chat.deepseek.com/share/yjqgos1w7al768cry2) |
+| 7月* | DeepSeek | 傅里叶线性代数联系 | 1 | [打开](https://chat.deepseek.com/share/5ogtngmc2uqjh46opr) |
+| 7月* | DeepSeek | 冲激串采样与CTFT到DTFT | 2 | [打开](https://chat.deepseek.com/share/ykbjb8v6eddct442qf) |
+| 7月* | DeepSeek | 时序电路记忆功能理解 | 1 | [打开](https://chat.deepseek.com/share/4j6lib91y7t5gujzd7) |
+| 7月* | DeepSeek | 摩尔型状态图输入疑问 | 12 | [打开](https://chat.deepseek.com/share/plwkr2yop9j7ob06r9) |
+| 7月* | DeepSeek | 傅里叶级数形式转换与差异 | 6 | [打开](https://chat.deepseek.com/share/madk5swf4yne5wwlsw) |
 | 7月1日 | Kimi Code | Fourier可视化代码查看 | - | - |
 | 7月2日 | Kimi Code | Fourier可视化项目查看 | - | - |
 | 7月11日 | Kimi Code | 保研面试自我介绍PPT | - | - |

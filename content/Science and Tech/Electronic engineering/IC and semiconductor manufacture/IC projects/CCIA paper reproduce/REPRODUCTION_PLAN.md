@@ -70,17 +70,27 @@ I list several unordered to task below
 so we should put those tasks in the right order later
 
 To let the complete amplifier meet those standards:
-+ Small signal Open-loop gain: ≥50 dB
++ VDD ： 0.5-1v
++ BW ：1KHz-1.5KHz
 + $Z_{in} \geq 100M \ohm$
++ Equivalent Input Noise (IRN) : ≤5μV
++ Small signal Open-loop gain: ≥50 dB
++ Power Supply Rejection Ratio (PSRR): ≥90dB, Common-Mode Rejection Ratio (CMRR): ≥85dB
++ Total Harmonic Distortion (THD): ≤0.5%
 + Open-loop stability and closed-loop stability
 
 i split the whole task to small tasks
 So i should let the first stage of the amplifier meet those standards:
++ VDD： 1v
++ BW：unknown yet
++ $Z_{in} \geq 100M \ohm$ (reference paper use Positive Feedback Loop to increase iput impetance)
++ Equivalent Input Noise (IRN): unknown yet
 + Small signal Open-loop gain:  unknown yet
-+ $Z_{in} \geq 100M \ohm$ (I'm trying to figure out how the input impedances are defined and how to make it higher than 100M ohm)
++ Power Supply Rejection Ratio (PSRR): ≥unknown yet, Common-Mode Rejection Ratio (CMRR): unknown yet
++ Total Harmonic Distortion (THD): unknown yet
 + Open-loop stability should be concerned
 
-完整放大器的增益
+
 ### 4.1 Theory preparation
 
 | ID    | Task                               | Completion check                                                |       Status        | Evidence / notes                                             |
@@ -92,7 +102,7 @@ So i should let the first stage of the amplifier meet those standards:
 #### 4.2.3 Plot the circuit which the size of which is known (I do not know whether this is right?)
 
 I got stuck here.
-==I do not know whether this is right?==
+==I do not know whether this is right before==
 
 problem:
 
@@ -100,9 +110,11 @@ As for the main part of the amplifier
 Can i directly apply the size of the transistor in paper , 
 or whether I should determine the size all by myself?
 
+answer:
+CAN NOT
 
 temporary decision
-i will use the size in the paper first
+i will design by myself
 
 | ID     | Task                                  | Completion check                                                     | Status | Evidence / notes                                                                                                                                                                     |
 | ------ | ------------------------------------- | -------------------------------------------------------------------- | :----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
