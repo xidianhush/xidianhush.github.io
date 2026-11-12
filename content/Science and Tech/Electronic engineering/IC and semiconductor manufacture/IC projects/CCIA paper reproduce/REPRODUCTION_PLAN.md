@@ -253,3 +253,30 @@ Existing practice project — preserve:
 
 
 | 2026-10-24 | Visually reviewed core rails, outputs, eight coupling capacitors and input routing. Confirmed 0.6V and Table I design basis; added calculation, device characterization, bias sizing, pseudo-resistor design and staged integration work packages. Electrical audit and simulation remain pending. | Assistant: supplied schematic screenshot and paper pages 5/7 reviewed; no simulation evidence. |
+
+
+## 2026-11-12 review and proposed working method
+
+### Assignment requirements and definitions to confirm
+
+The supervisor's DOCX specifies 180 nm CMOS, circuit design and layout; VDD 0.5–1 V; bandwidth 1–1.5 kHz; input impedance at least 100 MΩ; input-referred noise at most 5 µV; PSRR at least 90 dB; CMRR at least 85 dB; gain at least 50 dB; THD at most 0.5%. These are assignment targets, not achieved results. It does not say whether gain is open-loop or closed-loop. Clarify with the supervisor: gain definition and conditions; whether supply range means full-range operation; lower and upper bandwidth definitions; noise integration band and RMS convention; frequency and conditions for input impedance, PSRR and CMRR; THD stimulus, output swing and load; layout scope, DRC/LVS and post-layout expectations; deadline. The document lists layout; the verification scope is not explicit. Paper 180 nm reference: 0.6 V, 39 dB closed-loop gain, 1.6 kHz bandwidth and 12 kHz chopping. These are reference measurements with their own conditions, not proof of meeting the assignment. Bandwidth is not chopping frequency.
+
+### Design reasoning and decisions
+
+- The first stage does not independently need to meet every whole-amplifier target: gain, noise, impedance, distortion and rejection depend on the whole signal chain, feedback, chopping and loading. Allocate tentative stage budgets and revise them with measured simulation results; do not assign the full system Zin or gain target to the first stage without a defined test.
+- The student's decision is to design and justify the devices. Published 10u/0.4u input and 10u/10u tail devices may be used as a benchmark or starting hypothesis, not mandatory final sizes. Characterize n18/p18 at the intended terminal voltages, body bias and currents, then calculate and sweep dimensions. A different PDK or 1 V target can change results. Explain every change.
+- 0.6 V is a paper baseline; the student's proposed 1 V is an in-range design candidate, not proof of operation at 0.5–1 V. Decide the nominal and test range after clarification; check device ratings.
+- Start with paper Cg=3.5 pF, Cs=20 pF, Cgf=35 fF and Csf=200 fF as a documented reference; calculate coupling, feedback ratios, loading and parasitics, then sweep as needed. Cs is a coupling capacitor; Cgs usually denotes a transistor parasitic. Full-system gain and capacitance ratios need the full network and loop-gain analysis.
+- Pseudo-resistor selection follows low-frequency response and recovery requirements, not the upper bandwidth alone. For an isolated gate RC approximation, fL≈1/(2πRbCg); for example 3.5 pF and a chosen 1 Hz imply 45.5 GΩ. This is illustrative, not a specification. Check nonlinear I–V, leakage, noise, temperature, settling and well options; source coupling has a different model.
+- The paper's 24 nA first-stage main current implies nominal 12 nA per symmetric branch and 20:1 relative to 600 pA Ib; a 20:1 geometry scaling is only an initial comparable-bias hypothesis, not a final replica or ACMB design. Use PDK sweeps, headroom and loop-polarity/stability checks. Ideal sources or resistors are temporary and must be identified in the report.
+
+### Ordered work and evidence
+
+1. Reconcile live schematic with earlier screenshot: the 2026-10-24 live inspection showed apparently unconnected capacitor terminals, so 4.2.4d is historical visual evidence only; check saved state, highlight nets, audit supplies/pins and bodies. Do not claim electrical verification from appearance.
+2. Configure project-local model files/corner and output and run a minimal one-device DC test early: this isolates model errors before integrating the amplifier. Investigate VACOMP-2096 only if it recurs; preserve PDK files and old data. Record log, node voltages and currents.
+3. Derive branch current and headroom, characterize n18 and p18 around target current and relevant VDS/VSB, recording gm/Id, gds, gmb, corner and temperature. Determine input and tail sizing and document sweeps.
+4. With controlled bias establish a valid first-stage operating point; compare gate-only, source-only and combined input paths under identical loading. Size and test replica, independent branch controls and pseudo-resistors, including startup and settling.
+5. Build and verify later stages; integrate feedback; test stability; introduce chopping and impedance enhancement; evaluate assignment metrics with explicit test conditions. Use suitable periodic analyses or validated transient methods for chopped behavior. A simulation completion is not specification achievement.
+6. After schematic targets are addressed, plan layout, DRC/LVS and extraction/post-layout as required or agreed; record tool and PDK availability. Prepare thesis and comparison, explicitly identifying ideal elements and paper measurement versus schematic simulation.
+
+Tutor in English, in manageable batches: explain circuit principles, equations, choices and Virtuoso operations, then inspect evidence. Keep user notes and task IDs; log design choices, conditions, paths and the distinction between visual checks, electrical verification, completed simulation and achieved specifications. Correct the stale 1.3 note (layout is planned later) and the 4.2.4c cross-reference to 4.2.4d during the next coordinated cleanup. Dates and workload await the deadline and availability.
