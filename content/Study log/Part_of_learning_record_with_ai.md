@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-12 09:34（北京时间）
+> 最后更新：2026-11-13 09:18（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,8 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月12日* | DeepSeek | 软著AI承诺书解读 | 2 | [打开](https://chat.deepseek.com/share/qugnz98uhhmmsm65ah) |
+| 11月12日* | DeepSeek | 放大器工作电压0.6V | 3 | [打开](https://chat.deepseek.com/share/5dzeusvjfm6f0cujr6) |
 | 11月11日* | DeepSeek | 论文输入阻抗提升方法 | 3 | [打开](https://chat.deepseek.com/share/chefzfmtmo0z4rmzj1) |
 | 11月11日* | DeepSeek | 五管OTA入门设计 | 1 | [打开](https://chat.deepseek.com/share/frwuodutsbfmrxg5wg) |
 | 11月10日* | DeepSeek | Obsidian插件安全审计 | 4 | [打开](https://chat.deepseek.com/share/hro0m6aylobsoobrly) |
