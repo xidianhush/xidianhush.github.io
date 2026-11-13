@@ -121,8 +121,14 @@ footer{position:relative;z-index:1;padding:0 22px 30px;color:var(--chalk-faint);
 .msqrt>.rad{font-style:normal;transform:translateY(.06em)}
 .msqrt>.body{border-top:1.4px solid currentColor;padding:.08em .2em 0 .1em}
 .mmat{display:inline-flex;align-items:center;vertical-align:middle;margin:0 .15em}
-.mmat>.brk{width:.42em;border:1.6px solid currentColor;border-right:none;border-radius:3px 0 0 3px;align-self:stretch}
-.mmat>.brk.r{border:1.6px solid currentColor;border-left:none;border-radius:0 3px 3px 0}
+.mmat>.brk{width:.4em;border:1.6px solid currentColor;border-right:none;align-self:stretch}
+.mmat>.brk.r{border:1.6px solid currentColor;border-left:none}
+.mmat>.brk.p{width:.5em;border-radius:60% 0 0 60%/50% 0 0 50%}
+.mmat>.brk.p.r{border-radius:0 60% 60% 0/0 50% 50% 0}
+.mmat>.brk.b{border-radius:2px 0 0 2px}
+.mmat>.brk.b.r{border-radius:0 2px 2px 0}
+.mmat>.brk.v{width:.18em;border:none;border-left:1.6px solid currentColor}
+.mmat>.brk.v.r{border-left:none;border-right:1.6px solid currentColor}
 .mmat>.grid{display:inline-grid;gap:.28em .8em;padding:.3em .45em;justify-items:center}
 .munder{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .1em}
 .munder>.brace{font-style:normal;line-height:.6;transform:scaleY(.8);color:var(--chalk-dim)}
@@ -157,6 +163,7 @@ footer{position:relative;z-index:1;padding:0 22px 30px;color:var(--chalk-faint);
     <div class="card"><h4><span class="dot"></span><span id="svgLabel">原理图（大信号）</span></h4>
       <div class="svgwrap" id="svgBox"></div>
       <div class="legend" id="svgLegend"></div>
+      <div class="kv" id="dcNodes" style="margin-top:10px"></div>
     </div>
     <div id="conBody"></div>
   </section>
@@ -285,7 +292,8 @@ function texInner(s){ // recursive full parse of a substring
       const rows=body.split("\\\\").map(r=>r.trim()).filter(r=>r.length);
       const cols=rows[0]?rows[0].split("&").length:1;
       const grid=rows.map(r=>r.split("&").map(c=>`<span>${texInner(c.trim())}</span>`).join("")).join("");
-      return `<span class="mmat"><span class="brk"></span><span class="grid" style="grid-template-columns:repeat(${cols},auto)">${grid}</span><span class="brk r"></span></span>`;}
+      const br=env==="bmatrix"?"b":env==="vmatrix"?"v":"p";
+      return `<span class="mmat"><span class="brk ${br}"></span><span class="grid" style="grid-template-columns:repeat(${cols},auto)">${grid}</span><span class="brk r ${br}"></span></span>`;}
     if(name==="left"||name==="right"){const c=s[i];i++;if(c===".")return "";return `<span class="mo">${esc(c)}</span>`;}
     if(name==="Big"||name==="big"||name==="bigg"||name==="Bigg"){const c=s[i];i++;return `<span class="mo">${esc(c)}</span>`;}
     if(name===","||name===";"||name===" "){return `<span class="mspace" style="width:.22em"></span>`;}
@@ -489,7 +497,7 @@ function portSetup(r){
 /* ================= compute ================= */
 function compute(){
   const p=params; const dev=makeDevice(p); const T=buildTopo(topoId,p);
-  const v0=T.nodes.map(()=>0.6);
+  const v0=(topoId==="cascode")?[1.4,0.9,0.4]:T.nodes.map(()=>0.6);
   const vQ=newton(T,dev,v0,0);
   if(!vQ)return{ok:false,T};
   const g=T.devices.map(d=>{const w=d.B.map((row,r)=>row.reduce((s,c,j)=>s+c*vQ[j],0)+d.c[r]);return dev.grad(w);});
@@ -594,7 +602,7 @@ function vccs(x,y,col,lab){ // diamond controlled source vertical
 function portTerm(x,y,lab,col){return `<circle cx="${x}" cy="${y}" r="4" fill="none" stroke="${col||C.green}" stroke-width="2"/>`+label(x,y-10,lab,col||C.green,12);}
 
 function schematic(id,ss,hl){
-  const W=560,H=340; let s=svgOpen(W,H);
+  const W=380,H=340; let s=svgOpen(W,H);
   const gateAC=(x,y,lab)=>{ s+=wire(x,y,x-64,y,C.wire); s+=gnd(x-64,y); s+=label(x-64,y-24,lab||"g (AC gnd)",C.dim,10); };
   const testAt=(x,y)=>{ s+=wire(x,y,x,y+18,C.wire); s+=isrc(x,y+30,C.green,"i_x"); s+=wire(x,y+42,x,y+50,C.wire); s+=gnd(x,y+50); s+=label(x,y-10,"v_x",C.green,11); };
   const rdBranch=(x,yTop,show)=>{ if(show){ s+=resistor(x,yTop,x,yTop-40,C.amber); s+=sublabel(x+22,yTop-20,"R","D",C.amber); s+=wire(x,yTop-40,x,yTop-52,C.wire); s+=gnd(x,yTop-52); } else { s+=label(x,yTop-30,"R_D ext.",C.dim,10); } };
@@ -740,9 +748,9 @@ function conContent(st,r){
       <div class="kv"><span class="k">看入漏极 R =</span><span class="v">${fmt(Rout,6)} Ω</span>
       <span class="k">计入 R_D 后 =</span><span class="v">${fmt(total,6)} Ω</span></div></div>`;
     h+=`<div class="card"><h4><span class="dot"></span>割线 → 切线 收敛验证（原始非线性方程）</h4>
-      <table class="verify"><tr><th>Δ (A)</th><th>中心割线 (Ω)</th><th>相对误差</th><th>单侧割线 (Ω)</th><th>相对误差</th></tr>
-      ${[1e-3,1e-4,1e-5,1e-6].map(d=>{const c=fd(r,d);return `<tr><td>${d.toExponential(0)}</td><td>${fmt(c.cent,7)}</td><td class="good">${fmt(Math.abs(c.cent-Rout)/Rout,2)}</td><td>${fmt(c.one,7)}</td><td>${fmt(Math.abs(c.one-Rout)/Rout,2)}</td></tr>`;}).join("")}
-      </table><p class="note">中心差分 $O(\\Delta^2)$ 快速收敛到 $R_{out}$；单侧 $O(\\Delta)$ 复现"仪器只能测割线"。残差底噪为浮点精度。</p></div>`;
+      <table class="verify"><tr><th>Δ/I_DQ</th><th>Δ (A)</th><th>中心割线 (Ω)</th><th>相对误差</th><th>单侧割线 (Ω)</th><th>相对误差</th></tr>
+      ${[1e-1,1e-2,1e-3,1e-4].map(f=>{const d=f*r.Iref;const c=fd(r,d);return `<tr><td>${f.toExponential(0)}</td><td>${d.toExponential(1)}</td><td>${fmt(c.cent,7)}</td><td class="good">${fmt(Math.abs(c.cent-Rout)/Rout,2)}</td><td>${fmt(c.one,7)}</td><td>${fmt(Math.abs(c.one-Rout)/Rout,2)}</td></tr>`;}).join("")}
+      </table><p class="note">步长取相对偏置电流 $\\Delta=\\epsilon\\,I_{DQ}$，保证 $\\Delta v$ 落在小信号区。中心差分 $O(\\Delta^2)$ 快速收敛到 $R_{out}$；单侧 $O(\\Delta)$ 复现"仪器只能测割线"。残差底噪为浮点精度。</p></div>`;
   } else if(st===3){
     h+=`<div class="card"><h4><span class="dot"></span>解 J ṽ = e_p（测试源 ĩ_X = 1 A）</h4>
       <div class="kv"><span class="k">ṽ =</span><span class="v">${y?M(vecTex(y,5)):"—"}</span>
@@ -785,7 +793,13 @@ function render(){
   document.getElementById("svgLabel").textContent=ss?"小信号等效电路（线性化）":"原理图（大信号 · 非线性）";
   document.getElementById("svgBox").innerHTML=schematic(topoId,ss);
   document.getElementById("svgLegend").innerHTML=`<span><i style="background:${C.amber}"></i>电阻</span><span><i style="background:${C.cyan}"></i>独立源</span><span><i style="background:${C.magenta}"></i>受控源 g_m</span><span><i style="background:${C.green}"></i>端口 / 节点</span><span><i style="background:${C.chalk}"></i>MOSFET</span>`;
-  document.getElementById("conBody").innerHTML=conContent(step,r);
+  const dn=document.getElementById("dcNodes");
+  if(r.ok){
+    let dh=r.T.nodes.map((nm,i)=>`<span class="k">v[${nm}]</span><span class="v">${fmt(r.vQ[i],4)} V</span>`).join("");
+    r.T.devices.forEach((d,k)=>{const w=d.B.map((row,rr)=>row.reduce((s,c,j)=>s+c*r.vQ[j],0)+d.c[rr]);const vt=r.dev.Vth(w[2]);const ov=w[0]-vt;const reg=ov<=0?["截止","bad"]:(w[1]<ov?["线性区","info"]:["饱和","ok"]);dh+=`<span class="k">M${k+1}</span><span class="v"><span class="badge ${reg[1]}">${reg[0]}</span>&nbsp; V_ov=${fmt(ov,3)} V · V_DS=${fmt(w[1],3)} V</span>`;});
+    dn.innerHTML=dh;
+  } else { dn.innerHTML=`<span class="k">状态</span><span class="v"><span class="badge bad">偏置失效 · 器件未进入饱和</span></span>`; }
+  document.getElementById("conBody").innerHTML=conContent(step,r).replace(/\$([^$]+)\$/g,(m,x)=>M(x));
   document.getElementById("prevStep").disabled=step===0;
   document.getElementById("nextStep").disabled=step===4;
 }
@@ -800,7 +814,7 @@ const CTLS=[
   ["Vb","V_b (V)",0.4,1.6,0.01,v=>v.toFixed(2)],
   ["VDD","V_DD (V)",0.8,3.3,0.05,v=>v.toFixed(2)],
   ["Vb2","V_b2 (cascode, V)",0.6,2.2,0.01,v=>v.toFixed(2)],
-  ["delta","验证 Δ (A)",1e-7,1e-2,1e-7,v=>v.toExponential(1)],
+  ["delta","验证 Δ/I_DQ (相对步长)",1e-6,1e-1,1e-6,v=>v.toExponential(1)],
 ];
 function buildControls(){
   document.getElementById("ctlGrid").innerHTML=CTLS.map(([key,lab,min,max,stepv,f])=>`

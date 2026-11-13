@@ -62,5 +62,27 @@ for (const f of formulas) {
   try { out = run(`texInner(${JSON.stringify(f)})`); } catch (e) { ok = false; console.log("  tex err: " + e.message); }
   check("tex " + f.slice(0, 24), ok && out.length > 0 && !/tilde|parallel|begin|pmatrix|frac|underbrace/.test(out.replace(/class="[^"]*"/g, "")), "");
 }
+// ---- render capture: run render() with DOM stub, scan produced HTML/SVG in memory ----
+const bad = (s) => /NaN|undefined|\bnull\b/.test(s) || /\$/.test(s) || /\\(frac|begin|sqrt|underbrace|tilde|hat|bar|vec|parallel|qquad|nabla|left|right)/.test(s);
+function svgWellFormed(s) {
+  const stack = []; const re = /<(\/?)([a-zA-Z][a-zA-Z0-9]*)((?:[^>"']|"[^"]*"|'[^']*')*?)(\/?)>/g; let m;
+  while ((m = re.exec(s))) {
+    const [, close, tag, , self] = m;
+    if (close) { if (stack.pop() !== tag) return "mismatch </" + tag + ">"; }
+    else if (!self) stack.push(tag);
+  }
+  return stack.length ? "unclosed <" + stack.join(",") + ">" : "";
+}
+for (const topo of ["csdeg", "cs", "sf", "cascode"]) {
+  for (let st = 0; st <= 4; st++) {
+    run(`topoId="${topo}";step=${st};render();`);
+    const abs = els["absBody"].innerHTML, con = els["conBody"].innerHTML, svg = els["svgBox"].innerHTML, dc = els["dcNodes"].innerHTML;
+    check(`render ${topo} s${st} dc clean`, !bad(dc), bad(dc) ? (dc.match(/NaN|undefined|\bnull\b|\$|\\[a-z]+/) || ["?"])[0] : "");
+    check(`render ${topo} s${st} abs clean`, !bad(abs), bad(abs) ? (abs.match(/NaN|undefined|\bnull\b|\$|\\[a-z]+/) || ["?"])[0] : "");
+    check(`render ${topo} s${st} con clean`, !bad(con), bad(con) ? (con.match(/NaN|undefined|\bnull\b|\$|\\[a-z]+/) || ["?"])[0] : "");
+    const wf = svgWellFormed(svg);
+    check(`render ${topo} s${st} svg wellformed`, svg.length > 200 && svg.includes("<svg") && !wf, wf);
+  }
+}
 console.log(fail === 0 ? "\nALL QA PASS" : `\n${fail} QA FAILURES`);
 process.exit(fail === 0 ? 0 : 2);
