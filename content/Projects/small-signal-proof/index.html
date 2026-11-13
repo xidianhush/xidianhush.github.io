@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小信号输出阻抗 · 抽象证明 ⇄ 具体电路 对照台</title>
+<style>
+:root{
+  --board:#0c1310; --board2:#101b16; --surface:#15221c; --surface2:#1b2b23; --overlay:#22352b;
+  --chalk:#e9f6ee; --chalk-dim:#a8c4b4; --chalk-faint:#6f8f7f;
+  --amber:#ffb454; --cyan:#56d4dd; --magenta:#ff5d8f; --green:#7ee081; --blue:#6aa6ff; --red:#ff6b5e; --violet:#c39bff;
+  --line:#2c4437; --line2:#3a5a49;
+  --ok:#7ee081; --warn:#ffb454; --bad:#ff6b5e; --info:#6aa6ff;
+  --mathfont:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;
+  --uifont:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --monofont:"Cascadia Code","Consolas","SF Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(86,212,221,.07), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(255,180,84,.06), transparent 60%),
+    radial-gradient(700px 700px at 50% 110%, rgba(255,93,143,.05), transparent 60%),
+    linear-gradient(160deg,var(--board) 0%,var(--board2) 55%,#0a100d 100%);
+  color:var(--chalk); font-family:var(--uifont); min-height:100vh; overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--board2)}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:6px;border:2px solid var(--board2)}
+::-webkit-scrollbar-thumb:hover{background:var(--cyan)}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+  background:linear-gradient(180deg,rgba(12,19,16,.94),rgba(12,19,16,.82));
+  border-bottom:1px solid var(--line);padding:14px 22px 12px;}
+.hrow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:12px;margin-right:auto}
+.brand h1{font-size:19px;font-weight:700;letter-spacing:.4px;
+  background:linear-gradient(90deg,var(--chalk),var(--cyan) 60%,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand .sub{font-size:12px;color:var(--chalk-faint)}
+select,button{font-family:var(--uifont)}
+.topo-select{background:var(--surface2);color:var(--chalk);border:1px solid var(--line2);border-radius:9px;padding:8px 12px;font-size:14px;cursor:pointer;outline:none}
+.topo-select:hover{border-color:var(--cyan)}
+.steps{display:flex;gap:6px;flex-wrap:wrap}
+.step-pill{background:var(--surface);border:1px solid var(--line);color:var(--chalk-dim);border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer;transition:.18s}
+.step-pill:hover{border-color:var(--amber);color:var(--chalk)}
+.step-pill.active{background:linear-gradient(120deg,var(--amber),#ff8f5e);color:#20140a;border-color:transparent;font-weight:700;box-shadow:0 0 14px rgba(255,180,84,.35)}
+main{position:relative;z-index:1;display:grid;grid-template-columns:minmax(380px,5fr) minmax(420px,6fr);gap:18px;padding:20px 22px 8px;align-items:start}
+@media(max-width:980px){main{grid-template-columns:1fr}}
+.pane{background:linear-gradient(180deg,var(--surface),var(--surface2));border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:0 10px 34px rgba(0,0,0,.35)}
+.pane-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.pane-tag{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:6px}
+.tag-abs{background:rgba(106,166,255,.16);color:var(--blue);border:1px solid rgba(106,166,255,.4)}
+.tag-con{background:rgba(126,224,129,.14);color:var(--green);border:1px solid rgba(126,224,129,.4)}
+.pane-title{font-size:16px;font-weight:700}
+.stepno{margin-left:auto;font-family:var(--monofont);font-size:12px;color:var(--amber);border:1px dashed var(--line2);padding:3px 9px;border-radius:6px}
+.prose{font-size:14px;line-height:1.75;color:var(--chalk-dim);margin:10px 0}
+.prose b,.prose strong{color:var(--chalk)}
+.prose .hl-a{color:var(--amber)} .prose .hl-c{color:var(--cyan)} .prose .hl-m{color:var(--magenta)} .prose .hl-g{color:var(--green)}
+.eq{margin:14px 0;padding:14px 16px;background:rgba(0,0,0,.28);border:1px solid var(--line);border-left:3px solid var(--cyan);border-radius:10px;overflow-x:auto}
+.eq.amber{border-left-color:var(--amber)} .eq.magenta{border-left-color:var(--magenta)} .eq.green{border-left-color:var(--green)}
+.eq .math-display{font-size:19px}
+.note{font-size:12.5px;color:var(--chalk-faint);margin-top:8px;line-height:1.6}
+.card{background:rgba(0,0,0,.24);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.card h4{font-size:13px;color:var(--cyan);letter-spacing:.6px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card h4 .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.svgwrap{background:radial-gradient(600px 300px at 50% 0%,rgba(86,212,221,.05),transparent),#0a110d;border:1px solid var(--line);border-radius:12px;padding:8px;overflow:hidden}
+.svgwrap svg{width:100%;height:auto;display:block}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13px;font-family:var(--monofont)}
+.kv .k{color:var(--chalk-faint)} .kv .v{color:var(--chalk)}
+.bigresult{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:6px 0}
+.bigresult .num{font-family:var(--monofont);font-size:30px;font-weight:700;color:var(--amber);text-shadow:0 0 18px rgba(255,180,84,.35)}
+.bigresult .unit{font-size:15px;color:var(--chalk-dim)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid}
+.badge.ok{color:var(--ok);border-color:rgba(126,224,129,.5);background:rgba(126,224,129,.1)}
+.badge.bad{color:var(--bad);border-color:rgba(255,107,94,.5);background:rgba(255,107,94,.1)}
+.badge.info{color:var(--info);border-color:rgba(106,166,255,.5);background:rgba(106,166,255,.1)}
+table.verify{width:100%;border-collapse:collapse;font-family:var(--monofont);font-size:12.5px;margin-top:8px}
+table.verify th{color:var(--chalk-faint);font-weight:600;text-align:right;padding:6px 8px;border-bottom:1px solid var(--line2)}
+table.verify th:first-child,table.verify td:first-child{text-align:left}
+table.verify td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--line);color:var(--chalk-dim)}
+table.verify td.good{color:var(--ok)}
+.controls{position:relative;z-index:1;margin:6px 22px 26px;background:linear-gradient(180deg,var(--surface),var(--surface2));border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+.controls h3{font-size:14px;letter-spacing:1px;color:var(--amber);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.ctl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px 20px}
+.ctl{display:flex;flex-direction:column;gap:6px}
+.ctl label{font-size:12px;color:var(--chalk-dim);display:flex;justify-content:space-between;gap:8px}
+.ctl label .val{font-family:var(--monofont);color:var(--cyan)}
+.ctl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:4px;background:linear-gradient(90deg,var(--line2),var(--line));outline:none;cursor:pointer}
+.ctl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amber);border:2px solid #20140a;box-shadow:0 0 10px rgba(255,180,84,.5);cursor:grab}
+.ctl input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--amber);border:2px solid #20140a;cursor:grab}
+.ctl-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.btn{background:var(--surface2);border:1px solid var(--line2);color:var(--chalk);border-radius:9px;padding:8px 16px;font-size:13px;cursor:pointer;transition:.15s}
+.btn:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(120deg,var(--cyan),var(--blue));color:#08131a;border-color:transparent;font-weight:700}
+.btn.primary:hover{color:#08131a;box-shadow:0 0 16px rgba(86,212,221,.4)}
+.toggle{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--chalk-dim);cursor:pointer;user-select:none}
+.toggle input{display:none}
+.toggle .track{width:38px;height:20px;border-radius:999px;background:var(--line);position:relative;transition:.2s}
+.toggle .track::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--chalk-dim);transition:.2s}
+.toggle input:checked + .track{background:var(--green)}
+.toggle input:checked + .track::after{left:20px;background:#0c1310}
+footer{position:relative;z-index:1;padding:0 22px 30px;color:var(--chalk-faint);font-size:12.5px;line-height:1.7}
+.navbtns{display:flex;gap:8px;margin-top:14px}
+/* ---------- math typesetting ---------- */
+.math{font-family:var(--mathfont);color:var(--chalk);white-space:nowrap}
+.math-display{display:block;text-align:center;font-size:19px;padding:4px 0;white-space:normal}
+.math .mi{font-style:italic;padding:0 .5px}
+.math .mn{font-style:normal}
+.math .mo{padding:0 .22em;font-style:normal}
+.math .mtext{font-style:normal;font-family:var(--uifont);font-size:.9em}
+.math .msf{font-style:normal;font-family:var(--uifont);font-weight:600}
+.math .mbb{font-style:normal;font-weight:600}
+.math sup,.math sub{font-size:.66em;line-height:0}
+.math sup{vertical-align:.62em} .math sub{vertical-align:-.32em}
+.mfrac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:-.7em;margin:0 .12em;line-height:1.15}
+.mfrac>.num{padding:0 .3em .12em;border-bottom:1.4px solid currentColor}
+.mfrac>.den{padding:.12em .3em 0}
+.msqrt{display:inline-flex;align-items:stretch;vertical-align:middle}
+.msqrt>.rad{font-style:normal;transform:translateY(.06em)}
+.msqrt>.body{border-top:1.4px solid currentColor;padding:.08em .2em 0 .1em}
+.mmat{display:inline-flex;align-items:center;vertical-align:middle;margin:0 .15em}
+.mmat>.brk{width:.42em;border:1.6px solid currentColor;border-right:none;border-radius:3px 0 0 3px;align-self:stretch}
+.mmat>.brk.r{border:1.6px solid currentColor;border-left:none;border-radius:0 3px 3px 0}
+.mmat>.grid{display:inline-grid;gap:.28em .8em;padding:.3em .45em;justify-items:center}
+.munder{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .1em}
+.munder>.brace{font-style:normal;line-height:.6;transform:scaleY(.8);color:var(--chalk-dim)}
+.munder>.lab{font-size:.68em;color:var(--chalk-dim);margin-top:.15em}
+.mspace{display:inline-block}
+.math .mop{font-style:normal;padding:0 .1em}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--chalk-dim);margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:3px;border-radius:2px;display:inline-block}
+</style>
+</head>
+<body>
+<header>
+  <div class="hrow">
+    <div class="brand">
+      <h1>小信号输出阻抗 · 证明 ⇄ 电路 对照台</h1>
+      <span class="sub">R<sub>out</sub> = e<sub>p</sub><sup>T</sup> J<sup>−1</sup> e<sub>p</sub> · 隐函数定理的电路化身</span>
+    </div>
+    <select id="topo" class="topo-select" title="选择拓扑"></select>
+    <div class="steps" id="steps"></div>
+  </div>
+</header>
+
+<main>
+  <section class="pane" id="leftPane">
+    <div class="pane-head"><span class="pane-tag tag-abs">Abstract · 数学证明</span><span class="pane-title" id="absTitle"></span><span class="stepno" id="absNo"></span></div>
+    <div id="absBody"></div>
+    <div class="navbtns"><button class="btn" id="prevStep">← 上一步</button><button class="btn primary" id="nextStep">下一步 →</button></div>
+  </section>
+  <section class="pane" id="rightPane">
+    <div class="pane-head"><span class="pane-tag tag-con">Concrete · 实体电路</span><span class="pane-title" id="conTitle"></span><span class="stepno" id="conNo"></span></div>
+    <div class="card"><h4><span class="dot"></span><span id="svgLabel">原理图（大信号）</span></h4>
+      <div class="svgwrap" id="svgBox"></div>
+      <div class="legend" id="svgLegend"></div>
+    </div>
+    <div id="conBody"></div>
+  </section>
+</main>
+
+<section class="controls">
+  <h3>⚙ 物理参数 · 实时代入</h3>
+  <div class="ctl-grid" id="ctlGrid"></div>
+  <div class="ctl-row">
+    <label class="toggle"><input type="checkbox" id="inclRD"><span class="track"></span>端口计入 R<sub>D</sub>（否则看入漏极、R<sub>D</sub> 作外部负载）</label>
+    <label class="toggle"><input type="checkbox" id="showSS" checked><span class="track"></span>Step≥3 显示小信号等效电路</label>
+    <button class="btn" id="resetBtn">重置默认</button>
+    <button class="btn" id="randBtn">随机参数</button>
+    <button class="btn" id="expSvg">导出当前 SVG</button>
+    <button class="btn" id="expJson">导出状态 JSON</button>
+  </div>
+</section>
+
+<footer>
+  模型：平方律 + 沟道长度调制 λ + 体效应 γ（饱和区，C¹ 光滑）。等式对模型方程为恒等；模型 vs 硅片、仪器有限幅度两项误差另计。
+  数值验证：对原始非线性端口方程做中心/单侧割线差分，收敛值即 e<sub>p</sub><sup>T</sup>J<sup>−1</sup>e<sub>p</sub>。公式以 LaTeX 源码书写并由内置排版引擎渲染；电路图为矢量 SVG。
+</footer>
+
+<script>
+"use strict";
+/* ================= LaTeX-subset typesetter ================= */
+const GREEK={alpha:"α",beta:"β",gamma:"γ",delta:"δ",epsilon:"ε",theta:"θ",lambda:"λ",mu:"μ",nu:"ν",xi:"ξ",pi:"π",rho:"ρ",sigma:"σ",tau:"τ",phi:"φ",chi:"χ",psi:"ψ",omega:"ω",Gamma:"Γ",Delta:"Δ",Theta:"Θ",Lambda:"Λ",Xi:"Ξ",Pi:"Π",Sigma:"Σ",Phi:"Φ",Psi:"Ψ",Omega:"Ω"};
+const SYM={partial:"∂",nabla:"∇",infty:"∞",cdot:"·",times:"×",pm:"±",mp:"∓",approx:"≈",equiv:"≡",neq:"≠",ne:"≠",leq:"≤",le:"≤",geq:"≥",ge:"≥",to:"→",mapsto:"↦",in:"∈",sim:"∼",propto:"∝",ell:"ℓ",forall:"∀",exists:"∃",subset:"⊂",cup:"∪",cap:"∩",ldots:"…",cdots:"⋯",prime:"′",circ:"∘",star:"⋆",dagger:"†",angle:"⟨",rangle:"⟩",langle:"⟨",Vert:"‖",vert:"|",lfloor:"⌊",rfloor:"⌋",lceil:"⌈",rceil:"⌉",uparrow:"↑",downarrow:"↓",Rightarrow:"⇒",Leftarrow:"⇐",leftrightarrow:"↔",sum:"∑",prod:"∏",int:"∫",sqrt:"√",parallel:"∥",perp:"⊥",mid:"∣",colon:":",ldotp:"."};
+const OPS={det:1,tr:1,diag:1,max:1,min:1,log:1,ln:1,exp:1,sin:1,cos:1,tan:1};
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function tex(src){
+  let i=0; const n=src.length;
+  function peek(){return src[i];}
+  function group(){ // expects '{'
+    if(src[i]!=="{") return atom();
+    i++; let out=""; let depth=1; let start=i;
+    while(i<n&&depth>0){ if(src[i]==="{")depth++; else if(src[i]==="}"){depth--; if(depth===0)break;} i++; }
+    const inner=src.slice(start,i); i++; return render(inner);
+  }
+  function cmd(){
+    i++; let name=""; while(i<n&&/[a-zA-Z]/.test(src[i])){name+=src[i];i++;}
+    if(name==="") { const c=src[i]; i++; return esc(c); }
+    if(name==="frac"){ const a=group(),b=group(); return `<span class="mfrac"><span class="num">${a}</span><span class="den">${b}</span></span>`; }
+    if(name==="sqrt"){ const a=group(); return `<span class="msqrt"><span class="rad">√</span><span class="body">${a}</span></span>`; }
+    if(name==="text"||name==="mathrm"||name==="operatorname"){ const a=group(); return `<span class="mtext">${a}</span>`; }
+    if(name==="mathsf"){ const a=group(); return `<span class="msf">${a}</span>`; }
+    if(name==="mathbf"||name==="bm"){ const a=group(); return `<span class="mbb">${a}</span>`; }
+    if(name==="mathbb"){ const a=group(); return `<span class="mbb">${a}</span>`; }
+    if(name==="underbrace"){ const a=group(); let lab=""; if(src[i]==="_"){i++; lab=group();} return `<span class="munder"><span>${a}</span><span class="brace">︸</span><span class="lab">${lab}</span></span>`; }
+    if(name==="begin"){ // matrix
+      let env=""; if(src[i]==="{"){i++; while(i<n&&src[i]!=="}"){env+=src[i];i++;} i++;}
+      let body=""; let depth=1;
+      while(i<n){ if(src.startsWith("\\end",i)){ break; } body+=src[i]; i++; }
+      if(src.startsWith("\\end",i)){ i+=4; if(src[i]==="{"){i++; while(i<n&&src[i]!=="}")i++; i++;} }
+      const rows=body.split("\\\\").map(r=>r.trim()).filter(r=>r.length);
+      const grid=rows.map(r=>r.split("&").map(c=>`<span>${render(c.trim())}</span>`).join("")).join("");
+      const cols=rows[0]?rows[0].split("&").length:1;
+      const br = env==="pmatrix"?"p":env==="bmatrix"?"b":env==="vmatrix"?"v":"p";
+      const bl=br==="p"?"":br==="b"?"":"";
+      return `<span class="mmat"><span class="brk ${br}"></span><span class="grid" style="grid-template-columns:repeat(${cols},auto)">${grid}</span><span class="brk r ${br}"></span></span>`;
+    }
+    if(name==="left"||name==="right"){ const c=src[i]; i++; if(c===".")return ""; return `<span class="mo">${esc(c)}</span>`; }
+    if(name==="Big"||name==="big"||name==="bigg"||name==="Bigg"){ const c=src[i]; i++; return `<span class="mo">${esc(c)}</span>`; }
+    if(name===","||name===";"||name===" "){ return `<span class="mspace" style="width:.22em"></span>`; }
+    if(name==="!"){ return `<span class="mspace" style="width:-.1em"></span>`; }
+    if(name==="quad"){ return `<span class="mspace" style="width:1em"></span>`; }
+    if(name==="qquad"){ return `<span class="mspace" style="width:2em"></span>`; }
+    if(GREEK[name]) return `<span class="mi">${GREEK[name]}</span>`;
+    if(SYM[name]) return `<span class="mo">${SYM[name]}</span>`;
+    if(OPS[name]) return `<span class="mop">${name}</span>`;
+    return `<span class="mop">${esc(name)}</span>`;
+  }
+  function atom(){
+    const c=src[i];
+    if(c==="\\") return cmd();
+    if(c==="{") return group();
+    i++;
+    if(/[a-zA-Z]/.test(c)) return `<span class="mi">${c}</span>`;
+    if(/[0-9.]/.test(c)) return `<span class="mn">${c}</span>`;
+    if(c==="("||c===")"||c==="["||c==="]"||c==="|") return `<span class="mo">${esc(c)}</span>`;
+    if(c==="="||c==="+"||c==="-"||c==="<"||c===">"||c==="/") return `<span class="mo">${esc(c==="-"?"−":c)}</span>`;
+    if(c===",") return `<span class="mo">,</span>`;
+    return `<span class="mn">${esc(c)}</span>`;
+  }
+  function render(s){
+    const saveI=i, saveSrc=src; // render substring via recursion on new parser
+    return texInner(s);
+  }
+  function parse(){
+    let out=""; let prev="";
+    while(i<n){
+      const c=src[i];
+      if(c==="^"||c==="_"){ i++; const a=group(); out+= c==="^"?`<sup>${a}</sup>`:`<sub>${a}</sub>`; continue; }
+      if(c==="&"){ i++; out+=`<span class="mspace" style="width:.4em"></span>`; continue; }
+      if(c==="~"){ i++; out+=`<span class="mspace" style="width:.3em"></span>`; continue; }
+      if(/\s/.test(c)){ i++; continue; }
+      const a=atom(); out+=a; prev=a;
+    }
+    return out;
+  }
+  // top-level
+  let out="";
+  while(i<n){
+    const c=src[i];
+    if(c==="^"||c==="_"){ i++; const a=group(); out+= c==="^"?`<sup>${a}</sup>`:`<sub>${a}</sub>`; continue; }
+    if(/\s/.test(c)){ i++; continue; }
+    out+=atom();
+  }
+  return out;
+}
+function texInner(s){ // recursive full parse of a substring
+  let i=0; const n=s.length;
+  function group(){ if(s[i]!=="{") return atom(); i++; let start=i,depth=1; while(i<n&&depth>0){if(s[i]==="{")depth++;else if(s[i]==="}"){depth--;if(depth===0)break;}i++;} const inner=s.slice(start,i); i++; return texInner(inner); }
+  function cmd(){ i++; let name=""; while(i<n&&/[a-zA-Z]/.test(s[i])){name+=s[i];i++;}
+    if(name===""){const c=s[i];i++;return esc(c);}
+    if(name==="frac"){const a=group(),b=group();return `<span class="mfrac"><span class="num">${a}</span><span class="den">${b}</span></span>`;}
+    if(name==="sqrt"){const a=group();return `<span class="msqrt"><span class="rad">√</span><span class="body">${a}</span></span>`;}
+    if(name==="text"||name==="mathrm"||name==="operatorname"){return `<span class="mtext">${group()}</span>`;}
+    if(name==="mathsf"){return `<span class="msf">${group()}</span>`;}
+    if(name==="mathbf"||name==="bm"||name==="mathbb"){return `<span class="mbb">${group()}</span>`;}
+    if(name==="underbrace"){const a=group();let lab="";if(s[i]==="_"){i++;lab=group();}return `<span class="munder"><span>${a}</span><span class="brace">︸</span><span class="lab">${lab}</span></span>`;}
+    if(name==="tilde"||name==="hat"||name==="bar"||name==="vec"){const c=s[i];i++;const acc=name==="tilde"?"̃":name==="hat"?"̂":name==="bar"?"̄":"⃗";return `<span class="mi">${esc(c)}${acc}</span>`;}
+    if(name==="begin"){let env="";if(s[i]==="{"){i++;while(i<n&&s[i]!=="}"){env+=s[i];i++;}i++;}
+      let body="";while(i<n&&!s.startsWith("\\end",i)){body+=s[i];i++;}
+      if(s.startsWith("\\end",i)){i+=4;if(s[i]==="{"){i++;while(i<n&&s[i]!=="}")i++;i++;}}
+      const rows=body.split("\\\\").map(r=>r.trim()).filter(r=>r.length);
+      const cols=rows[0]?rows[0].split("&").length:1;
+      const grid=rows.map(r=>r.split("&").map(c=>`<span>${texInner(c.trim())}</span>`).join("")).join("");
+      return `<span class="mmat"><span class="brk"></span><span class="grid" style="grid-template-columns:repeat(${cols},auto)">${grid}</span><span class="brk r"></span></span>`;}
+    if(name==="left"||name==="right"){const c=s[i];i++;if(c===".")return "";return `<span class="mo">${esc(c)}</span>`;}
+    if(name==="Big"||name==="big"||name==="bigg"||name==="Bigg"){const c=s[i];i++;return `<span class="mo">${esc(c)}</span>`;}
+    if(name===","||name===";"||name===" "){return `<span class="mspace" style="width:.22em"></span>`;}
+    if(name==="!"){return `<span class="mspace" style="width:0"></span>`;}
+    if(name==="quad"){return `<span class="mspace" style="width:1em"></span>`;}
+    if(name==="qquad"){return `<span class="mspace" style="width:2em"></span>`;}
+    if(GREEK[name])return `<span class="mi">${GREEK[name]}</span>`;
+    if(SYM[name])return `<span class="mo">${SYM[name]}</span>`;
+    if(OPS[name])return `<span class="mop">${name}</span>`;
+    return `<span class="mop">${esc(name)}</span>`;}
+  function atom(){const c=s[i];
+    if(c==="\\")return cmd();
+    if(c==="{")return group();
+    i++;
+    if(/[a-zA-Z]/.test(c))return `<span class="mi">${c}</span>`;
+    if(/[0-9.]/.test(c))return `<span class="mn">${c}</span>`;
+    if(c==="("||c===")"||c==="["||c==="]"||c==="|")return `<span class="mo">${esc(c)}</span>`;
+    if(c==="="||c==="+"||c==="-"||c==="<"||c===">"||c==="/")return `<span class="mo">${esc(c==="-"?"−":c)}</span>`;
+    if(c===",")return `<span class="mo">,</span>`;
+    return `<span class="mn">${esc(c)}</span>`;}
+  let out="";
+  while(i<n){const c=s[i];
+    if(c==="^"||c==="_"){i++;const a=group();out+=c==="^"?`<sup>${a}</sup>`:`<sub>${a}</sub>`;continue;}
+    if(/\s/.test(c)){i++;continue;}
+    out+=atom();}
+  return out;
+}
+function M(src,display){ return `<span class="math ${display?"math-display":""}">${texInner(src)}</span>`; }
+function EQ(src,cls){ return `<div class="eq ${cls||""}">${M(src,true)}</div>`; }
+
+/* ================= linear algebra ================= */
+const zeros=(r,c)=>Array.from({length:r},()=>Array(c).fill(0));
+function matMul(A,B){const r=A.length,c=B[0].length,k=B.length;const C=zeros(r,c);for(let i=0;i<r;i++)for(let j=0;j<c;j++){let s=0;for(let t=0;t<k;t++)s+=A[i][t]*B[t][j];C[i][j]=s;}return C;}
+function matVec(A,x){return A.map(r=>r.reduce((s,v,j)=>s+v*x[j],0));}
+function transpose(A){return A[0].map((_,j)=>A.map(r=>r[j]));}
+function solve(A,b){ // gaussian partial pivot
+  const n=b.length; const M=A.map((r,i)=>[...r,b[i]]);
+  for(let c=0;c<n;c++){ let p=c; for(let r=c+1;r<n;r++) if(Math.abs(M[r][c])>Math.abs(M[p][c]))p=r;
+    if(Math.abs(M[p][c])<1e-14) return null;
+    [M[c],M[p]]=[M[p],M[c]];
+    for(let r=0;r<n;r++){ if(r===c)continue; const f=M[r][c]/M[c][c]; for(let k=c;k<=n;k++)M[r][k]-=f*M[c][k]; } }
+  return M.map((r,i)=>r[n]/M[i][i]);
+}
+function det(A){const n=A.length;const M=A.map(r=>[...r]);let d=1;for(let c=0;c<n;c++){let p=c;for(let r=c+1;r<n;r++)if(Math.abs(M[r][c])>Math.abs(M[p][c]))p=r;if(Math.abs(M[p][c])<1e-14)return 0;[M[c],M[p]]=[M[p],M[c]];if(p!==c)d=-d;d*=M[c][c];for(let r=c+1;r<n;r++){const f=M[r][c]/M[c][c];for(let k=c;k<n;k++)M[r][k]-=f*M[c][k];}}return d;}
+const par=(a,b)=>(a*b)/(a+b);
+
+/* ================= device model ================= */
+function makeDevice(p){
+  const Vth=vbs=>p.Vth0+p.gamma*(Math.sqrt(Math.max(1e-9,p.phi2-vbs))-Math.sqrt(p.phi2));
+  const f=w=>{const ov=w[0]-Vth(w[2]); if(ov<=0)return 0; return p.k*ov*ov*(1+p.lambda*w[1]);};
+  const grad=w=>{const vt=Vth(w[2]); const ov=w[0]-vt; if(ov<=0)return[0,0,0];
+    const gm=2*p.k*ov*(1+p.lambda*w[1]);
+    const go=p.k*ov*ov*p.lambda;
+    const gmb=gm*p.gamma/(2*Math.sqrt(Math.max(1e-9,p.phi2-w[2])));
+    return[gm,go,gmb];};
+  return{f,grad,Vth};
+}
+
+/* ================= topologies ================= */
+function buildTopo(id,p){
+  const R=(n1,n2,val,load)=>({n1,n2,val,load:!!load});
+  const T={};
+  if(id==="csdeg"){
+    T.nodes=["d","s"]; T.port=0; T.name="共源 + 源极负反馈 (CS + R_S)";
+    T.res=[R("s","gnd",p.RS),R("d","VDD",p.RD,true)];
+    T.dev=[{G:["fix",p.Vb],D:["node",0],S:["node",1],B:["fix",0]}];
+    T.closed=(g,pp)=>{const[gm,go,gmb]=g[0];const ro=1/go;return (1+(gm+gmb)*pp.RS)*ro+pp.RS;};
+    T.closedTex=(g,pp)=>{const[gm,go,gmb]=g[0];const ro=1/go;return `[1+(g_m+g_{mb})R_S]r_o+R_S`;};
+  } else if(id==="cs"){
+    T.nodes=["d"]; T.port=0; T.name="共源 (CS, 源极接地)";
+    T.res=[R("d","VDD",p.RD,true)];
+    T.dev=[{G:["fix",p.Vb],D:["node",0],S:["fix",0],B:["fix",0]}];
+    T.closed=(g)=>1/g[0][1];
+    T.closedTex=()=>`r_o`;
+  } else if(id==="sf"){
+    T.nodes=["s"]; T.port=0; T.name="源跟随器 / 共漏 (CD)";
+    T.res=[R("s","gnd",p.RS)];
+    T.dev=[{G:["fix",p.Vb],D:["fix",p.VDD],S:["node",0],B:["fix",0]}];
+    T.closed=(g,pp)=>{const[gm,go,gmb]=g[0];return par(1/(gm+gmb+go),pp.RS);};
+    T.closedTex=()=>`\\frac{1}{g_m+g_{mb}+g_o}\\parallel R_S`;
+  } else if(id==="cascode"){
+    T.nodes=["o","x","s1"]; T.port=0; T.name="共源共栅 (Cascode)";
+    T.res=[R("s1","gnd",p.RS),R("o","VDD",p.RD,true)];
+    T.dev=[{G:["fix",p.Vb],D:["node",1],S:["node",2],B:["fix",0]},
+           {G:["fix",p.Vb2],D:["node",0],S:["node",1],B:["fix",0]}];
+    T.closed=(g,pp)=>{const[g1m,g1o,g1mb]=g[0];const[g2m,g2o,g2mb]=g[1];
+      const ro1=1/g1o,ro2=1/g2o; const r1eff=(1+(g1m+g1mb)*pp.RS)*ro1+pp.RS;
+      return ro2+r1eff+(g2m+g2mb)*ro2*r1eff;};
+    T.closedTex=()=>`r_{o2}+r_{o1}^{eff}+(g_{m2}+g_{mb2})r_{o2}r_{o1}^{eff}`;
+  }
+  // assemble G,b, devices B,c,a
+  const n=T.nodes.length; const idx=name=>name==="gnd"?-1:T.nodes.indexOf(name);
+  const G=zeros(n,n), b=Array(n).fill(0);
+  const voltOf=ref=>ref[0]==="fix"?ref[1]:null;
+  for(const r of T.res){
+    const i1=idx(r.n1), i2=idx(r.n2);
+    const v1=r.n1==="VDD"?p.VDD:(r.n1==="gnd"?0:voltOf(["node",i1]));
+    const g=1/r.val;
+    const a1=r.n1==="VDD"?p.VDD:(r.n1==="gnd"?0:null);
+    const a2=r.n2==="VDD"?p.VDD:(r.n2==="gnd"?0:null);
+    if(i1>=0&&i2>=0){G[i1][i1]+=g;G[i2][i2]+=g;G[i1][i2]-=g;G[i2][i1]-=g;}
+    else if(i1>=0){G[i1][i1]+=g; b[i1]-=g*(a2===null?0:a2);}
+    else if(i2>=0){G[i2][i2]+=g; b[i2]-=g*(a1===null?0:a1);}
+  }
+  const devices=T.dev.map(d=>{
+    const term=t=>t[0]==="fix"?{fix:t[1]}:{node:t[1]};
+    const Gt=term(d.G),Dt=term(d.D),St=term(d.S),Bt=term(d.B);
+    const diff=(x,y)=>{ // returns {row:coeffs, c:const}
+      const row=Array(n).fill(0); let c=0;
+      if(x.node!==undefined)row[x.node]+=1; else c+=x.fix;
+      if(y.node!==undefined)row[y.node]-=1; else c-=y.fix;
+      return{row,c};};
+    const wGS=diff(Gt,St), wDS=diff(Dt,St), wBS=diff(Bt,St);
+    const B=[wGS.row,wDS.row,wBS.row]; const c=[wGS.c,wDS.c,wBS.c];
+    const a=Array(n).fill(0);
+    if(Dt.node!==undefined)a[Dt.node]+=1;
+    if(St.node!==undefined)a[St.node]-=1;
+    return{B,c,a};
+  });
+  const e_p=Array(n).fill(0); e_p[T.port]=1;
+  T.G=G;T.b=b;T.devices=devices;T.e_p=e_p;T.n=n;
+  return T;
+}
+const GMIN=1e-12; // SPICE-style gmin keeps off-state Jacobians nonsingular
+function assembleJ(T,g,portOnly,inclRD,p){
+  // G for port: remove load resistors if !inclRD
+  const n=T.n; const G=zeros(n,n);
+  const idx=name=>name==="gnd"?-1:T.nodes.indexOf(name);
+  for(const r of T.res){ if(r.load&&!inclRD)continue;
+    const i1=idx(r.n1),i2=idx(r.n2); const g=1/r.val;
+    if(i1>=0&&i2>=0){G[i1][i1]+=g;G[i2][i2]+=g;G[i1][i2]-=g;G[i2][i1]-=g;}
+    else if(i1>=0){G[i1][i1]+=g;}
+    else if(i2>=0){G[i2][i2]+=g;}
+  }
+  const J=G.map(r=>[...r]);
+  T.devices.forEach((d,k)=>{const gk=g[k];
+    for(let i=0;i<n;i++)for(let j=0;j<n;j++){ J[i][j]+= d.a[i]*(gk[0]*d.B[0][j]+gk[1]*d.B[1][j]+gk[2]*d.B[2][j]); }});
+  for(let i=0;i<n;i++)J[i][i]+=GMIN;
+  return J;
+}
+function Fval(T,dev,v,iX){
+  const n=T.n; const F=matVec(T.G,v).map((x,i)=>x+T.b[i]-T.e_p[i]*iX+GMIN*v[i]);
+  T.devices.forEach((d,k)=>{const w=d.B.map((row,r)=>row.reduce((s,c,j)=>s+c*v[j],0)+d.c[r]); const f=dev.f(w);
+    for(let i=0;i<n;i++)F[i]+=d.a[i]*f;});
+  return F;
+}
+function newton(T,dev,v0,iX){
+  let v=[...v0];
+  for(let it=0;it<120;it++){
+    const g=T.devices.map(d=>{const w=d.B.map((row,r)=>row.reduce((s,c,j)=>s+c*v[j],0)+d.c[r]);return dev.grad(w);});
+    const J=assembleJFull(T,g);
+    const F=Fval(T,dev,v,iX);
+    const rhs=F.map(x=>-x);
+    const dv=solve(J,rhs); if(!dv)return null;
+    let step=1; const norm=Math.max(...dv.map(Math.abs)); if(norm>0.5)step=0.5/norm;
+    v=v.map((x,i)=>x+step*dv[i]);
+    if(Math.max(...F.map(Math.abs))<1e-12)break;
+  }
+  return v;
+}
+function assembleJFull(T,g){
+  const n=T.n; const J=T.G.map(r=>[...r]);
+  T.devices.forEach((d,k)=>{const gk=g[k];
+    for(let i=0;i<n;i++)for(let j=0;j<n;j++){J[i][j]+=d.a[i]*(gk[0]*d.B[0][j]+gk[1]*d.B[1][j]+gk[2]*d.B[2][j]);}});
+  for(let i=0;i<n;i++)J[i][i]+=GMIN;
+  return J;
+}
+
+/* ================= state ================= */
+const DEFAULTS={k:1e-3,Vth0:0.5,gamma:0.4,phi2:0.7,lambda:0.1,RS:1e3,RD:5e3,Vb:1.0,VDD:1.8,Vb2:1.2,delta:1e-4};
+let params={...DEFAULTS};
+let topoId="csdeg";
+let step=0;
+let inclRD=false, showSS=true;
+const TOPOS=[["csdeg","共源 + 源极负反馈"],["cs","共源（源极接地）"],["sf","源跟随器（共漏）"],["cascode","共源共栅 Cascode"]];
+const STEPS=["Step 0 · 方程组","Step 1 · 隐函数定理","Step 2 · 端口导数","Step 3 · 线性化=雅可比","Step 4 · Schur 补"];
+
+/* ================= port setup (finite-diff must measure the SAME port as R_out) ================= */
+function buildGB(nodes,res,p){
+  const n=nodes.length; const idx=name=>name==="gnd"?-1:nodes.indexOf(name);
+  const G=zeros(n,n), b=Array(n).fill(0);
+  for(const r of res){ const i1=idx(r.n1),i2=idx(r.n2); const g=1/r.val;
+    const a1=r.n1==="VDD"?p.VDD:(r.n1==="gnd"?0:null);
+    const a2=r.n2==="VDD"?p.VDD:(r.n2==="gnd"?0:null);
+    if(i1>=0&&i2>=0){G[i1][i1]+=g;G[i2][i2]+=g;G[i1][i2]-=g;G[i2][i1]-=g;}
+    else if(i1>=0){G[i1][i1]+=g;b[i1]-=g*(a2===null?0:a2);}
+    else if(i2>=0){G[i2][i2]+=g;b[i2]-=g*(a1===null?0:a1);}
+  }
+  return{G,b};
+}
+function portSetup(r){
+  const{T,dev,vQ,pi}=r; const p=params;
+  // look into the device terminal: replace load R_D by a test current source;
+  // bias that source at iX0 so the port problem reproduces the full-circuit Q exactly.
+  const res=inclRD?T.res:T.res.filter(x=>!x.load);
+  const{G,b}=buildGB(T.nodes,res,p);
+  const T2={...T,res,G,b};
+  const iX0=Fval(T2,dev,vQ,0)[pi];
+  return{T2,iX0};
+}
+/* ================= compute ================= */
+function compute(){
+  const p=params; const dev=makeDevice(p); const T=buildTopo(topoId,p);
+  const v0=T.nodes.map(()=>0.6);
+  const vQ=newton(T,dev,v0,0);
+  if(!vQ)return{ok:false,T};
+  const g=T.devices.map(d=>{const w=d.B.map((row,r)=>row.reduce((s,c,j)=>s+c*vQ[j],0)+d.c[r]);return dev.grad(w);});
+  const J=assembleJ(T,g,true,inclRD,p);
+  const y=solve(J,T.e_p);
+  const Rout=y?y[T.port]:NaN;
+  const dJ=det(J);
+  // schur
+  const pi=T.port; const rest=[...Array(T.n).keys()].filter(i=>i!==pi);
+  let S=null;
+  if(rest.length===0){S=J[pi][pi];}
+  else{
+    const Jpp=J[pi][pi];
+    const Jpr=rest.map(j=>J[pi][j]);
+    const Jrp=rest.map(i=>J[i][pi]);
+    const Jrr=rest.map(i=>rest.map(j=>J[i][j]));
+    const t=solve(Jrr,Jrp);
+    S=Jpp-(t?Jpr.reduce((s,v,k)=>s+v*t[k],0):NaN);
+  }
+  const Rschur=S?1/S:NaN;
+  const closed=T.closed(g,p);
+  const total=inclRD?Rout:par(Rout,p.RD);
+  // finite diff on the SAME port (load replaced by biased test source).
+  // step is RELATIVE to the bias current so Δv stays in the small-signal regime.
+  const w0=T.devices[0].B.map((row,rr)=>row.reduce((s,c,j)=>s+c*vQ[j],0)+T.devices[0].c[rr]);
+  const Iref=Math.max(Math.abs(dev.f(w0)),1e-9);
+  const d=p.delta*Iref; const ps=portSetup({T,dev,vQ,pi});
+  const vp=newton(ps.T2,dev,vQ,ps.iX0+d), vm=newton(ps.T2,dev,vQ,ps.iX0-d);
+  const central=(vp&&vm)?(vp[pi]-vm[pi])/(2*d):NaN;
+  const oneside=(vp)?(vp[pi]-vQ[pi])/d:NaN;
+  return{ok:true,T,dev,vQ,g,J,y,Rout,dJ,S,Rschur,closed,total,central,oneside,pi,Iref};
+}
+
+/* ================= formatting ================= */
+function fmt(x,sig){ if(!isFinite(x))return "—"; sig=sig||4;
+  const a=Math.abs(x);
+  if(a!==0&&(a>=1e5||a<1e-3))return x.toExponential(sig-1).replace("e+","e").replace("e-","e−");
+  return parseFloat(x.toPrecision(sig)).toString();
+}
+function matTex(A,sig){ return "\\begin{pmatrix}"+A.map(r=>r.map(x=>fmt(x,sig)).join(" & ")).join("\\\\ ")+"\\end{pmatrix}"; }
+function vecTex(v,sig){ return "\\begin{pmatrix}"+v.map(x=>fmt(x,sig)).join("\\\\ ")+"\\end{pmatrix}"; }
+
+/* ================= SVG schematics ================= */
+const C={wire:"#9fc0ae",chalk:"#e9f6ee",amber:"#ffb454",cyan:"#56d4dd",magenta:"#ff5d8f",green:"#7ee081",blue:"#6aa6ff",dim:"#6f8f7f",red:"#ff6b5e"};
+function svgOpen(w,h){return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" font-family="Segoe UI, sans-serif">`;}
+function wire(x1,y1,x2,y2,col,w){return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col||C.wire}" stroke-width="${w||2}" stroke-linecap="round"/>`;}
+function node(x,y,col){return `<circle cx="${x}" cy="${y}" r="3.4" fill="${col||C.chalk}"/>`;}
+function gnd(x,y){return wire(x,y,x,y+8)+wire(x-9,y+8,x+9,y+8)+wire(x-5,y+12,x+5,y+12)+wire(x-1.5,y+16,x+1.5,y+16);}
+function isrc(x,y,col,lab){ // test current source circle with up-arrow, vertical
+  const g=col||C.green;
+  return `<circle cx="${x}" cy="${y}" r="12" fill="none" stroke="${g}" stroke-width="2"/>`+
+    `<line x1="${x}" y1="${y+6}" x2="${x}" y2="${y-6}" stroke="${g}" stroke-width="2"/>`+
+    `<polygon points="${x-3},${y-2} ${x+3},${y-2} ${x},${y-7}" fill="${g}"/>`+
+    (lab?label(x+18,y+4,lab,g,11,"start"):"");
+}
+function ssBlock(x,yD,yS,lab){ // small-signal D-S: VCCS || r_o between rails yD,yS
+  let s="";
+  const mid=(yD+yS)/2;
+  s+=wire(x-20,yD,x+20,yD,C.wire); s+=wire(x-20,yS,x+20,yS,C.wire);
+  s+=wire(x-20,yD,x-20,mid-12,C.wire); s+=wire(x-20,mid+12,x-20,yS,C.wire);
+  s+=wire(x+20,yD,x+20,yD+8,C.wire); s+=wire(x+20,yS-8,x+20,yS,C.wire);
+  s+=vccs(x-20,mid,C.magenta,""); s+=resistor(x+20,yD+8,x+20,yS-8,C.amber);
+  s+=label(x-20,(yD+yS)/2-16,"g_m·v_gs",C.magenta,10);
+  s+=label(x+34,(yD+yS)/2,"r_o",C.amber,11,"start");
+  return s;
+}
+function label(x,y,txt,col,size,anchor){return `<text x="${x}" y="${y}" fill="${col||C.chalk}" font-size="${size||13}" text-anchor="${anchor||"middle"}">${txt}</text>`;}
+function sublabel(x,y,base,sub,col,size){return `<text x="${x}" y="${y}" fill="${col||C.chalk}" font-size="${size||13}" text-anchor="middle">${base}<tspan dy="3" font-size="${(size||13)*0.7}">${sub}</tspan></text>`;}
+function resistor(x1,y1,x2,y2,col){ // vertical or horizontal zigzag
+  const vert=(x1===x2); const L=vert?Math.abs(y2-y1):Math.abs(x2-x1); const n=6; const amp=6;
+  let pts=[]; const seg=L/(n+2);
+  for(let i=0;i<=n+2;i++){ const t=i*seg; let off=0; if(i>0&&i<n+2)off=(i%2?amp:-amp);
+    pts.push(vert?[x1+off,y1+Math.sign(y2-y1)*t]:[x1+Math.sign(x2-x1)*t,y1+off]); }
+  return `<polyline points="${pts.map(p=>p.join(",")).join(" ")}" fill="none" stroke="${col||C.amber}" stroke-width="2" stroke-linejoin="round"/>`;
+}
+function vsource(x,y,col,lab){ // circle vertical source between y-? centered
+  return `<circle cx="${x}" cy="${y}" r="12" fill="none" stroke="${col||C.cyan}" stroke-width="2"/>`+
+    `<line x1="${x}" y1="${y-5}" x2="${x}" y2="${y+5}" stroke="${col||C.cyan}" stroke-width="2"/>`+
+    `<line x1="${x-4}" y1="${y-5}" x2="${x+4}" y2="${y-5}" stroke="${col||C.cyan}" stroke-width="2"/>`+
+    (lab?label(x+20,y+4,lab,col||C.cyan,12,"start"):"");
+}
+function mosfet(x,y,col,lab){ // gate left at x-? channel at x; y center
+  const g=col||C.chalk;
+  let s="";
+  s+=wire(x-26,y,x-10,y,g);            // gate lead
+  s+=wire(x-10,y-14,x-10,y+14,g,2.4);  // gate plate
+  s+=wire(x-4,y-14,x-4,y+14,g,2.4);    // channel
+  s+=wire(x-4,y-10,x+10,y-10,g); s+=wire(x+10,y-10,x+10,y-26,g); // drain
+  s+=wire(x-4,y+10,x+10,y+10,g); s+=wire(x+10,y+10,x+10,y+26,g); // source
+  s+=wire(x-4,y,x+6,y,g); // body tie
+  s+=`<polygon points="${x+2},${y-3} ${x+2},${y+3} ${x+7},${y}" fill="${g}"/>`; // arrow
+  if(lab)s+=label(x+22,y-2,lab,C.dim,12,"start");
+  return s;
+}
+function vccs(x,y,col,lab){ // diamond controlled source vertical
+  const g=col||C.magenta;
+  return `<polygon points="${x},${y-12} ${x+12},${y} ${x},${y+12} ${x-12},${y}" fill="none" stroke="${g}" stroke-width="2"/>`+
+    `<line x1="${x}" y1="${y-6}" x2="${x}" y2="${y+6}" stroke="${g}" stroke-width="2"/>`+
+    `<polygon points="${x-3},${y+2} ${x+3},${y+2} ${x},${y+7}" fill="${g}"/>`+
+    (lab?label(x+18,y+4,lab,g,11,"start"):"");
+}
+function portTerm(x,y,lab,col){return `<circle cx="${x}" cy="${y}" r="4" fill="none" stroke="${col||C.green}" stroke-width="2"/>`+label(x,y-10,lab,col||C.green,12);}
+
+function schematic(id,ss,hl){
+  const W=560,H=340; let s=svgOpen(W,H);
+  const gateAC=(x,y,lab)=>{ s+=wire(x,y,x-64,y,C.wire); s+=gnd(x-64,y); s+=label(x-64,y-24,lab||"g (AC gnd)",C.dim,10); };
+  const testAt=(x,y)=>{ s+=wire(x,y,x,y+18,C.wire); s+=isrc(x,y+30,C.green,"i_x"); s+=wire(x,y+42,x,y+50,C.wire); s+=gnd(x,y+50); s+=label(x,y-10,"v_x",C.green,11); };
+  const rdBranch=(x,yTop,show)=>{ if(show){ s+=resistor(x,yTop,x,yTop-40,C.amber); s+=sublabel(x+22,yTop-20,"R","D",C.amber); s+=wire(x,yTop-40,x,yTop-52,C.wire); s+=gnd(x,yTop-52); } else { s+=label(x,yTop-30,"R_D ext.",C.dim,10); } };
+  if(id==="csdeg"||id==="cs"){
+    const hasRS=id==="csdeg"; const dx=170, gy=180;
+    if(!ss){
+      s+=vsource(70,gy,C.cyan,""); s+=sublabel(70,gy+30,"V","b",C.cyan);
+      s+=wire(70,gy-12,70,gy-40,C.wire); s+=wire(70,gy-40,134,gy-40,C.wire); s+=wire(134,gy-40,134,gy,C.wire);
+      s+=wire(70,gy+12,70,gy+40,C.wire); s+=gnd(70,gy+40);
+      s+=mosfet(160,gy,C.chalk,"M1");
+      s+=wire(dx,gy-26,dx,90,C.wire); s+=node(dx,90,C.green);
+      s+=resistor(dx,90,dx,50,C.amber); s+=sublabel(dx+22,72,"R","D",C.amber);
+      s+=wire(dx,50,dx,30,C.wire); s+=vsource(dx,30,C.cyan,""); s+=sublabel(dx+22,34,"V","DD",C.cyan);
+      s+=wire(dx,90,300,90,C.wire); s+=portTerm(300,90,"out",C.green); s+=label(300,110,"port",C.green,10);
+      if(hasRS){ s+=wire(dx,gy+26,dx,250,C.wire); s+=node(dx,250,C.green);
+        s+=resistor(dx,250,dx,285,C.amber); s+=sublabel(dx+22,270,"R","S",C.amber);
+        s+=wire(dx,285,dx,300,C.wire); s+=gnd(dx,300);
+      } else { s+=wire(dx,gy+26,dx,300,C.wire); s+=gnd(dx,300); }
+    } else {
+      gateAC(134,gy);
+      s+=ssBlock(dx,120,240);
+      s+=wire(dx,120,dx,90,C.wire); s+=node(dx,90,C.green);
+      rdBranch(dx,90,inclRD);
+      s+=wire(dx,90,300,90,C.wire); s+=portTerm(300,90,"out",C.green); testAt(300,90);
+      if(hasRS){ s+=wire(dx,240,dx,260,C.wire); s+=node(dx,260,C.green);
+        s+=resistor(dx,260,dx,290,C.amber); s+=sublabel(dx+22,278,"R","S",C.amber);
+        s+=wire(dx,290,dx,302,C.wire); s+=gnd(dx,302);
+        s+=label(110,250,"v_gs = −v_s",C.dim,10);
+      } else { s+=wire(dx,240,dx,300,C.wire); s+=gnd(dx,300); s+=label(110,250,"v_gs = 0",C.dim,10); }
+    }
+  } else if(id==="sf"){
+    const dx=170, gy=180;
+    if(!ss){
+      s+=vsource(70,gy,C.cyan,""); s+=sublabel(70,gy+30,"V","b",C.cyan);
+      s+=wire(70,gy-12,70,gy-40,C.wire); s+=wire(70,gy-40,134,gy-40,C.wire); s+=wire(134,gy-40,134,gy,C.wire);
+      s+=wire(70,gy+12,70,gy+40,C.wire); s+=gnd(70,gy+40);
+      s+=mosfet(160,gy,C.chalk,"M1");
+      s+=wire(dx,gy-26,dx,60,C.wire); s+=vsource(dx,45,C.cyan,""); s+=sublabel(dx+22,49,"V","DD",C.cyan); s+=wire(dx,33,dx,20,C.wire); s+=gnd(dx,20);
+      s+=wire(dx,gy+26,dx,250,C.wire); s+=node(dx,250,C.green);
+      s+=resistor(dx,250,dx,285,C.amber); s+=sublabel(dx+22,270,"R","S",C.amber);
+      s+=wire(dx,285,dx,300,C.wire); s+=gnd(dx,300);
+      s+=wire(dx,250,300,250,C.wire); s+=portTerm(300,250,"out",C.green); s+=label(300,270,"port",C.green,10);
+    } else {
+      gateAC(134,gy);
+      s+=ssBlock(dx,120,240);
+      s+=wire(dx,120,dx,80,C.wire); s+=gnd(dx,80); s+=label(dx+16,84,"d (AC gnd)",C.dim,10);
+      s+=wire(dx,240,dx,260,C.wire); s+=node(dx,260,C.green);
+      s+=resistor(dx,260,dx,290,C.amber); s+=sublabel(dx+22,278,"R","S",C.amber);
+      s+=wire(dx,290,dx,302,C.wire); s+=gnd(dx,302);
+      s+=wire(dx,260,300,260,C.wire); s+=portTerm(300,260,"out",C.green); testAt(300,260);
+    }
+  } else if(id==="cascode"){
+    const dx=170, gy1=210, gy2=130;
+    if(!ss){
+      s+=vsource(60,gy1,C.cyan,""); s+=sublabel(60,gy1+30,"V","b1",C.cyan);
+      s+=wire(60,gy1-12,60,gy1-30,C.wire); s+=wire(60,gy1-30,134,gy1-30,C.wire); s+=wire(134,gy1-30,134,gy1,C.wire);
+      s+=wire(60,gy1+12,60,gy1+30,C.wire); s+=gnd(60,gy1+30);
+      s+=vsource(60,gy2,C.blue,""); s+=sublabel(60,gy2+30,"V","b2",C.blue);
+      s+=wire(60,gy2-12,60,gy2-30,C.wire); s+=wire(60,gy2-30,134,gy2-30,C.wire); s+=wire(134,gy2-30,134,gy2,C.wire);
+      s+=wire(60,gy2+12,60,gy2+20,C.wire); s+=gnd(60,gy2+20);
+      s+=mosfet(160,gy1,C.chalk,"M1"); s+=mosfet(160,gy2,C.chalk,"M2");
+      s+=wire(dx,gy1-26,dx,gy2+26,C.wire); s+=node(dx,170,C.green); s+=label(dx+16,174,"x",C.green,12,"start");
+      s+=wire(dx,gy2-26,dx,70,C.wire); s+=node(dx,70,C.green);
+      s+=resistor(dx,70,dx,40,C.amber); s+=sublabel(dx+22,56,"R","D",C.amber);
+      s+=wire(dx,40,dx,25,C.wire); s+=vsource(dx,25,C.cyan,""); s+=sublabel(dx+22,29,"V","DD",C.cyan);
+      s+=wire(dx,gy1+26,dx,285,C.wire); s+=node(dx,285,C.green);
+      s+=resistor(dx,285,dx,310,C.amber); s+=sublabel(dx+22,300,"R","S",C.amber);
+      s+=wire(dx,310,dx,322,C.wire); s+=gnd(dx,322);
+      s+=wire(dx,70,300,70,C.wire); s+=portTerm(300,70,"out",C.green); s+=label(300,90,"port",C.green,10);
+    } else {
+      gateAC(134,gy1,"g1 (AC gnd)"); gateAC(134,gy2,"g2 (AC gnd)");
+      s+=ssBlock(dx,180,240);           // M1
+      s+=ssBlock(dx,100,160);           // M2
+      s+=wire(dx,160,dx,180,C.wire); s+=node(dx,170,C.green); s+=label(dx+40,174,"x",C.green,12,"start");
+      s+=wire(dx,100,dx,70,C.wire); s+=node(dx,70,C.green);
+      rdBranch(dx,70,inclRD);
+      s+=wire(dx,70,300,70,C.wire); s+=portTerm(300,70,"out",C.green); testAt(300,70);
+      s+=wire(dx,240,dx,285,C.wire); s+=node(dx,285,C.green);
+      s+=resistor(dx,285,dx,310,C.amber); s+=sublabel(dx+22,300,"R","S",C.amber);
+      s+=wire(dx,310,dx,322,C.wire); s+=gnd(dx,322);
+    }
+  }
+  s+="</svg>"; return s;
+}
+
+/* ================= content ================= */
+function absContent(st){
+  switch(st){
+    case 0: return {title:"把电路写成方程组 F(v, i_X)=0",html:`
+      <p class="prose">任何拓扑的共性只有两种成分：<b class="hl-c">线性约束</b>（KCL + 电阻/独立源支路律 → 矩阵 $G$、向量 $b$）与<b class="hl-m">一个光滑器件映射</b> $i_D=f(v_{GS},v_{DS},v_{BS})$，其接线由 $a$（电流注入）与 $B$（控制电压选择）描述。拓扑的全部信息都在 $G,a,B,e_p$ 里。</p>
+      ${EQ("F(v,i_X)=Gv+b+a\\,f(Bv)-e_p\\,i_X=0","")}
+      <p class="prose">直流工作点即 $F(v_Q,0)=0$。多器件时把 $a f(Bv)$ 换成 $\\sum_k a_k f_k(B_k v)$，证明逐字不变。</p>
+      <p class="note">右侧：把当前拓扑的真实元件值代入，得到具体的 $G,b,B,c,a,e_p$ 与直流解 $v_Q$。</p>`};
+    case 1: return {title:"隐函数定理 → 端口导数存在且可解",html:`
+      <p class="prose">$F$ 在 $(v_Q,0)$ 附近 $C^1$，且雅可比 $J=\\partial_v F$ 非奇异。<b class="hl-a">隐函数定理</b>保证唯一 $C^1$ 映射 $i_X\\mapsto v(i_X)$，并给出导数：</p>
+      ${EQ("J=G+a\\,g^{T}B,\\qquad g=\\nabla f=(g_m,g_o,g_{mb})^{T}","amber")}
+      ${EQ("\\frac{dv}{di_X}=-\\left(\\partial_v F\\right)^{-1}\\partial_{i_X}F=J^{-1}e_p","amber")}
+      <p class="prose">前提：器件模型在 $Q$ 光滑（饱和区内），$J$ 可逆（非退化偏置）。跨区膝点 / 浮空节点使前提失效。</p>
+      <p class="note">右侧：数值 $g$、数值 $J$、$\\det J$ 与 $J^{-1}e_p$。</p>`};
+    case 2: return {title:"端口微分电阻 = 一个标量",html:`
+      <p class="prose">$u_{out}=e_p^{T}v$，$i_{out}=i_X$，故</p>
+      ${EQ("R_{out}=\\left.\\frac{\\partial u_{out}}{\\partial i_{out}}\\right|_{Q}=e_p^{T}J^{-1}e_p","green")}
+      <p class="prose">这就是<b class="hl-g">驱动点电阻</b>：$J^{-1}$ 的第 $(p,p)$ 元。它对模型方程是<b>恒等</b>，不是近似。</p>
+      <p class="note">右侧：大数结果 + 对原始非线性端口方程做割线差分的收敛验证（中心 $O(\\Delta^2)$、单侧 $O(\\Delta)$）。</p>`};
+    case 3: return {title:"小信号电路 ≡ 微分后的方程组",html:`
+      <p class="prose">在 $Q$ 处一阶泰勒：$f(Bv)\\approx f(Bv_Q)+g^{T}B(v-v_Q)$。常数归入偏置（交流置零），增量方程：</p>
+      ${EQ("\\underbrace{(G+a\\,g^{T}B)}_{=J}\\,\\tilde v=e_p\\,\\tilde i_X","magenta")}
+      <p class="prose">看 $a g^{T}B$ 的三项：$g_o\\,aa^{T}$ = D–S 电导（$r_o$）；$a\\,g_m(e_G-e_S)^{T}$ = 受 $v_{GS}$ 控的压控源（$g_m$）；$g_{mb}$ 同理。<b class="hl-m">建模 = 把非线性 stamp 换成雅可比 stamp。</b>加测试源 $\\tilde i_X=1$ 解出 $u_x/i_x=e_p^{T}J^{-1}e_p$，与 Step 2 同一标量。</p>
+      <p class="note">右侧：切换为小信号等效电路 SVG，并解 $J\\tilde v=e_p$。</p>`};
+    case 4: return {title:"Schur 补 = 手算串并联的矩阵版",html:`
+      <p class="prose">把节点分成端口 $p$ 与内部 $r$，分块消元：</p>
+      ${EQ("e_p^{T}J^{-1}e_p=\\left(J_{pp}-J_{pr}J_{rr}^{-1}J_{rp}\\right)^{-1}","")}
+      <p class="prose">手算的串并联、反馈公式就是这个消元的"人肉版"。所以"建模元件的线性组合"<b class="hl-a">不是巧合</b>，是 Schur 补的电阻语言写法。</p>
+      <p class="note">右侧：数值 Schur 标量 $S$、$1/S$、闭式组合式数值，三者与 Step 2 对齐 ✓。</p>`};
+  }
+}
+function conContent(st,r){
+  if(!r.ok)return `<div class="card"><span class="badge bad">直流工作点求解失败：请调整偏置使器件进入饱和区</span></div>`;
+  const{T,vQ,g,J,y,Rout,dJ,S,Rschur,closed,total,central,oneside,pi}=r;
+  const p=params;
+  let h="";
+  if(st===0){
+    h+=`<div class="card"><h4><span class="dot"></span>代入真实元件值</h4>
+      <div class="kv"><span class="k">G =</span><span class="v">${M(matTex(T.G,4))}</span>
+      <span class="k">b =</span><span class="v">${M(vecTex(T.b,4))}</span>
+      <span class="k">e_p =</span><span class="v">${M(vecTex(T.e_p,2))}</span></div></div>`;
+    T.devices.forEach((d,k)=>{ h+=`<div class="card"><h4><span class="dot"></span>器件 M${k+1} 的接线矩阵</h4>
+      <div class="kv"><span class="k">B =</span><span class="v">${M(matTex(d.B,3))}</span>
+      <span class="k">c =</span><span class="v">${M(vecTex(d.c,4))}</span>
+      <span class="k">a =</span><span class="v">${M(vecTex(d.a,2))}</span></div></div>`;});
+    h+=`<div class="card"><h4><span class="dot"></span>直流解 v_Q（i_X=0）</h4>
+      <div class="kv">${T.nodes.map((nm,i)=>`<span class="k">v[${nm}] =</span><span class="v">${fmt(vQ[i],5)} V</span>`).join("")}</div></div>`;
+  } else if(st===1){
+    h+=`<div class="card"><h4><span class="dot"></span>跨导 / 输出电导 / 体跨导</h4>
+      <div class="kv">${g.map((gk,k)=>`<span class="k">M${k+1}:</span><span class="v">g_m=${fmt(gk[0],4)} S, g_o=${fmt(gk[1],4)} S, g_mb=${fmt(gk[2],4)} S</span>`).join("")}</div></div>`;
+    h+=`<div class="card"><h4><span class="dot"></span>雅可比 J（端口看入，${inclRD?"含":"不含"} R_D）</h4>
+      ${M(matTex(J,5),true)}
+      <div class="bigresult"><span class="badge ${Math.abs(dJ)>1e-14?"ok":"bad"}">det J = ${fmt(dJ,4)} ${Math.abs(dJ)>1e-14?"≠ 0 → IFT 适用":"= 0 → 奇异"}</span></div>
+      <div class="kv"><span class="k">J⁻¹e_p =</span><span class="v">${y?M(vecTex(y,5)):"—"}</span></div></div>`;
+  } else if(st===2){
+    h+=`<div class="card"><h4><span class="dot"></span>端口微分电阻</h4>
+      <div class="bigresult"><span class="num">${fmt(Rout,6)}</span><span class="unit">Ω</span><span class="badge ok">e_pᵀJ⁻¹e_p</span></div>
+      <div class="kv"><span class="k">看入漏极 R =</span><span class="v">${fmt(Rout,6)} Ω</span>
+      <span class="k">计入 R_D 后 =</span><span class="v">${fmt(total,6)} Ω</span></div></div>`;
+    h+=`<div class="card"><h4><span class="dot"></span>割线 → 切线 收敛验证（原始非线性方程）</h4>
+      <table class="verify"><tr><th>Δ (A)</th><th>中心割线 (Ω)</th><th>相对误差</th><th>单侧割线 (Ω)</th><th>相对误差</th></tr>
+      ${[1e-3,1e-4,1e-5,1e-6].map(d=>{const c=fd(r,d);return `<tr><td>${d.toExponential(0)}</td><td>${fmt(c.cent,7)}</td><td class="good">${fmt(Math.abs(c.cent-Rout)/Rout,2)}</td><td>${fmt(c.one,7)}</td><td>${fmt(Math.abs(c.one-Rout)/Rout,2)}</td></tr>`;}).join("")}
+      </table><p class="note">中心差分 $O(\\Delta^2)$ 快速收敛到 $R_{out}$；单侧 $O(\\Delta)$ 复现"仪器只能测割线"。残差底噪为浮点精度。</p></div>`;
+  } else if(st===3){
+    h+=`<div class="card"><h4><span class="dot"></span>解 J ṽ = e_p（测试源 ĩ_X = 1 A）</h4>
+      <div class="kv"><span class="k">ṽ =</span><span class="v">${y?M(vecTex(y,5)):"—"}</span>
+      <span class="k">u_x / i_x =</span><span class="v">${fmt(Rout,6)} Ω</span></div>
+      <p class="note">与 Step 2 的 $e_p^{T}J^{-1}e_p$ 完全一致：小信号电路就是微分后的方程组。</p></div>`;
+    h+=`<div class="card"><h4><span class="dot"></span>雅可比 stamp 分解</h4>
+      <div class="kv"><span class="k">g_o·aaᵀ →</span><span class="v">r_o = ${fmt(1/g[0][1],5)} Ω（D–S 电导）</span>
+      <span class="k">a·g_m·(e_G−e_S)ᵀ →</span><span class="v">VCCS g_m = ${fmt(g[0][0],5)} S</span>
+      <span class="k">a·g_mb·(e_B−e_S)ᵀ →</span><span class="v">VCCS g_mb = ${fmt(g[0][2],5)} S</span></div></div>`;
+  } else if(st===4){
+    h+=`<div class="card"><h4><span class="dot"></span>Schur 补消内部节点</h4>
+      <div class="kv"><span class="k">S =</span><span class="v">${fmt(S,6)} S</span>
+      <span class="k">1/S =</span><span class="v">${fmt(Rschur,6)} Ω</span>
+      <span class="k">闭式组合 =</span><span class="v">${fmt(closed,6)} Ω</span>
+      <span class="k">Step2 R_out =</span><span class="v">${fmt(Rout,6)} Ω</span></div>
+      <div class="bigresult"><span class="badge ${Math.abs(Rschur-Rout)/Rout<1e-6&&Math.abs(closed-Rout)/Rout<1e-3?"ok":"bad"}">${Math.abs(Rschur-Rout)/Rout<1e-6?"Schur = 端口导数 ✓":"检查参数"}</span></div>
+      <p class="note">闭式：${M(T.closedTex(g,p))}。串并联/反馈公式 = Schur 补的人肉版。</p></div>`;
+  }
+  return h;
+}
+function fd(r,d){
+  const{T,dev,vQ,pi}=r; const ps=portSetup({T,dev,vQ,pi});
+  const vp=newton(ps.T2,dev,vQ,ps.iX0+d), vm=newton(ps.T2,dev,vQ,ps.iX0-d);
+  return{cent:(vp&&vm)?(vp[pi]-vm[pi])/(2*d):NaN, one:vp?(vp[pi]-vQ[pi])/d:NaN};
+}
+
+/* ================= render ================= */
+function render(){
+  const r=compute();
+  // steps pills
+  document.getElementById("steps").innerHTML=STEPS.map((s,i)=>`<button class="step-pill ${i===step?"active":""}" data-step="${i}">${s.split(" · ")[0]}</button>`).join("");
+  document.querySelectorAll(".step-pill").forEach(b=>b.onclick=()=>{step=+b.dataset.step;render();});
+  const ac=absContent(step);
+  document.getElementById("absTitle").textContent=ac.title;
+  document.getElementById("absNo").textContent="Step "+step;
+  document.getElementById("absBody").innerHTML=ac.html.replace(/\$([^$]+)\$/g,(m,x)=>M(x));
+  document.getElementById("conTitle").textContent=TOPOS.find(t=>t[0]===topoId)[1];
+  document.getElementById("conNo").textContent="Step "+step;
+  const ss=(step>=3&&showSS);
+  document.getElementById("svgLabel").textContent=ss?"小信号等效电路（线性化）":"原理图（大信号 · 非线性）";
+  document.getElementById("svgBox").innerHTML=schematic(topoId,ss);
+  document.getElementById("svgLegend").innerHTML=`<span><i style="background:${C.amber}"></i>电阻</span><span><i style="background:${C.cyan}"></i>独立源</span><span><i style="background:${C.magenta}"></i>受控源 g_m</span><span><i style="background:${C.green}"></i>端口 / 节点</span><span><i style="background:${C.chalk}"></i>MOSFET</span>`;
+  document.getElementById("conBody").innerHTML=conContent(step,r);
+  document.getElementById("prevStep").disabled=step===0;
+  document.getElementById("nextStep").disabled=step===4;
+}
+/* controls */
+const CTLS=[
+  ["k","k = ½μCox·W/L (A/V²)",1e-4,5e-3,1e-5,v=>fmt(v,3)],
+  ["Vth0","Vth0 (V)",0.2,1.0,0.01,v=>v.toFixed(2)],
+  ["lambda","λ (1/V)",0,0.3,0.005,v=>v.toFixed(3)],
+  ["gamma","γ (V^½)",0,0.8,0.01,v=>v.toFixed(2)],
+  ["RS","R_S (Ω)",0,5e3,10,v=>fmt(v,4)],
+  ["RD","R_D (Ω)",100,2e4,50,v=>fmt(v,4)],
+  ["Vb","V_b (V)",0.4,1.6,0.01,v=>v.toFixed(2)],
+  ["VDD","V_DD (V)",0.8,3.3,0.05,v=>v.toFixed(2)],
+  ["Vb2","V_b2 (cascode, V)",0.6,2.2,0.01,v=>v.toFixed(2)],
+  ["delta","验证 Δ (A)",1e-7,1e-2,1e-7,v=>v.toExponential(1)],
+];
+function buildControls(){
+  document.getElementById("ctlGrid").innerHTML=CTLS.map(([key,lab,min,max,stepv,f])=>`
+    <div class="ctl"><label>${lab}<span class="val" id="val_${key}">${f(params[key])}</span></label>
+    <input type="range" id="ctl_${key}" min="${min}" max="${max}" step="${stepv}" value="${params[key]}"></div>`).join("");
+  CTLS.forEach(([key,lab,min,max,stepv,f])=>{
+    const el=document.getElementById("ctl_"+key);
+    el.oninput=()=>{params[key]=+el.value;document.getElementById("val_"+key).textContent=f(params[key]);render();};
+  });
+}
+function init(){
+  const sel=document.getElementById("topo");
+  sel.innerHTML=TOPOS.map(([id,nm])=>`<option value="${id}">${nm}</option>`).join("");
+  sel.value=topoId; sel.onchange=()=>{topoId=sel.value;render();};
+  buildControls();
+  document.getElementById("prevStep").onclick=()=>{step=Math.max(0,step-1);render();};
+  document.getElementById("nextStep").onclick=()=>{step=Math.min(4,step+1);render();};
+  document.getElementById("inclRD").onchange=e=>{inclRD=e.target.checked;render();};
+  document.getElementById("showSS").onchange=e=>{showSS=e.target.checked;render();};
+  document.getElementById("resetBtn").onclick=()=>{params={...DEFAULTS};buildControls();render();};
+  document.getElementById("randBtn").onclick=()=>{
+    params.k=1e-3*(0.5+Math.random()*1.5); params.Vth0=0.4+Math.random()*0.3;
+    params.lambda=0.05+Math.random()*0.15; params.gamma=0.2+Math.random()*0.4;
+    params.RS=200+Math.random()*2500; params.RD=1e3+Math.random()*9e3;
+    params.Vb=0.8+Math.random()*0.5; params.VDD=1.5+Math.random()*1.2; params.Vb2=1.0+Math.random()*0.6;
+    buildControls();render();};
+  document.getElementById("expSvg").onclick=()=>{
+    const svg=document.getElementById("svgBox").innerHTML;
+    const blob=new Blob([svg],{type:"image/svg+xml"}); const a=document.createElement("a");
+    a.href=URL.createObjectURL(blob); a.download=topoId+(step>=3&&showSS?"-smallsignal":"-original")+".svg"; a.click();};
+  document.getElementById("expJson").onclick=()=>{
+    const r=compute(); const blob=new Blob([JSON.stringify({topo:topoId,params,step,R_out:r.Rout,g:r.g},null,2)],{type:"application/json"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="small-signal-state.json"; a.click();};
+  render();
+}
+init();
+</script>
+</body>
+</html>
