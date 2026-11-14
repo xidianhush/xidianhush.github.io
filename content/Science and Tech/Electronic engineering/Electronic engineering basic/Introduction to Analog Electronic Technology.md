@@ -456,10 +456,12 @@ to approximately simulate the electrical effect of<svg style="width:2.2em;height
 at least , under the low-freq circumstance
   
 However, 
-we cannot draw a linear device to simulate an NMOS without justification.
+we cannot draw several devices to simulate an NMOS without justification.
 Instead, 
-mathematical theories [[Calculus#3.3 泰勒公式]] should be used 
-for modeling and constructing a linear circuits 
+mathematical theories
+[[Calculus#3.3 泰勒公式]] & [[Calculus#2.4 隐函数及由参数方程确定的函数的导数]]
+should be used 
+for modeling and constructing a approximation circuits 
 with good approximation performance.
 
 here are the process below:
@@ -467,6 +469,7 @@ here are the process below:
 
 $$\frac12 \mu_n C_{ox} (V_{b}+v_{gs}-V_{TH})^2 \big[1+\lambda(V_{GS0}+v_{ds})\big] = \frac12 \mu_n C_{ox} (V_b-V_{TH})^2 \big(1+\lambda V_{DS0}\big) + \mu_n C_{ox} (V_b-V_{TH})(1+\lambda V_{DS0}) v_{gs} + \frac{1}{r_{o}} v_{ds}$$
 
+![[Pasted image 20261114144156.png]]
 
 ### 输出特性曲线和转移特性曲线
 #### 增强型
@@ -703,12 +706,13 @@ Q 点所对应的坐标即工作点的集电极电流和集电极电压 $I_{CQ
 
 ---
 
-## Analysis of MOSFET Common-source amplifier circuit
-### Basic circuit structure
+## Analysis of circuit with MOSFET
+
+### Approximation modeling (DC circuit &  AC Small-signal) of low frequency circuit with MOSFET
+### Analysis of MOSFET Common-source amplifier circuit
 
 
-
-### Linearization of Low-Frequency , than Split the circuit to the Superposition of DC circuit and AC circuit
+#### Linearization of Low-Frequency , than Split the circuit to the Superposition of DC circuit and AC circuit
 
 After approximating and simplifying the nonlinear device as a linear device
 Specific MOSFET linearization approximation below
@@ -720,13 +724,6 @@ The specific superposition of linear circuit below
 [[Basics of circuit analysis#2.5.2 Superposition Theorem for Linear Circuits (Zero-State Response)]]
 
 ![[131d98924ef363e8b00c5b25e0826fc3.jpg]]
-### 5.2.2 DC Operating Analysis
-
-
-### 5.2.3 Communication on work analysis
-
-
-
 
 
 
