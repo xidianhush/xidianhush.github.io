@@ -438,9 +438,9 @@ now we got <svg style="width:2.2em;height:1.4em;vertical-align:-0.3em" viewBox="
   <line x1="45" y1="28" x2="45" y2="35"/>
   <polygon points="42,28 47,26 47,30" fill="currentColor"/>
 </svg>，but it isn't a linear device
-hence we can't use superposition theory to analyse it
+It is not so convenient to analyze it
 
-so we need to find a linear device (combination)
+so we need to find a way
 to approximately simulate the electrical effect of<svg style="width:2.2em;height:1.4em;vertical-align:-0.3em" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.6" fill="none">
   <line x1="10" y1="20" x2="20" y2="20"/>
   <line x1="20" y1="10" x2="20" y2="30"/>
@@ -467,7 +467,7 @@ here are the process below:
 
 $$\frac12 \mu_n C_{ox} (V_{b}+v_{gs}-V_{TH})^2 \big[1+\lambda(V_{GS0}+v_{ds})\big] = \frac12 \mu_n C_{ox} (V_b-V_{TH})^2 \big(1+\lambda V_{DS0}\big) + \mu_n C_{ox} (V_b-V_{TH})(1+\lambda V_{DS0}) v_{gs} + \frac{1}{r_{o}} v_{ds}$$
 
-![[5ea1ed69de0b5335130013b73544a946.jpg]]
+
 ### 输出特性曲线和转移特性曲线
 #### 增强型
 ![[576233532797105ed6fbd3126633fc3.jpg]]
