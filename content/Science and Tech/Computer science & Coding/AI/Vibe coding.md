@@ -97,3 +97,11 @@ CLI 其实有兜底：一旦截断，它会丢掉最老的一条消息再重试�
 
 - [Sessions and context](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/sessions.html)（上下文压缩、`/compact`、`/export-md`、`/fork`）
 - [Configuration files](https://www.kimi.com/code/docs/en/kimi-code-cli/configuration/config-files.html)（`[loop_control]` 各字段含义）
+
+# To agent
+
+codex download these plugins
+
++ GitHub
++ Superpowers
++ Vercel
