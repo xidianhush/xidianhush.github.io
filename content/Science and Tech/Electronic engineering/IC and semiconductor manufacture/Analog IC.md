@@ -949,7 +949,11 @@ $\omega_u = g_m / C_L$
 
 ### Design procedure
 
+#### The design steps I summarize by myself
 
+![[Pasted image 20261116155030.png]]
+
+![[Pasted image 20261116155005.png]]
 
 ### 9.2.4 折叠式共源共栅运放
 
