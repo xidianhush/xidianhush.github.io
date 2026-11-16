@@ -74,7 +74,7 @@ To let the complete amplifier meet those standards:
 + BW ：1KHz-1.5KHz
 + $Z_{in} \geq 100M \ohm$
 + Equivalent Input Noise (IRN) : ≤5μV
-+ Small signal Open-loop gain: ≥50 dB
++ Small signal Open-loop gain ($A_v$): ≥50 dB
 + Power Supply Rejection Ratio (PSRR): ≥90dB, Common-Mode Rejection Ratio (CMRR): ≥85dB
 + Total Harmonic Distortion (THD): ≤0.5%
 + Open-loop stability and closed-loop stability
@@ -85,12 +85,26 @@ So i should let the first stage of the amplifier meet those standards:
 + BW：unknown yet
 + $Z_{in} \geq 100M \ohm$ (reference paper use Positive Feedback Loop to increase iput impetance)
 + Equivalent Input Noise (IRN): unknown yet
-+ Small signal Open-loop gain:  unknown yet
++ Small signal Open-loop gain($A_v$):  unknown yet
 + Power Supply Rejection Ratio (PSRR): ≥unknown yet, Common-Mode Rejection Ratio (CMRR): unknown yet
 + Total Harmonic Distortion (THD): unknown yet
 + Open-loop stability should be concerned
 
+so we got those conditions: 
 
+| Specification                                                              | Process Parameters      |
+| -------------------------------------------------------------------------- | ----------------------- |
+| VDD: 1 V                                                                   | $\mu_{n} C_{ox}$unknown |
+| BW: unknown yet                                                            | $\mu_{p} C_{ox}$unknown |
+| $Z_{in} \ge 100\,M\Omega$（reference paper 用 Positive Feedback Loop 提高输入阻抗） | $\lambda_{n}$ uknown    |
+| Equivalent Input Noise (IRN): unknown yet                                  | $\lambda_{p}$ uknown    |
+| Small-signal Open-loop Gain ($A_v$): unknown yet                           |                         |
+| PSRR: unknown yet                                                          |                         |
+| CMRR: unknown yet                                                          |                         |
+| THD: unknown yet                                                           |                         |
+| Open-loop stability should be concerned                                    |                         |
+
+no output swing , no power consumption
 ### 4.1 Theory preparation
 
 | ID    | Task                               | Completion check                                                |       Status        | Evidence / notes                                             |
