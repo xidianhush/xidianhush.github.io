@@ -96,15 +96,16 @@ so we got those conditions:
 | -------------------------------------------------------------------------- | ----------------------- |
 | VDD: 1 V                                                                   | $\mu_{n} C_{ox}$unknown |
 | BW: unknown yet                                                            | $\mu_{p} C_{ox}$unknown |
-| $Z_{in} \ge 100\,M\Omega$（reference paper 用 Positive Feedback Loop 提高输入阻抗） | $\lambda_{n}$ uknown    |
-| Equivalent Input Noise (IRN): unknown yet                                  | $\lambda_{p}$ uknown    |
-| Small-signal Open-loop Gain ($A_v$): unknown yet                           |                         |
-| PSRR: unknown yet                                                          |                         |
-| CMRR: unknown yet                                                          |                         |
+| $Z_{in} \ge 100\,M\Omega$（reference paper 用 Positive Feedback Loop 提高输入阻抗） | $\lambda_{n}$ unknown   |
+| Equivalent Input Noise (IRN): unknown yet                                  | $\lambda_{p}$ unknown   |
+| Small-signal Open-loop Gain ($A_v$): unknown yet                           | $\gamma$ unknown        |
+| PSRR: unknown yet                                                          | $V_{THn}$ unknown       |
+| CMRR: unknown yet                                                          | $V_{THp}$ unknown       |
 | THD: unknown yet                                                           |                         |
 | Open-loop stability should be concerned                                    |                         |
-
 no output swing , no power consumption
+
+this is all the conditions i could find
 ### 4.1 Theory preparation
 
 | ID    | Task                               | Completion check                                                |       Status        | Evidence / notes                                             |
