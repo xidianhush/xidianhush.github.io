@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-15 09:02（北京时间）
+> 最后更新：2026-11-16 09:13（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -134,7 +134,7 @@
 | 9月5日 | Kimi | 人脸投影与二维感知 | -  | [打开](https://www.kimi.com/chat/19ff3d6d-7fd2-86a2-8000-09d5ee70ae3c) |
 | 9月4日 | Kimi | 熵图与语义解释 | -  | [打开](https://www.kimi.com/chat/1a064d1e-45d2-8003-8000-09d50d633046) |
 | 9月3日 | Kimi | 概率论古典概型复习 | -  | [打开](https://www.kimi.com/chat/1a05febb-17a2-81e4-8000-09d52e7512fa) |
-| 9月1日 | Kimi | 若当拉普拉斯图傅变 | -  | [打开](https://www.kimi.com/chat/1a05ce40-1bf2-8a8b-8000-09d504810fd7) |
+| 9月1日 | Kimi | 若当拉普拉斯图傅变 | -  | [打开](https://www.kimi.com/share/1a1e1e65-ee52-84ad-8000-0000c3859dd1) |
 | 9月1-7日* | DeepSeek | 傅里叶拉普拉斯瞬态响应 | 12 | [打开](https://chat.deepseek.com/share/qu1vpi2pa861r5nm3w) |
 | 9月1-7日* | DeepSeek | 输入性CCIA论文解读4 | 9 | [打开](https://chat.deepseek.com/share/4o32kdhskhid0ijf5c) |
 | 8月9日-9月7日* | DeepSeek | 人脸角度绘画辅助工具 | 2 | [打开](https://chat.deepseek.com/share/p4sqbmikf91yd3ls9y) |
