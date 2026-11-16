@@ -1,7 +1,7 @@
 this is my graduation project
 # Input-Boosted CCIA — Shared Reproduction Plan
 
-Last updated: 2026-10-25
+Last updated: 2026-11-16
 I want to know what I have done
 And what I will do
 ## Scope
@@ -26,6 +26,9 @@ And what I will do
 
 ## Current checkpoint (for Agent)
 
+- **2026-11-16 planning update:** deadline unannounced; work in flexible sessions. User clarifies full-amplifier open-loop gain >50 dB. Supply-range interpretation and layout-verification depth remain unknown. User confirmed VDD = 0.6 V and VSS = 0 V as the initial design baseline; this is not a demonstrated result or proof of full-range operation.
+- **Evidence reconciliation pending:** the earlier live desktop inspection showed apparently open capacitor terminals; historical screenshot completion below does not establish the current saved wiring. No new circuit inspection or simulation was performed on 2026-11-16.
+
 - **Verified visually on 2026-10-24:** eight sized MOSFETs, both vertical branches and supply rails, VON/VOP output pins, VIP/VIN input pins, four Cg = 3.5 pF and four Cs = 20 pF capacitors, and the intended opposite-polarity gate/source coupling. Evidence: user screenshot codex-clipboard-b27a3791-1f8c-41a8-bf78-57a2b944a9e8.png.
 - **Verification limit:** this is a screenshot connectivity review, not a netlist audit. Highlight crossing nets, inspect pin directions and supply-symbol global-net names, and run Check and Save after completing the circuit. Current disk save state is not independently verified.
 - **Still missing:** four gate-bias paths, tail-gate bias connections, all body connections, Fig. 4(b) bias circuitry, testbench, model verification, and simulation results.
@@ -40,7 +43,7 @@ And what I will do
 | --- | ----------------------------------- | --------------------------------------------------------------------------- | :----: | -------------------------------------------------------------------------------------------- |
 | 1.1 | Obtain and read the paper           | Identify architecture, circuits, parameters, and reported results           |   ✅    | PDF read; Fig. 4, Fig. 7–9, and Tables I–II reviewed.                                        |
 | 1.2 | Select the reference implementation | Use the paper's 180 nm version                                              |   ✅    | Agreed in chat. Same process node does not establish identical device behavior.              |
-| 1.3 | Agree on scope                      | First stage and complete CCIA, schematic simulation first , then layout     |   ✅    | User confirmed the provisional scope; no layout or post-layout work.                         |
+| 1.3 | Agree on scope                      | First stage and complete CCIA, schematic simulation first , then layout     |   ✅    | Schematic design first, layout later; required depth of DRC/LVS and post-layout verification remains unknown (user update 2026-11-16).                         |
 | 1.4 | Prepare the specification checklist | Record target values, definitions, test conditions, and missing information |   ❌    | Initial reference values appear below; detailed measurement procedures remain to be defined. |
 
 ## 2. Prepare and verify the environment
@@ -127,8 +130,10 @@ As for the main part of the amplifier
 Can i directly apply the size of the transistor in paper , 
 or whether I should determine the size all by myself?
 
-answer:
+Earlier student answer (retained for context):
 CAN NOT
+
+Tutor correction, 2026-11-16: published dimensions CAN be a benchmark or initial candidate. Final dimensions must be justified and verified in SMIC; using a starting value does not prevent independent design.
 
 temporary decision
 i will design by myself
@@ -179,7 +184,7 @@ Temporary decision
 | 4.2.4  | Plot the circuit which the size of which is unknown in the paper                                  | Do not know                                                                             |   ❌    | Do not know                                                                                                                                                                                        |
 | 4.2.4a | Determine the resistance of pseudo-resistors and determine the size of MOSFET in pseudo-resistors | Do not know                                                                             |   ❌    | Do not know                                                                                                                                                                                        |
 | 4.2.4b | Determine the biasing current and voltage, and determine the size of the biasing circuit          | Do not know                                                                             |   ❌    | Do not know                                                                                                                                                                                        |
-| 4.2.4c | Add coupling, bias elements, body wiring, and pins                                                | Complete and check Fig. 4(a) connectivity                                               |   ❌    | Four Cg and four Cs plus input/output pins visually checked; see 4.1.3e. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions. |
+| 4.2.4c | Add coupling, bias elements, body wiring, and pins                                                | Complete and check Fig. 4(a) connectivity                                               |   ❌    | Four Cg and four Cs plus input/output pins visually checked; see 4.2.4d. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions. |
 | 4.2.4d | Place and wire the coupling network and signal pins                                               | Visually trace VIP/VIN, Cg/Cs, and VON/VOP                                              |   ✅    | Screenshot reviewed 2026-10-24: VIP to left gates/right sources; VIN to right gates/left sources; Cg 3.5pF, Cs 20pF. Pin directions and netlist verification are separate pending checks.          |
 | 4.2.4e | Audit connectivity and supply interfaces                                                          | Highlight VIP/VIN/VON/VOP; verify crossings, pin directions and actual supply net names |   ❌    | Supply symbols are present; decide explicit supply pins for reusable cells. Labels alone do not supply voltage.                                                                                    |
 | 4.2.4f | Complete MOS body connections                                                                     | Record each body net and confirm PDK well/device restrictions                           |   ❌    | Do not tie each body to its source without checking paper body-effect assumptions and available devices.                                                                                           |
@@ -207,6 +212,8 @@ I will refine the content of this section next.
 
 
 ## Immediate next session
+
+Follow sessions S0–S2 below. First prepare the separate n18 characterization cell and inspect its schematic, models and output path together. Do not resize or replace the existing main-stage devices before comparing evidence. Each session ends with a saved checkpoint and results; timing depends on available study time.
 
 ## Environment reference
 
@@ -295,3 +302,41 @@ The supervisor's DOCX specifies 180 nm CMOS, circuit design and layout; VDD 0.5�
 6. After schematic targets are addressed, plan layout, DRC/LVS and extraction/post-layout as required or agreed; record tool and PDK availability. Prepare thesis and comparison, explicitly identifying ideal elements and paper measurement versus schematic simulation.
 
 Tutor in English, in manageable batches: explain circuit principles, equations, choices and Virtuoso operations, then inspect evidence. Keep user notes and task IDs; log design choices, conditions, paths and the distinction between visual checks, electrical verification, completed simulation and achieved specifications. Correct the stale 1.3 note (layout is planned later) and the 4.2.4c cross-reference to 4.2.4d during the next coordinated cleanup. Dates and workload await the deadline and availability.
+
+
+## 2026-11-16 decisions and initial learning sessions
+
+This section updates earlier assumptions. It is a working sequence, not a fixed deadline or a claim of completed circuit design. Student operates Virtuoso and returns evidence; tutor explains, checks calculations and results, and revises the next task after each batch.
+
+### Confirmed updates and remaining definitions
+
+- Deadline: school has not announced it. Work whenever available; use milestones rather than calendar promises.
+- User clarification: whole-amplifier open-loop gain must exceed 50 dB, i.e. |AOL| > 10^(50/20) ≈ 316 V/V. Record gain frequency, differential input/output definition, bias loops and periodic versus unchopped test conditions. Closed-loop signal gain is a separate design variable, still to define.
+- Supervisor has not clarified full-range 0.5–1 V operation; layout verification depth remains unknown. Preserve those questions without blocking device learning. Noise bandwidth/RMS convention, lowest signal frequency, THD signal/load, rejection and impedance test frequencies also remain unresolved.
+- Confirmed supply decision: user agrees to start with VDD = 0.6 V and VSS = 0 V. The earlier 3 V message was a typing error; the intended alternative was 1 V. A 1 V experiment may follow after the baseline works. Full-range 0.5–1 V operation remains unverified.
+- Correction: the 3 V discussion above arose from a typing error and is not a project extension request. Follow the confirmed 0.6 V baseline and sessions S0–S5.
+
+### Where the design starts
+
+The student's Analog IC.md section contains two handwritten images: a power/current allocation, swing/headroom, gain check, channel-length adjustment and fine-tuning sequence for a textbook amplifier. Those are useful relationships, not universal fixed allocations. The referenced gm/Id reading note currently contains a DOI/link (10.1109/4.535411), not a recorded derivation; do not infer mastery or claim that article was reread in this review.
+
+For this low-noise, low-voltage architecture, use a coupled loop: supply and signal requirements → provisional noise/bandwidth/loading budgets → required effective transconductance → device gm/Id and current → geometry and headroom → simulated gain, noise and stability → revised budgets. A hard power limit, when supplied, constrains current as Imax=Pmax/VDD. The assignment currently provides no numeric power ceiling; do not invent one. The paper's 24 nA first-stage core is a useful exploratory point, not an assignment requirement or proven sufficient noise budget.
+
+At a chosen transistor bias, gm=(gm/Id)Id and intrinsic gain is gm/gds; geometry, length, VDS and body bias change both. In weak inversion, Id≈I0 exp(VGS/(nUT)) and gm/Id≈1/(nUT) are intuition only; use SMIC models to measure the actual curves. A positive strong-inversion overdrive VGS−VTH and square-law sizing are not the primary tool for deep-subthreshold input devices. Longer L may improve output resistance but also changes capacitance, speed, area and leakage behavior; no universal minimum-L rule applies to these inputs.
+
+Noise constrains useful gm, but the 5 µV number alone cannot uniquely determine it: integration band, filtering, flicker noise and chopping matter. Do not apply a single-transistor noise formula as the full CCIA result. Bandwidth 1–1.5 kHz is a system requirement; the input-boosted core must pass the modulated signal band near the selected chopping frequency. A bare first-stage bandwidth of 1.5 kHz is not an appropriate automatic allocation.
+
+### Sessions and deliverables
+
+- **S0 — establish a reproducible starting point (3.3–3.5, 4.2.4e/f), pending.** Back up existing design before edits. Inspect saved main schematic and apparent open wires. Create ccia_lib/tb_n18_char/schematic separately. Use n18 W=10u, L=400n, m=1 as a reference sample; source and bulk at 0 V, drain driven by a 0.15 V ideal vdc source, gate driven by a vdc source whose DC value is the variable VGS. Ground both voltage-source negative terminals. This is a zero-body-bias device test, not a complete branch. Capture device properties, Check and Save messages, ADE model path/section, temperature and project-local output path. Verify model names from actual PDK settings; do not guess include files or copy the old simulation directory.
+- **S1 — obtain one meaningful curve (4.1.2), pending.** At a recorded provisional 27 °C and an actually available nominal model corner, DC sweep VGS from 0 to 0.6 V in 2 mV steps with VDS=0.15 V. Save drain current and gate voltage; plot |Id| logarithmically. If measuring supply-source current, document its sign. Locate 12 nA if crossed; refine locally rather than extrapolating or accepting a nearest coarse point. Save MOS operating-point gm, gds and gmb at that point using the available ADE interface. Report VGS, VDS, VSB, Id, gm/Id and gm/gds. Do not interpret a simulator region label alone as proof. Save log and plot/export. If no crossing or model error occurs, report it and diagnose before changing dimensions.
+- **S2 — check headroom and body sensitivity (4.1.2), pending.** At the selected VGS sweep VDS, initially 0.02–0.30 V, examining current dependence and gds near 0.10, 0.15 and 0.20 V. For a body-effect comparison, set source=0.15 V, bulk=0 V, drain=source+VDS and gate=source+VGS; report actual node voltages. This preserves VGS/VDS while changing VSB. Use a finer VGS search to find 12 nA under that body bias. Build the analogous p18 test with source/bulk=0.6 V, drain=source−VSD and gate=source−VSG; sweep positive VSG and use current magnitude. Then separately characterize 10u/10u tail devices. The 0.15 V test values are exploratory, not proven branch allocations.
+- **S3 — explain and obtain a branch DC point (4.4), pending.** Use characterization to assign gate/source voltages and check 0.6 V = VSD,p2+VSD,p1+VDS,n1+VDS,n2. At output=0.3 V the upper and lower pairs each share 0.3 V; individual drops need not be equal. Two nominal 12 nA series branches use 24 nA total, not four times each branch current. Complete main-stage bodies and gate DC paths; use documented temporary bias/control where needed. Verify both outputs, terminal voltages and currents before AC. At each change revise the chosen dimensions or current with a reason, rather than restarting theory from zero.
+- **S4 — demonstrate boosting and design missing circuits (4.5–4.9), pending.** Compare gate-only/source-only/combined AC drive with unchanged DC bias and loading. Derive signs and useful frequency range, then verify. Implement replica bias, separate output DC-control loops and pseudo-resistors with startup/settling checks. Fixed bias can rail a high-gain output; diagnose DC balance before blaming the gain mechanism. Choose resistance from low-frequency attenuation and recovery requirements and verify the actual network.
+- **S5 — integrate and allocate remaining system budgets (sections 5–6), pending.** Verify stages 2/3 separately, then capacitive feedback, stability, chopping and input-impedance enhancement. Track whole-system noise, gain, bandwidth, power, rejection and distortion under stated test conditions. Assess noise and stability during integration rather than leaving them entirely to final testing. Define open-loop measurement carefully while retaining necessary DC bias controls; use suitable periodic methods when chopping is active. Select explicit loads and sweep ranges before comparison. Layout/DRC/LVS/post-layout planning follows schematic maturity and clarified scope.
+
+### How we tutor and iterate
+
+For each session: tutor explains the purpose and a small batch of commands/UI steps; student operates and returns the schematic, analysis settings, model/corner/temperature, relevant log and plot or data. Tutor first checks connectivity and test conditions, then interprets the circuit result. Record one hypothesis, one controlled change and its result when debugging; retain previous runs and settings. Mark complete only with evidence. Device characterization sessions do not establish achieved amplifier specifications. No session is assigned a calendar deadline yet.
+
+First feedback requested: S0 test schematic, n18 properties and ADE model/output settings. After that review, run S1 and report the current curve. The next detailed operating batch will follow the actual ADE interface and results.
