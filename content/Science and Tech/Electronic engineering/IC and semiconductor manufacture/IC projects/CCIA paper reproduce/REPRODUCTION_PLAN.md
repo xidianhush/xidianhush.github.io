@@ -48,14 +48,14 @@ Historical screenshot: codex-clipboard-b27a3791-1f8c-41a8-bf78-57a2b944a9e8.png.
 
 This is the operational order. Detailed settings and completion criteria are in the linked task sections below; do one manageable batch and return evidence before expanding it. Every session remains pending until its own evidence is recorded.
 
-| Session | Tasks | Student operation | Result to bring back / milestone | Status |
-| --- | --- | --- | --- | :---: |
-| **S0 — next** | 3.3–3.4; 4.2.4e; 4.1.2a | Preserve the existing design, inspect saved wiring, build separate tb_n18_char and inspect ADE model/output settings | Test schematic, n18 properties, Check and Save messages, model path/section and project-local output path | ❌ |
-| S1 | 4.1.2b; DC part of 3.5 | Sweep VGS, locate 12 nA if crossed, refine and obtain the operating point | Current curve, VGS/VDS/VSB/Id/gm/gds/gmb, gm/Id, gm/gds and log | ❌ |
-| S2 | 4.1.2c–e | Sweep drain voltage/body bias; characterize p18 and long-channel tail devices in separate batches | Headroom/current-sensitivity curves and NMOS/PMOS characterization records | ❌ |
-| S3 | 4.1.1; 4.2.3; 4.2.4c/e/f; 4.4 | Calculate branch current/headroom; complete a controlled-bias core and obtain DC points | All terminal voltages, branch currents and outputs; explain dimensions and any temporary controls | ❌ |
-| S4 | 4.2.4a/b; 4.5–4.9 | Compare input paths; implement and test replica, separate branch controls and pseudo-resistors; recheck | Demonstrated boosting under stated bias/load, realistic-bias startup/settling and robustness evidence | ❌ |
-| S5 — multiple sessions | 5.1–5.7; 6.1–6.8 | Verify later stages, integrate feedback/chopping/impedance enhancement and assess system metrics | Repeatable full-amplifier measurements and revised budgets; then scope layout work | ❌ |
+| Session                | Tasks                         | Student operation                                                                                                    | Result to bring back / milestone                                                                          | Status |
+| ---------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | :----: |
+| **S0 — next**          | 3.3–3.4; 4.2.4e; 4.1.2a       | Preserve the existing design, inspect saved wiring, build separate tb_n18_char and inspect ADE model/output settings | Test schematic, n18 properties, Check and Save messages, model path/section and project-local output path |   ❌    |
+| S1                     | 4.1.2b; DC part of 3.5        | Sweep VGS, locate 12 nA if crossed, refine and obtain the operating point                                            | Current curve, VGS/VDS/VSB/Id/gm/gds/gmb, gm/Id, gm/gds and log                                           |   ❌    |
+| S2                     | 4.1.2c–e                      | Sweep drain voltage/body bias; characterize p18 and long-channel tail devices in separate batches                    | Headroom/current-sensitivity curves and NMOS/PMOS characterization records                                |   ❌    |
+| S3                     | 4.1.1; 4.2.3; 4.2.4c/e/f; 4.4 | Calculate branch current/headroom; complete a controlled-bias core and obtain DC points                              | All terminal voltages, branch currents and outputs; explain dimensions and any temporary controls         |   ❌    |
+| S4                     | 4.2.4a/b; 4.5–4.9             | Compare input paths; implement and test replica, separate branch controls and pseudo-resistors; recheck              | Demonstrated boosting under stated bias/load, realistic-bias startup/settling and robustness evidence     |   ❌    |
+| S5 — multiple sessions | 5.1–5.7; 6.1–6.8              | Verify later stages, integrate feedback/chopping/impedance enhancement and assess system metrics                     | Repeatable full-amplifier measurements and revised budgets; then scope layout work                        |   ❌    |
 
 ## 1. Define requirements and design budgets
 
@@ -125,8 +125,8 @@ At a chosen bias, gm=(gm/Id)Id and transistor intrinsic gain is gm/gds. In weak 
 | 3.1 | Create the new project directory              | Independent directory; practice project preserved          |   ✅    | VM terminal pwd confirmed /home/userhush/Projects/IC_Projects/CCIA. Practice-project directory was also visible in a listing; its contents were not audited.                                                                                                                                                                                       |
 | 3.2 | Configure cds.lib and create a design library | Register centralized PDK and attach appropriate technology |   ✅    | Inspected cat cds.lib showing Cadence INCLUDE and centralized smic18mmrf DEFINE. Library Manager confirmed ccia_lib at /home/userhush/Projects/IC_Projects/CCIA/ccia_lib. CIW reported successful technology attachment; techGetTechFile(ddGetObj("ccia_lib"))~>libName returned "smic18mmrf". Backup command completed without a displayed error. |
 | 3.3 | Configure startup and simulation output       | New sessions use this project's own results directory      |   ❌    | Do not copy the practice project's absolute output path. see [[Cadence virtuoso tutorial#move the simuilation folder to current working directory]] for specific procedure                                                                                                                                                                         |
-| 3.4 | Configure model files and process corner      | Netlist loads intended models without invalid includes     |   ❌    | Record actual model paths and selected sections in S0; validate loading with S1 before integrating the first stage. Earlier student suggestion was to defer this to 4.3; an early one-device test isolates model problems more efficiently.                                                                                                                                                                                  |
-| 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Use S1 for DC current and operating-point evidence, then a minimal transient test for full completion of 3.5. Check node voltages and currents, not just run completion. Do this before full-stage verification.                                                                                                                                                             |
+| 3.4 | Configure model files and process corner      | Netlist loads intended models without invalid includes     |   ❌    | Record actual model paths and selected sections in S0; validate loading with S1 before integrating the first stage. Earlier student suggestion was to defer this to 4.3; an early one-device test isolates model problems more efficiently.                                                                                                        |
+| 3.5 | Run a minimal transistor test                 | Valid DC and transient results; no fatal errors            |   ❌    | Use S1 for DC current and operating-point evidence, then a minimal transient test for full completion of 3.5. Check node voltages and currents, not just run completion. Do this before full-stage verification.                                                                                                                                   |
 
 ## 4. Build and verify the input-boosted first stage
 
@@ -140,7 +140,47 @@ noise and input impedance interact with the rest of the CCIA.
 Do not impose the whole-amplifier 100 MΩ, 50 dB or 1.5 kHz directly on this standalone stage. 
 Keep its signal path and DC-control loops stable under their intended connections.
 
+To let the complete amplifier meet those standards:
 
++ VDD ： 0.5-1v
++ BW ：1KHz-1.5KHz
++ $Z_{in} \geq 100M \ohm$
++ Equivalent Input Noise (IRN) : ≤5μV
++ Small signal Open-loop gain ($A_v$): ≥50 dB
++ Power Supply Rejection Ratio (PSRR): ≥90dB, Common-Mode Rejection Ratio (CMRR): ≥85dB
++ Total Harmonic Distortion (THD): ≤0.5%
++ Open-loop stability and closed-loop stability
+
+i split the whole task to small tasks
+So i should let the first stage of the amplifier meet those standards:
+
++ VDD： 1v
++ BW：unknown yet
++ $Z_{in} \geq 100M \ohm$ (reference paper use Positive Feedback Loop to increase iput impetance)
++ Equivalent Input Noise (IRN): unknown yet
++ Small signal Open-loop gain($A_v$):  unknown yet
++ Power Supply Rejection Ratio (PSRR): ≥unknown yet, Common-Mode Rejection Ratio (CMRR): unknown yet
++ Total Harmonic Distortion (THD): unknown yet
++ Open-loop stability should be concerned
+
+
+so we got those conditions:
+
+  
+| Specification | Process Parameters |
+| ---- | ---- |
+| $V_{DD}$: 1 V | $\mu_{n} C_{ox}$: unknown |
+| BW: unknown yet | $\mu_{p} C_{ox}$: unknown |
+| $Z_{in} \ge 100\,\mathrm{M}\Omega$ (reference paper uses Positive Feedback Loop to boost input impedance) | $\lambda_{n}$: unknown |
+| Equivalent Input Noise (IRN): unknown yet | $\lambda_{p}$: unknown |
+| Small-signal Open-loop Gain ($A_v$): unknown yet | $\gamma$: unknown |
+| PSRR: unknown yet | $V_{THn}$: unknown |
+| CMRR: unknown yet | $V_{THp}$: unknown |
+| THD: unknown yet |  |
+| Open-loop stability should be concerned |  |
+| No output swing, no power consumption |  |
+
+this is all the conditions i could find
 
 | ID     | Task                               | Procedure / completion check                                                                                                                                                                                                 |   Status    | Notes                                                                                                                                                            |
 | ------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -198,15 +238,15 @@ start from paper dimensions
 
 Student's earlier external discussion link is retained as an optional reference, not reviewed evidence: https://chat.deepseek.com/share/0ma0pkpgnqsqtoceyu
 
-| ID     | Task                                                                                              | Completion check                                                                        | Status | Evidence / notes                                                                                                                                                                                   |
-| ------ | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | :----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 4.2.4  | Design and verify the missing bias and pseudo-resistor circuits                                  | Document topology, sizing rationale and successful circuit tests                       |   ❌    | Parent task: complete 4.2.4a–f and realistic-bias verification in 4.8. |
-| 4.2.4a | Determine the resistance of pseudo-resistors and determine the size of MOSFET in pseudo-resistors | Characterized I–V, differential resistance, recovery and noise                         |   ❌    | Select low-frequency/recovery requirements first; see 4.2.4 design guidance. |
-| 4.2.4b | Determine the biasing current and voltage, and determine the size of the biasing circuit          | Valid replica and control-loop DC points, current, headroom and settling              |   ❌    | Use device characterization and current ratios; unpublished W/L values are our design choices. |
-| 4.2.4c | Add coupling, bias elements, body wiring, and pins                                                | Complete and check Fig. 4(a) connectivity                                               |   ❌    | Four Cg and four Cs plus input/output pins visually checked; see 4.2.4d. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions. |
-| 4.2.4d | Place and wire the coupling network and signal pins                                               | Visually trace VIP/VIN, Cg/Cs, and VON/VOP                                              |   ✅    | Screenshot reviewed 2026-10-24: VIP to left gates/right sources; VIN to right gates/left sources; Cg 3.5pF, Cs 20pF. Historical screenshot evidence only. Later live inspection showed apparently open capacitor terminals; reconcile current saved wiring in 4.2.4e. Pin directions and netlist verification remain pending.          |
-| 4.2.4e | Audit connectivity and supply interfaces                                                          | Highlight VIP/VIN/VON/VOP; verify crossings, pin directions and actual supply net names |   ❌    | Supply symbols are present; decide explicit supply pins for reusable cells. Labels alone do not supply voltage.                                                                                    |
-| 4.2.4f | Complete MOS body connections                                                                     | Record each body net and confirm PDK well/device restrictions                           |   ❌    | Do not tie each body to its source without checking paper body-effect assumptions and available devices.                                                                                           |
+| ID     | Task                                                                                              | Completion check                                                                        | Status | Evidence / notes                                                                                                                                                                                                                                                                                                              |
+| ------ | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | :----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4.2.4  | Design and verify the missing bias and pseudo-resistor circuits                                   | Document topology, sizing rationale and successful circuit tests                        |   ❌    | Parent task: complete 4.2.4a–f and realistic-bias verification in 4.8.                                                                                                                                                                                                                                                        |
+| 4.2.4a | Determine the resistance of pseudo-resistors and determine the size of MOSFET in pseudo-resistors | Characterized I–V, differential resistance, recovery and noise                          |   ❌    | Select low-frequency/recovery requirements first; see 4.2.4 design guidance.                                                                                                                                                                                                                                                  |
+| 4.2.4b | Determine the biasing current and voltage, and determine the size of the biasing circuit          | Valid replica and control-loop DC points, current, headroom and settling                |   ❌    | Use device characterization and current ratios; unpublished W/L values are our design choices.                                                                                                                                                                                                                                |
+| 4.2.4c | Add coupling, bias elements, body wiring, and pins                                                | Complete and check Fig. 4(a) connectivity                                               |   ❌    | Four Cg and four Cs plus input/output pins visually checked; see 4.2.4d. Gate-bias elements, body wiring, supply interfaces and electrical audit remain pending. Document all ideal substitutions.                                                                                                                            |
+| 4.2.4d | Place and wire the coupling network and signal pins                                               | Visually trace VIP/VIN, Cg/Cs, and VON/VOP                                              |   ✅    | Screenshot reviewed 2026-10-24: VIP to left gates/right sources; VIN to right gates/left sources; Cg 3.5pF, Cs 20pF. Historical screenshot evidence only. Later live inspection showed apparently open capacitor terminals; reconcile current saved wiring in 4.2.4e. Pin directions and netlist verification remain pending. |
+| 4.2.4e | Audit connectivity and supply interfaces                                                          | Highlight VIP/VIN/VON/VOP; verify crossings, pin directions and actual supply net names |   ❌    | Supply symbols are present; decide explicit supply pins for reusable cells. Labels alone do not supply voltage.                                                                                                                                                                                                               |
+| 4.2.4f | Complete MOS body connections                                                                     | Record each body net and confirm PDK well/device restrictions                           |   ❌    | Do not tie each body to its source without checking paper body-effect assumptions and available devices.                                                                                                                                                                                                                      |
 
 ### 4.3 Verify and iterate from the observed cause
 | ID  | Task                                                 | Completion check                                                        | Status | Evidence / notes                         |
