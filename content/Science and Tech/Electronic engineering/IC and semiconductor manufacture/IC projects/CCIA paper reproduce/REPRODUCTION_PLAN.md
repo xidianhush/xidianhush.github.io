@@ -130,7 +130,8 @@ At a chosen bias, gm=(gm/Id)Id and transistor intrinsic gain is gm/gds. In weak 
 
 ## 4. Build and verify the input-boosted first stage
 
-The student's question was how to split system specifications into first-stage tasks. Start with a valid biased core and measured device behavior; derive provisional stage budgets in 1.5. The first stage's output impedance/load, useful band around the chopping frequency, noise and input impedance interact with the rest of the CCIA. Do not impose the whole-amplifier 100 MΩ, 50 dB or 1.5 kHz directly on this standalone stage. Keep its signal path and DC-control loops stable under their intended connections.
+The student's question was 
+how to split system specifications into first-stage tasks. Start with a valid biased core and measured device behavior; derive provisional stage budgets in 1.5. The first stage's output impedance/load, useful band around the chopping frequency, noise and input impedance interact with the rest of the CCIA. Do not impose the whole-amplifier 100 MΩ, 50 dB or 1.5 kHz directly on this standalone stage. Keep its signal path and DC-control loops stable under their intended connections.
 
 ### 4.1 Theory and device characterization
 
@@ -162,13 +163,13 @@ Student question: “Can I use the paper's sizes, or should I determine them mys
 
 #### 4.2.4 Bias, pseudo-resistors and capacitors
 
-| Student doubt | Working answer | Experiment / decision needed |
-| --- | --- | --- |
-| Must all bias-circuit dimensions be chosen before any main-stage test? | Use explicitly documented ideal bias/reference sources or temporary DC control to isolate the core first; realistic bias remains a required later test | Replica and separate branch-control DC points, polarity, range, startup and settling |
-| How to size unpublished replica devices? | Comparable bias and current scaling provide an initial W/L estimate near 1/20 of corresponding main W/L for 600 pA versus 12 nA; not a unique size | Check VDS/VSB, geometry effects, matching, current accuracy and headroom; ACMB sizing needs its own current/gain/stability analysis |
-| How to select pseudo-resistors? | Choose low-frequency attenuation and recovery requirements first; then topology, I–V and differential resistance | For isolated gate path fL≈1/(2πRbCg); 3.5 pF and chosen 1 Hz give ~45.5 GΩ and RC~0.159 s, illustrative only. Test leakage/noise/nonlinearity/temperature/settling |
-| Is 1–1.5 kHz the chopping frequency? | It is the assignment bandwidth; paper chopping is 12 kHz | Core must pass the modulated signal band; source-coupling response differs from the simple gate RC |
-| Must Cg/Cs/Cgf/Csf be derived from scratch? | Start with registered paper candidates, understand the network, and sweep as needed | Derive capacitive feedback ratios and finite-loop-gain/loading/parasitic effects; distinguish Cs from Cgs |
+| Student doubt                                                          | Working answer                                                                                                                                         | Experiment / decision needed                                                                                                                                       |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Must all bias-circuit dimensions be chosen before any main-stage test? | Use explicitly documented ideal bias/reference sources or temporary DC control to isolate the core first; realistic bias remains a required later test | Replica and separate branch-control DC points, polarity, range, startup and settling                                                                               |
+| How to size unpublished replica devices?                               | Comparable bias and current scaling provide an initial W/L estimate near 1/20 of corresponding main W/L for 600 pA versus 12 nA; not a unique size     | Check VDS/VSB, geometry effects, matching, current accuracy and headroom; ACMB sizing needs its own current/gain/stability analysis                                |
+| How to select pseudo-resistors?                                        | Choose low-frequency attenuation and recovery requirements first; then topology, I–V and differential resistance                                       | For isolated gate path fL≈1/(2πRbCg); 3.5 pF and chosen 1 Hz give ~45.5 GΩ and RC~0.159 s, illustrative only. Test leakage/noise/nonlinearity/temperature/settling |
+| Is 1–1.5 kHz the chopping frequency?                                   | It is the assignment bandwidth; paper chopping is 12 kHz                                                                                               | Core must pass the modulated signal band; source-coupling response differs from the simple gate RC                                                                 |
+| Must Cg/Cs/Cgf/Csf be derived from scratch?                            | Start with registered paper candidates, understand the network, and sweep as needed                                                                    | Derive capacitive feedback ratios and finite-loop-gain/loading/parasitic effects; distinguish Cs from Cgs                                                          |
 
 Student's earlier external discussion link is retained as an optional reference, not reviewed evidence: https://chat.deepseek.com/share/0ma0pkpgnqsqtoceyu
 
