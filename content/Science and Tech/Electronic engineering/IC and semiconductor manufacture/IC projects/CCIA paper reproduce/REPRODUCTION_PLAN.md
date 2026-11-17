@@ -131,25 +131,50 @@ At a chosen bias, gm=(gm/Id)Id and transistor intrinsic gain is gm/gds. In weak 
 ## 4. Build and verify the input-boosted first stage
 
 The student's question was 
-how to split system specifications into first-stage tasks. Start with a valid biased core and measured device behavior; derive provisional stage budgets in 1.5. The first stage's output impedance/load, useful band around the chopping frequency, noise and input impedance interact with the rest of the CCIA. Do not impose the whole-amplifier 100 MΩ, 50 dB or 1.5 kHz directly on this standalone stage. Keep its signal path and DC-control loops stable under their intended connections.
+how to split system specifications into first-stage tasks. 
+Start with a valid biased core and measured device behavior; 
+derive provisional stage budgets in 1.5. 
+The first stage's output impedance/load, 
+useful band around the chopping frequency, 
+noise and input impedance interact with the rest of the CCIA. 
+Do not impose the whole-amplifier 100 MΩ, 50 dB or 1.5 kHz directly on this standalone stage. 
+Keep its signal path and DC-control loops stable under their intended connections.
 
-### 4.1 Theory and device characterization
 
-| ID | Task | Procedure / completion check | Status | Notes |
-| --- | --- | --- | :---: | --- |
-| 4.1.1 | Study and annotate Fig. 4 | Explain input and tail devices, DC current path, gate/source coupling and replica/branch-control loop polarities | In progress | Explain signs using vid=VIP−VIN and vod=VOP−VON |
-| 4.1.2 | Characterize candidate MOS devices | Complete 4.1.2a–e and retain curves plus operating-point conditions | ❌ | Use data for current, geometry and headroom decisions |
-| 4.1.2a | S0: build n18 testbench | Separate ccia_lib/tb_n18_char/schematic; n18 W=10u, L=400n, m=1; source/bulk=0; drain vdc=0.15 V; gate vdc=VGS; both source negatives grounded. Check and Save; inspect models/output | ❌ | Zero-body-bias reference test, not the full branch; back up the main design first |
-| 4.1.2b | S1: sweep and locate 12 nA | Record provisional 27 °C and an available nominal model corner; DC sweep VGS 0–0.6 V, step 2 mV, VDS=0.15 V. Plot magnitude of Id on logarithmic axis; locate and refine crossing locally. Save gm/gds/gmb at selected point | ❌ | Report VGS,VDS,VSB,Id,gm/Id,gm/gds and log. Document source-current sign. If no crossing/error, diagnose before changing W/L; region label alone is insufficient |
-| 4.1.2c | S2a: headroom sensitivity | Hold selected VGS; sweep VDS initially 0.02–0.30 V. Examine current/gds near 0.10,0.15,0.20 V | ❌ | Test values are exploratory, not established branch drops |
-| 4.1.2d | S2b: body sensitivity | Compare source=0.15 V, bulk=0, drain=source+VDS, gate=source+VGS with the zero-VSB test; refine VGS for 12 nA | ❌ | Preserve VGS/VDS when comparing; report actual absolute node voltages |
-| 4.1.2e | S2c: PMOS and tail devices | p18 source/bulk=0.6 V, drain=source−VSD, gate=source−VSG; sweep positive VSG using current magnitude. Then characterize 10u/10u tails and relevant body biases separately | ❌ | Record actual device/well constraints, corner and temperature; use several manageable batches |
+
+| ID     | Task                               | Procedure / completion check                                                                                                                                                                                                 |   Status    | Notes                                                                                                                                                            |
+| ------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4.1.1  | Study and annotate Fig. 4          | Explain input and tail devices, DC current path, gate/source coupling and replica/branch-control loop polarities                                                                                                             | In progress | Explain signs using vid=VIP−VIN and vod=VOP−VON                                                                                                                  |
+| 4.1.2  | Characterize candidate MOS devices | Complete 4.1.2a–e and retain curves plus operating-point conditions                                                                                                                                                          |      ❌      | Use data for current, geometry and headroom decisions                                                                                                            |
+| 4.1.2a | S0: build n18 testbench            | Separate ccia_lib/tb_n18_char/schematic; n18 W=10u, L=400n, m=1; source/bulk=0; drain vdc=0.15 V; gate vdc=VGS; both source negatives grounded. Check and Save; inspect models/output                                        |      ❌      | Zero-body-bias reference test, not the full branch; back up the main design first                                                                                |
+| 4.1.2b | S1: sweep and locate 12 nA         | Record provisional 27 °C and an available nominal model corner; DC sweep VGS 0–0.6 V, step 2 mV, VDS=0.15 V. Plot magnitude of Id on logarithmic axis; locate and refine crossing locally. Save gm/gds/gmb at selected point |      ❌      | Report VGS,VDS,VSB,Id,gm/Id,gm/gds and log. Document source-current sign. If no crossing/error, diagnose before changing W/L; region label alone is insufficient |
+| 4.1.2c | S2a: headroom sensitivity          | Hold selected VGS; sweep VDS initially 0.02–0.30 V. Examine current/gds near 0.10,0.15,0.20 V                                                                                                                                |      ❌      | Test values are exploratory, not established branch drops                                                                                                        |
+| 4.1.2d | S2b: body sensitivity              | Compare source=0.15 V, bulk=0, drain=source+VDS, gate=source+VGS with the zero-VSB test; refine VGS for 12 nA                                                                                                                |      ❌      | Preserve VGS/VDS when comparing; report actual absolute node voltages                                                                                            |
+| 4.1.2e | S2c: PMOS and tail devices         | p18 source/bulk=0.6 V, drain=source−VSD, gate=source−VSG; sweep positive VSG using current magnitude. Then characterize 10u/10u tails and relevant body biases separately                                                    |      ❌      | Record actual device/well constraints, corner and temperature; use several manageable batches                                                                    |
 
 ### 4.2 Build and size the core, bias and coupling network
 
 #### 4.2.3 Main-stage dimensions and current/headroom budget
 
 Student question: “Can I use the paper's sizes, or should I determine them myself?” Earlier answer “CAN NOT” is corrected: published sizes can be reference candidates. The student's decision is to independently justify final sizes through calculation and SMIC simulation. Preserve existing placements and compare evidence before resizing.
+
+problem:
+
+
+As for the main part of the amplifier
+Can i directly apply the size of the transistor in paper ,
+or whether I should determine the size all by myself?
+  
+Earlier student answer (retained for context):
+CAN NOT
+
+Tutor correction, 2026-11-16:
+published dimensions CAN be a benchmark or initial candidate. 
+Final dimensions must be justified and verified in SMIC; 
+using a starting value does not prevent independent design.
+
+temporary decision(adjusted 2026-11-16)
+start from paper dimensions
 
 | ID | Task | Completion check | Status | Evidence / next action |
 | --- | --- | --- | :---: | --- |
