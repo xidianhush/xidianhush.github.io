@@ -126,3 +126,28 @@ https://bbs.eetop.cn/thread-974656-1-1.html
 ![[Pasted image 20260823093245.png]]
 
 # 版本管理
+
+# AI Assist
+
+## SSH 免密配置复盘（Windows ⇋ EDA 虚拟机）
+
+> 2026-11-18 · 为 AI Agent（virtuoso-bridge）免密操控 VMware 里的 Virtuoso 打通 SSH：`userhush@192.168.30.100`
+> 📄 完整复盘（外链，不在 vault 内）：[SSH免密配置复盘.md](<file:///C:/Users/29144/Doubao/chats/2026-11-18/new-chat/SSH免密配置复盘.md>)
+
+坑位速查（详细原因和命令见全文）：
+1. `echo` 写公钥忘了 `> ~/.ssh/authorized_keys` 重定向 → 只是打印，文件没建
+2. **手抄公钥 = 最大坑**：转录错误 + 类型不匹配（抄的 ed25519，客户端实际用 id_rsa）→ 必须管道推送：`Get-Content id_rsa.pub -Raw | ssh 用户@主机 "cat >> ~/.ssh/authorized_keys"`
+3. PowerShell 找不到 `ssh` → 用全路径 `C:\Windows\System32\OpenSSH\ssh.exe`
+4. Windows 换行符 `^M` 混入公钥文件 → `sed -i 's/\r//g' ~/.ssh/authorized_keys`
+5. 权限严格：`~/.ssh`=700，`authorized_keys`=600，属主本人
+6. CentOS SELinux 拦截 → `restorecon -R ~/.ssh`
+7. vim 里 `Ctrl+Z` 是挂起不是退出 → 残留 `.swp` 警告，`rm ~/.ssh/.authorized_keys.swp`
+8. vim `E37` → 保存用 `:wq`，放弃用 `:q!`
+9. `starship: Command not found.` 与 SSH 无关，可无视
+
+验证命令（Agent 用的就是这条，输出 `ok` 即成功）：
+```powershell
+C:\Windows\System32\OpenSSH\ssh.exe -o BatchMode=yes userhush@192.168.30.100 echo ok
+```
+
+%% 注意：外链指向豆包会话目录，清理会话文件夹会失效；届时把全文挪到固定目录并更新此链接 %%
