@@ -151,3 +151,28 @@ C:\Windows\System32\OpenSSH\ssh.exe -o BatchMode=yes userhush@192.168.30.100 ech
 ```
 
 %% 注意：外链指向豆包会话目录，清理会话文件夹会失效；届时把全文挪到固定目录并更新此链接 %%
+
+## Virtuoso-Bridge 只读验证通道安装复盘（Windows ⇋ EDA 虚拟机）
+
+> 2026-11-18 · 为辅导（tutoring）会话搭建 virtuoso-bridge-lite **只读**验证通道：Windows 宿主经 SSH 隧道连到 VMware 里的 Virtuoso（IC618）/Spectre 18.1，只读核对 `ccia_lib`（`input_boosted_stage1` / `tb_n18_char`），不改设计、不跑仿真。安装位置 `D:\IC_tools\virtuoso-bridge-lite`。
+> 📄 完整复盘（外链，不在 vault 内）：[VIRTUOSO_BRIDGE_SETUP_HANDOFF.md](<file:///D:/Documents/ChatGPT/Linux%20learning%20%28using%20CentOS%207%29/VIRTUOSO_BRIDGE_SETUP_HANDOFF.md>)
+
+坑位速查（详细原因和命令见全文）：
+1. **沙箱禁写用户目录**：python 子进程写 `C:\Users\29144\...` 被拒 → `.env` 与全部运行时目录改放工具目录内（用 `VB_STATE_DIR/LOG_DIR/CACHE_DIR/TMP_DIR/OUTPUT_DIR/CONFIG_DIR` 覆盖），不依赖 `~/.virtuoso-bridge`。
+2. **uv 默认缓存被拒** → `UV_CACHE_DIR` 指到工具目录内；`ssh` 不在 PATH → 用全路径 `C:\Windows\System32\OpenSSH\ssh.exe` 并在 `.env` 设 `VB_SSH_CMD`。
+3. **首次 SSH 要人工接受 host key**；公钥必须管道推送、手抄必错（详见上一节 SSH 复盘）。
+4. **沙箱里一次性 shell 调用结束会杀掉 detached 子进程** → 隧道须用后台任务或自己的（非沙箱）终端托管；在自己终端里 `start` 返回后隧道仍存活。
+5. **venv 不可移动**：换目录必须重建 venv + 改 `.env` 绝对路径 + 重新 `start`（本次从 `...\Graduation_Project\tools` 迁到 `D:\IC_tools`）。
+6. **CLI `eval` 会吞掉双引号字符串字面量**（`dbOpenCellViewByType("ccia_lib"...)` 变 unbound → 返回 nil）→ 含字符串的 SKILL 用 Python `execute_skill` 或 `virtuoso-bridge load 文件.il`；无引号的 `eval "1+2"` 正常。
+7. **Virtuoso 重启 = daemon 死**（它活在 CIW 里）→ 重粘 CIW load 行；**VM 重启清空 /tmp** → 重新 `start` 会重新部署 setup 自动兜底。
+8. 远端登录 shell 是 csh：命令带括号报 `Badly placed ()'s.`；`starship: Command not found.` 与 SSH 无关，可无视。
+
+验证命令（`status` 显示 `daemon OK` + Virtuoso PID，且两条 eval 有返回即真连通）：
+```powershell
+cd D:\IC_tools\virtuoso-bridge-lite   # 激活 .venv 后
+virtuoso-bridge status
+virtuoso-bridge eval "1+2"                  # 期望 output "3"
+virtuoso-bridge eval "ddGetLibList()~>name"  # 期望含 ccia_lib / smic18mmrf
+```
+
+%% 注意：此外链指向固定目录 `D:\Documents\ChatGPT\Linux learning (using CentOS 7)\`（比豆包会话目录耐久），即本会话的完整安装/交接记录；若移动该文件请更新此链接。 %%
