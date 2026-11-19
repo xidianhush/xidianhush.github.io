@@ -109,4 +109,49 @@ No single equation is accurate from WI through MI to SI; the two asymptotes err 
 
 ---
 
+## 3 · The design flow on *our* project — where the inputs come from, and how REPRODUCTION_PLAN uses the chart
+
+*(Answers the student's question, 2026-11-19: "Razavi needs power and swing; our assignment gives neither — how does gm/ID apply per REPRODUCTION_PLAN?")*
+
+### 3.1 The reframe: Razavi's two givens are replaced by two *other* givens
+
+Razavi's hand flow needs two supplied numbers: $P$ (→ $I_D$) and output swing (→ $V_{OD}$). Our assignment supplies **neither** as a number — but it supplies something his textbook example did not: **a published design to reproduce**, plus performance specs. So:
+
+| Razavi's given | Our replacement | Source |
+|---|---|---|
+| $P=10$ mW, $V_{DD}=3$ V → $I_{tot}$ | **Paper's current allocation**, inherited: 40 nA total; 24 nA first-stage branch → 12 nA per series device; 7.2 / 4.8 nA later stages; 4.2 nA bias; $I_b=600$ pA | Paper register, REPRODUCTION_PLAN lines 111–122; task 4.2.3d |
+| Output swing → $V_{OD}$ per device | **No numerical swing spec** (plan line 95). Headroom becomes an *a posteriori constraint*, not an a priori allocation: at 0.6 V, four stacked devices cannot each take 200 mV ($0.8>0.6$). WI/MI devices need only $V_{DS,sat}\approx4U_T\approx0.1$ V. Budget written as $0.6=V_{SD,p2}+V_{SD,p1}+V_{DS,n1}+V_{DS,n2}$ (provisional CM 0.3 V → 0.3 V per *pair*, not per device); $V_{GS}$ cost read from the $g_m/I_D$–$V_{GS}$ companion curve; actual headroom/gds measured by the $V_{DS}$ sweep | Plan 4.2.3e; S2a ($V_{DS}$ 0.02–0.30 V); Silveira §II end |
+| — (his example has no noise/gain spec driving $V_{OD}$) | **Performance specs we DO have** drive the $g_m/I_D$ choice per role (table 3.2) | Assignment targets, plan lines 86–97 |
+
+If a hard power ceiling is supplied later: $I_{max}=P_{max}/V_{DD}$ (plan line 103). Until then the paper's currents are the *exploratory baseline*, not a derived optimum (plan line 26). Note: 5 µV noise alone cannot fix $g_m$ without integration band, flicker, chopping and filtering (plan line 103) — it sets a *direction* (more $g_m$), not a number.
+
+### 3.2 Choosing $g_m/I_D$ per device role (replaces "pick $V_{OD}$ from swing")
+
+| Role | Spec that drives it | $g_m/I_D$ direction | Mechanism |
+|---|---|---|---|
+| Input pair | noise ≤ 5 µV; open-loop gain > 50 dB | **high** (≈25–30 S/A) | $g_m=(g_m/I_D)I_D$: at fixed 12 nA, higher ratio = more $g_m$; $g_m$ sets the thermal-noise floor and the gain $g_mR_{out}$ |
+| Tail / current sources | headroom at 0.6 V; CMRR ≥ 85 dB, PSRR ≥ 90 dB | **high** $g_m/I_D$ + **long $L$** | low $V_{DS,sat}$ frees stack voltage; long $L$ → high $g_m/g_{ds}$ → stiffer current source |
+| Loads / mirrors | matching, noise contribution, speed | **moderate–low** (≈8–15 S/A) | Silveira §III chose $(g_m/I_D)_3=8$ for mirrors: SI improves matching and lowers their noise share; they need little $g_m$ |
+| Bandwidth 1–1.5 kHz | set by the *loop* ($g_m/C$), not device $f_T$ | check only | $f_T$ chart confirms the device is ≫ kHz; it does not set the BW |
+
+$L$ comes from the $g_m/g_{ds}$ chart ($V_A\propto L$, Silveira eq. (1)); the paper already fixes input $L=400$ nm and tail $L=10$ µm — task 4.2.3f asks you to **justify** those with model operating points, not re-derive them. $W$ then follows: $W/L = I_D \div \big(I_D/(W/L)\big)$; the paper's $W=10$ µm is a cross-check, not an input.
+
+### 3.3 Step-by-step bridge: your sheet → gm/ID → plan task
+
+| Your Razavi step | gm/ID counterpart | Input source in our project | Plan task / session |
+|---|---|---|---|
+| Step 1: $P,V_{DD}\to I_{tot}$, mirror ratios via $W/L$ | current allocation (same arithmetic) | paper register; $12\text{ nA}/600\text{ pA}=20$ | 4.2.3d, 4.2.4 (S3/S4) |
+| Step 2: swing → $V_{OD}$ → $W/L$ via square law | choose $g_m/I_D$ per role → read $I_D/(W/L)$ → $W/L$; headroom checked *after* | specs (gain/noise/headroom) + chart | 4.1.2 (S1/S2), 4.2.3e/f (S3) |
+| Step 3: verify $A_v$ via $g_m=\mu C_{ox}(W/L)V_{OD}$ | verify via $g_m/g_{ds}$ chart: $A_0=(g_m/I_D)V_A$ | measured OP at 12 nA | 4.1.2b (S1 step 5), 4.2.3f |
+| Step 4: $A_v$ short → raise $L$ ($\lambda\propto1/L$) | same logic on $g_m/g_{ds}$ vs $L$; $L$ fixed by paper → verify, don't re-derive | $V_A\propto L$; tail $L=10$ µm | S2c, 4.2.3f |
+| Step 5: body effect, CMFB | $g_{mb}$ OP field; body sensitivity sweep; CCIA uses capacitive feedback + chopping, not a Razavi-style CMFB | $V_{SB}\neq0$ sweep | S2b; S5 |
+
+### 3.4 The plan in one paragraph (plain language)
+
+**S1** measures *one point* of the chart (your paused sweep → 12 nA crossing → OP $g_m,g_{ds},g_{mb}$). **S2** extends the chart family ($V_{DS}$, body, p18, tails) and repairs the floating bulks. **S3** *uses* the chart to justify the first-stage sizes and write the voltage/current budgets. **S4** sizes the bias replica (~1/20 $W/L$ for 600 pA vs 12 nA) and pseudo-resistors. **S5** repeats the flow for later stages, feedback, chopping, impedance boost. **S6** verifies the whole amplifier against the assignment. The plan *is* the gm/ID method, staged — which is why line 320 says: **do not choose all sizes or complete all bias circuits before obtaining the first device curve.** The chart must exist before it can be used.
+
+**Check question (batch 3):** (a) In our flow, what plays the role of Razavi's "$P=10$ mW → $I_{tot}$"? (b) Why can't we allocate $V_{OD}=200$ mV to each of the four stacked first-stage devices at $V_{DD}=0.6$ V, and what does a WI device need instead? (c) Which assignment spec pushes the *input pair* toward high $g_m/I_D$, and which pushes the *mirrors* toward low $g_m/I_D$?
+
+---
+
 *(next batch appended below as the session progresses)*
