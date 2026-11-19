@@ -58,4 +58,55 @@ At 12 nA the device gives roughly **2.5–3.5× more $g_m$ per ampere** than you
 
 ---
 
+### 1.5 Clarification (student question, 2026-11-19): where does $V_{OD}=200$ mV come from?
+
+**Nobody's law — it is a designer's allocation from the output-swing headroom budget**, copied from Razavi's worked example into the student's sheet (Step 2, `Pasted image 20261116155030.png`). Each stacked device needs $V_{DS}\ge V_{OD}$, so each eats $V_{OD}$ volts of swing:
+
+$$V_{swing}=V_{DD}-(V_{OD9}+V_{OD1}+V_{OD3})-(|V_{OD5}|+|V_{OD7}|) = 3-(0.5+0.2+0.2)-(0.3+0.3)=1.5\text{ V}$$
+
+The 400 mV budget for the NMOS input+cascode pair is split *equally* (200+200 mV) by choice, not derivation. At $V_{DD}=0.6$ V this allocation is impossible (1.5 V > 0.6 V), and at 12 nA "$V_{OD}$" can be negative anyway. **gm/ID replaces the knob:** choose $g_m/I_D$ per role; $V_{GS}$ (headroom) becomes an *output*, read from the companion $g_m/I_D$–$V_{GS}$ curve [Silveira §II end, Fig. 3]. Bonus: in WI, $V_{DS,sat}\approx 4U_T\approx 0.1$ V regardless of current.
+
+### 1.6 Pitfall (student answer corrected, 2026-11-19): direction of the efficiency argument
+
+$g_m=(g_m/I_D)\cdot I_D$: the ratio is a **conversion rate (S of $g_m$ per A of bias)**. WI rate (≈27.6 S/A at $n=1.4$) > SI rate (10 S/A at $V_{OD}=200$ mV). Hence: same current → WI gives MORE $g_m$; same $g_m$ → WI needs LESS current. (Student initially stated both directions inverted; corrected.) Example: $I_D=12$ nA → $g_m=331$ nS (WI) vs 120 nS (SI); $g_m=331$ nS → $I_D=12$ nA (WI) vs 33.1 nA (SI).
+
+---
+
+## 2 · $g_m/I_D$: a size-independent dial for inversion level — the Silveira charts
+
+### 2.1 Why $g_m/I_D$ labels the inversion level
+
+[Silveira §II, reason 2, eq. (3)]: $g_m/I_D = d\ln I_D/dV_{GS}$ = the local slope of the log-$I_D$ curve. WI: constant at $1/(nU_T)$; SI: $2/V_{OD}$, falling as current rises; MI: the monotonic bridge between. So the *value* of $g_m/I_D$ is a continuous, one-to-one dial of "how inverted the channel is" — no binary region label needed [Silveira Fig. 1].
+
+Rough reading for a bulk device with $n\approx1.3$–$1.5$: $g_m/I_D \gtrsim 25$ S/A → WI; $\sim 10$–$25$ → MI; $\lesssim 10$ → SI. (Boundaries are fuzzy by construction; our 12 nA target expects ≈25–38 S/A.)
+
+### 2.2 Why $W$ cancels — the universality that makes sizing possible
+
+At fixed $L$, $V_{DS}$, $V_{SB}$, $T$, write $I_D=(W/L)\,f(V_{GS})$; then $g_m=(W/L)\,f'(V_{GS})$, so
+
+$$\frac{g_m}{I_D}=\frac{f'}{f}\quad(\text{no }W),\qquad \frac{I_D}{W/L}=f\quad(\text{no }W).$$
+
+Both axes are width-free ⇒ **one curve per device type, per $L$, per bias condition, valid for every $W$** [Silveira §II: "a unique characteristic for all transistors of the same type … in a given batch"; the paper's caveat: revise for short-channel devices ⇒ in 0.18 µm keep one chart per $L$]. Sizing engine [Silveira §II, reason 3]: any two of $\{g_m/I_D,\ g_m,\ I_D\}$ fix the third; the chart then gives $I_D/(W/L)$; and $W/L = I_D \div \big(I_D/(W/L)\big)$.
+
+### 2.3 The chart family
+
+| Chart | Axes | Design question it answers | Paper anchor |
+|---|---|---|---|
+| Main | $g_m/I_D$ vs $I_D/(W/L)$ (log x) | inversion level ↔ current density; gives $W$ | Fig. 1 |
+| Gain | $g_m/g_{ds}$ ($=g_m r_o$) vs $g_m/I_D$ | intrinsic gain available per device | eq. (1): $A_0=g_m/g_d=(g_m/I_D)V_A$; $V_A\propto L$ (≈7 V/µm for $L=3$–$12$ µm in their 3 µm process) |
+| Speed | $f_T$ vs $g_m/I_D$ | speed bought at this efficiency | eq. (2): $f_T=g_m/(2\pi C_L)$ (loaded stage); device-level $f_T=g_m/(2\pi C_{gg})$ |
+| Headroom | $g_m/I_D$ vs $V_{GS}$ (or $I_D$–$V_{GS}$) | bias voltages, swing | §II end; Fig. 3 flow |
+
+Log x-axis because $I_D/(W/L)$ spans many decades (nA to µA per unit aspect ratio).
+
+### 2.4 Lookup replaces closed form
+
+No single equation is accurate from WI through MI to SI; the two asymptotes err in *opposite* directions [Silveira §IV, Table III: SI sizing → $f_T$ ~50% optimistic, gain ~7 dB optimistic; WI sizing → ~15% $f_T$ error, +25% area]. A simulated/measured curve carries velocity saturation, DIBL and mobility degradation automatically. **The curve IS the model** — no fitting error in MI, exactly where our 12 nA devices sit.
+
+**Razavi bridge:** his five knobs $\{I_D,\ V_{OD},\ W/L,\ g_m,\ r_o\}$ become $\{I_D,\ g_m/I_D,\ W/L,\ g_m,\ g_{ds}\}$: $V_{OD}$ is demoted from design *input* to chart *output*; $r_o$ is read as $g_m/g_{ds}$. His Step 2 ("pick $V_{OD}$ from swing") becomes "pick $g_m/I_D$ from device role; check headroom on the $V_{GS}$ companion curve."
+
+**Check question (batch 2):** (a) A device must give $g_m=300$ nS at $I_D=12$ nA — what $g_m/I_D$? (b) WI, MI or SI? (c) Double $W$ at fixed $L$ and fixed $V_{GS}$: do $g_m/I_D$ and $I_D/(W/L)$ change? Why?
+
+---
+
 *(next batch appended below as the session progresses)*
