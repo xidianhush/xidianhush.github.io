@@ -31,3 +31,30 @@
 ### latch-up
 
 learning link : https://zhuanlan.zhihu.com/p/1961328159594115605?share_code=oYOcBqX1nAW3&utm_psn=2093628168120832755
+
+
+Weak inversion
+
+$$
+I_D = I_{spec}\cdot \exp\left(\frac{V_{GS}-V_{TH}}{nU_T}\right)
+$$
+$$
+I_{spec}=2nU_T^2\mu C_{ox}\frac{W}{L}
+$$
+Moderate inversion
+
+$$
+I_D = I_{spec}\cdot\left[\ln\left(1+\exp\left(\frac{V_{GS}-V_{TH}}{2nU_T}\right)\right)\right]^2
+$$
+$$
+I_{spec}=2nU_T^2\mu C_{ox}\frac{W}{L}
+$$
+Strong inversion
+
+$$
+I_D = \frac12 \mu C_{ox}\frac{W}{L}\left(V_{GS}-V_{TH}\right)^2 = \frac12\beta\left(V_{GS}-V_{TH}\right)^2
+$$
+$$
+\beta=\mu C_{ox}\frac{W}{L}
+$$
+
