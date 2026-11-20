@@ -252,4 +252,39 @@ Read-offs / verification for row A: $g_m/g_{ds}$ from OP (placeholder ≈60 ⇒ 
 
 ---
 
-*(next batch appended below as the session progresses)*
+### 6.3 Student's ordering insight (batch-6 b, correct) and the read-vs-choose distinction
+
+Student correctly noted: the real $I_D/(W/L)$–$g_m/I_D$ pair must come from the *measured* curve (not yet available; S1 paused), and the sizing knob set is $\{g_m/I_D,\ I_D,\ L\}$ with $W$ computed. Clarification of ordering:
+
+- **$x=I_D/(W/L)$ is known a priori for the paper device** ($12\text{ nA}/25=0.48$ nA) — no curve needed. What the curve supplies is $y=g_m/I_D$ at that $x$. So for the **paper-specified input device you READ $g_m/I_D$** (S1 step 5); you do not choose it.
+- **For a NEW / re-sized device** ($W$ unknown): pick $g_m/I_D$ (knob) → read $x$ on the measured curve → $W/L=I_D/x$ → $W$. This decision point exists **only after the curve exists** (plan line 320: no sizing before the first curve). Before that, $g_m/I_D$ is a prior/guess, not a computable sizing input.
+- With the illustrative row A the arithmetic closes: $g_m=26\times12\text{ nA}=312$ nS; $W/L=12\text{ nA}/0.48\text{ nA}=25$; $W=25\times0.4\ \mu\text{m}=10\ \mu$m (= paper). Real numbers replace the placeholders after S1/S2.
+- Student also corrected the batch-5 direction themselves: $W\uparrow\Rightarrow(W/L)\uparrow\Rightarrow I_D/(W/L)\downarrow\xRightarrow{\text{decreasing}}g_m/I_D\uparrow$. Locked.
+
+---
+
+## 7 · One-page operating-point worksheet (read these when operations resume)
+
+Bench reference for S1 step 5 / S2. Read the OP at the 12 nA crossing ($V_{DS}=0.15$ V, $V_{SB}=0$, $W/L=25$); every field feeds a specific decision.
+
+| OP field | Meaning | Derived | Design decision it feeds |
+|---|---|---|---|
+| `id` | drain bias current | $I_D/(W/L)=id/25$ | confirms allocated 12 nA; **x-axis** of main chart |
+| `gm` | transconductance | $g_m/I_D=gm/id$; $g_m$ | **y-axis** main chart = inversion level; noise floor & gain ($g_m$ sets both); $f_T$ numerator |
+| `gds` | output conductance | $g_m/g_{ds}$; $r_o=1/g_{ds}$ | intrinsic gain $A_0=(g_m/I_D)V_A$; current-source stiffness; gain budget >50 dB; CMRR/PSRR |
+| `gmb` | body transconductance | $g_{mb}/g_m=\eta$ | body-effect strength; flags floating bulk (S2 repair); CMRR/PSRR degradation |
+| `vgs` | gate–source bias | companion-curve x | headroom cost of chosen $g_m/I_D$; bias voltage for replica/mirror; swing budget |
+| `vds` | drain–source bias | compare `vdsat` | saturation/headroom check $v_{ds}>v_{dsat}$; fixes chart $V_{DS}=0.15$ V; 0.6 V stack budget |
+| `vbs` | body–source bias | should be 0 | confirms bulk tie (NMOS B→vss!, PMOS B→vdd!); ≠0 ⇒ body effect / $V_{TH}$ shift |
+| `vth` | threshold | $v_{gs}-v_{th}$ (signed) | sanity only: small/negative overdrive ⇒ WI; **not** a sizing knob here |
+| `region` | simulator region flag | cross-check | coarse cross-check vs the $g_m/I_D$ dial (dial is the real indicator) |
+| `cgg` | gate capacitance | $f_T=g_m/(2\pi c_{gg})$ | speed check ≫ 1.5 kHz |
+| `vdsat` | saturation voltage | headroom | stack budget; WI ≈ $4U_T\approx0.1$ V |
+
+**Read order:** S1 step 4 log-axis → $V_{GS}$@12 nA + WI slope (→ $n$, ceiling); step 5 OP table above (→ first chart point $g_m/I_D$, $g_m/g_{ds}$); step 6 refine $\Delta V_{GS}=\ln(12\text{ nA}/I_D)/(g_m/I_D)$ to ~1%. S2: $V_{DS}$ sweep (headroom/gds), $V_{SB}\neq0$ (body), p18 + tails. Then S3 uses the chart to justify sizes/budgets.
+
+**Check question (batch 7):** which OP field(s) would tell you the bulk is *still floating* after S2, and which derived ratio quantifies how much it hurts?
+
+---
+
+*(theory thread complete; awaiting student's go-ahead to log handoff and return to operations)*
