@@ -187,4 +187,38 @@ and $y=g_m/I_D$ is whatever the curve says there (deep-WI, near the ceiling). S1
 
 ---
 
+## 5 · Measure $n$ from your own curve; and knobs vs read-offs (what you actually adjust)
+
+*(Clarifications, 2026-11-20: student asked how the 83 mV/decade is obtained and whether it is the next simulation step; and whether $W/L$ is what gets adjusted later. Two errors in their batch-4 answer corrected here.)*
+
+### 5.1 Corrections to batch-4 answer (b)
+
+- **$1/(nU_T)$ is NOT 59.6 mV.** 59.6 mV $=U_T\ln10$ is a *voltage* (the $n=1$ decade slope). $1/(nU_T)$ is a *conductance-per-current*: at $n=1.4$, $1/(1.4\times25.9\text{ mV})\approx27.6\ \text{V}^{-1}=27.6$ S/A. Keep the two constants apart: $n\,U_T\ln10$ [mV/dec] vs $1/(nU_T)$ [S/A].
+- **83 mV/dec and $n=1.4$ were a worked *example*, not a measurement.** The student's current screenshot is linear-axis; no log slope has been read yet. The whole method is "the curve is the model" — do not adopt a number you have not measured. SMIC n18 at $L=400$ nm may give $n\approx1.2$–$1.5$; read it.
+
+### 5.2 How $n$ is extracted (the principle behind S1 step 4)
+
+In WI, $I_D\propto e^{V_{GS}/(nU_T)}$. A decade = $\times10$ in $I_D$, so $\Delta V_{GS}\big|_{\times10}=nU_T\ln10$. Hence
+
+$$n=\frac{\text{mV/decade}}{U_T\ln10}=\frac{\text{mV/decade}}{59.6\text{ mV}},\qquad \left(\frac{g_m}{I_D}\right)_{max}=\frac{1}{nU_T}\ [\text{S/A}].$$
+
+Read the slope on the **log-$I_D$** plot in the straight (exponential) region: two markers one decade apart, $\Delta V_{GS}$ between them. This is exactly what S1 step 4 (log-axis zoom 0.15–0.45 V) exists to produce, alongside the $V_{GS}$@12 nA crossing; step 5 then reads the OP. The GUI axis/marker mechanics belong to the operations session — here we only fix *what* is extracted and *why*. The measured $n$ sets the WI ceiling that anchors every $g_m/I_D$ choice (§4.2).
+
+### 5.3 Knobs vs read-offs: $W/L$ is an OUTPUT, not the knob you turn
+
+| Quantity | Knob / read-off / derived | Set by |
+|---|---|---|
+| $I_D$ | knob (allocated) | paper budget / power |
+| $g_m/I_D$ | **knob** (choose per role, then verify) | specs + role; anchored to measured WI ceiling |
+| $L$ | **knob** (choose) | gain ($g_m/g_{ds}$, $V_A\propto L$), matching, noise, area |
+| $I_D/(W/L)$ | read-off | main chart at chosen $g_m/I_D$ |
+| $W/L$, hence $W$ | **derived** | $I_D \div \big(I_D/(W/L)\big)$ |
+| $V_{GS},V_{DS,sat},g_m,g_{ds},g_{mb}$ | read-off | OP / companion curves |
+
+So "what you adjust later" = $g_m/I_D$, $L$ (and the current split $B$); $W$ is *computed*, not turned. Turning $W$ alone at fixed $V_{GS}$ only scales $I_D$ (since $I_D/(W/L)=f(V_{GS})$ is fixed) — it does NOT change inversion level. For paper-fixed devices ($W/L=25$, $L=400$ nm) you **read/verify** rather than choose. Raising $g_m/I_D$ at fixed $I_D,L$ moves to lower current density ⇒ **larger** $W$.
+
+**Check question (batch 5):** (a) A log plot gives 70 mV/decade in WI — compute $n$ and the WI ceiling in S/A. (b) At fixed $I_D,L$, raising $g_m/I_D$ from 20 to 25: does $W$ go up or down? (c) Classify $\{g_m/I_D,\ L,\ W,\ I_D\}$ as knob / derived / read-off.
+
+---
+
 *(next batch appended below as the session progresses)*
