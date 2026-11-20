@@ -154,4 +154,37 @@ $L$ comes from the $g_m/g_{ds}$ chart ($V_A\propto L$, Silveira eq. (1)); the pa
 
 ---
 
+## 4 · From your one sweep to the chart family; and how a $g_m/I_D$ value is actually chosen
+
+*(Answers student questions, 2026-11-20: Q1 "I have the I–VGS curve from tb_n18_char — how does it become the gm/ID chart?" Q2 "I only get a range per role, not a value — do I guess (e.g. 20) and adjust?")*
+
+### 4.1 Q1: the chart is your sweep, re-plotted (no new simulation)
+
+Your sweep stores, at every $V_{GS}$ step (with $V_{DS}=0.15$ V, $V_{SB}=0$, $W/L=25$ fixed): $I_D$, **and the simulator's operating point** $g_m,\ g_{ds},\ g_{mb},\ C_{gg}$. $g_m$ there is the BSIM model's exact derivative $dI_D/dV_{GS}$ — not a square-law estimate. The charts are *parametric re-plots* of that same table; $V_{GS}$ becomes the hidden parameter that traces the curve:
+
+| Chart | y | x | From your sweep |
+|---|---|---|---|
+| Main (Silveira Fig. 1) | $g_m/I_D$ | $I_D/(W/L)=I_D/25$ (log) | divide OP $g_m$ by $I_D$; divide $I_D$ by 25 |
+| Headroom companion | $g_m/I_D$ | $V_{GS}$ | same y, x = sweep axis |
+| Gain | $g_m/g_{ds}$ | $g_m/I_D$ | OP $g_{ds}$ at $V_{DS}=0.15$ V |
+| Speed | $f_T=g_m/(2\pi C_{gg})$ | $g_m/I_D$ | OP $C_{gg}$ |
+
+**One sweep → four charts.** The $I_D$–$V_{GS}$ curve you see and the $g_m/I_D$–$I_D/(W/L)$ chart are the *same data*, different axes. Dividing by $W/L=25$ is what makes x width-free (§2.2), so the curve then serves every $W$ at $L=400$ nm, $V_{DS}=0.15$ V, $V_{SB}=0$.
+
+**Why your screenshot looks flat (and why S1 step 4 = log axis):** on a linear y-axis the nA decades are crushed into the baseline (your trace is flat to ~350–400 mV, then climbs to ~97.8 µA at 600 mV). On a **log** y-axis the WI region is a straight line whose slope is $1/(nU_T)$: in decades, $\text{mV/decade}=n\,U_T\ln 10\approx n\times59.6$ mV. Reading ~83 mV/dec ⇒ $n\approx1.4$ ⇒ WI ceiling $1/(nU_T)\approx27.6$ S/A. The 12 nA crossing is read on this log plot (S1 step 4); the OP there (step 5) gives the single chart point at 12 nA.
+
+### 4.2 Q2: yes — guess, then verify-and-adjust. But for *reproduction* you mostly READ, not guess.
+
+**Iteration is normal, in both methods.** Silveira's own flow (§III, Fig. 3) picks $(g_m/I_D)$, sizes, simulates, checks gain/phase-margin, and adjusts $g_m/I_D$, $B$, $L$ if short. Razavi's sheet also iterates (Step 3 → Step 4: $A_v$ fails → raise $L$). gm/ID is not worse here; each iteration is a *lookup on measured data* + one sim, not a re-derivation with wrong equations.
+
+**Informed initial guess (for a NEW or re-sized device):** anchor to (i) the WI ceiling read from your own log-slope ($\approx27.6$ S/A at $n=1.4$): "high" ≈ 80–90% of ceiling ≈ 22–25; "moderate" ≈ 10–15; "low/SI" ≈ 5–10; (ii) Silveira's published priors: 28/30 for gain devices, 8 for mirrors (§III); (iii) the role table (§3.2). Your "20 for the input pair" is a reasonable MI-near-WI prior. Then check gain ($g_m/g_{ds}$), $W$ sanity/parasitics, and $V_{GS}$ headroom; raise $g_m/I_D$ or $L$ if gain short, lower it if $W$/parasitics blow up.
+
+**But in *our* reproduction the input pair's $W/L$ is already given (=25).** At $I_D=12$ nA the chart point is *determined*, not chosen:
+$$x=\frac{I_D}{W/L}=\frac{12\text{ nA}}{25}=0.48\text{ nA}=4.8\times10^{-10}\text{ A},$$
+and $y=g_m/I_D$ is whatever the curve says there (deep-WI, near the ceiling). S1 step 5 *reads* it. So: **paper-specified devices → read $g_m/I_D$; new/re-sized devices → guess then iterate.** The read value becomes the anchor for every later guess. (Do not transfer Silveira's $V_A\approx7$ V/µm — his 3 µm process — to 0.18 µm; read $g_m/g_{ds}$ from your SMIC OP, plan line 105.)
+
+**Check question (batch 4):** (a) Compute $x=I_D/(W/L)$ at 12 nA, $W/L=25$. (b) Your log plot shows ~83 mV/decade in WI — what $n$ and what WI ceiling? (c) Keeping the paper's $W/L=25$ and $I_D=12$ nA, is $g_m/I_D$ a free choice or a read-off? Why?
+
+---
+
 *(next batch appended below as the session progresses)*
