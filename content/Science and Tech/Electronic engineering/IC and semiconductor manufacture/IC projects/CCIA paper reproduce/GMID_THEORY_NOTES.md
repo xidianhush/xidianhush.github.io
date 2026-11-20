@@ -287,4 +287,27 @@ Bench reference for S1 step 5 / S2. Read the OP at the 12 nA crossing ($V_{DS}=0
 
 ---
 
-*(theory thread complete; awaiting student's go-ahead to log handoff and return to operations)*
+## 8 · Student's scratch loop validated + how to build the real chart from the swept table
+
+### 8.1 Scratch (hand-drawn, 2026-11-20) — correct
+
+Their loop: given $W=10\ \mu$m, $L=400$ nm → $x=I_D/(W/L)$ → via **actual curve** read $(g_m/I_D)_{start}$ → **verify** $g_m$, $A_v$, etc. → if short **adjust** $g_m/I_D$ → via curve read new $I_D/(W/L)$ → get new $W/L$ at fixed $I_D=12$ nA. This is exactly read-then-iterate (§6.3). Annotations: (i) the first read is a read-off (paper device); the adjust→read branch is the re-sizing loop, only entered if verify fails or you re-size; (ii) $L$ is a separate knob (they hold $L=400$ nm); (iii) "verify" should include headroom ($v_{ds}$ vs $v_{dsat}$) and $f_T$, not only $g_m,A_v$. Batch-7 answer correct: `gmb` (and `vbs`≠0) reveal a floating bulk; $\eta=g_{mb}/g_m$ quantifies it.
+
+### 8.2 Extraction recipe: swept $I_D(V_{GS})$ table → the real chart
+
+Data needed per sweep row: $V_{GS}$, $I_D$, and (if saved) OP $g_m,g_{ds},c_{gg}$. If OP $g_m$ not saved, use central difference on the 2 mV grid: $g_m(V)\approx[I_D(V+\Delta)-I_D(V-\Delta)]/(2\Delta)$, $\Delta=2$ mV (error $\sim(\Delta/nU_T)^2/6\approx0.05\%$). Then per row:
+
+$$x=\frac{I_D}{W/L}=\frac{I_D}{25},\qquad y=\frac{g_m}{I_D}.$$
+
+Plot $y$ vs $x$ on **log-x** = main chart (Silveira Fig. 1). Same $y$ vs $V_{GS}$ = headroom companion. $g_m/g_{ds}$ vs $y$ and $f_T=g_m/(2\pi c_{gg})$ vs $y$ need OP $g_{ds},c_{gg}$ (save OP during the sweep, or S2 $V_{DS}$ sweep for $g_{ds}$).
+
+**Numeric illustration (2 mV grid, WI, $n=1.4$):** rows $V_{GS}=0.298/0.300/0.302$ V with $I_D=11.36/12.00/12.68$ nA. Central $g_m=(12.68-11.36)\text{ nA}/4\text{ mV}=330$ nS; $y=330/12=27.5$ S/A (= ceiling $1/(1.4U_T)$ ✓); $x=12\text{ nA}/25=0.48$ nA. One chart point $(0.48\text{ nA},\,27.5)$. Repeat over all rows → full curve: left plateau = WI ceiling, right fall = SI. (Illustrative values; replace with the exported sweep.)
+
+### 8.3 Student's manuscript table (2026-11-20) — judged CORRECT with two fixes
+
+Their table: columns $V_{GS},I_D,x=I_D/(W/L),g_m,y=g_m/I_D$; $g_m$ by forward difference $(I_{D,i}-I_{D,i-1})/(V_{GS,i}-V_{GS,i-1})$ attributed to row $i$, $y$ = that $g_m$ divided by $I_{D,i}$. Conceptually right: $x,y$ both derivable from $(V_{GS},I_D)$; the curve is unique (fixed $L,V_{DS},V_{SB},T$); the sizing loop reads/adjusts along $x\leftrightarrow y$.
+
+**Fix 1 (arithmetic):** they wrote $x=12\text{ nA}/250$. $W/L=25$ (not 250) ⇒ $x=0.48$ nA, not 0.048 nA (10× error).
+**Fix 2 (accuracy):** forward difference biases $g_m/I_D$ low by $\approx\Delta/(2nU_T)\approx2.8\%$ in WI. Prefer **central** difference $g_m(i)=[I_D(i+1)-I_D(i-1)]/(2\Delta)$, $\Delta=2$ mV (denominator 4 mV), bias $\approx(\Delta/nU_T)^2/6\approx0.05\%$; or use the simulator's saved OP $g_m$ (exact BSIM derivative). Keep $y=g_m(i)/I_D(i)$ consistent with whichever row $g_m$ is attributed to.
+
+**Status:** all seven objectives covered; manuscript validated. Awaiting explicit go-ahead to append the dated handoff line.
