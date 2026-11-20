@@ -221,4 +221,35 @@ So "what you adjust later" = $g_m/I_D$, $L$ (and the current split $B$); $W$ is 
 
 ---
 
+## 6 · Direction fix (fixed-$I_D$ vs fixed-$V_{GS}$) + worked example at 12 nA
+
+### 6.1 Correction to batch-5 answer (b): $W$ goes UP, not down
+
+The main chart $g_m/I_D$ vs $I_D/(W/L)$ is **monotonically DECREASING** (Silveira Fig. 1): left = low current density = deep WI = high $g_m/I_D$; right = high density = SI = low $g_m/I_D$. "Current density = how hard you push the channel." At **fixed $I_D$**, the only way to push *less* hard (raise $g_m/I_D$) is to give **more width** ⇒ lower $I_D/(W/L)$ ⇒ move LEFT ⇒ higher $g_m/I_D$. So raising $g_m/I_D$ from 20→25 at fixed $I_D,L$ **increases** $W$. (Student answered "down" — inverted.)
+
+Do not confuse the two constraints:
+
+| Constraint | Change $W$ → effect |
+|---|---|
+| Fixed $V_{GS}$ | $I_D/(W/L)=f(V_{GS})$ fixed ⇒ $g_m/I_D$ unchanged; $I_D,g_m$ scale with $W$ |
+| Fixed $I_D$ | $I_D/(W/L)\propto1/W$ ⇒ moves ALONG curve; larger $W$ ⇒ higher $g_m/I_D$ |
+
+### 6.2 Worked example, first-stage input device at $I_D=12$ nA, $L=400$ nm
+
+Chart values below are **ILLUSTRATIVE placeholders** (shape per Silveira Fig. 1); replace with the measured SMIC curve after S1/S2. $\mu C_{ox}\approx300\ \mu\text{A/V}^2$ used only for the SI row, order-of-magnitude.
+
+| Row | chosen $g_m/I_D$ [S/A] | chart $I_D/(W/L)$ | $W/L=I_D\div x$ | $W=(W/L)\times0.4\ \mu$m | $g_m=(g_m/I_D)I_D$ |
+|---|---|---|---|---|---|
+| A (deep WI, = paper device) | 26 | 0.48 nA | 25 | **10 µm** ✓ paper | 312 nS |
+| B (MI) | 20 | 5 nA | 2.4 | 0.96 µm | 240 nS |
+| C (SI) | 10 | 6 µA | 0.002 | 0.8 nm (impossible) | 120 nS |
+
+Read-offs / verification for row A: $g_m/g_{ds}$ from OP (placeholder ≈60 ⇒ 35.6 dB per device; cascode + later stages reach the >50 dB open-loop budget); $V_{GS}$ from companion curve ≈0.25–0.3 V; $V_{DS,sat}\approx4U_T\approx0.1$ V (fits the 0.6 V stack); $f_T=g_m/(2\pi C_{gg})\approx312\text{ nS}/(2\pi\times23\text{ fF})\approx2$ MHz ≫ 1.5 kHz. If gain/phase-margin short → raise $g_m/I_D$ or $L$ (or $B$), recompute $W$, re-simulate (Silveira Fig. 3 loop).
+
+**Lessons:** (i) row A reproduces the paper's $W=10$ µm — the paper's input device *is* deep WI; (ii) higher $g_m/I_D$ ⇒ more $g_m$ at the same 12 nA ⇒ better noise/gain, but larger $W$ (parasitics/area); (iii) row C shows SI at 12 nA demands sub-nm $W$ — physically impossible, which is *why* nA forces WI and why square-law sizing fails here.
+
+**Check question (batch 6):** (a) Which row has the largest $W$? At fixed $I_D$, does raising $g_m/I_D$ raise or lower $W$? (b) Row A: compute $g_m$ and confirm $W$ equals the paper's 10 µm. (c) Why is row C impractical?
+
+---
+
 *(next batch appended below as the session progresses)*
