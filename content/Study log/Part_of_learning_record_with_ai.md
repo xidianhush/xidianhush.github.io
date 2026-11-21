@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-19 09:08（北京时间）
+> 最后更新：2026-11-21 09:41（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,9 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月20日* | DeepSeek | 科学探索启发式搜索评价 | 5 | [打开](https://chat.deepseek.com/share/e0zwym7uwwsrje5iej) |
+| 11月19日* | DeepSeek | 启发式搜索算法介绍 | 2 | [打开](https://chat.deepseek.com/share/v7zwjtpdiqhf101vas) |
+| 11月19日* | DeepSeek | 科研感悟讨论邀请 | 8 | [打开](https://chat.deepseek.com/share/hkhur79qt71xqsm4cf) |
 | 11月17日* | DeepSeek | 共源退化矩阵推导 | 2 | [打开](https://chat.deepseek.com/share/4jkdwxuak3ukekxva5) |
 | 11月16日* | DeepSeek | GFS软件容错机制 | 2 | [打开](https://chat.deepseek.com/share/udrnzutzwifucdrusl) |
 | 11月12日* | DeepSeek | 软著AI承诺书解读 | 2 | [打开](https://chat.deepseek.com/share/qugnz98uhhmmsm65ah) |
