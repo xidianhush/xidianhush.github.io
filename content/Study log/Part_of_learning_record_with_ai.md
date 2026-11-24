@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-21 09:41（北京时间）
+> 最后更新：2026-11-24 09:12（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,11 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月24日* | DeepSeek | 半导体笔记整理建议 | 2 | [打开](https://chat.deepseek.com/share/iou45igtrigtqh0p37) |
+| 11月23日* | DeepSeek | AI模拟电路设计讨论 | 1 | [打开](https://chat.deepseek.com/share/emxr16ctqrxl4o6hrk) |
+| 11月22日* | DeepSeek | 技术强与组织架构 | 2 | [打开](https://chat.deepseek.com/share/2ll8seyecf92oxwf5q) |
+| 11月22日* | DeepSeek | 中美AI创业路径差异 | 1 | [打开](https://chat.deepseek.com/share/j4vfnnehlxemxj4w7v) |
+| 11月22日* | DeepSeek | 自然数求和负十二分之一 | 2 | [打开](https://chat.deepseek.com/share/ojap7bct79717fqytq) |
 | 11月20日* | DeepSeek | 科学探索启发式搜索评价 | 5 | [打开](https://chat.deepseek.com/share/e0zwym7uwwsrje5iej) |
 | 11月19日* | DeepSeek | 启发式搜索算法介绍 | 2 | [打开](https://chat.deepseek.com/share/v7zwjtpdiqhf101vas) |
 | 11月19日* | DeepSeek | 科研感悟讨论邀请 | 8 | [打开](https://chat.deepseek.com/share/hkhur79qt71xqsm4cf) |
