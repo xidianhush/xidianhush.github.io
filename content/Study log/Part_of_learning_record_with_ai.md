@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-24 09:12（北京时间）
+> 最后更新：2026-11-26 09:34（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,6 +8,8 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月26日* | DeepSeek | 生日惊喜贝叶斯 | 8 | [打开](https://chat.deepseek.com/share/cuxw5hzlcx4pos3hgr) |
+| 11月25日* | DeepSeek | gmID论文带读 | 2 | [打开](https://chat.deepseek.com/share/66a1ogagqha6jg2629) |
 | 11月24日* | DeepSeek | 半导体笔记整理建议 | 2 | [打开](https://chat.deepseek.com/share/iou45igtrigtqh0p37) |
 | 11月23日* | DeepSeek | AI模拟电路设计讨论 | 1 | [打开](https://chat.deepseek.com/share/emxr16ctqrxl4o6hrk) |
 | 11月22日* | DeepSeek | 技术强与组织架构 | 2 | [打开](https://chat.deepseek.com/share/2ll8seyecf92oxwf5q) |
