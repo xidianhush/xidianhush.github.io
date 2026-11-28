@@ -1,5 +1,5 @@
 # 部分学习记录
-> 最后更新：2026-11-26 09:34（北京时间）
+> 最后更新：2026-11-28 09:10（北京时间）
 ---
 
 ## 一、按日期汇总
@@ -8,7 +8,10 @@
 
 | 日期 | 平台 | 对话标题 | 组数 | 链接 |
 |------|------|----------|------|------|
+| 11月27日* | DeepSeek | 媒介效率非简单高低 | 8 | [打开](https://chat.deepseek.com/share/mxide15isnf754u0we) |
+| 11月27日* | DeepSeek | 数学学习感悟交流 | 4 | [打开](https://chat.deepseek.com/share/aagra1ziykah41odwx) |
 | 11月26日* | DeepSeek | 生日惊喜贝叶斯 | 8 | [打开](https://chat.deepseek.com/share/cuxw5hzlcx4pos3hgr) |
+| 11月26日* | DeepSeek | Zynq7020实现GPU功能 | 3 | [打开](https://chat.deepseek.com/share/d79hyder6d56507qj0) |
 | 11月25日* | DeepSeek | gmID论文带读 | 2 | [打开](https://chat.deepseek.com/share/66a1ogagqha6jg2629) |
 | 11月24日* | DeepSeek | 半导体笔记整理建议 | 2 | [打开](https://chat.deepseek.com/share/iou45igtrigtqh0p37) |
 | 11月23日* | DeepSeek | AI模拟电路设计讨论 | 1 | [打开](https://chat.deepseek.com/share/emxr16ctqrxl4o6hrk) |
